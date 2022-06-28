@@ -9,3 +9,58 @@ NOTE:
 ------
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(238, 172, 194);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(241, 70, 126);
+}
+
+.header-navbar {
+  background: #f1467e;
+  color: white;
+}
+
+.content-body {
+  border-top: solid 1px #f1467e;
+}
+
+.bg {
+  /* The image used */
+  background: linear-gradient(rgba(70, 70, 70, 0.5), rgba(70, 70, 70, 0.5)),
+    url("https://psikologi.undip.ac.id/wp-content/uploads/WhatsApp-Image-2021-01-29-at-14.17.58-1.jpeg");
+
+  /* Full height */
+  height: 100%;
+  opacity: 2;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-input {
+  /* The image used */
+  background: linear-gradient(rgba(70, 70, 70, 0.5), rgba(70, 70, 70, 0.5)),
+    url("https://psikologi.undip.ac.id/wp-content/uploads/WhatsApp-Image-2021-01-29-at-14.17.58-1.jpeg");
+
+  /* Full height */
+  opacity: 2;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-size: cover;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+}
