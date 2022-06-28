@@ -1,4 +1,4 @@
-<div class="bg-input mt-5">
+<div class="bg-input">
     <div class="app-content content">
         <div class="container mt-4">
             <div class="card mb-3">
