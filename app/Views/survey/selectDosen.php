@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12" style="height: 800px;">
+                        <div class="col-12 mb-5">
                             <div class="card mt-2">
                                 <div class="card-header">
                                     <h1 class="text-center mt-2">Daftar Dosen Psikologi UNDIP</h1>
