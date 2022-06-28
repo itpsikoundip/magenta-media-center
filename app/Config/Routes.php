@@ -35,8 +35,54 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Login::index');
 
+//BACKEND
+
+//Pertanyaan Survey
+$routes->get('/surveydosen', 'backendSurveyDosenController::index');
+$routes->post('/surveydosen/addSurveyDosen', 'backendSurveyDosenController::addSurveyDosen');
+$routes->get('/surveydosen/deleteSurveyDosen/(:any)', 'backendSurveyDosenController::deleteSurveyDosen/$1');
+$routes->post('/surveydosen/updateSurveyDosen/(:num)', 'backendSurveyDosenController::updateSurveyDosen/$1');
+
+$routes->get('/surveykepend', 'backendSurveyKependController::index');
+$routes->post('/surveykepend/addSurveyKepend', 'backendSurveyKependController::addSurveyKepend');
+$routes->get('/surveykepend/deleteSurveyKepend/(:any)', 'backendSurveyKependController::deleteSurveyKepend/$1');
+$routes->post('/surveykepend/updateSurveyKepend/(:num)', 'backendSurveyKependController::updateSurveyKepend/$1');
+
+$routes->get('/surveylulusan', 'backendSurveyLulusanController::index');
+$routes->post('/surveylulusan/addSurveyLulusan', 'backendSurveyLulusanController::addSurveyLulusan');
+$routes->get('/surveylulusan/deleteSurveyLulusan/(:num)', 'backendSurveyLulusanController::deleteSurveyLulusan/$1');
+$routes->post('/surveylulusan/updateSurveyLulusan/(:num)', 'backendSurveyLulusanController::updateSurveyLulusan/$1');
+
+//Hasil Survey Individual
+$routes->get('/hasilSurveyDosen', 'backendHasilSurveyDosenController::index');
+$routes->get('/hasilSurveyKepend', 'backendHasilSurveyKependController::index');
+$routes->get('/hasilSurveyLulusan', 'backendHasilSurveyLulusanController::index');
+
+//Grafik Hasil Survey
+$routes->get('/grafikDosen', 'backendGrafikDosenController::index');
+$routes->get('/grafikKepend', 'backendGrafikKependController::index');
+$routes->get('/grafikLulusan', 'backendGrafikLulusanController::index');
+
+//FRONTEND
+
+//3 Menu Card Landing
+$routes->get('/menuDisplay', 'frontendMenuDisplayController::index');
+
+//Table Select & Input Dosen
+$routes->get('/selectDosen', 'frontendSelectDosenController::index');
+$routes->get('/gotoInputDosen/(:num)', 'frontendSelectDosenController::gotoInputDosen/$1');
+$routes->get('/inputDosen/(:num)', 'frontendSelectDosenController::viewInputDosen/$1');
+
+//Table Select & Input Tenaga Kependidikan
+$routes->get('/selectKepend', 'frontendSelectKependController::index');
+$routes->get('/gotoInputKepend/(:num)', 'frontendSelectKependController::gotoInputKepend/$1');
+$routes->get('/inputKepend/(:num)', 'frontendSelectKependController::viewInputKepend/$1');
+
+//Survey Lulusan
+$routes->get('/inputLulusan', 'frontendInputLulusanController::index');
+$routes->post('/inputLulusan/addInputLulusan/(:num)', 'frontendInputLulusanController::addInputLulusan/$1');
 
 /*
  * --------------------------------------------------------------------
