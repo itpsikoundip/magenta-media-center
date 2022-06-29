@@ -65,7 +65,7 @@
         </div>
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
-                <h2 class="mb-0 d-inline-block font-weight-bold">FaQ (Frequently Ask Question)</h2>
+                <h2 class="mb-0 d-inline-block font-weight-bold">FAQ (Frequently Asked Question)</h2>
                 <h4 class="grey">Pertanyaan dan Jawaban</h4>
             </div>
         </div>

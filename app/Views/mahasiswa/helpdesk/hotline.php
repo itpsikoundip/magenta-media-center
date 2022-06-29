@@ -13,6 +13,15 @@
             </div>
         </div>
         <hr class="mb-2 mt-0">
+        <div class="content-header row">
+            <div class="align-self-center col-md-6 col-12 mb-2">
+                <h1 class="mb-2"><b>Hotline<br>Fakultas Psikologi UNDIP!</b></h1>
+                <h4>Butuh bantuan atau jawaban segera? Sampaikan saja, kami siap membantumu.</h4>
+            </div>
+            <div class="col-md-6 col-12 mb-2 breadcrumb-new">
+                <img src="/images/hotline.png" alt="" style="width:100%">
+            </div>
+        </div>
         <div class="content-body">
             <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
                 <form class="form form-horizontal">
