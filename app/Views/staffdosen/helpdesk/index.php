@@ -91,6 +91,12 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="base-tab2" data-toggle="tab" aria-controls="tab2" href="#tab2" aria-expanded="false">Tambahkan FAQ</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="base-tab3" data-toggle="tab" aria-controls="tab3" href="#tab3" aria-expanded="false">Tiket Terjawab</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="base-tab4" data-toggle="tab" aria-controls="tab4" href="#tab4" aria-expanded="false">Tiket Belum Terjawab</a>
+                                    </li>
                                 </ul>
                                 <div class="tab-content px-1 pt-1">
                                     <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
@@ -178,6 +184,108 @@
                                                 </button>
                                             </div>
                                         </form>
+                                    </div>
+
+                                    <div class="tab-pane" id="tab3" aria-labelledby="base-tab3">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Nama Lengkap</th>
+                                                        <th>E-Mail</th>
+                                                        <th>Nomor HP</th>
+                                                        <th>Topik</th>
+                                                        <th>Ringkasan / Subject</th>
+                                                        <th>Status Tiket</th>
+                                                        <th>Permasalahan</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">4890423</th>
+                                                        <td>Gading Ihsan</td>
+                                                        <td>gadingihsancahya@gmail.com</td>
+                                                        <td>085602577471</td>
+                                                        <td>IT - Akses Internet</td>
+                                                        <td>Akses Wifi tidak bisa</td>
+                                                        <td>
+                                                            <div class="badge badge-pill badge-danger">Open</div>
+                                                        </td>
+                                                        <td>View</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">4890423</th>
+                                                        <td>Gading Ihsan</td>
+                                                        <td>gadingihsancahya@gmail.com</td>
+                                                        <td>085602577471</td>
+                                                        <td>IT - Akses Internet</td>
+                                                        <td>Akses Wifi tidak bisa</td>
+                                                        <td>
+                                                            <div class="badge badge-pill badge-danger">Open</div>
+                                                        </td>
+                                                        <td>View</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">4890423</th>
+                                                        <td>Gading Ihsan</td>
+                                                        <td>gadingihsancahya@gmail.com</td>
+                                                        <td>085602577471</td>
+                                                        <td>IT - Akses Internet</td>
+                                                        <td>Akses Wifi tidak bisa</td>
+                                                        <td>
+                                                            <div class="badge badge-pill badge-danger">Open</div>
+                                                        </td>
+                                                        <td>View</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane" id="tab4" aria-labelledby="base-tab4">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Nama Lengkap</th>
+                                                        <th>E-Mail</th>
+                                                        <th>Nomor HP</th>
+                                                        <th>Topik</th>
+                                                        <th>Ringkasan / Subject</th>
+                                                        <th>Status Tiket</th>
+                                                        <th>Permasalahan</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">4890423</th>
+                                                        <td>Gading Ihsan</td>
+                                                        <td>gadingihsancahya@gmail.com</td>
+                                                        <td>085602577471</td>
+                                                        <td>IT - Akses Internet</td>
+                                                        <td>Akses Wifi tidak bisa</td>
+                                                        <td>
+                                                            <div class="badge badge-pill badge-danger">Open</div>
+                                                        </td>
+                                                        <td>View</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">4890423</th>
+                                                        <td>Gading Ihsan</td>
+                                                        <td>gadingihsancahya@gmail.com</td>
+                                                        <td>085602577471</td>
+                                                        <td>IT - Akses Internet</td>
+                                                        <td>Akses Wifi tidak bisa</td>
+                                                        <td>
+                                                            <div class="badge badge-pill badge-danger">Open</div>
+                                                        </td>
+                                                        <td>View</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
