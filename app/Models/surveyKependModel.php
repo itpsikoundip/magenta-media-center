@@ -34,6 +34,47 @@ class surveyKependModel extends Model
         return $this->db->table('survey_kependidikan')->update($data, ['id' => $id]);
     }
 
+    public function inputSkor($arrayInput)
+    {
+        $this->db->transStart();
+        foreach ($arrayInput as $input) {
+            switch ($input["value"]) {
+                case "1":
+                    $query = $this->db->query("SELECT sangat_baik FROM survey_kependidikan WHERE id = ?", $input["id"]);
+                    $row = $query->getRowArray();
+
+                    $this->db->table('survey_kependidikan')->update(['sangat_baik' => ++$row["sangat_baik"]], ['id' => $input["id"]]);
+                    break;
+                case "2":
+                    $query = $this->db->query("SELECT baik FROM survey_kependidikan WHERE id = ?", $input["id"]);
+                    $row = $query->getRowArray();
+
+                    $this->db->table('survey_kependidikan')->update(['baik' => ++$row["baik"]], ['id' => $input["id"]]);
+                    break;
+                case "3":
+                    $query = $this->db->query("SELECT cukup FROM survey_kependidikan WHERE id = ?", $input["id"]);
+                    $row = $query->getRowArray();
+
+                    $this->db->table('survey_kependidikan')->update(['cukup' => ++$row["cukup"]], ['id' => $input["id"]]);
+                    break;
+                case "4":
+                    $query = $this->db->query("SELECT buruk FROM survey_kependidikan WHERE id = ?", $input["id"]);
+                    $row = $query->getRowArray();
+
+                    $this->db->table('survey_kependidikan')->update(['buruk' => ++$row["buruk"]], ['id' => $input["id"]]);
+                    break;
+                default:
+                    $query = $this->db->query("SELECT sangat_buruk FROM survey_kependidikan WHERE id = ?", $input["id"]);
+                    $row = $query->getRowArray();
+
+                    $this->db->table('survey_kependidikan')->update(['sangat_buruk' => ++$row["sangat_buruk"]], ['id' => $input["id"]]);
+            }
+        }
+        $this->db->transComplete();
+
+        return $this->db->transStatus();
+    }
+
     function getAll()
     {
         $builder = $this->db->table('survey_kependidikan');
