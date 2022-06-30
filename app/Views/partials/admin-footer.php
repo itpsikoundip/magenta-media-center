@@ -6,6 +6,7 @@
 <script src="<?php echo base_url('robust/app-assets/vendors/js/vendors.min.js') ?>"></script>
 <!-- BEGIN VENDOR JS-->
 <!-- BEGIN PAGE VENDOR JS-->
+<script src="<?php echo base_url('robust/app-assets/vendors/js/forms/select/select2.full.min.js') ?>"></script>
 <script src="<?php echo base_url('robust/app-assets/vendors/js/forms/extended/maxlength/bootstrap-maxlength.js') ?>"></script>
 <!-- Data Table -->
 <script src="<?php echo base_url('robust/app-assets/vendors/js/tables/datatable/datatables.min.js') ?>"></script>
@@ -28,6 +29,7 @@
 <script src="<?php echo base_url('robust/app-assets/js/scripts/forms/extended/form-maxlength.min.js') ?>"></script>
 <script src="<?php echo base_url('robust/app-assets/js/scripts/tables/datatables/datatable-basic.min.js') ?>"></script>
 <script src="<?php echo base_url('robust/app-assets/js/scripts/tables/datatables/datatable-advanced.min.js') ?>"></script>
+<script src="<?php echo base_url('robust/app-assets/js/scripts/forms/select/form-select2.min.js') ?>"></script>
 <!-- END PAGE LEVEL JS-->
 </body>
 
