@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\surveyKependModel;
 use App\Models\hasilSurveyKependModel;
+use Exception;
 
 class frontendSelectKependController extends BaseController
 {
@@ -29,28 +30,55 @@ class frontendSelectKependController extends BaseController
         return view('layouts/mahasiswa-wrapper', $data);
     }
 
-    public function gotoInputKepend($id)
+    public function gotoInputKepend($id, $namaDosen)
     {
 
         $model = new surveyKependModel;
         $dataFilter = $model->getAllInputKepend($id);
 
-        /*
-        foreach ($dataFilter->getResult() as $key => $row) {
-            echo ($key + 1) . '. ';
-            echo 'Pertanyaan ' . $row->pertanyaan;
-            echo ' - ';
-            echo 'Id Kepend ' . $row->id_Kepend;
-            echo '<br>';
-        }
-        */
-
         $data = [
             'title' => 'Survey Kepend',
             'dataSurveyKepend' => $dataFilter->getResult(),
+            'idSend' => $id,
+            'namaKepend' => $namaDosen,
             'isi' => 'survey/inputKepend'
         ];
 
         return view('layouts/mahasiswa-wrapper', $data);
+    }
+
+    public function inputKepend($idSend)
+    {
+        $model = new surveyKependModel;
+        $dataFilter = $model->getAllInputKepend($idSend)->getResult();
+        try {
+            $arrayInput = $this->getInput($dataFilter);
+        } catch (Exception $e) {
+
+            session()->setFlashdata('message', 'Ada Survey Yang Belum Dijawab, Harap Mengisi Semua Survey');
+            return redirect()->back();
+        }
+
+        $update = $model->inputSkor($arrayInput);
+        if ($update) {
+            return redirect()->to(base_url('selectKepend'));
+        }
+    }
+
+    public function getInput($dataFilter)
+    {
+        $input = [];
+
+        foreach ($dataFilter as $row) {
+            $data["value"] = $this->request->getPost("indikator-" . $row->id);
+            if (empty($data["value"])) {
+                throw new Exception("indikator-" . $row->id . "Tidak boleh kosong");
+            }
+            $data["id"] = $row->id;
+
+            $input[] = $data;
+        }
+
+        return $input;
     }
 }

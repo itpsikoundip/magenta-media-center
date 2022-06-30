@@ -28,7 +28,7 @@
                                                         <td><?= $row["nama_lengkap"]; ?></td>
                                                         <td><?= $row["nip"]; ?></td>
                                                         <td class="text-center">
-                                                            <a href="<?= base_url('gotoInputKepend/' . $row["id_kepend"]) ?>" class="badge badge-info"><i class="ft-edit"></i> Survey</a>
+                                                            <a href="<?= base_url('gotoInputKepend/' . $row["id_kepend"] . '/' . $row["nama_lengkap"]) ?>" class="badge badge-info"><i class="ft-edit"></i> Survey</a>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
