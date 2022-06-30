@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="media-body text-right">
                                         <h3><u>WhatsApp Hotline</u></h3>
-                                        <span>Kontak secara langsung mendesak</span>
+                                        <span>Kontak segera secara langsung</span>
                                     </div>
                                 </div>
                             </div>
