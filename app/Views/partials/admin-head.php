@@ -17,6 +17,7 @@
   <!-- BEGIN VENDOR CSS-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('robust/app-assets/css/vendors.min.css') ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('robust/app-assets/vendors/css/tables/datatable/datatables.min.css') ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('robust/app-assets/vendors/css/forms/selects/select2.min.css') ?>">
   <!-- END VENDOR CSS-->
   <!-- BEGIN ROBUST CSS-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('robust/app-assets/css/app.min.css') ?>">
