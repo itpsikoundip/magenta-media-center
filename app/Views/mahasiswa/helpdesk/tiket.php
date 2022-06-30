@@ -8,31 +8,17 @@
         <a href="<?= base_url('helpdesk') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
-                <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>
-                <h4 class="grey">Mahasiswa</h4>
+                <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?> Helpdesk</h2>
+                <h4 class="grey">Fakultas Psikologi Undip</h4>
             </div>
         </div>
         <hr class="mb-2 mt-0">
-        <!-- <div class="content-body">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="card-body">
-                                <h1 class="mb-2"><b>Selamat datang di helpdesk Magenta Media Center</b></h1>
-                                <p>Pusat bantuan dan informasi internal untuk mahasiswa Fakultas Psikologi UNDIP</p> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="content-header row">
-            <div class="align-self-center col-md-6 col-12 mb-2">
-                <h1 class="mb-2"><b>Pertanyaan/saran untuk<br>Fakultas Psikologi UNDIP</b></h1>
+            <div class="align-self-center col-md-7 col-12 mb-2">
+                <!-- <h1 class="mb-2"><b>Pertanyaan/saran untuk<br>Fakultas Psikologi UNDIP</b></h1> -->
                 <h4>Punya pertanyaan/saran untuk Fakultas Psikologi UNDIP? Tidak perlu ragu, sampaikan saja lewat form di bawah.</h4>
             </div>
-            <div class="col-md-6 col-12 mb-2 breadcrumb-new">
+            <div class="col-md-5 col-12 mb-2 breadcrumb-new">
                 <img src="/images/question.png" alt="" style="width:100%">
             </div>
         </div>
@@ -81,7 +67,6 @@
                                                     <textarea id="inputDetail" rows="5" class="form-control" name="comment" placeholder="Ceritakan permasalahan"></textarea>
                                                 </div>
                                             </div>
-
                                         </div>
 
                                         <div class="form-actions d-flex justify-content-end">
