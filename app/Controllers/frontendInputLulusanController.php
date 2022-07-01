@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\surveyLulusanModel;
+use Exception;
 
 class frontendInputLulusanController extends BaseController
 {
@@ -39,5 +40,40 @@ class frontendInputLulusanController extends BaseController
         ];
         $dataStored->updateData($data, $id);
         return redirect()->to(base_url('menuDisplay'));
+    }
+
+    public function inputLulusan()
+    {
+        $model = new surveyLulusanModel;
+        $dataFilter = $model->getAllInputLulusan()->getResult();
+        try {
+            $arrayInput = $this->getInput($dataFilter);
+        } catch (Exception $e) {
+
+            session()->setFlashdata('message', 'Ada Survey Yang Belum Dijawab, Harap Mengisi Semua Survey');
+            return redirect()->back();
+        }
+
+        $update = $model->inputSkor($arrayInput);
+        if ($update) {
+            return redirect()->to(base_url('menuDisplay'));
+        }
+    }
+
+    public function getInput($dataFilter)
+    {
+        $input = [];
+
+        foreach ($dataFilter as $row) {
+            $data["value"] = $this->request->getPost("indikator-" . $row->id);
+            if (empty($data["value"])) {
+                throw new Exception("indikator-" . $row->id . "Tidak boleh kosong");
+            }
+            $data["id"] = $row->id;
+
+            $input[] = $data;
+        }
+
+        return $input;
     }
 }

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\surveyDosenModel;
 use App\Models\hasilSurveyDosenModel;
+use Exception;
 
 class frontendSelectDosenController extends BaseController
 {
@@ -29,28 +30,55 @@ class frontendSelectDosenController extends BaseController
         return view('layouts/mahasiswa-wrapper', $data);
     }
 
-    public function gotoInputDosen($id)
+    public function gotoInputDosen($id, $namaDosen)
     {
 
         $model = new surveyDosenModel;
         $dataFilter = $model->getAllInputDosen($id);
 
-        /*
-        foreach ($dataFilter->getResult() as $key => $row) {
-            echo ($key + 1) . '. ';
-            echo 'Pertanyaan ' . $row->pertanyaan;
-            echo ' - ';
-            echo 'Id Dosen ' . $row->id_dosen;
-            echo '<br>';
-        }
-        */
-
         $data = [
             'title' => 'Survey Dosen',
             'dataSurveyDosen' => $dataFilter->getResult(),
+            'idSend' => $id,
+            'namaDosen' => $namaDosen,
             'isi' => 'survey/inputDosen'
         ];
 
         return view('layouts/mahasiswa-wrapper', $data);
+    }
+
+    public function inputDosen($idSend)
+    {
+        $model = new surveyDosenModel;
+        $dataFilter = $model->getAllInputDosen($idSend)->getResult();
+        try {
+            $arrayInput = $this->getInput($dataFilter);
+        } catch (Exception $e) {
+
+            session()->setFlashdata('message', 'Ada Survey Yang Belum Dijawab, Harap Mengisi Semua Survey');
+            return redirect()->back();
+        }
+
+        $update = $model->inputSkor($arrayInput);
+        if ($update) {
+            return redirect()->to(base_url('selectDosen'));
+        }
+    }
+
+    public function getInput($dataFilter)
+    {
+        $input = [];
+
+        foreach ($dataFilter as $row) {
+            $data["value"] = $this->request->getPost("indikator-" . $row->id);
+            if (empty($data["value"])) {
+                throw new Exception("indikator-" . $row->id . "Tidak boleh kosong");
+            }
+            $data["id"] = $row->id;
+
+            $input[] = $data;
+        }
+
+        return $input;
     }
 }
