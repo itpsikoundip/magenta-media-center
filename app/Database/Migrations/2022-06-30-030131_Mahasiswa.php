@@ -10,16 +10,16 @@ class Mahasiswa extends Migration
     {
         //
         $this->forge->addField([
-            'id' => [
-                'type'          => 'INT',
-                'constraint'    => 6,
-                'unsigned'      => TRUE,
-                'auto_increment'=> TRUE, 
-            ],
+            // 'id' => [
+            //     'type'          => 'INT',
+            //     'constraint'    => 6,
+            //     'unsigned'      => TRUE,
+            //     'auto_increment'=> TRUE, 
+            // ],
             'nim' => [
                 'type'          => 'VARCHAR',
                 'constraint'    => '255',
-                'unique'        => TRUE,
+                'auto_increment'=> FALSE,
             ], 
             'nama' => [
                 'type'          => 'VARCHAR',
@@ -35,7 +35,7 @@ class Mahasiswa extends Migration
                 'constraint'    => '255',
             ]
         ]);
-        $this->forge->addPrimaryKey('id');
+        $this->forge->addPrimaryKey('nim');
         $this->forge->createTable('mahasiswa');
     }
 

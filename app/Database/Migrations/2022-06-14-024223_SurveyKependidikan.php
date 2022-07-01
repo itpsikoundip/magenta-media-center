@@ -63,6 +63,6 @@ class SurveyKependidikan extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('survey_kependidikan');
+        $this->forge->dropTable('survey_kependidikan',true);
     }
 }

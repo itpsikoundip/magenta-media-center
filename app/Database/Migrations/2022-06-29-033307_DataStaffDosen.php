@@ -50,6 +50,6 @@ class DataStaffDosen extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('data_staffdosen');
+        $this->forge->dropTable('data_staffdosen',true);
     }
 }

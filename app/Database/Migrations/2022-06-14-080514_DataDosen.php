@@ -43,6 +43,6 @@ class DataDosen extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('data_dosen');
+        $this->forge->dropTable('data_dosen',true);
     }
 }
