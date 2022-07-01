@@ -12,13 +12,4 @@ class frontendMenuDisplayController extends BaseController
 
         return view('layouts/mahasiswa-wrapper', $data);
     }
-
-    public function admin()
-    {
-        $data = [
-            'isi' => 'admin/home'
-        ];
-
-        return view('layouts/mahasiswa-wrapper', $data);
-    }
 }
