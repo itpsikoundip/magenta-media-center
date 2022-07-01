@@ -35,9 +35,8 @@ class Tiket extends Migration
                 'null'          => TRUE,
             ],
             'mahasiswa_id' => [
-                'type'          => 'INT',
-                'constraint'    => 6,
-                'unsigned'      => TRUE,
+                'type'          => 'VARCHAR',
+                'constraint'    => '255',
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -50,7 +49,7 @@ class Tiket extends Migration
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('topik_id','topik','id');
-        $this->forge->addForeignKey('mahasiswa_id','mahasiswa','id');
+        $this->forge->addForeignKey('mahasiswa_id','mahasiswa','nim');
         $this->forge->createTable('tiket');
     }
 

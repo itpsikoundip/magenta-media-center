@@ -16,7 +16,10 @@ class MainSeeder extends Seeder
         $this->call('RefStaffdosenDepartemen');
         $this->call('RefStaffdosenJenispegawai');
         $this->call('RefStaffdosenUnit');
-        $this->call('StaffDosen');
+        $this->call('StaffdosenSeeder');
+        $this->call('MahasiswaSeeder');
+        $this->call('OrmawaSeeder');
+        $this->call('MahasiswaOrmawaSeeder');
         
     }
 }
