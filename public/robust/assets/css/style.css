@@ -27,25 +27,6 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
   color: white;
 }
 
-/* .content-body {
-  border-top: solid 1px #f1467e;
-} */
-
-.bg {
-  /* The image used */
-  background: linear-gradient(rgba(70, 70, 70, 0.5), rgba(70, 70, 70, 0.5)),
-    url("https://psikologi.undip.ac.id/wp-content/uploads/WhatsApp-Image-2021-01-29-at-14.17.58-1.jpeg");
-
-  /* Full height */
-  height: 100%;
-  opacity: 2;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .bg-input {
   /* The image used */
   background: linear-gradient(rgba(70, 70, 70, 0.5), rgba(70, 70, 70, 0.5)),
@@ -64,3 +45,47 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
   height: 250px;
   object-fit: contain;
 }
+
+.radio-custom {
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+  accent-color: #f1467e;
+}
+
+/*Loading*/
+.loader {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader > img {
+  width: 700px;
+}
+
+.loader.hidden {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.thumb {
+  height: 100px;
+  border: 1px solid black;
+  margin: 10px;
+}
+/*End Loading*/
