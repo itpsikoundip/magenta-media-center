@@ -38,6 +38,6 @@ class Indikator extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('indikator');
+        $this->forge->dropTable('indikator',true);
     }
 }

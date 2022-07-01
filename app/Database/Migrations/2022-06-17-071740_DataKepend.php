@@ -38,6 +38,6 @@ class DataKepend extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('data_kepend');
+        $this->forge->dropTable('data_kepend',true);
     }
 }

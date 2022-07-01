@@ -34,6 +34,6 @@ class SingleDosen extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('single_dosen');
+        $this->forge->dropTable('single_dosen',true);
     }
 }

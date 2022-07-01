@@ -26,6 +26,6 @@ class RefStaffdosenJenispegawai extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('ref_stafdosen_jenispegawai');
+        $this->forge->dropTable('ref_stafdosen_jenispegawai',true);
     }
 }

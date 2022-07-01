@@ -46,6 +46,6 @@ class FAQ extends Migration
     public function down()
     {
         //
-        $this->forge->dropTable('tiket', true);
+        $this->forge->dropTable('faq', true);
     }
 }
