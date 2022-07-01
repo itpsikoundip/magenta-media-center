@@ -15,29 +15,19 @@ class ModelLogin extends Model
             ])->get()->getRowArray();
     }
 
-    public function loginLvlBEM($email, $password)
-    {
-        return $this->db->table('user_mahasiswa_bem')
-            ->join('user_mahasiswa', 'user_mahasiswa.id_usermhs = user_mahasiswa_bem.mahasiswa_id')
-            ->where([
-                'email' => $email,
-                'password' => $password
-            ])->get()->getRowArray();
-    }
-
-    public function loginLvlUKM($email, $password)
-    {
-        return $this->db->table('user_mahasiswa_ukm')
-            ->join('user_mahasiswa', 'user_mahasiswa.id_usermhs = user_mahasiswa_ukm.mahasiswa_id')
-            ->where([
-                'email' => $email,
-                'password' => $password
-            ])->get()->getRowArray();
-    }
-
     public function loginLvlMhs($email, $password)
     {
-        return $this->db->table('user_mahasiswa')
+        return $this->db->table('mahasiswa')
+            ->where([
+                'email' => $email,
+                'password' => $password
+            ])->get()->getRowArray();
+    }
+
+    public function loginLvlOrmawa($email, $password)
+    {
+        return $this->db->table('mahasiswa_ormawa')
+            ->join('mahasiswa', 'mahasiswa.nim = mahasiswa_ormawa.mahasiswa_id')
             ->where([
                 'email' => $email,
                 'password' => $password

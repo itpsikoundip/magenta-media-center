@@ -84,11 +84,11 @@ class Login extends BaseController
             $password = password_verify($this->request->getPost('password'), $hashedpassword);
             $level = $this->request->getPost('level');
             if ($level == 1) {
-                $cekusr = $this->ModelLogin->LoginAdmin($username, $password);
-                if ($cekusr) {
+                $cekuser = $this->ModelLogin->LoginAdmin($username, $password);
+                if ($cekuser) {
                     //jika data cocok
-                    session()->set('id', $cekusr['id_useradmin']);
-                    session()->set('username', $cekusr['username']);
+                    session()->set('id', $cekuser['id_useradmin']);
+                    session()->set('username', $cekuser['username']);
                     session()->set('level', $level);
                     //login
                     session()->setFlashdata('sukses', 'Login Sukses!');
@@ -138,12 +138,12 @@ class Login extends BaseController
             $level = $this->request->getPost('level');
             //level 1 = Mahasiswa Biasa
             if ($level == 1) {
-                $cekusr = $this->ModelLogin->loginLvlMhs($email, $password);
-                if ($cekusr) {
+                $cekuser = $this->ModelLogin->loginLvlMhs($email, $password);
+                if ($cekuser) {
                     //jika data cocok
-                    session()->set('id', $cekusr['id_usermhs']);
-                    session()->set('nama', $cekusr['nama_mhs']);
-                    session()->set('email', $cekusr['email']);
+                    session()->set('nim', $cekuser['nim']);
+                    session()->set('nama', $cekuser['nama']);
+                    session()->set('email', $cekuser['email']);
                     session()->set('level', $level);
                     //login
                     session()->setFlashdata('sukses', 'Login Sukses!');
@@ -153,14 +153,14 @@ class Login extends BaseController
                     session()->setFlashdata('pesan', 'Login Gagal!, email Atau Password Salah !!');
                     return redirect()->to(base_url('login/mahasiswa'));
                 }
-                //level 2 = UKM
+                //level 2 = Ormawa
             } elseif ($level == 2) {
-                $cekusr = $this->ModelLogin->loginLvlUKM($email, $password);
-                if ($cekusr) {
+                $cekuser = $this->ModelLogin->loginLvlOrmawa($email, $password);
+                if ($cekuser) {
                     //jika data cocok
-                    session()->set('id', $cekusr['id_usermhs']);
-                    session()->set('nama', $cekusr['nama_mhs']);
-                    session()->set('email', $cekusr['email']);
+                    session()->set('nim', $cekuser['mahasiswa_id']);
+                    session()->set('nama', $cekuser['nama']);
+                    session()->set('email', $cekuser['email']);
                     session()->set('level', $level);
                     //login
                     session()->setFlashdata('sukses', 'Login Sukses!');
@@ -170,26 +170,9 @@ class Login extends BaseController
                     session()->setFlashdata('pesan', 'Login Gagal!, Email Atau Password Salah !!');
                     return redirect()->to(base_url('login/mahasiswa'));
                 }
-                //level 3 = BEM
-            } elseif ($level == 3) {
-                $cekusr = $this->ModelLogin->loginLvlBEM($email, $password);
-                if ($cekusr) {
-                    //jika data cocok
-                    session()->set('id', $cekusr['id_usermhs']);
-                    session()->set('nama', $cekusr['nama_mhs']);
-                    session()->set('email', $cekusr['email']);
-                    session()->set('level', $level);
-                    //login
-                    session()->setFlashdata('sukses', 'Login Sukses!');
-                    return redirect()->to(base_url('mahasiswa'));
-                } else {
-                    //jika data tidak cocok
-                    session()->setFlashdata('pesan', 'Login Gagal!, Email Atau Password Salah !!');
-                    return redirect()->to(base_url('login/mahasiswa'));
-                }
-            }
+            } 
         } else {
-            $validation =  \Config\Services::validation();
+            $validation = \Config\Services::validation();
             return redirect()->to(base_url('login/mahasiswa'))->withInput()->with('validation', $validation);
         }
     }
@@ -217,15 +200,15 @@ class Login extends BaseController
             $email = $this->request->getPost('email');
             $hashedpassword = $this->request->getPost('password');
             $password = password_verify($this->request->getPost('password'), $hashedpassword);
-            $cekusr = $this->ModelLogin->loginLvlStaffDosen($email, $password);
-            if ($cekusr) {
+            $cekuser = $this->ModelLogin->loginLvlStaffDosen($email, $password);
+            if ($cekuser) {
                 //jika data cocok
-                session()->set('id', $cekusr['id_staffdosen']);
-                session()->set('nip', $cekusr['nip']);
-                session()->set('nidn', $cekusr['nidn']);
-                session()->set('nama', $cekusr['nama_staffdosen']);
-                session()->set('namadepartemen', $cekusr['nama_jabatandepartemen']);
-                session()->set('email', $cekusr['email']);
+                session()->set('id', $cekuser['id_staffdosen']);
+                session()->set('nip', $cekuser['nip']);
+                session()->set('nidn', $cekuser['nidn']);
+                session()->set('nama', $cekuser['nama_staffdosen']);
+                session()->set('namadepartemen', $cekuser['nama_jabatandepartemen']);
+                session()->set('email', $cekuser['email']);
                 //login
                 session()->setFlashdata('sukses', 'Login Sukses!');
                 return redirect()->to(base_url('staffdosen'));
