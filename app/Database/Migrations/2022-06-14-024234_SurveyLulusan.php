@@ -59,6 +59,6 @@ class SurveyLulusan extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('survey_lulusan');
+        $this->forge->dropTable('survey_lulusan',true);
     }
 }

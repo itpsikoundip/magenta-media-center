@@ -26,6 +26,6 @@ class JenisProposal extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('proposal_jenis');
+        $this->forge->dropTable('proposal_jenis',true);
     }
 }
