@@ -47,7 +47,7 @@ class frontendSelectKependController extends BaseController
         return view('layouts/mahasiswa-wrapper', $data);
     }
 
-    public function inputKepend($idSend)
+    public function inputKepend($idSend, $namaKepend)
     {
         $model = new surveyKependModel;
         $dataFilter = $model->getAllInputKepend($idSend)->getResult();
@@ -61,7 +61,7 @@ class frontendSelectKependController extends BaseController
 
         $update = $model->inputSkor($arrayInput);
         if ($update) {
-            return redirect()->to(base_url('selectKepend'));
+            return $this->doneSurvey($namaKepend, 1);
         }
     }
 
@@ -80,5 +80,16 @@ class frontendSelectKependController extends BaseController
         }
 
         return $input;
+    }
+
+    public function doneSurvey($namaKepend, $isMhs)
+    {
+        $data = [
+            'isi' => 'survey/doneSurvey',
+            'nama' => $namaKepend,
+            'isMhs' => $isMhs
+        ];
+
+        return view('layouts/mahasiswa-wrapper', $data);
     }
 }

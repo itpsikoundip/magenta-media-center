@@ -11,7 +11,7 @@
                             foreach ($dataSurveyLulusan as $key => $value) : ?>
                                 <form action="<?= base_url('inputLulusan/input/' . $value["id"]) ?>" method="post">
                                     <tr>
-                                        <td width="1%"><?= $numbering++; ?></td>
+                                        <td class="text-center d-none d-lg-block d-xl-block"><?= $numbering++; ?></td>
                                         <td><b><?= $value["pertanyaan"] ?></b>
                                             <div class="form-check mt-1">
                                                 <input class="radio-custom mb-1 mr-1" type="radio" name="indikator-<?= $value["id"] ?>" value="1">
@@ -46,9 +46,7 @@
                                     <td colspan="2"><button type="submit" class="btn btn-info btn-lg btn-block" style="background-color: #f1467e !important; border: 0 !important;"><b>Kirim</b></button></td>
                                 </tr>
                                 </form>
-
                         </table>
-
                     </div>
                 </div>
             </div>

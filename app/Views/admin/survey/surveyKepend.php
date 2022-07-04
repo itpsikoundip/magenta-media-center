@@ -70,7 +70,7 @@
                             <form action="<?= base_url('/surveykepend/addSurveyKepend') ?>" method="post">
                                 <?= csrf_field(); ?>
                                 <div class="form-group">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tulis Survey..." name="pertanyaan" required></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tulis Survey..." name="pertanyaan" style="height:150px;" required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block" name="button">Save</button>
                             </form>

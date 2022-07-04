@@ -14,7 +14,7 @@
                     <?php endif; ?>
                     <div class="row mx-3">
                         <table class="table table-borderless">
-                            <form action="<?= base_url('inputDosen/' . $idSend) ?>" method="post">
+                            <form action="<?= base_url('inputDosen/' . $idSend . '/' . $namaDosen) ?>" method="post">
                                 <?php $numbering = 1;
                                 foreach ($dataSurveyDosen as $key => $value) : ?>
                                     <tr>

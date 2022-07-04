@@ -56,7 +56,7 @@ class frontendInputLulusanController extends BaseController
 
         $update = $model->inputSkor($arrayInput);
         if ($update) {
-            return redirect()->to(base_url('menuDisplay'));
+            return $this->doneSurvey(2);
         }
     }
 
@@ -75,5 +75,16 @@ class frontendInputLulusanController extends BaseController
         }
 
         return $input;
+    }
+
+    public function doneSurvey($isMhs)
+    {
+        $data = [
+            'isi' => 'survey/doneSurvey',
+            'nama' => '',
+            'isMhs' => $isMhs
+        ];
+
+        return view('layouts/mahasiswa-wrapper', $data);
     }
 }

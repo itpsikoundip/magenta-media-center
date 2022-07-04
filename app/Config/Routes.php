@@ -68,17 +68,17 @@ $routes->get('/grafikLulusan', 'backendGrafikLulusanController::index');
 //FRONTEND
 
 //3 Menu Card Landing
-$routes->get('/menuDisplay', 'frontendMenuDisplayController::index');
+$routes->get('/menuDisplay/(:num)', 'frontendMenuDisplayController::index/$1');
 
 //Table Select & Input Dosen
 $routes->get('/selectDosen', 'frontendSelectDosenController::index');
 $routes->get('/gotoInputDosen/(:num)/(:segment)', 'frontendSelectDosenController::gotoInputDosen/$1/$2');
-$routes->post('/inputDosen/(:num)', 'frontendSelectDosenController::inputDosen/$1');
+$routes->post('/inputDosen/(:num)/(:segment)', 'frontendSelectDosenController::inputDosen/$1/$2');
 
 //Table Select & Input Tenaga Kependidikan
 $routes->get('/selectKepend', 'frontendSelectKependController::index');
 $routes->get('/gotoInputKepend/(:num)/(:segment)', 'frontendSelectKependController::gotoInputKepend/$1/$2');
-$routes->post('/inputKepend/(:num)', 'frontendSelectKependController::inputKepend/$1');
+$routes->post('/inputKepend/(:num)/(:segment)', 'frontendSelectKependController::inputKepend/$1/$2');
 
 //Survey Lulusan
 $routes->get('/inputLulusan', 'frontendInputLulusanController::index');
