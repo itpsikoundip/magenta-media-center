@@ -15,21 +15,21 @@ class ModelLogin extends Model
             ])->get()->getRowArray();
     }
 
-    public function loginLvlMhs($email, $password)
+    public function loginLvlMhs($nim, $password)
     {
         return $this->db->table('mahasiswa')
             ->where([
-                'email' => $email,
+                'nim' => $nim,
                 'password' => $password
             ])->get()->getRowArray();
     }
 
-    public function loginLvlOrmawa($email, $password)
+    public function loginLvlOrmawa($nim, $password)
     {
         return $this->db->table('mahasiswa_ormawa')
             ->join('mahasiswa', 'mahasiswa.nim = mahasiswa_ormawa.mahasiswa_id')
             ->where([
-                'email' => $email,
+                'nim' => $nim,
                 'password' => $password
             ])->get()->getRowArray();
     }

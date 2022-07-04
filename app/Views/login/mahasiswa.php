@@ -24,7 +24,7 @@
                                     </div>
                                 </div>
                                 <div class="card-content">
-                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2"><span>Silahkan Masuk</span></p>
+                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2"><span>Silakan Masuk</span></p>
                                     <div class="card-body pt-0">
                                         <?php
                                         $errors = session()->getFlashdata('errors');
@@ -51,14 +51,14 @@
                                         <form class="form-horizontal" action="authMhs" method="post">
                                             </fieldset>
                                             <fieldset class="form-group position-relative has-icon-left  mt-4">
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="E-Mail">
+                                                <input type="text" class="form-control" id="nim" name="nim" placeholder="Nomor Induk Mahasiswa">
                                                 <div class="form-control-position">
                                                     <i class="ft-mail"></i>
                                                 </div>
                                                 <span class="text-danger">
                                                     <?php
-                                                        if ($validation->hasError('email')) {
-                                                            echo $validation->getError('email');
+                                                        if ($validation->hasError('nim')) {
+                                                            echo $validation->getError('nim');
                                                         }
                                                     ?>
                                                 </span>
