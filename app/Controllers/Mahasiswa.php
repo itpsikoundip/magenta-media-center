@@ -8,7 +8,8 @@ class Mahasiswa extends BaseController
     {
         $data = [
             'title' => 'Dashboard Mahasiswa',
-            'isi'    => 'mahasiswa/index'
+            'isi'    => 'mahasiswa/index',
+            'isMhs' => 1
         ];
         return view('layouts/mahasiswa-wrapper', $data);
     }

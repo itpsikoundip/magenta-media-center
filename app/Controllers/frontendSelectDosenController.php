@@ -47,7 +47,7 @@ class frontendSelectDosenController extends BaseController
         return view('layouts/mahasiswa-wrapper', $data);
     }
 
-    public function inputDosen($idSend)
+    public function inputDosen($idSend, $namaDosen)
     {
         $model = new surveyDosenModel;
         $dataFilter = $model->getAllInputDosen($idSend)->getResult();
@@ -61,7 +61,7 @@ class frontendSelectDosenController extends BaseController
 
         $update = $model->inputSkor($arrayInput);
         if ($update) {
-            return redirect()->to(base_url('selectDosen'));
+            return $this->doneSurvey($namaDosen, 1);
         }
     }
 
@@ -80,5 +80,16 @@ class frontendSelectDosenController extends BaseController
         }
 
         return $input;
+    }
+
+    public function doneSurvey($namaDosen, $isMhs)
+    {
+        $data = [
+            'isi' => 'survey/doneSurvey',
+            'nama' => $namaDosen,
+            'isMhs' => $isMhs
+        ];
+
+        return view('layouts/mahasiswa-wrapper', $data);
     }
 }

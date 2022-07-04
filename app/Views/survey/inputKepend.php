@@ -14,11 +14,11 @@
                     <?php endif; ?>
                     <div class="row mx-3">
                         <table class="table table-borderless">
-                            <form action="<?= base_url('inputKepend/' . $idSend) ?>" method="post">
+                            <form action="<?= base_url('inputKepend/' . $idSend . '/' . $namaKepend) ?>" method="post">
                                 <?php $numbering = 1;
                                 foreach ($dataSurveyKepend as $key => $value) : ?>
                                     <tr>
-                                        <td width="1%"><?= $numbering++; ?></td>
+                                        <td class="text-center d-none d-lg-block d-xl-block"><?= $numbering++; ?></td>
                                         <td><b><?= $value->pertanyaan ?></b>
                                             <div class="form-check mt-1">
                                                 <input class="radio-custom mb-1 mr-1" type="radio" name="indikator-<?= $value->id ?>" value="1">

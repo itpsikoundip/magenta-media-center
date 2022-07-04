@@ -17,9 +17,9 @@
                                         <table id="tbl_dataDosen" class="table table-striped table-bordered zero-configuration">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-center">No</th>
-                                                    <th class="text-center">Nama Dosen</th>
-                                                    <th class="text-center d-none d-lg-block d-xl-block">NIP</th>
+                                                    <th class="text-center d-none d-md-block">No</th>
+                                                    <th class="text-center">Nama</th>
+                                                    <th class="text-center d-none d-md-block">NIP</th>
                                                     <th class="text-center">Aksi</th>
                                                 </tr>
                                             </thead>
@@ -27,11 +27,11 @@
                                                 <?php $numbering = 1;
                                                 foreach ($dataListDosen as $row) : ?>
                                                     <tr>
-                                                        <td width="1%" class="text-center align-middle"><?= $numbering++; ?></td>
+                                                        <td class="text-center align-middle d-none d-md-block"><?= $numbering++; ?></td>
                                                         <td class="align-middle"><?= $row["nama_lengkap"]; ?></td>
-                                                        <td class="align-middle d-none d-lg-block d-xl-block pt-2"><?= $row["nip"]; ?></td>
+                                                        <td class="align-middle d-none d-md-block"><?= $row["nip"]; ?></td>
                                                         <td class="text-center">
-                                                            <a href="<?= base_url('gotoInputDosen/' . $row["id_dosen"] . '/' . $row["nama_lengkap"]) ?>" class="badge badge-info px-2 py-1">
+                                                            <a href="<?= base_url('gotoInputDosen/' . $row["id_dosen"] . '/' . $row["nama_lengkap"]) ?>" class="badge badge-info px-1 py-1">
                                                                 <i class="ft-edit"></i> Survey</a>
                                                         </td>
                                                     </tr>
