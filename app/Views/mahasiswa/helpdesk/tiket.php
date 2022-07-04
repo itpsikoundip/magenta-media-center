@@ -13,6 +13,18 @@
             </div>
         </div>
         <hr class="mb-2 mt-0">
+        <?php
+        if (session()->getFlashdata('error')) {
+            echo '<div class="alert alert-danger"  role="alert">';
+            echo session()->getFlashdata('error');
+            echo '</div>';
+        }
+        if (session()->getFlashdata('sukses')) {
+            echo '<div class="alert alert-success" role="alert">';
+            echo session()->getFlashdata('sukses');
+            echo '</div>';
+        }
+        ?>
         <div class="content-header row">
             <div class="align-self-center col-md-7 col-12 mb-2">
                 <!-- <h1 class="mb-2"><b>Pertanyaan/saran untuk<br>Fakultas Psikologi UNDIP</b></h1> -->
@@ -38,41 +50,40 @@
 
                             <div class="tab-content px-1 pt-3">
                                 <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
-                                    <form class="form form-horizontal">
+                                    <form class="form form-horizontal" action="kirimTiket" method="post">
                                         <div class="form-body">
 
                                             <div class="form-group row">
                                                 <label class="col-md-3 label-control" for="pilihKategori">Topik</label>
                                                 <div class="col-md-9">
-                                                    <select id="pilihKategori" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
+                                                    <select id="inputTopik" name="inputTopik" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
                                                         <option value="0">--Pilih Topik--</option>
                                                         <option value="1">Akademik</option>
+                                                        <option value="2">Non-Akademik</option>
+                                                        <!-- <option value="1">Akademik</option>
                                                         <option value="2">Kemahasiswaan</option>
                                                         <option value="3">Keuangan Kuliah</option>
                                                         <option value="4">Sarana & Prasarana</option>
                                                         <option value="5">Kerja Sama</option>
-                                                        <option value="6">Lainnya</option>
+                                                        <option value="6">Lainnya</option> -->
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-md-3 label-control" for="inputRingkasan">Ringkasan / Subjek</label>
+                                                <label class="col-md-3 label-control" for="inputSubjek">Ringkasan/Subjek</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="inputRingkasan" class="form-control" placeholder="" name="fname">
+                                                    <input id="inputSubjek" name="inputSubjek" class="form-control" placeholder="Ringkasan pertanyaan/permasalahan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-md-3 label-control" for="inputRingkasan">Detail</label>
                                                 <div class="col-md-9">
-                                                    <textarea id="inputDetail" rows="5" class="form-control" name="comment" placeholder="Ceritakan permasalahan"></textarea>
+                                                    <textarea id="inputDetail" name="inputDetail" rows="5" class="form-control" placeholder="Ceritakan detail permasalahan"></textarea>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="form-actions d-flex justify-content-end">
-                                            <!-- <button type="button" class="btn btn-warning mr-1">
-                              <i class="ft-x"></i> Batal
-                          </button> -->
                                             <button type="submit" class="btn btn-primary">
                                                 <i class="fa fa-check-square-o"></i> Kirim
                                             </button>
@@ -82,7 +93,9 @@
                                 <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
                                     <div id="accordionWrap1" role="tablist" aria-multiselectable="true">
                                         <div class="card collapse-icon panel mb-0 box-shadow-0 border-0">
-
+                                            <?php foreach ($riwayatTiket as $riwayat) {
+                                                # code...
+                                            } ?>
                                             <div role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
                                                 <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion12" aria-expanded="false" aria-controls="accordion12" class="h6 blue collapsed">
                                                     Akses Wifi tidak bisa

@@ -19,7 +19,7 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
-                                <h1 class="mb-2"><b>Selamat datang di helpdesk Magenta Media Center</b></h1>
+                                <h1 class="mb-2"><b>Selamat datang di helpdesk Magenta Media Center!</b></h1>
                                 <p>Pusat bantuan dan informasi internal untuk mahasiswa Fakultas Psikologi UNDIP</p>
                             </div>
                         </div>
