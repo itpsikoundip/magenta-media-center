@@ -161,10 +161,11 @@ class Login extends BaseController
                     session()->set('nim', $cekuser['mahasiswa_id']);
                     session()->set('nama', $cekuser['nama']);
                     session()->set('email', $cekuser['email']);
+                    session()->set('namaormawa', $cekuser['nama_ormawa']);
                     session()->set('level', $level);
                     //login
                     session()->setFlashdata('sukses', 'Login Sukses!');
-                    return redirect()->to(base_url('mahasiswa'));
+                    return redirect()->to(base_url('ormawa'));
                 } else {
                     //jika data tidak cocok
                     session()->setFlashdata('pesan', 'Login gagal, email atau password salah!');

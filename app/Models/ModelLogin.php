@@ -28,6 +28,7 @@ class ModelLogin extends Model
     {
         return $this->db->table('mahasiswa_ormawa')
             ->join('mahasiswa', 'mahasiswa.nim = mahasiswa_ormawa.mahasiswa_id')
+            ->join('ormawa', 'ormawa.id = mahasiswa_ormawa.ormawa_id')
             ->where([
                 'nim' => $nim,
                 'password' => $password

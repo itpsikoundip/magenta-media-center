@@ -11,37 +11,37 @@ class OrmawaSeeder extends Seeder
         //
         $data = [
             [
-                'nama'         => 'Senat Mahasiswa',
+                'nama_ormawa'         => 'Senat Mahasiswa',
             ],
             [
-                'nama'         => 'Badan Eksekutif Mahasiswa',
+                'nama_ormawa'         => 'Badan Eksekutif Mahasiswa',
             ],
             [
-                'nama'         => 'UKMF Sie Kerohanian Islam',
+                'nama_ormawa'         => 'UKMF Sie Kerohanian Islam',
             ],
             [
-                'nama'         => 'UKMF Tari Independance',
+                'nama_ormawa'         => 'UKMF Tari Independance',
             ],
             [
-                'nama'         => 'UKMF Teater Psimewah',
+                'nama_ormawa'         => 'UKMF Teater Psimewah',
             ],
             [
-                'nama'         => 'UKMF Olahraga Psychopop',
+                'nama_ormawa'         => 'UKMF Olahraga Psychopop',
             ],
             [
-                'nama'         => 'UKMF Paduan Suara Psychovocalista',
+                'nama_ormawa'         => 'UKMF Paduan Suara Psychovocalista',
             ],
             [
-                'nama'         => 'UKMF Kelompok Studi Psikologi Islam',
+                'nama_ormawa'         => 'UKMF Kelompok Studi Psikologi Islam',
             ],
             [
-                'nama'         => 'UKMF Persekutuan Mahasiswa Kristen Katolik',
+                'nama_ormawa'         => 'UKMF Persekutuan Mahasiswa Kristen Katolik',
             ],
             [
-                'nama'         => 'UKMF Lembaga Pers Psikojur',
+                'nama_ormawa'         => 'UKMF Lembaga Pers Psikojur',
             ],
             [
-                'nama'         => 'UKMF Pecinta Alam Psikologi Hijau',
+                'nama_ormawa'         => 'UKMF Pecinta Alam Psikologi Hijau',
             ],
         ];
 
