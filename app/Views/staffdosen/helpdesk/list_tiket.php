@@ -1,16 +1,13 @@
 <div class="app-content content">
-    <div class="container mt-4">
-        <a href="<?= base_url('staffdosen') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
+    <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
-                <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>
-                <h4 class="grey">Staff & Dosen</h4>
+                <h3 class="mb-0 d-inline-block">Tiket</h3>
             </div>
         </div>
-        <hr class="mb-2 mt-0">
         <div class="content-body">
             <div class="row">
-                <div class="col-xl-3 col-lg-6 col-12">
+                <!-- <div class="col-xl-3 col-lg-6 col-12">
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
@@ -77,116 +74,82 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
-            <div class="row">
-                <div class="col-12">
+            <div class="row match-height">
+                <div class="col-lg-12">
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">List FAQ</a>
+                                        <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">Tiket Belum Terjawab</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="base-tab2" data-toggle="tab" aria-controls="tab2" href="#tab2" aria-expanded="false">Tambahkan FAQ</a>
+                                        <a class="nav-link" id="base-tab2" data-toggle="tab" aria-controls="tab2" href="#tab2" aria-expanded="false">Tiket Terjawab</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="base-tab3" data-toggle="tab" aria-controls="tab3" href="#tab3" aria-expanded="false">Tiket Terjawab</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="base-tab4" data-toggle="tab" aria-controls="tab4" href="#tab4" aria-expanded="false">Tiket Belum Terjawab</a>
+                                        <a class="nav-link" id="base-tab3" data-toggle="tab" aria-controls="tab3" href="#tab3" aria-expanded="false">Detail Tiket</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content px-1 pt-1">
                                     <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
-                                        <div id="accordionWrap1" role="tablist" aria-multiselectable="true">
-                                            <div class="card collapse-icon panel mb-0 box-shadow-0 border-0">
-                                                <div role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion12" aria-expanded="false" aria-controls="accordion12" class="h6 blue collapsed">Bagaimana prosedur untuk mengajukan banding UKT?</a>
-                                                </div>
-                                                <div id="accordion12" role="tabpanel" aria-labelledby="heading12" class="collapse" aria-expanded="false">
-                                                    <div class="card-body">
-                                                        <p class="card-text">Sugar plum bear claw oat cake chocolate jelly tiramisu dessert pie. Tiramisu macaroon muffin jelly marshmallow cake. Pastry oat cake chupa chups.</p>
-                                                    </div>
-                                                </div>
-                                                <div id="heading13" role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion13" aria-expanded="false" aria-controls="accordion13" class="h6 blue collapsed">Kapan batas waktu mengajukan pembatalan SKS semester genap?</a>
-                                                </div>
-                                                <div id="accordion13" role="tabpanel" aria-labelledby="heading13" class="collapse" aria-expanded="false">
-                                                    <div class="card-body">
-                                                        <p class="card-text">Candy cupcake sugar plum oat cake wafer marzipan jujubes lollipop macaroon. Cake dragée jujubes donut chocolate bar chocolate cake cupcake chocolate topping.</p>
-                                                    </div>
-                                                </div>
-                                                <div id="heading14" role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion14" aria-expanded="false" aria-controls="accordion14" class="h6 blue collapsed">Apakah Fakultas Psikologi akan membangun kantin?</a>
-                                                </div>
-                                                <div id="accordion14" role="tabpanel" aria-labelledby="heading14" class="card-collapse collapse" aria-expanded="false" style="height: 0px;">
-                                                    <div class="card-body">
-                                                        <p class="card-text">Sesame snaps chocolate lollipop sesame snaps apple pie chocolate cake sweet roll. Dragée candy canes carrot cake chupa chups danish cake sugar plum candy.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Nama Lengkap</th>
+                                                        <th>E-Mail</th>
+                                                        <th>Nomor HP</th>
+                                                        <th>Topik</th>
+                                                        <th>Ringkasan / Subject</th>
+                                                        <th>Status Tiket</th>
+                                                        <th>Permasalahan</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">4890423</th>
+                                                        <td>Gading Ihsan</td>
+                                                        <td>gadingihsancahya@gmail.com</td>
+                                                        <td>085602577471</td>
+                                                        <td>IT - Akses Internet</td>
+                                                        <td>Akses Wifi tidak bisa</td>
+                                                        <td>
+                                                            <div class="badge badge-pill badge-danger">Open</div>
+                                                        </td>
+                                                        <td>View</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">4890423</th>
+                                                        <td>Gading Ihsan</td>
+                                                        <td>gadingihsancahya@gmail.com</td>
+                                                        <td>085602577471</td>
+                                                        <td>IT - Akses Internet</td>
+                                                        <td>Akses Wifi tidak bisa</td>
+                                                        <td>
+                                                            <div class="badge badge-pill badge-danger">Open</div>
+                                                        </td>
+                                                        <td>View</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">4890423</th>
+                                                        <td>Gading Ihsan</td>
+                                                        <td>gadingihsancahya@gmail.com</td>
+                                                        <td>085602577471</td>
+                                                        <td>IT - Akses Internet</td>
+                                                        <td>Akses Wifi tidak bisa</td>
+                                                        <td>
+                                                            <div class="badge badge-pill badge-danger">Open</div>
+                                                        </td>
+                                                        <td>View</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-
                                     <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
-                                        <form class="form form-horizontal">
-                                            <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-user"></i> Formulir Tiket</h4>
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="projectinput1">Nama Lengkap</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="projectinput1" class="form-control" placeholder="Nama Lengkap" name="fname">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="projectinput3">E-mail</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="projectinput3" class="form-control" placeholder="E-mail" name="email">
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="projectinput4">Telp/HP</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="projectinput4" class="form-control" placeholder="Phone" name="phone">
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="projectinput5">Topik</label>
-                                                    <div class="col-md-9">
-                                                        <select id="issueinput6" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
-                                                            <option value="#">Nama Departemen - Topik</option>
-                                                            <option value="#">Nama Departemen - Topik</option>
-                                                            <option value="#">Nama Departemen - Topik</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="projectinput6">Ringkasan / Subject</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="projectinput1" class="form-control" placeholder="" name="fname">
-                                                        <br>
-                                                        <textarea id="projectinput8" rows="5" class="form-control" name="comment" placeholder="Ceritakan permasalahan"></textarea>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-actions">
-                                                <button type="button" class="btn btn-warning mr-1">
-                                                    <i class="ft-x"></i> Batal
-                                                </button>
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="fa fa-check-square-o"></i> Buat Tiket
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <div class="tab-pane" id="tab3" aria-labelledby="base-tab3">
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead>
@@ -202,18 +165,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row">4890423</th>
-                                                        <td>Gading Ihsan</td>
-                                                        <td>gadingihsancahya@gmail.com</td>
-                                                        <td>085602577471</td>
-                                                        <td>IT - Akses Internet</td>
-                                                        <td>Akses Wifi tidak bisa</td>
-                                                        <td>
-                                                            <div class="badge badge-pill badge-danger">Open</div>
-                                                        </td>
-                                                        <td>View</td>
-                                                    </tr>
                                                     <tr>
                                                         <th scope="row">4890423</th>
                                                         <td>Gading Ihsan</td>
@@ -242,49 +193,56 @@
                                             </table>
                                         </div>
                                     </div>
-
-                                    <div class="tab-pane" id="tab4" aria-labelledby="base-tab4">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>ID</th>
-                                                        <th>Nama Lengkap</th>
-                                                        <th>E-Mail</th>
-                                                        <th>Nomor HP</th>
-                                                        <th>Topik</th>
-                                                        <th>Ringkasan / Subject</th>
-                                                        <th>Status Tiket</th>
-                                                        <th>Permasalahan</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">4890423</th>
-                                                        <td>Gading Ihsan</td>
-                                                        <td>gadingihsancahya@gmail.com</td>
-                                                        <td>085602577471</td>
-                                                        <td>IT - Akses Internet</td>
-                                                        <td>Akses Wifi tidak bisa</td>
-                                                        <td>
-                                                            <div class="badge badge-pill badge-danger">Open</div>
-                                                        </td>
-                                                        <td>View</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">4890423</th>
-                                                        <td>Gading Ihsan</td>
-                                                        <td>gadingihsancahya@gmail.com</td>
-                                                        <td>085602577471</td>
-                                                        <td>IT - Akses Internet</td>
-                                                        <td>Akses Wifi tidak bisa</td>
-                                                        <td>
-                                                            <div class="badge badge-pill badge-danger">Open</div>
-                                                        </td>
-                                                        <td>View</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                    <div class="tab-pane" id="tab3" aria-labelledby="base-tab3">
+                                    <div class="row match-height">
+                                            <div class="col-sm-4">
+                                                <div class="card">
+                                                    <div class="card-content">
+                                                        <img class="card-img-top img-fluid" src="<?php echo base_url('robust/app-assets/images/carousel/06.jpg') ?>" alt="Card image cap">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">Nama File</h4>
+                                                            <a href="#" class="btn btn-outline-amber">Lihat File</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <div class="card">
+                                                    <div class="card-content">
+                                                        <h4 class="card-title">ID Tiket : 4890423</h4>
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row">Nama Lengkap</th>
+                                                                        <td>Gading Ihsan</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">E-Mail</th>
+                                                                        <td>gadingihsancahya@gmail.com</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">Nomor HP</th>
+                                                                        <td>085602577471</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">Topik</th>
+                                                                        <td>IT - Akses Internet</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">Ringkasan / Subject</th>
+                                                                        <td>Akses Wifi tidak bisa</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">Permasalahan</th>
+                                                                        <td>View</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -293,6 +251,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

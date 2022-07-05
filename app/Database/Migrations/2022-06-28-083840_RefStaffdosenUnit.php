@@ -26,6 +26,6 @@ class RefStaffdosenUnit extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('ref_stafdosen_unit');
+        $this->forge->dropTable('ref_stafdosen_unit',true);
     }
 }

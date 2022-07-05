@@ -24,7 +24,7 @@
                                     </div>
                                 </div>
                                 <div class="card-content">
-                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2"><span>Silahkan Masuk</span></p>
+                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2"><span>Silakan Masuk</span></p>
                                     <div class="card-body pt-0">
                                         <?php
                                         $errors = session()->getFlashdata('errors');
@@ -41,30 +41,57 @@
                                             echo '</div>';
                                         }
                                         ?>
+                                        
+                                        <?php
+                                        
+                                        form_open('Login/authMhs');
+                                        
+                                        ?>
+                                        
                                         <form class="form-horizontal" action="authMhs" method="post">
                                             </fieldset>
                                             <fieldset class="form-group position-relative has-icon-left  mt-4">
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="E-Mail" required>
+                                                <input type="text" class="form-control" id="nim" name="nim" placeholder="Nomor Induk Mahasiswa">
                                                 <div class="form-control-position">
                                                     <i class="ft-mail"></i>
                                                 </div>
+                                                <span class="text-danger">
+                                                    <?php
+                                                        if ($validation->hasError('nim')) {
+                                                            echo $validation->getError('nim');
+                                                        }
+                                                    ?>
+                                                </span>
                                             </fieldset>
                                             <fieldset class="form-group position-relative has-icon-left ">
-                                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                                                 <div class="form-control-position">
                                                     <i class="ft-lock"></i>
                                                 </div>
+                                                <span class="text-danger">
+                                                    <?php
+                                                        if ($validation->hasError('password')) {
+                                                            echo $validation->getError('password');
+                                                        }
+                                                    ?>
+                                                </span>
                                             </fieldset>
                                             <fieldset class="form-group position-relative has-icon-left ">
                                                 <select class="form-control" id="level" name="level">
-                                                    <option selected>-- Login Sebagai --</option>
+                                                    <option value="">-- Login Sebagai --</option>
                                                     <option value="1">Mahasiswa</option>
-                                                    <option value="2">UKM</option>
-                                                    <option value="3">BEM</option>
+                                                    <option value="2">Ormawa</option>
                                                 </select>
                                                 <div class="form-control-position">
                                                     <i class="ft-users"></i>
                                                 </div>
+                                                <span class="text-danger">
+                                                    <?php
+                                                        if ($validation->hasError('level')) {
+                                                            echo $validation->getError('level');
+                                                        }
+                                                    ?>
+                                                </span>
                                             </fieldset>
                                             <button type="submit" class="btn btn-outline-indigo btn-lg btn-block indigo mb-1 wrapper_btn_login" style="border-radius: 0px;">
                                                 <i class="ft-unlock"></i> LOGIN

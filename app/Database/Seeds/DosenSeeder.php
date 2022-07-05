@@ -7,7 +7,7 @@ use CodeIgniter\I18n\Time;
 
 class DosenSeeder extends Seeder
 {
-    public function run()   
+    public function run()
     {
         $data = [
             [

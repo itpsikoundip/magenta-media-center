@@ -19,7 +19,7 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
-                                <h1 class="mb-2"><b>Selamat datang di helpdesk Magenta Media Center</b></h1>
+                                <h1 class="mb-2"><b>Selamat datang di helpdesk Magenta Media Center!</b></h1>
                                 <p>Pusat bantuan dan informasi internal untuk mahasiswa Fakultas Psikologi UNDIP</p>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="media-body text-right">
                                         <h3><u>WhatsApp Hotline</u></h3>
-                                        <span>Kontak secara langsung mendesak</span>
+                                        <span>Kontak segera secara langsung</span>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
         </div>
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
-                <h2 class="mb-0 d-inline-block font-weight-bold">FaQ (Frequently Ask Question)</h2>
+                <h2 class="mb-0 d-inline-block font-weight-bold">FAQ (Frequently Asked Question)</h2>
                 <h4 class="grey">Pertanyaan dan Jawaban</h4>
             </div>
         </div>
