@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="card">
-                            <div class="card-content collapse show">
+                            <div class="card-content">
                                 <div class="card-body">
                                     <?php
                                     foreach ($detailProposal as $key => $value) { ?>
@@ -86,9 +86,23 @@
                                                     <option value="4">Lainnya</option>
                                                 </select>
                                             </div>
-                                            <div class="form-group">
-                                                <label>Nama Kegiatan<strong>*</strong></label>
-                                                <input type="text" class="form-control" maxlength="255" placeholder="Nama Kegiatan / Acara" name="namaKegiatan" value="<?= $value['nama_keg']  ?>">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label>Nama Kegiatan<strong>*</strong></label>
+                                                        <input type="text" class="form-control" maxlength="255" placeholder="Nama Kegiatan / Acara" name="namaKegiatan" value="<?= $value['nama_keg']  ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Studi <strong>*</strong></label>
+                                                        <select name="studi" class="form-control custom-select" required>
+                                                            <option value="none" disabled>-- Pilih Jenis Studi --</option>
+                                                            <option value="S1">S1</option>
+                                                            <option value="S2">S2</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <label>Tahun Anggaran<strong>*</strong></label>
@@ -162,10 +176,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-4">
                         <div class="card">
-                            <div class="card-content collapse show">
+                            <div class="card-content">
                                 <div class="card-body">
                                     <?php
                                     echo form_open_multipart('/proposal/editFileProposal/' . $value['id_propo']);
@@ -173,7 +185,7 @@
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-paperclip"></i> Upload File Proposal</h4>
                                         <div class="card-text">
-                                            <div class="alert alert-icon-right alert-info alert-dismissible mb-2" role="alert">
+                                            <div class="alert alert-icon-right alert-info alert-dismissible role=" alert">
                                                 <span class="alert-icon"><i class="fa fa-info"></i></span>
                                                 <strong>Perhatikan Format Proposal</strong>
                                                 <ul>
@@ -189,7 +201,6 @@
                                                 </fieldset>
                                             </div>
                                         </div>
-                                        <br>
                                         <div class="form-actions right">
                                             <button type="submit" class="btn btn-primary">
                                                 <i class="fa fa-check-square-o"></i> Simpan
@@ -201,7 +212,7 @@
                             </div>
                         </div>
                         <div class="card">
-                            <div class="card-content collapse show">
+                            <div class="card-content">
                                 <div class="card-body">
                                     <?php
                                     echo form_open('/proposal/konfirmasiEdit/' . $value['id_propo']);
@@ -219,129 +230,207 @@
                             </div>
                         </div>
                         <div class="card">
-                            <div class="card-content collapse show">
+                            <div class="card-content">
                                 <div class="card-body">
-                                    <?php
-                                    echo form_open('/proposal/konfirmasiEdit/' . $value['id_propo']);
-                                    ?>
-                                    <div class="form-body">
-                                        <input type="hidden" name="konfirmasi" value="1">
-                                        <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
-                                        <button type="submit" class="btn btn-primary btn-block btn-lg">KONFIRMASI / PERBAIKAN
-                                        </button>
-                                    </div>
-                                    <?php echo form_close() ?>
+                                    <?php if (($value['dekan_status']) == 2) { ?>
+                                        <?php
+                                        echo form_open('/proposal/konfirmasiEditkeDekan/' . $value['id_propo']);
+                                        ?>
+                                        <div class="form-body">
+                                            <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
+                                            <button type="submit" class="btn btn-primary btn-block btn-lg">KONFIRMASI / PERBAIKAN
+                                            </button>
+                                        </div>
+                                        <?php echo form_close() ?>
+                                    <?php } elseif (($value['wadeksumda_status']) == 2) { ?>
+                                        <?php
+                                        echo form_open('/proposal/konfirmasiEditkeWadeksumda/' . $value['id_propo']);
+                                        ?>
+                                        <div class="form-body">
+                                            <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
+                                            <button type="submit" class="btn btn-primary btn-block btn-lg">KONFIRMASI / PERBAIKAN
+                                            </button>
+                                        </div>
+                                        <?php echo form_close() ?>
+                                    <?php } elseif (($value['wadekakem_status']) == 2) { ?>
+                                        <?php
+                                        echo form_open('/proposal/konfirmasiEditkeWadekakem/' . $value['id_propo']);
+                                        ?>
+                                        <div class="form-body">
+                                            <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
+                                            <button type="submit" class="btn btn-primary btn-block btn-lg">KONFIRMASI / PERBAIKAN
+                                            </button>
+                                        </div>
+                                        <?php echo form_close() ?>
+                                    <?php } elseif (($value['kaprodis1_status']) == 2) { ?>
+                                        <?php
+                                        echo form_open('/proposal/konfirmasiEditkeKaprodis1/' . $value['id_propo']);
+                                        ?>
+                                        <div class="form-body">
+                                            <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
+                                            <button type="submit" class="btn btn-primary btn-block btn-lg">KONFIRMASI / PERBAIKAN
+                                            </button>
+                                        </div>
+                                        <?php echo form_close() ?>
+                                    <?php } elseif (($value['tatausaha_status']) == 2) { ?>
+                                        <?php
+                                        echo form_open('/proposal/konfirmasiEditkeTatausaha/' . $value['id_propo']);
+                                        ?>
+                                        <div class="form-body">
+                                            <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
+                                            <button type="submit" class="btn btn-primary btn-block btn-lg">KONFIRMASI / PERBAIKAN
+                                            </button>
+                                        </div>
+                                        <?php echo form_close() ?>
+                                    <?php } elseif (($value['sumberdaya_status']) == 2) { ?>
+                                        <?php
+                                        echo form_open('/proposal/konfirmasiEditkeSumberdaya/' . $value['id_propo']);
+                                        ?>
+                                        <div class="form-body">
+                                            <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
+                                            <button type="submit" class="btn btn-primary btn-block btn-lg">KONFIRMASI / PERBAIKAN
+                                            </button>
+                                        </div>
+                                        <?php echo form_close() ?>
+                                    <?php } elseif (($value['akademik_status']) == 2) { ?>
+                                        <?php
+                                        echo form_open('/proposal/konfirmasiEditkeAkademik/' . $value['id_propo']);
+                                        ?>
+                                        <div class="form-body">
+                                            <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
+                                            <button type="submit" class="btn btn-primary btn-block btn-lg">KONFIRMASI / PERBAIKAN
+                                            </button>
+                                        </div>
+                                        <?php echo form_close() ?>
+                                    <?php } elseif (($value['bem_status']) == 2) { ?>
+                                        <?php
+                                        echo form_open('/proposal/konfirmasiEditkeBem/' . $value['id_propo']);
+                                        ?>
+                                        <div class="form-body">
+                                            <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
+                                            <button type="submit" class="btn btn-primary btn-block btn-lg">KONFIRMASI / PERBAIKAN
+                                            </button>
+                                        </div>
+                                        <?php echo form_close() ?>
+                                    <?php } ?>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="content-header row">
-                    <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
-                        <h2 class="mb-0 d-inline-block font-weight-bold">Catatan / Revisi <?= $title ?></h2>
-                        <h4 class="grey">Mahasiswa</h4>
-                    </div>
-                </div>
-                <hr class="mb-2 mt-0">
-                <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-4">
                         <div class="card">
-                            <div class="card-content collapse show">
-                                <div class="card-body">
-                                    <div id="accordionWrapa1" role="tablist" aria-multiselectable="true">
-                                        <div class="card">
-                                            <div id="heading1" class="card-header" role="tab">
-                                                <a data-toggle="collapse" data-parent="#accordionWrapa1" href="#accordion1" aria-expanded="false" aria-controls="accordion1" class="card-title lead">BEM</a>
-                                            </div>
+                            <div class="card-header">
+                                <h4 class="card-title">Catatan/Revisi</h4>
+                                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="table-responsive">
+                                    <table class="table mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Posisi</th>
+                                                <th>Catatan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                             <?php
                                             foreach ($detailProposal as $key => $value) { ?>
-                                                <div id="accordion1" role="tabpanel" aria-labelledby="heading1" class="collapse" aria-expanded="false">
-                                                    <div class="card-content">
-                                                        <div class="card-body">
-                                                            <?= $value['bem_note']  ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div id="heading2" class="card-header">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrapa1" href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="card-title lead collapsed">Akademik</a>
-                                                </div>
-                                                <div id="accordion2" role="tabpanel" aria-labelledby="heading2" class="collapse" aria-expanded="false">
-                                                    <div class="card-content">
-                                                        <div class="card-body">
-                                                            <?= $value['akademik_note']  ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div id="heading3" class="card-header">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrapa1" href="#accordion3" aria-expanded="false" aria-controls="accordion3" class="card-title lead collapsed">Sumber Daya</a>
-                                                </div>
-                                                <div id="accordion3" role="tabpanel" aria-labelledby="heading3" class="collapse" aria-expanded="false">
-                                                    <div class="card-content">
-                                                        <div class="card-body">
-                                                            <?= $value['sumberdaya_note']  ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div id="heading8" class="card-header">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrapa1" href="#accordion8" aria-expanded="false" aria-controls="accordion8" class="card-title lead collapsed">Tata Usaha</a>
-                                                </div>
-                                                <div id="accordion8" role="tabpanel" aria-labelledby="heading8" class="collapse" aria-expanded="false" style="height: 0px;">
-                                                    <div class="card-content">
-                                                        <div class="card-body">
-                                                            <?= $value['tatausaha_note']  ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div id="heading4" class="card-header">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrapa1" href="#accordion4" aria-expanded="false" aria-controls="accordion4" class="card-title lead collapsed">Kaprodi S1</a>
-                                                </div>
-                                                <div id="accordion4" role="tabpanel" aria-labelledby="heading4" class="collapse" aria-expanded="false" style="height: 0px;">
-                                                    <div class="card-content">
-                                                        <div class="card-body">
-                                                            <?= $value['kaprodis1_note']  ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div id="heading5" class="card-header">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrapa1" href="#accordion5" aria-expanded="false" aria-controls="accordion5" class="card-title lead collapsed">Wadek 1</a>
-                                                </div>
-                                                <div id="accordion5" role="tabpanel" aria-labelledby="heading5" class="collapse" aria-expanded="false" style="height: 0px;">
-                                                    <div class="card-content">
-                                                        <div class="card-body">
-                                                            <?= $value['wadek1_note']  ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div id="heading6" class="card-header">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrapa1" href="#accordion6" aria-expanded="false" aria-controls="accordion6" class="card-title lead collapsed">Wadek 2</a>
-                                                </div>
-                                                <div id="accordion6" role="tabpanel" aria-labelledby="heading6" class="collapse" aria-expanded="false" style="height: 0px;">
-                                                    <div class="card-content">
-                                                        <div class="card-body">
-                                                            <?= $value['wadek2_note']  ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div id="heading7" class="card-header">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrapa1" href="#accordion7" aria-expanded="false" aria-controls="accordion7" class="card-title lead collapsed">Dekan</a>
-                                                </div>
-                                                <div id="accordion7" role="tabpanel" aria-labelledby="heading7" class="collapse" aria-expanded="false" style="height: 0px;">
-                                                    <div class="card-content">
-                                                        <div class="card-body">
-                                                            <?= $value['dekan_note']  ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <tr>
+                                                    <td><strong>BEM</strong></td>
+                                                    <td><?= $value['bem_note']  ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Akademik</strong><small><br>
+                                                            <?php
+                                                            foreach ($detailProposalNoteAkademik as $key => $a) { ?>
+                                                                <?= $a['nama']  ?>
+                                                            <?php  } ?>
+                                                            <i><?= $value['akademik_updatetime']  ?></i></small>
+                                                    </td>
+                                                    <td><small><?= $value['akademik_note']  ?></small></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Sumber Daya</strong><small><br>
+                                                            <?php
+                                                            foreach ($detailProposalNoteSumda as $key => $b) { ?>
+                                                                <?= $b['nama']  ?>
+                                                            <?php  } ?>
+                                                            <i><?= $value['sumberdaya_updatetime']  ?></i></td></small>
+                                                    <td><small><?= $value['sumberdaya_note']  ?></small></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Tata Usaha</strong><small><br>
+                                                            <?php
+                                                            foreach ($detailProposalNoteTataUsaha as $key => $b) { ?>
+                                                                <?= $b['nama']  ?>
+                                                            <?php  } ?>
+                                                            <i><?= $value['tatausaha_updatetime']  ?></i></small></td>
+                                                    <td><small><?= $value['tatausaha_note']  ?></small></td>
+                                                </tr>
+                                                <?php if ($value['jenispendidikan_propo'] == 1) { ?>
+                                                    <tr>
+                                                        <td><strong>Kaprodi S1</strong><small><br>
+                                                                <?php
+                                                                foreach ($detailProposalNoteKaprodiS1 as $key => $c) { ?>
+                                                                    <?= $c['nama']  ?>
+                                                                <?php  } ?>
+                                                                <i><?= $value['kaprodis1_updatetime']  ?></i></small></td>
+                                                        <td><small><?= $value['kaprodis1_note']  ?></small></td>
+                                                    </tr>
+                                                <?php } elseif ($value['jenispendidikan_propo'] == 2) { ?>
+                                                    <tr>
+                                                        <td><strong>Kaprodi S2</strong><small><br>
+                                                                <?php
+                                                                foreach ($detailProposalNoteKaprodiS2 as $key => $g) { ?>
+                                                                    <?= $g['nama']  ?>
+                                                                <?php  } ?>
+                                                                <i><?= $value['kaprodis2_updatetime']  ?></i></small></td>
+                                                        <td><small><?= $value['kaprodis2_note']  ?></small></td>
+                                                    </tr>
+                                                <?php } ?>
+                                                <tr>
+                                                    <td><strong>Wadek Akem</strong><small><br>
+                                                            <?php
+                                                            foreach ($detailProposalNoteWadekAkem as $key => $d) { ?>
+                                                                <?= $d['nama']  ?>
+                                                            <?php  } ?>
+                                                            <i><?= $value['wadekakem_updatetime']  ?></i></small></td>
+                                                    <td><small><?= $value['wadekakem_note']  ?></small></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Wadek Sumda</strong><small><br>
+                                                            <?php
+                                                            foreach ($detailProposalNoteWadekSumda as $key => $e) { ?>
+                                                                <?= $e['nama']  ?>
+                                                            <?php  } ?>
+                                                            <i><?= $value['wadeksumda_updatetime']  ?></i></small></td>
+                                                    <td><small><?= $value['wadeksumda_note']  ?></small></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Dekan</strong><small><br>
+                                                            <?php
+                                                            foreach ($detailProposalNoteDekan as $key => $f) { ?>
+                                                                <?= $f['nama']  ?>
+                                                            <?php  } ?>
+                                                            <i><?= $value['dekan_updatetime']  ?></i></small></td>
+                                                    <td><small><?= $value['dekan_note']  ?></small></td>
+                                                </tr>
                                             <?php  } ?>
-                                        </div>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
         </div>
-        </section>
     </div>
-</div>
 </div>
