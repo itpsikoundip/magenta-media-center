@@ -26,27 +26,27 @@ class SurveyDosen extends Migration
             'sangat_baik' => [
                 'type' => 'INT',
                 'constraint' => '255',
-                'null' => TRUE,
+                'default' => 0,
             ],
             'baik' => [
                 'type' => 'INT',
                 'constraint' => '255',
-                'null' => TRUE,
+                'default' => 0,
             ],
             'cukup' => [
                 'type' => 'INT',
                 'constraint' => '255',
-                'null' => TRUE,
+                'default' => 0,
             ],
             'buruk' => [
                 'type' => 'INT',
                 'constraint' => '255',
-                'null' => TRUE,
+                'default' => 0,
             ],
             'sangat_buruk' => [
                 'type' => 'INT',
                 'constraint' => '255',
-                'null' => TRUE,
+                'default' => 0,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -63,6 +63,6 @@ class SurveyDosen extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('survey_dosen');
+        $this->forge->dropTable('survey_dosen',true);
     }
 }

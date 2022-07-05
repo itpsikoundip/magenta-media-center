@@ -26,6 +26,6 @@ class RefStaffdosenDepartemen extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('ref_stafdosen_departemen');
+        $this->forge->dropTable('ref_stafdosen_departemen',true);
     }
 }

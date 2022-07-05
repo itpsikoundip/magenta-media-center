@@ -24,7 +24,7 @@
                                     </div>
                                 </div>
                                 <div class="card-content">
-                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2"><span>Silahkan Masuk</span></p>
+                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2"><span>Silakan Masuk</span></p>
                                     <div class="card-body pt-0">
                                         <?php
                                         $errors = session()->getFlashdata('errors');

@@ -68,21 +68,21 @@ $routes->get('/grafikLulusan', 'backendGrafikLulusanController::index');
 //FRONTEND
 
 //3 Menu Card Landing
-$routes->get('/menuDisplay', 'frontendMenuDisplayController::index');
+$routes->get('/menuDisplay/(:num)', 'frontendMenuDisplayController::index/$1');
 
 //Table Select & Input Dosen
 $routes->get('/selectDosen', 'frontendSelectDosenController::index');
-$routes->get('/gotoInputDosen/(:num)', 'frontendSelectDosenController::gotoInputDosen/$1');
-$routes->get('/inputDosen/(:num)', 'frontendSelectDosenController::viewInputDosen/$1');
+$routes->get('/gotoInputDosen/(:num)/(:segment)', 'frontendSelectDosenController::gotoInputDosen/$1/$2');
+$routes->post('/inputDosen/(:num)/(:segment)', 'frontendSelectDosenController::inputDosen/$1/$2');
 
 //Table Select & Input Tenaga Kependidikan
 $routes->get('/selectKepend', 'frontendSelectKependController::index');
-$routes->get('/gotoInputKepend/(:num)', 'frontendSelectKependController::gotoInputKepend/$1');
-$routes->get('/inputKepend/(:num)', 'frontendSelectKependController::viewInputKepend/$1');
+$routes->get('/gotoInputKepend/(:num)/(:segment)', 'frontendSelectKependController::gotoInputKepend/$1/$2');
+$routes->post('/inputKepend/(:num)/(:segment)', 'frontendSelectKependController::inputKepend/$1/$2');
 
 //Survey Lulusan
 $routes->get('/inputLulusan', 'frontendInputLulusanController::index');
-$routes->post('/inputLulusan/addInputLulusan/(:num)', 'frontendInputLulusanController::addInputLulusan/$1');
+$routes->post('/inputLulusan/input/(:num)', 'frontendInputLulusanController::inputLulusan/$1');
 
 /*
  * --------------------------------------------------------------------

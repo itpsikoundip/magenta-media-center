@@ -45,6 +45,47 @@ class surveyDosenModel extends Model
         return $this->db->getFieldNames('survey_dosen');
     }
 
+    public function inputSkor($arrayInput)
+    {
+        $this->db->transStart();
+        foreach ($arrayInput as $input) {
+            switch ($input["value"]) {
+                case "1":
+                    $query = $this->db->query("SELECT sangat_baik FROM survey_dosen WHERE id = ?", $input["id"]);
+                    $row = $query->getRowArray();
+
+                    $this->db->table('survey_dosen')->update(['sangat_baik' => ++$row["sangat_baik"]], ['id' => $input["id"]]);
+                    break;
+                case "2":
+                    $query = $this->db->query("SELECT baik FROM survey_dosen WHERE id = ?", $input["id"]);
+                    $row = $query->getRowArray();
+
+                    $this->db->table('survey_dosen')->update(['baik' => ++$row["baik"]], ['id' => $input["id"]]);
+                    break;
+                case "3":
+                    $query = $this->db->query("SELECT cukup FROM survey_dosen WHERE id = ?", $input["id"]);
+                    $row = $query->getRowArray();
+
+                    $this->db->table('survey_dosen')->update(['cukup' => ++$row["cukup"]], ['id' => $input["id"]]);
+                    break;
+                case "4":
+                    $query = $this->db->query("SELECT buruk FROM survey_dosen WHERE id = ?", $input["id"]);
+                    $row = $query->getRowArray();
+
+                    $this->db->table('survey_dosen')->update(['buruk' => ++$row["buruk"]], ['id' => $input["id"]]);
+                    break;
+                default:
+                    $query = $this->db->query("SELECT sangat_buruk FROM survey_dosen WHERE id = ?", $input["id"]);
+                    $row = $query->getRowArray();
+
+                    $this->db->table('survey_dosen')->update(['sangat_buruk' => ++$row["sangat_buruk"]], ['id' => $input["id"]]);
+            }
+        }
+        $this->db->transComplete();
+
+        return $this->db->transStatus();
+    }
+
 
     function getAll()
     {
@@ -53,14 +94,6 @@ class surveyDosenModel extends Model
         $query = $builder->get();
 
         return $query->getResult();
-    }
-
-    function getPertanyaaan($pertanyaan)
-    {
-        $builder = $this->db->table('survey_dosen');
-        $query = $builder->getWhere(['pertanyaan' => $pertanyaan]);
-
-        return $query;
     }
 
     function getAllInputDosen($id)

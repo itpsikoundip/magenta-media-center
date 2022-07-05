@@ -17,7 +17,7 @@ class IndikatorSeeder extends Seeder
                 'updated_at'        => Time::now()
             ],
             [
-                'indikator'               => ' Baik',
+                'indikator'               => 'Baik',
                 'skor'              => 0,
                 'created_at'        => Time::now(),
                 'updated_at'        => Time::now()

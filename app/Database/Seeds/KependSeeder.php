@@ -113,13 +113,13 @@ class KependSeeder extends Seeder
                 'updated_at'        => Time::now()
             ],
             [
-                'nip'               => '198805232009082001',
+                'nip'               => 'H.7.198805232009082001',
                 'nama_lengkap'      => 'Resti Fitria Dewi, S.E.',
                 'created_at'        => Time::now(),
                 'updated_at'        => Time::now()
             ],
             [
-                'nip'               => '198407072010062001',
+                'nip'               => 'H.7.198407072010062001',
                 'nama_lengkap'      => 'Nur Fitriani Utami, A.Md',
                 'created_at'        => Time::now(),
                 'updated_at'        => Time::now()
@@ -155,55 +155,55 @@ class KependSeeder extends Seeder
                 'updated_at'        => Time::now()
             ],
             [
-                'nip'               => '198709082021042001',
+                'nip'               => 'H.7.198709082021042001',
                 'nama_lengkap'      => 'Kristiani Nira Wijayanti, S.Psi.',
                 'created_at'        => Time::now(),
                 'updated_at'        => Time::now()
             ],
             [
-                'nip'               => '198206072021041001',
+                'nip'               => 'H.7.H.7.198206072021041001',
                 'nama_lengkap'      => 'Joni Syahbana',
                 'created_at'        => Time::now(),
                 'updated_at'        => Time::now()
             ],
             [
-                'nip'               => '198212242021041001',
+                'nip'               => 'H.7.198212242021041001',
                 'nama_lengkap'      => 'Didi Herman Susilo, A.Md.',
                 'created_at'        => Time::now(),
                 'updated_at'        => Time::now()
             ],
             [
-                'nip'               => '199501172021102001',
+                'nip'               => 'H.7.199501172021102001',
                 'nama_lengkap'      => 'Anggit Dwi Nugraheni, S.Ak.',
                 'created_at'        => Time::now(),
                 'updated_at'        => Time::now()
             ],
             [
-                'nip'               => '199405192021102001',
+                'nip'               => 'H.7.199405192021102001',
                 'nama_lengkap'      => 'Dwi Widyastuti, A.Md.Kom.',
                 'created_at'        => Time::now(),
                 'updated_at'        => Time::now()
             ],
             [
-                'nip'               => '199412262021101001',
+                'nip'               => 'H.7.199412262021101001',
                 'nama_lengkap'      => 'Muhamad Rohmatul Amin',
                 'created_at'        => Time::now(),
                 'updated_at'        => Time::now()
             ],
             [
-                'nip'               => '198808152022041001',
+                'nip'               => 'H.7.198808152022041001',
                 'nama_lengkap'      => 'Ahsanur Rozal',
                 'created_at'        => Time::now(),
                 'updated_at'        => Time::now()
             ],
             [
-                'nip'               => '199210042022041001',
+                'nip'               => 'H.7.199210042022041001',
                 'nama_lengkap'      => 'Nanang Setiono',
                 'created_at'        => Time::now(),
                 'updated_at'        => Time::now()
             ],
             [
-                'nip'               => '199808072022041001',
+                'nip'               => 'H.7.199808072022041001',
                 'nama_lengkap'      => 'Muhammad Furqon Warid',
                 'created_at'        => Time::now(),
                 'updated_at'        => Time::now()

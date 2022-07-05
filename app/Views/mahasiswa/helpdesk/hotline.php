@@ -13,8 +13,17 @@
             </div>
         </div>
         <hr class="mb-2 mt-0">
+        <div class="content-header row">
+            <div class="align-self-center col-md-7 col-12 mb-2">
+                <!-- <h1 class="mb-2"><b>Hotline<br>Fakultas Psikologi UNDIP!</b></h1> -->
+                <h4>Butuh bantuan atau jawaban segera? Sampaikan saja, kami siap membantumu.</h4>
+            </div>
+            <div class="col-md-5 col-12 mb-2 breadcrumb-new">
+                <img src="/images/hotline.png" alt="" style="width:100%">
+            </div>
+        </div>
         <div class="content-body">
-            <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
+            <div class="card card-content px-1 pt-3">
                 <form class="form form-horizontal">
                     <div class="form-body">
                         <div class="form-group row">
@@ -45,15 +54,15 @@
                                 if (topik == 0) {
                                     target.innerHTML = '<a href="https://wa.me/628112666204?text=[TANYA HOTLINE PSIKOLOGI]%0A%0A" class="btn btn-success disabled" target="blank">Tanyakan lewat WhatsApp</a>';
                                 } else if (topik == 1) {
-                                    target.innerHTML = '<a href="https://wa.me/628112666204?text=[TANYA HOTLINE PSIKOLOGI]%0A%0A' + pesan + '" class="btn btn-success" target="blank">Tanyakan ke bagian Akademik</a>';
+                                    target.innerHTML = '<a href="https://wa.me/628112666204?text=[TANYA HOTLINE AKADEMIK]%0A%0A' + pesan + '" class="btn btn-success" target="blank">Tanyakan ke bagian Akademik</a>';
                                 } else if (topik == 2) {
-                                    target.innerHTML = '<a href="https://wa.me/6285602577471?text=[TANYA HOTLINE PSIKOLOGI]%0A%0A' + pesan + '" class="btn btn-success" target="blank">Tanyakan ke bagian Kemahasiswaan</a>';
+                                    target.innerHTML = '<a href="https://wa.me/6285602577471?text=[TANYA HOTLINE KEMAHASISWAAN]%0A%0A' + pesan + '" class="btn btn-success" target="blank">Tanyakan ke bagian Kemahasiswaan</a>';
                                 } else if (topik == 3) {
-                                    target.innerHTML = '<a href="https://wa.me/6282313758289?text=[TANYA HOTLINE PSIKOLOGI]%0A%0A' + pesan + '" class="btn btn-success" target="blank">Tanyakan ke bagian Keuangan</a>';
+                                    target.innerHTML = '<a href="https://wa.me/6282313758289?text=[TANYA HOTLINE KEUANGAN KULIAH]%0A%0A' + pesan + '" class="btn btn-success" target="blank">Tanyakan ke bagian Keuangan</a>';
                                 } else if (topik == 4) {
-                                    target.innerHTML = '<a href="https://wa.me/6285602577471?text=[TANYA HOTLINE PSIKOLOGI]%0A%0A' + pesan + '" class="btn btn-success" target="blank">Tanyakan ke bagian Sarana & Prasarana</a>';
+                                    target.innerHTML = '<a href="https://wa.me/6285602577471?text=[TANYA HOTLINE SARANA & PRASARANA]%0A%0A' + pesan + '" class="btn btn-success" target="blank">Tanyakan ke bagian Sarana & Prasarana</a>';
                                 } else if (topik == 5) {
-                                    target.innerHTML = '<a href="https://wa.me/6285602577471?text=[TANYA HOTLINE PSIKOLOGI]%0A%0A' + pesan + '" class="btn btn-success" target="blank">Tanyakan ke bagian Kerja Sama</a>';
+                                    target.innerHTML = '<a href="https://wa.me/6285602577471?text=[TANYA HOTLINE KERJA SAMA]%0A%0A' + pesan + '" class="btn btn-success" target="blank">Tanyakan ke bagian Kerja Sama</a>';
                                 } else if (topik == 6) {
                                     target.innerHTML = '<a href="https://wa.me/6285602577471?text=[TANYA HOTLINE PSIKOLOGI]%0A%0A' + pesan + '" class="btn btn-success" target="blank">Tanyakan ke bagian Lainnya</a>';
                                 }

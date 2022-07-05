@@ -16,18 +16,18 @@
 <div class="bg-input">
     <div class="app-content content">
         <div class="container my-5">
-            <section class="content-header row">
-                <section id="decks">
-                    <div class="row">
-                        <div class="col-12 mt-3 mb-1">
-                            <h1 class="mb-4 display-3 text-center text-white"><b>Selamat datang di halaman <br>survey Magenta Media Center</b></h1>
-                        </div>
+            <section id="decks">
+                <div class="row">
+                    <div class="col my-3 d-none d-md-block">
+                        <h1 class="mb-4 display-3 text-center text-white"><b>Selamat datang di halaman <br>survey Magenta Media Center</b></h1>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card-deck-wrapper">
-                                <div class="card-deck">
-                                    <div class="card m-2">
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card-deck-wrapper">
+                            <div class="card-deck">
+                                <?php if ($isMhs == 1) : ?>
+                                    <div class="card mx-3 mb-1">
                                         <a href="/selectDosen">
                                             <div class="card-content m-2">
                                                 <img class="card-img-top img-fluid" src="/images/homeKepend.jpg" alt="Card image cap" />
@@ -38,7 +38,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="card m-2">
+                                    <div class="card mx-3 mb-1">
                                         <a href="/selectKepend">
                                             <div class="card-content m-2">
                                                 <img class="card-img-top img-fluid" src="/images/homeDosen.jpg" alt="Card image cap" />
@@ -49,7 +49,8 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="card m-2">
+                                <?php else : ?>
+                                    <div class="card mx-3 mb-3">
                                         <a href="/inputLulusan">
                                             <div class="card-content m-2">
                                                 <img class="card-img-top img-fluid" src="/images/homeLus.jpg" alt="Card image cap" />
@@ -60,11 +61,11 @@
                                             </div>
                                         </a>
                                     </div>
-                                </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </section>
         </div>
     </div>
