@@ -44,13 +44,13 @@ class ModelLogin extends Model
             ])->get()->getRowArray();
     }
 
-    public function loginLvlStaffDosen($email, $password)
+    public function loginLvlStaffDosen($username, $password)
     {
         return $this->db->table('user_staffdosen')
-            ->join('tbl_staffdosen', 'tbl_staffdosen.id_staffdosen = user_staffdosen.staffdosen_id')
-            ->join('tbl_jabatan_departemen', 'tbl_jabatan_departemen.id_jabatandepartemen = tbl_staffdosen.jabatan_departemen_id')
+            ->join('data_staffdosen', 'data_staffdosen.id_staffdosen = user_staffdosen.staffdosen_id')
+            ->join('ref_stafdosen_unit', 'ref_stafdosen_unit.id_unit = data_staffdosen.unit_id')
             ->where([
-                'email' => $email,
+                'nip' => $username,
                 'password' => $password
             ])->get()->getRowArray();
     }
