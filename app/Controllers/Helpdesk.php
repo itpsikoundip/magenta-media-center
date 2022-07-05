@@ -45,6 +45,8 @@ class Helpdesk extends BaseController
         $topik_id       = $this->request->getPost('inputTopik');
         $subjek         = $this->request->getPost('inputSubjek');
         $detail         = $this->request->getPost('inputDetail');
+        $lampiran       = $this->request->getFile('inputLampiran');
+        $namaLampiran   = $lampiran->getRandomName();
         $mahasiswa_id   = session()->nim; 
 
         $data = [
@@ -52,9 +54,11 @@ class Helpdesk extends BaseController
             'subjek'        => $subjek,
             'detail'        => $detail,
             'mahasiswa_id'  => $mahasiswa_id,
+            'lampiran'      => $namaLampiran,
             'created_at'    => Time::now('Asia/Jakarta'),
         ];
 
+        $lampiran->move('lampiran-helpdesk', $namaLampiran);
         $result = $this->ModelHelpdesk->insertTiket($data);
         // dd($result);
         if($result){   
