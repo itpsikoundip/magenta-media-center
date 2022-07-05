@@ -14,9 +14,9 @@ class Ormawa extends Migration
                 'type'          => 'INT',
                 'constraint'    => 6,
                 'unsigned'      => TRUE,
-                'auto_increment'=> TRUE, 
+                'auto_increment' => TRUE,
             ],
-            'nama' => [
+            'nama_ormawa' => [
                 'type'          => 'VARCHAR',
                 'constraint'    => '255',
             ],
