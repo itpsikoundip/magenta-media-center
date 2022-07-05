@@ -40,6 +40,7 @@ class Proposal extends BaseController
     {
         $data = [
             'title' => 'Pengajuan Proposal',
+            'dataOrmawa' => $this->ModelProposal->allDataOrmawa(),
             'isi'    => 'mahasiswa/proposal/pengajuan'
         ];
         return view('layouts/mahasiswa-wrapper', $data);

@@ -91,7 +91,12 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Organisasi / Lembaga <strong>*</strong></label>
-                                                <input type="text" class="form-control" maxlength="255" placeholder="Nama Organisasi / Lembaga Pengaju Proposal" name="organisasiLembaga" required>
+                                                <select name="organisasiLembaga" class="form-control custom-select" required>
+                                                    <option value="none" disabled>-- Pilih Jenis Studi --</option>
+                                                    <?php foreach ($dataOrmawa as $key => $value) { ?>
+                                                        <option value="<?= $value['id'] ?>"><?= $value['nama'] ?></option>
+                                                    <?php } ?>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-4">

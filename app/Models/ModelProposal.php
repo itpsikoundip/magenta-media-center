@@ -14,6 +14,13 @@ class ModelProposal extends Model
             ->get()->getResultArray();
     }
 
+    // Proposal Semua Status
+    public function allDataOrmawa()
+    {
+        return $this->db->table('ormawa')
+            ->get()->getResultArray();
+    }
+
     // Proposal Staus 0 = Draft
     public function allDataStatus0()
     {
