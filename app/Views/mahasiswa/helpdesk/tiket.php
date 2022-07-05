@@ -93,15 +93,17 @@
                                 <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
                                     <div id="accordionWrap1" role="tablist" aria-multiselectable="true">
                                         <div class="card collapse-icon panel mb-0 box-shadow-0 border-0">
-                                            <?php foreach ($riwayatTiket as $riwayat) {
-                                                # code...
-                                            } ?>
+                                            <?php 
+                                            $i = 1;
+                                            foreach($riwayatTiket as $riwayat){
+                                            ?>
+                                            
                                             <div role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                                <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion12" aria-expanded="false" aria-controls="accordion12" class="h6 blue collapsed">
-                                                    Akses Wifi tidak bisa
+                                                <a data-toggle="collapse" data-parent="#accordion<?php echo $i ?>" href="#accordion<?php echo $i ?>" aria-expanded="false" aria-controls="accordion<?php echo $i ?>" class="h6 blue collapsed">
+                                                    <?php echo $riwayat->subjek?>
                                                 </a>
                                             </div>
-                                            <div id="accordion12" role="tabpanel" aria-labelledby="heading12" class="collapse" aria-expanded="false">
+                                            <div id="accordion<?php echo $i ?>" role="tabpanel" aria-labelledby="heading<?php echo $i ?>" class="collapse" aria-expanded="false">
                                                 <div class="card-body">
                                                     <div class="row match-height">
                                                         <div class="col-sm-4">
@@ -118,32 +120,33 @@
                                                         <div class="col-sm-8">
                                                             <div class="card">
                                                                 <div class="card-content">
-                                                                    <h4 class="card-title">ID Tiket : 4890423</h4>
+                                                                    <h4 class="card-title">ID Tiket: <?php echo $riwayat->id ?></h4>
                                                                     <div class="table-responsive">
                                                                         <table class="table">
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <th scope="row">Tanggal</th>
-                                                                                    <td>17 Juni 2022, 09.30</td>
+                                                                                    <td><?php echo date("d M Y, H:i", strtotime($riwayat->created_at)) ?></td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th scope="row">Topik</th>
-                                                                                    <td>IT - Akses Internet</td>
+                                                                                    <td>
+                                                                                        <?php
+                                                                                        if($riwayat->topik_id == 1) echo 'Akademik'; 
+                                                                                        elseif($riwayat->topik_id == 2) echo 'Non-akademik';
+                                                                                        ?>
+                                                                                    </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th scope="row">Detail</th>
                                                                                     <td>
-                                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ultrices, elit pulvinar lobortis egestas, turpis ligula sollicitudin dolor, eu pharetra
-                                                                                        enim lacus nec leo. Vestibulum mollis tellus non ante interdum posuere. Nulla viverra, lorem et vehicula varius, orci magna rhoncus erat, vitae rhoncus
-                                                                                        nulla nibh ultricies risus. In hac habitasse platea dictumst.
+                                                                                    <?php echo $riwayat->detail ?>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th scope="row">Jawaban</th>
                                                                                     <td>
-                                                                                        Suspendisse lacinia dolor quam, ut rutrum est ultricies quis. Sed congue nulla a suscipit
-                                                                                        mollis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse tincidunt ultrices turpis. Nulla fringilla
-                                                                                        sollicitudin justo, vitae viverra turpis accumsan a. Praesent mattis tempus nibh, ac cursus felis feugiat non. Mauris mattis hendrerit aliquam.
+                                                                                    <?php echo $riwayat->jawaban ?>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -155,73 +158,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div id="heading13" role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                                <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion13" aria-expanded="false" aria-controls="accordion13" class="h6 blue collapsed">Accordion Group Item #3</a>
-                                            </div>
-                                            <div id="accordion13" role="tabpanel" aria-labelledby="heading13" class="collapse" aria-expanded="false">
-                                                <div class="card-body">
-                                                    <div class="row match-height">
-                                                        <div class="col-sm-4">
-                                                            <div class="card">
-                                                                <div class="card-content">
-                                                                    <img class="card-img-top img-fluid" src="<?php echo base_url('robust/app-assets/images/carousel/06.jpg') ?>" alt="Card image cap">
-                                                                    <div class="card-body">
-                                                                        <h4 class="card-title">Nama File</h4>
-                                                                        <a href="#" class="btn btn-outline-amber">Lihat File</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-8">
-                                                            <div class="card">
-                                                                <div class="card-content">
-                                                                    <h4 class="card-title">ID Tiket : 4890423</h4>
-                                                                    <div class="table-responsive">
-                                                                        <table class="table">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <th scope="row">Nama Lengkap</th>
-                                                                                    <td>Gading Ihsan</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row">E-Mail</th>
-                                                                                    <td>gadingihsancahya@gmail.com</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row">Nomor HP</th>
-                                                                                    <td>085602577471</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row">Topik</th>
-                                                                                    <td>IT - Akses Internet</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row">Ringkasan / Subjek</th>
-                                                                                    <td>Akses Wifi tidak bisa</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row">Permasalahan</th>
-                                                                                    <td>View</td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div id="heading14" role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                                <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion14" aria-expanded="false" aria-controls="accordion14" class="h6 blue collapsed">Accordion Group Item #4</a>
-                                            </div>
-                                            <div id="accordion14" role="tabpanel" aria-labelledby="heading14" class="card-collapse collapse" aria-expanded="false" style="height: 0px;">
-                                                <div class="card-body">
-                                                    <p class="card-text">Sesame snaps chocolate lollipop sesame snaps apple pie chocolate cake sweet roll. Dragée candy canes carrot cake chupa chups danish cake sugar plum candy.</p>
-                                                </div>
-                                            </div>
+                                            <?php
+                                            $i++;
+                                            } 
+                                            ?>
 
                                         </div>
                                     </div>
