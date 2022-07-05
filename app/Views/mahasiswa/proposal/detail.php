@@ -24,7 +24,7 @@
         <hr class="mb-2 mt-0">
         <div class="content-body">
             <div class="row">
-                <div class="col-3">
+                <div class="col-4">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Status Proposal</h4>
@@ -32,9 +32,7 @@
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
                                     <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
                                     <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                    <li><a data-action="close"><i class="ft-x"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -58,9 +56,9 @@
                                                     } elseif (($value['bem_status']) == 1) {
                                                         echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                     } elseif (($value['bem_status']) == 2) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
+                                                        echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</a>';
                                                     } elseif (($value['bem_status']) == 3) {
-                                                        echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
+                                                        echo '<div class="badge badge-success">Diterima</div>';
                                                     }
                                                     ?>
                                                 </td>
@@ -71,11 +69,11 @@
                                                     <?php if ($value['akademik_status'] == 0) {
                                                         echo '';
                                                     } elseif (($value['akademik_status']) == 1) {
-                                                        echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
-                                                    } elseif (($value['akademik_status']) == 2) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
-                                                    } elseif (($value['akademik_status']) == 3) {
                                                         echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
+                                                    } elseif (($value['akademik_status']) == 2) {
+                                                        echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                    } elseif (($value['akademik_status']) == 3) {
+                                                        echo '<div class="badge badge-success">Diterima</div>';
                                                     }
                                                     ?>
                                                 </td>
@@ -86,11 +84,11 @@
                                                     <?php if ($value['sumberdaya_status'] == 0) {
                                                         echo '';
                                                     } elseif (($value['sumberdaya_status']) == 1) {
-                                                        echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
-                                                    } elseif (($value['sumberdaya_status']) == 2) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
-                                                    } elseif (($value['sumberdaya_status']) == 3) {
                                                         echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
+                                                    } elseif (($value['sumberdaya_status']) == 2) {
+                                                        echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                    } elseif (($value['sumberdaya_status']) == 3) {
+                                                        echo '<div class="badge badge-success">Diterima</div>';
                                                     }
                                                     ?>
                                                 </td>
@@ -101,56 +99,74 @@
                                                     <?php if ($value['tatausaha_status'] == 0) {
                                                         echo '';
                                                     } elseif (($value['tatausaha_status']) == 1) {
-                                                        echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                        echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
                                                     } elseif (($value['tatausaha_status']) == 2) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
+                                                        echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                     } elseif (($value['tatausaha_status']) == 3) {
+                                                        echo '<div class="badge badge-success">Diterima</div>';
+                                                    }
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                            <?php if ($value['jenispendidikan_propo'] == 1) { ?>
+                                                <tr>
+                                                    <td>Kaprodi S1</td>
+                                                    <td>
+                                                        <?php if ($value['kaprodis1_status'] == 0) {
+                                                            echo '';
+                                                        } elseif (($value['kaprodis1_status']) == 1) {
+                                                            echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
+                                                        } elseif (($value['kaprodis1_status']) == 2) {
+                                                            echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                        } elseif (($value['kaprodis1_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Diterima</div>';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                </tr>
+                                            <?php } elseif ($value['jenispendidikan_propo'] == 2) { ?>
+                                                <tr>
+                                                    <td>Kaprodi S2</td>
+                                                    <td>
+                                                        <?php if ($value['kaprodis2_status'] == 0) {
+                                                            echo '';
+                                                        } elseif (($value['kaprodis2_status']) == 1) {
+                                                            echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
+                                                        } elseif (($value['kaprodis2_status']) == 2) {
+                                                            echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                        } elseif (($value['kaprodis2_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Diterima</div>';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
+                                            <tr>
+                                                <td>Wadek Akem</td>
+                                                <td>
+                                                    <?php if ($value['wadekakem_status'] == 0) {
+                                                        echo '';
+                                                    } elseif (($value['wadekakem_status']) == 1) {
                                                         echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
+                                                    } elseif (($value['wadekakem_status']) == 2) {
+                                                        echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                    } elseif (($value['wadekakem_status']) == 3) {
+                                                        echo '<div class="badge badge-success">Diterima</div>';
                                                     }
                                                     ?>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Kaprodi S1</td>
+                                                <td>Wadek Sumda</td>
                                                 <td>
-                                                    <?php if ($value['kaprodis1_status'] == 0) {
+                                                    <?php if ($value['wadeksumda_status'] == 0) {
                                                         echo '';
-                                                    } elseif (($value['kaprodis1_status']) == 1) {
-                                                        echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
-                                                    } elseif (($value['kaprodis1_status']) == 2) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
-                                                    } elseif (($value['kaprodis1_status']) == 3) {
+                                                    } elseif (($value['wadeksumda_status']) == 1) {
                                                         echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
-                                                    }
-                                                    ?>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Wadek 1</td>
-                                                <td>
-                                                    <?php if ($value['wadek1_status'] == 0) {
-                                                        echo '';
-                                                    } elseif (($value['wadek1_status']) == 1) {
+                                                    } elseif (($value['wadeksumda_status']) == 2) {
                                                         echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
-                                                    } elseif (($value['wadek1_status']) == 2) {
+                                                    } elseif (($value['wadeksumda_status']) == 3) {
                                                         echo '<div class="badge badge-success">Diterima</div>';
-                                                    } elseif (($value['wadek1_status']) == 3) {
-                                                        echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
-                                                    }
-                                                    ?>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Wadek 2</td>
-                                                <td>
-                                                    <?php if ($value['wadek2_status'] == 0) {
-                                                        echo '';
-                                                    } elseif (($value['wadek2_status']) == 1) {
-                                                        echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
-                                                    } elseif (($value['wadek2_status']) == 2) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
-                                                    } elseif (($value['wadek2_status']) == 3) {
-                                                        echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
                                                     }
                                                     ?>
                                                 </td>
@@ -161,11 +177,11 @@
                                                     <?php if ($value['dekan_status'] == 0) {
                                                         echo '';
                                                     } elseif (($value['dekan_status']) == 1) {
-                                                        echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
-                                                    } elseif (($value['dekan_status']) == 2) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
-                                                    } elseif (($value['dekan_status']) == 3) {
                                                         echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
+                                                    } elseif (($value['dekan_status']) == 2) {
+                                                        echo '<a href="/Proposal/edit/' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                    } elseif (($value['dekan_status']) == 3) {
+                                                        echo '<div class="badge badge-success">Diterima</div>';
                                                     }
                                                     ?>
                                                 </td>
@@ -188,7 +204,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-9">
+                <div class="col-8">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Informasi Proposal</h4>
@@ -209,6 +225,10 @@
                                         <tr>
                                             <th scope="row">Nama Kegiatan</th>
                                             <td>: <?= $value['nama_keg']  ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Pendidikan</th>
+                                            <td>: <?= $value['jenispendidikan_propo']  ?></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Tahun Anggaran</th>

@@ -40,11 +40,15 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">Jenis Proposal</th>
-                                            <td>: <?= $value['nama_jenis']  ?></td>
+                                            <td>: <?= $value['jenis_propo']  ?></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Nama Kegiatan</th>
                                             <td>: <?= $value['nama_keg']  ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Pendidikan</th>
+                                            <td>: <?= $value['jenispendidikan_propo']  ?></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Tahun Anggaran</th>
@@ -110,31 +114,371 @@
                         <div class="card-header">
                             <h4 class="card-title">Catatan Revisi / Perbaikan</h4>
                         </div>
-                        <div class="card-block">
-                            <div class="card-body">
-                                <div class="form">
+                        <div class="card-body">
+                            <?php
+                            foreach ($detailProposal as $key => $value) { ?>
+                                <!-- Unit Subbagian Akademik dan Kemahasiswaan FPSi -->
+                                <?php if (session()->get('unit') == 2) { ?>
+                                    <?php
+                                    echo form_open('Proposals/editDataAkademikCatatan/' . $value['id_propo']);
+                                    ?>
                                     <fieldset class="form-group">
-                                        <textarea class="form-control" id="basicTextarea" rows="3"></textarea>
+                                        <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['akademik_note']  ?></textarea>
                                     </fieldset>
-                                    <p>- tertanda <i><?= session()->get('nama') ?></i></p>
-                                    <a href="#" class="btn btn-primary btn-block">Simpan</a>
-                                </div>
-                            </div>
+                                    <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                    <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                    <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                    <?php echo form_close() ?>
+                                    <!-- Subbagian Sumberdaya FPSi -->
+                                <?php } elseif (session()->get('unit') == 3) { ?>
+                                    <?php
+                                    echo form_open('Proposals/editDataSumberdayaCatatan/' . $value['id_propo']);
+                                    ?>
+                                    <fieldset class="form-group">
+                                        <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['sumberdaya_note']  ?></textarea>
+                                    </fieldset>
+                                    <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                    <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                    <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                    <?php echo form_close() ?>
+                                    <!-- Tata Usaha -->
+                                <?php } elseif (session()->get('unit') == 4) { ?>
+                                    <?php
+                                    echo form_open('Proposals/editDataTataUsahaCatatan/' . $value['id_propo']);
+                                    ?>
+                                    <fieldset class="form-group">
+                                        <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['tatausaha_note']  ?></textarea>
+                                    </fieldset>
+                                    <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                    <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                    <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                    <?php echo form_close() ?>
+                                    <!-- Wadek Akademik dan Kemahasiswaan -->
+                                <?php } elseif (session()->get('unit') == 5) { ?>
+                                    <?php
+                                    echo form_open('Proposals/editDataWadekAkemCatatan/' . $value['id_propo']);
+                                    ?>
+                                    <fieldset class="form-group">
+                                        <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['wadekakem_note']  ?></textarea>
+                                    </fieldset>
+                                    <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                    <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                    <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                    <?php echo form_close() ?>
+                                    <!-- Wadek Sumber Daya -->
+                                <?php } elseif (session()->get('unit') == 6) { ?>
+                                    <?php
+                                    echo form_open('Proposals/editDataWadekSumdaCatatan/' . $value['id_propo']);
+                                    ?>
+                                    <fieldset class="form-group">
+                                        <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['wadeksumda_note']  ?></textarea>
+                                    </fieldset>
+                                    <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                    <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                    <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                    <?php echo form_close() ?>
+                                    <!-- Kaprodi S1 -->
+                                <?php } elseif (session()->get('unit') == 7) { ?>
+                                    <?php
+                                    echo form_open('Proposals/editDataKaprodiS1Catatan/' . $value['id_propo']);
+                                    ?>
+                                    <fieldset class="form-group">
+                                        <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['kaprodis1_note']  ?></textarea>
+                                    </fieldset>
+                                    <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                    <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                    <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                    <?php echo form_close() ?>
+                                    <!-- Kaprodi S2 -->
+                                <?php } elseif (session()->get('unit') == 8) { ?>
+                                    <?php
+                                    echo form_open('Proposals/editDataKaprodiS2Catatan/' . $value['id_propo']);
+                                    ?>
+                                    <fieldset class="form-group">
+                                        <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['kaprodis2_note']  ?></textarea>
+                                    </fieldset>
+                                    <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                    <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                    <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                    <?php echo form_close() ?>
+                                    <!-- Dekan -->
+                                <?php } elseif (session()->get('unit') == 9) { ?>
+                                    <?php
+                                    echo form_open('Proposals/editDataDekanCatatan/' . $value['id_propo']);
+                                    ?>
+                                    <fieldset class="form-group">
+                                        <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['dekan_note']  ?></textarea>
+                                    </fieldset>
+                                    <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                    <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                    <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                    <?php echo form_close() ?>
+                                <?php } ?>
+                            <?php  } ?>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Status</h4>
+                            <h4 class="card-title">Status Proposal</h4>
                         </div>
-                        <div class="card-block">
-                            <div class="card-body">
-                                <select class="form-control" id="basicSelect">
-                                    <option>Pilih Status</option>
-                                    <option>Disetujui</option>
-                                    <option>Perbaikan</option>
-                                </select>
-                                <a href="#" class="btn btn-primary btn-block mt-2">Simpan</a>
-                            </div>
+                        <div class="card-body">
+                            <!-- Unit Subbagian Akademik dan Kemahasiswaan FPSi -->
+                            <?php if (session()->get('unit') == 2) { ?>
+                                <div class="alert alert-info mb-2" role="alert">
+                                    Status saat ini :
+                                    <strong>
+                                        <?php if ($value['akademik_status'] == 0) {
+                                            echo 'Belum ada status';
+                                        } elseif (($value['akademik_status']) == 1) {
+                                            echo 'Ditolak';
+                                        } elseif (($value['akademik_status']) == 2) {
+                                            echo 'Perbaikan';
+                                        } elseif (($value['akademik_status']) == 3) {
+                                            echo 'Disetujui';
+                                        }
+                                        ?>
+                                    </strong>
+                                </div>
+                                <?php
+                                echo form_open('Proposals/editDataAkademikStatus/' . $value['id_propo']);
+                                ?>
+                                <fieldset class="form-group">
+                                    <select class="form-control" name="statusPropo">
+                                        <option hidden>-- Pilih Status Proposal --</option>
+                                        <option value="3">Disetujui</option>
+                                        <option value="2">Perbaikan</option>
+                                        <option value="1">Ditolak</option>
+                                    </select>
+                                </fieldset>
+                                <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                <?php echo form_close() ?>
+                                <!-- Subbagian Sumberdaya FPSi -->
+                            <?php } elseif (session()->get('unit') == 3) { ?>
+                                <?php
+                                echo form_open('Proposals/editDataSumberdayaStatus/' . $value['id_propo']);
+                                ?>
+                                <div class="alert alert-info mb-2" role="alert">
+                                    Status saat ini :
+                                    <strong>
+                                        <?php if ($value['sumberdaya_status'] == 0) {
+                                            echo 'Belum ada status';
+                                        } elseif (($value['sumberdaya_status']) == 1) {
+                                            echo 'Ditolak';
+                                        } elseif (($value['sumberdaya_status']) == 2) {
+                                            echo 'Perbaikan';
+                                        } elseif (($value['sumberdaya_status']) == 3) {
+                                            echo 'Disetujui';
+                                        }
+                                        ?>
+                                    </strong>
+                                </div>
+                                <fieldset class="form-group">
+                                    <select class="form-control" name="statusPropo">
+                                        <option hidden>-- Pilih Status Proposal --</option>
+                                        <option value="3">Disetujui</option>
+                                        <option value="2">Perbaikan</option>
+                                        <option value="1">Ditolak</option>
+                                    </select>
+                                </fieldset>
+                                <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                <?php echo form_close() ?>
+                                <!-- Tata Usaha -->
+                            <?php } elseif (session()->get('unit') == 4) { ?>
+                                <?php
+                                echo form_open('Proposals/editDataTataUsahaStatus/' . $value['id_propo']);
+                                ?>
+                                <div class="alert alert-info mb-2" role="alert">
+                                    Status saat ini :
+                                    <strong>
+                                        <?php if ($value['tatausaha_status'] == 0) {
+                                            echo 'Belum ada status';
+                                        } elseif (($value['tatausaha_status']) == 1) {
+                                            echo 'Ditolak';
+                                        } elseif (($value['tatausaha_status']) == 2) {
+                                            echo 'Perbaikan';
+                                        } elseif (($value['tatausaha_status']) == 3) {
+                                            echo 'Disetujui';
+                                        }
+                                        ?>
+                                    </strong>
+                                </div>
+                                <fieldset class="form-group">
+                                    <select class="form-control" name="statusPropo">
+                                        <option hidden>-- Pilih Status Proposal --</option>
+                                        <option value="3">Disetujui</option>
+                                        <option value="2">Perbaikan</option>
+                                        <option value="1">Ditolak</option>
+                                    </select>
+                                </fieldset>
+                                <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                <?php echo form_close() ?>
+                                <!-- Wadek Akademik dan Kemahasiswaan -->
+                            <?php } elseif (session()->get('unit') == 5) { ?>
+                                <?php
+                                echo form_open('Proposals/editDataWadekAkemStatus/' . $value['id_propo']);
+                                ?>
+                                <div class="alert alert-info mb-2" role="alert">
+                                    Status saat ini :
+                                    <strong>
+                                        <?php if ($value['wadekakem_status'] == 0) {
+                                            echo 'Belum ada status';
+                                        } elseif (($value['wadekakem_status']) == 1) {
+                                            echo 'Ditolak';
+                                        } elseif (($value['wadekakem_status']) == 2) {
+                                            echo 'Perbaikan';
+                                        } elseif (($value['wadekakem_status']) == 3) {
+                                            echo 'Disetujui';
+                                        }
+                                        ?>
+                                    </strong>
+                                </div>
+                                <fieldset class="form-group">
+                                    <select class="form-control" name="statusPropo">
+                                        <option hidden>-- Pilih Status Proposal --</option>
+                                        <option value="3">Disetujui</option>
+                                        <option value="2">Perbaikan</option>
+                                        <option value="1">Ditolak</option>
+                                    </select>
+                                </fieldset>
+                                <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                <?php echo form_close() ?>
+                                <!-- Wadek Sumber Daya -->
+                            <?php } elseif (session()->get('unit') == 6) { ?>
+                                <?php
+                                echo form_open('Proposals/editDataWadekSumdaStatus/' . $value['id_propo']);
+                                ?>
+                                <div class="alert alert-info mb-2" role="alert">
+                                    Status saat ini :
+                                    <strong>
+                                        <?php if ($value['wadeksumda_status'] == 0) {
+                                            echo 'Belum ada status';
+                                        } elseif (($value['wadeksumda_status']) == 1) {
+                                            echo 'Ditolak';
+                                        } elseif (($value['wadeksumda_status']) == 2) {
+                                            echo 'Perbaikan';
+                                        } elseif (($value['wadeksumda_status']) == 3) {
+                                            echo 'Disetujui';
+                                        }
+                                        ?>
+                                    </strong>
+                                </div>
+                                <fieldset class="form-group">
+                                    <select class="form-control" name="statusPropo">
+                                        <option hidden>-- Pilih Status Proposal --</option>
+                                        <option value="3">Disetujui</option>
+                                        <option value="2">Perbaikan</option>
+                                        <option value="1">Ditolak</option>
+                                    </select>
+                                </fieldset>
+                                <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                <?php echo form_close() ?>
+                                <!-- Kaprodi S1 -->
+                            <?php } elseif (session()->get('unit') == 7) { ?>
+                                <?php
+                                echo form_open('Proposals/editDataKaprodiS1Status/' . $value['id_propo']);
+                                ?>
+                                <div class="alert alert-info mb-2" role="alert">
+                                    Status saat ini :
+                                    <strong>
+                                        <?php if ($value['kaprodis1_status'] == 0) {
+                                            echo 'Belum ada status';
+                                        } elseif (($value['kaprodis1_status']) == 1) {
+                                            echo 'Ditolak';
+                                        } elseif (($value['kaprodis1_status']) == 2) {
+                                            echo 'Perbaikan';
+                                        } elseif (($value['kaprodis1_status']) == 3) {
+                                            echo 'Disetujui';
+                                        }
+                                        ?>
+                                    </strong>
+                                </div>
+                                <fieldset class="form-group">
+                                    <select class="form-control" name="statusPropo">
+                                        <option hidden>-- Pilih Status Proposal --</option>
+                                        <option value="3">Disetujui</option>
+                                        <option value="2">Perbaikan</option>
+                                        <option value="1">Ditolak</option>
+                                    </select>
+                                </fieldset>
+                                <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                <?php echo form_close() ?>
+                                <!-- Kaprodi S2 -->
+                            <?php } elseif (session()->get('unit') == 8) { ?>
+                                <?php
+                                echo form_open('Proposals/editDataKaprodiS2Status/' . $value['id_propo']);
+                                ?>
+                                <div class="alert alert-info mb-2" role="alert">
+                                    Status saat ini :
+                                    <strong>
+                                        <?php if ($value['kaprodis2_status'] == 0) {
+                                            echo 'Belum ada status';
+                                        } elseif (($value['kaprodis2_status']) == 1) {
+                                            echo 'Ditolak';
+                                        } elseif (($value['kaprodis2_status']) == 2) {
+                                            echo 'Perbaikan';
+                                        } elseif (($value['kaprodis2_status']) == 3) {
+                                            echo 'Disetujui';
+                                        }
+                                        ?>
+                                    </strong>
+                                </div>
+                                <fieldset class="form-group">
+                                    <select class="form-control" name="statusPropo">
+                                        <option hidden>-- Pilih Status Proposal --</option>
+                                        <option value="3">Disetujui</option>
+                                        <option value="2">Perbaikan</option>
+                                        <option value="1">Ditolak</option>
+                                    </select>
+                                </fieldset>
+                                <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                <?php echo form_close() ?>
+                                <!-- Dekan -->
+                            <?php } elseif (session()->get('unit') == 9) { ?>
+                                <?php
+                                echo form_open('Proposals/editDataDekanStatus/' . $value['id_propo']);
+                                ?>
+                                <div class="alert alert-info mb-2" role="alert">
+                                    Status saat ini :
+                                    <strong>
+                                        <?php if ($value['dekan_status'] == 0) {
+                                            echo 'Belum ada status';
+                                        } elseif (($value['dekan_status']) == 1) {
+                                            echo 'Ditolak';
+                                        } elseif (($value['dekan_status']) == 2) {
+                                            echo 'Perbaikan';
+                                        } elseif (($value['dekan_status']) == 3) {
+                                            echo 'Disetujui';
+                                        }
+                                        ?>
+                                    </strong>
+                                </div>
+                                <fieldset class="form-group">
+                                    <select class="form-control" name="statusPropo">
+                                        <option hidden>-- Pilih Status Proposal --</option>
+                                        <option value="3">Disetujui</option>
+                                        <option value="2">Perbaikan</option>
+                                        <option value="1">Ditolak</option>
+                                    </select>
+                                </fieldset>
+                                <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
+                                <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                <?php echo form_close() ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
