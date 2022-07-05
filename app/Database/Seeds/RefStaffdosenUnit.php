@@ -19,7 +19,7 @@ class RefStaffdosenUnit extends Seeder
                 'nama_unit'    => 'Subbagian Sumberdaya FPSI',
             ],
             [
-                'nama_unit'    => 'Dekan',
+                'nama_unit'    => 'Tata Usaha',
             ],
             [
                 'nama_unit'    => 'Wadek Akademik dan Kemahasiswaan',
@@ -34,7 +34,7 @@ class RefStaffdosenUnit extends Seeder
                 'nama_unit'    => 'Kaprodi S2',
             ],
             [
-                'nama_unit'    => 'Manager Tata Usaha',
+                'nama_unit'    => 'Dekan',
             ],
         ];
         $this->db->table('ref_stafdosen_unit')->insertBatch($data);

@@ -10,13 +10,13 @@ class RefStaffdosenJenispegawai extends Seeder
     {
         $data = [
             [
-                'nama_jenispagawai'    => 'Tenaga Kependidikan',
+                'nama_jenispegawai'    => 'Tenaga Kependidikan',
             ],
             [
-                'nama_jenispagawai'    => 'Tenaga Dosen',
+                'nama_jenispegawai'    => 'Tenaga Dosen',
             ],
             [
-                'nama_jenispagawai'    => 'Tenaga Kependidikan & Dosen',
+                'nama_jenispegawai'    => 'Tenaga Kependidikan & Dosen',
             ],
         ];
         $this->db->table('ref_stafdosen_jenispegawai')->insertBatch($data);
