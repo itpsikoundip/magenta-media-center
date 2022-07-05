@@ -19,4 +19,9 @@ class ModelHelpdesk extends Model
         $riwayat = $this->db->table('tiket')->select('*')->where('mahasiswa_id', $nim)->get();
         return $riwayat->getResult();
     }
+
+	function countRiwayat($nim){
+		$riwayat = $this->db->table('tiket')->select('*')->where('mahasiswa_id', $nim)->countAllResults();
+        return $riwayat;
+	}
 }

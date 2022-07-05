@@ -27,13 +27,15 @@ class Helpdesk extends BaseController
     {
 
         $riwayatTiket = $this->ModelHelpdesk->getRiwayat(session()->nim);
-        dd($riwayatTiket);
+        $jumlahTiket = $this->ModelHelpdesk->countRiwayat(session()->nim);
+        // dd($jumlahTiket);
 
         // return $query->getResult();
         $data = [
             'title'         => 'Tiket',
             'isi'           => 'mahasiswa/helpdesk/tiket',
-            'riwayatTiket'  => $riwayatTiket
+            'riwayatTiket'  => $riwayatTiket,
+            'jumlahTiket'   => $jumlahTiket
         ];
         return view('layouts/mahasiswa-wrapper', $data);
     }
