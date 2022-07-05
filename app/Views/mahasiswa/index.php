@@ -5,6 +5,36 @@
 </style>
 <div class="app-content content">
     <div class="container mt-4">
+        <?php
+        if (session()->getFlashdata('error')) {
+            echo '<<div class="alert alert-danger alert-dismissible mb-2" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>';
+            echo session()->getFlashdata('error');
+            echo '</div>';
+        }
+        if (session()->getFlashdata('sukses')) {
+            echo '<div class="alert alert-success alert-dismissible mb-2" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>';
+            echo session()->getFlashdata('sukses');
+            echo '
+            </div>';
+        }
+        ?>
+        <?php
+        $errors = session()->getFlashdata('errors');
+        if (!empty($errors)) { ?>
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    <?php foreach ($errors as $key => $value) { ?>
+                        <li><?= esc($value) ?></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        <?php } ?>
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                 <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>

@@ -170,7 +170,7 @@ class Login extends BaseController
                     session()->setFlashdata('pesan', 'Login gagal, email atau password salah!');
                     return redirect()->to(base_url('login/mahasiswa'));
                 }
-            } 
+            }
         } else {
             $validation = \Config\Services::validation();
             return redirect()->to(base_url('login/mahasiswa'))->withInput()->with('validation', $validation);
@@ -181,8 +181,8 @@ class Login extends BaseController
     {
         //validasi inputan form login
         if ($this->validate([
-            'email' => [
-                'label' => 'Email',
+            'username' => [
+                'label' => 'Username',
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} wajib diisi!'
@@ -197,24 +197,27 @@ class Login extends BaseController
             ]
         ])) {
             //jika valid
-            $email = $this->request->getPost('email');
+            $username = $this->request->getPost('username');
             $hashedpassword = $this->request->getPost('password');
             $password = password_verify($this->request->getPost('password'), $hashedpassword);
-            $cekuser = $this->ModelLogin->loginLvlStaffDosen($email, $password);
-            if ($cekuser) {
+            $cekusr = $this->ModelLogin->loginLvlStaffDosen($username, $password);
+            if ($cekusr) {
                 //jika data cocok
-                session()->set('id', $cekuser['id_staffdosen']);
-                session()->set('nip', $cekuser['nip']);
-                session()->set('nidn', $cekuser['nidn']);
-                session()->set('nama', $cekuser['nama_staffdosen']);
-                session()->set('namadepartemen', $cekuser['nama_jabatandepartemen']);
-                session()->set('email', $cekuser['email']);
+                session()->set('id', $cekusr['id_staffdosen']);
+                session()->set('nip', $cekusr['nip']);
+                session()->set('nama', $cekusr['nama']);
+                session()->set('jenispegawai', $cekusr['jenispegawai_id']);
+                session()->set('departemen', $cekusr['departemen_id']);
+                session()->set('namaunit', $cekusr['nama_unit']);
+                session()->set('unit', $cekusr['unit_id']);
+                session()->set('unit2', $cekusr['unit2_id']);
+                session()->set('statusstaffdosen', $cekusr['status_staffdosen']);
                 //login
                 session()->setFlashdata('sukses', 'Login sukses!');
                 return redirect()->to(base_url('staffdosen'));
             } else {
                 //jika data tidak cocok
-                session()->setFlashdata('pesan', 'Login gagal, email atau password salah!');
+                session()->setFlashdata('pesan', 'Login Gagal!, username Atau Password Salah !!');
                 return redirect()->to(base_url('login/staffdosen'));
             }
         }
@@ -246,12 +249,13 @@ class Login extends BaseController
         session()->remove('id');
         session()->remove('log');
         session()->remove('nip');
-        session()->remove('nidn');
-        session()->remove('log');
         session()->remove('nama');
-        session()->remove('namadepartemen');
-        session()->remove('email');
-        session()->setFlashdata('sukses', 'Logout sukses');
+        session()->remove('jenispegawai');
+        session()->remove('departemen');
+        session()->remove('unit');
+        session()->remove('unit2');
+        session()->remove('statusstaffdosen');
+        session()->setFlashdata('sukses', 'Logout Suksess !!!');
         return redirect()->to(base_url('login/staffdosen'));
     }
 }

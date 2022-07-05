@@ -44,7 +44,7 @@
                                         <form class="form-horizontal" action="authStaffDosen" method="post">
                                             </fieldset>
                                             <fieldset class="form-group position-relative has-icon-left  mt-4">
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="E-Mail" required>
+                                                <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
                                                 <div class="form-control-position">
                                                     <i class="ft-mail"></i>
                                                 </div>
