@@ -43,20 +43,6 @@
                 </ul>
             </div>
         <?php } ?>
-        <?php
-        if (session()->getFlashdata('notifikasi')) {
-            echo '
-            <div class="alert alert-success alert-dismissible mb-2" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			</button>
-            ';
-            echo session()->getFlashdata('notifikasi');
-            echo '
-            </div>
-            ';
-        }
-        ?>
         <div class="content-body">
             <section id="basic-form-layouts">
                 <div class="row">
@@ -211,6 +197,117 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Catatan/Revisi</h4>
+                                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="table-responsive">
+                                    <table class="table mb-0" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:50%">Posisi</th>
+                                                <th>Catatan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            foreach ($detailProposal as $key => $value) { ?>
+                                                <tr>
+                                                    <td><strong>BEM</strong></td>
+                                                    <td><?= $value['bem_note']  ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Akademik</strong><small><br>
+                                                            <?php
+                                                            foreach ($detailProposalNoteAkademik as $key => $a) { ?>
+                                                                <?= $a['nama']  ?>
+                                                            <?php  } ?>
+                                                            <i><?= $value['akademik_updatetime']  ?></i></small>
+                                                    </td>
+                                                    <td><small><?= $value['akademik_note']  ?></small></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Sumber Daya</strong><small><br>
+                                                            <?php
+                                                            foreach ($detailProposalNoteSumda as $key => $b) { ?>
+                                                                <?= $b['nama']  ?>
+                                                            <?php  } ?>
+                                                            <i><?= $value['sumberdaya_updatetime']  ?></i></td></small>
+                                                    <td><small><?= $value['sumberdaya_note']  ?></small></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Tata Usaha</strong><small><br>
+                                                            <?php
+                                                            foreach ($detailProposalNoteTataUsaha as $key => $b) { ?>
+                                                                <?= $b['nama']  ?>
+                                                            <?php  } ?>
+                                                            <i><?= $value['tatausaha_updatetime']  ?></i></small></td>
+                                                    <td><small><?= $value['tatausaha_note']  ?></small></td>
+                                                </tr>
+                                                <?php if ($value['jenispendidikan_propo'] == 'S1') { ?>
+                                                    <tr>
+                                                        <td><strong>Kaprodi S1</strong><small><br>
+                                                                <?php
+                                                                foreach ($detailProposalNoteKaprodiS1 as $key => $c) { ?>
+                                                                    <?= $c['nama']  ?>
+                                                                <?php  } ?>
+                                                                <i><?= $value['kaprodis1_updatetime']  ?></i></small></td>
+                                                        <td><small><?= $value['kaprodis1_note']  ?></small></td>
+                                                    </tr>
+                                                <?php } elseif ($value['jenispendidikan_propo'] == 'S2') { ?>
+                                                    <tr>
+                                                        <td><strong>Kaprodi S2</strong><small><br>
+                                                                <?php
+                                                                foreach ($detailProposalNoteKaprodiS2 as $key => $g) { ?>
+                                                                    <?= $g['nama']  ?>
+                                                                <?php  } ?>
+                                                                <i><?= $value['kaprodis2_updatetime']  ?></i></small></td>
+                                                        <td><small><?= $value['kaprodis2_note']  ?></small></td>
+                                                    </tr>
+                                                <?php } ?>
+                                                <tr>
+                                                    <td><strong>Wadek Akem</strong><small><br>
+                                                            <?php
+                                                            foreach ($detailProposalNoteWadekAkem as $key => $d) { ?>
+                                                                <?= $d['nama']  ?>
+                                                            <?php  } ?>
+                                                            <i><?= $value['wadekakem_updatetime']  ?></i></small></td>
+                                                    <td><small><?= $value['wadekakem_note']  ?></small></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Wadek Sumda</strong><small><br>
+                                                            <?php
+                                                            foreach ($detailProposalNoteWadekSumda as $key => $e) { ?>
+                                                                <?= $e['nama']  ?>
+                                                            <?php  } ?>
+                                                            <i><?= $value['wadeksumda_updatetime']  ?></i></small></td>
+                                                    <td><small><?= $value['wadeksumda_note']  ?></small></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Dekan</strong><small><br>
+                                                            <?php
+                                                            foreach ($detailProposalNoteDekan as $key => $f) { ?>
+                                                                <?= $f['nama']  ?>
+                                                            <?php  } ?>
+                                                            <i><?= $value['dekan_updatetime']  ?></i></small></td>
+                                                    <td><small><?= $value['dekan_note']  ?></small></td>
+                                                </tr>
+                                            <?php  } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
@@ -314,117 +411,6 @@
                                         <?php echo form_close() ?>
                                     <?php } ?>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Catatan/Revisi</h4>
-                                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                                <div class="heading-elements">
-                                    <ul class="list-inline mb-0">
-                                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div class="table-responsive">
-                                    <table class="table mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>Posisi</th>
-                                                <th>Catatan</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            foreach ($detailProposal as $key => $value) { ?>
-                                                <tr>
-                                                    <td><strong>BEM</strong></td>
-                                                    <td><?= $value['bem_note']  ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Akademik</strong><small><br>
-                                                            <?php
-                                                            foreach ($detailProposalNoteAkademik as $key => $a) { ?>
-                                                                <?= $a['nama']  ?>
-                                                            <?php  } ?>
-                                                            <i><?= $value['akademik_updatetime']  ?></i></small>
-                                                    </td>
-                                                    <td><small><?= $value['akademik_note']  ?></small></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Sumber Daya</strong><small><br>
-                                                            <?php
-                                                            foreach ($detailProposalNoteSumda as $key => $b) { ?>
-                                                                <?= $b['nama']  ?>
-                                                            <?php  } ?>
-                                                            <i><?= $value['sumberdaya_updatetime']  ?></i></td></small>
-                                                    <td><small><?= $value['sumberdaya_note']  ?></small></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Tata Usaha</strong><small><br>
-                                                            <?php
-                                                            foreach ($detailProposalNoteTataUsaha as $key => $b) { ?>
-                                                                <?= $b['nama']  ?>
-                                                            <?php  } ?>
-                                                            <i><?= $value['tatausaha_updatetime']  ?></i></small></td>
-                                                    <td><small><?= $value['tatausaha_note']  ?></small></td>
-                                                </tr>
-                                                <?php if ($value['jenispendidikan_propo'] == 1) { ?>
-                                                    <tr>
-                                                        <td><strong>Kaprodi S1</strong><small><br>
-                                                                <?php
-                                                                foreach ($detailProposalNoteKaprodiS1 as $key => $c) { ?>
-                                                                    <?= $c['nama']  ?>
-                                                                <?php  } ?>
-                                                                <i><?= $value['kaprodis1_updatetime']  ?></i></small></td>
-                                                        <td><small><?= $value['kaprodis1_note']  ?></small></td>
-                                                    </tr>
-                                                <?php } elseif ($value['jenispendidikan_propo'] == 2) { ?>
-                                                    <tr>
-                                                        <td><strong>Kaprodi S2</strong><small><br>
-                                                                <?php
-                                                                foreach ($detailProposalNoteKaprodiS2 as $key => $g) { ?>
-                                                                    <?= $g['nama']  ?>
-                                                                <?php  } ?>
-                                                                <i><?= $value['kaprodis2_updatetime']  ?></i></small></td>
-                                                        <td><small><?= $value['kaprodis2_note']  ?></small></td>
-                                                    </tr>
-                                                <?php } ?>
-                                                <tr>
-                                                    <td><strong>Wadek Akem</strong><small><br>
-                                                            <?php
-                                                            foreach ($detailProposalNoteWadekAkem as $key => $d) { ?>
-                                                                <?= $d['nama']  ?>
-                                                            <?php  } ?>
-                                                            <i><?= $value['wadekakem_updatetime']  ?></i></small></td>
-                                                    <td><small><?= $value['wadekakem_note']  ?></small></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Wadek Sumda</strong><small><br>
-                                                            <?php
-                                                            foreach ($detailProposalNoteWadekSumda as $key => $e) { ?>
-                                                                <?= $e['nama']  ?>
-                                                            <?php  } ?>
-                                                            <i><?= $value['wadeksumda_updatetime']  ?></i></small></td>
-                                                    <td><small><?= $value['wadeksumda_note']  ?></small></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Dekan</strong><small><br>
-                                                            <?php
-                                                            foreach ($detailProposalNoteDekan as $key => $f) { ?>
-                                                                <?= $f['nama']  ?>
-                                                            <?php  } ?>
-                                                            <i><?= $value['dekan_updatetime']  ?></i></small></td>
-                                                    <td><small><?= $value['dekan_note']  ?></small></td>
-                                                </tr>
-                                            <?php  } ?>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                         </div>

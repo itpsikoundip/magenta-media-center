@@ -34,7 +34,7 @@
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                 <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>
-                <h4 class="grey">Mahasiswa</h4>
+                <h4 class="grey">Ormawa</h4>
             </div>
         </div>
         <hr class="mb-2 mt-0">
@@ -94,7 +94,7 @@
                                                 <select name="organisasiLembaga" class="form-control custom-select" required>
                                                     <option value="none" disabled>-- Pilih Jenis Studi --</option>
                                                     <?php foreach ($dataOrmawa as $key => $value) { ?>
-                                                        <option value="<?= $value['id'] ?>"><?= $value['nama'] ?></option>
+                                                        <option value="<?= $value['id'] ?>"><?= $value['nama_ormawa'] ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
