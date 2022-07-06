@@ -26,7 +26,7 @@
         <div class="content-body">
             <div class="row">
                 <div class="col-xl-3 col-lg-6 col-12">
-                    <a class="card" href="#">
+                    <a class="card" href="<?= base_url('Proposal') ?>">
                         <div class="card-content">
                             <div class="card-body">
                                 <div class="media d-flex">

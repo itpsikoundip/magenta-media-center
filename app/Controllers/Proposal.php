@@ -17,7 +17,7 @@ class Proposal extends BaseController
     {
         $data = [
             'title' => 'Menu Proposal',
-            'isi'    => 'mahasiswa/proposal/index'
+            'isi'    => 'ormawa/proposal/index'
         ];
         return view('layouts/mahasiswa-wrapper', $data);
     }
@@ -31,7 +31,7 @@ class Proposal extends BaseController
             'dataProposalStatus1' => $this->ModelProposal->allDataStatus1(),
             'dataProposalStatus2' => $this->ModelProposal->allDataStatus2(),
             'dataProposalStatus3' => $this->ModelProposal->allDataStatus3(),
-            'isi'    => 'mahasiswa/proposal/data'
+            'isi'    => 'ormawa/proposal/data'
         ];
         return view('layouts/mahasiswa-wrapper', $data);
     }
@@ -41,7 +41,7 @@ class Proposal extends BaseController
         $data = [
             'title' => 'Pengajuan Proposal',
             'dataOrmawa' => $this->ModelProposal->allDataOrmawa(),
-            'isi'    => 'mahasiswa/proposal/pengajuan'
+            'isi'    => 'ormawa/proposal/pengajuan'
         ];
         return view('layouts/mahasiswa-wrapper', $data);
     }
@@ -113,7 +113,7 @@ class Proposal extends BaseController
             'tentang_propo' => $this->request->getPost('tentangProposal'),
         ];
         $this->ModelProposal->add($data);
-        session()->setFlashdata('notifikasi', 'Proposal <strong>Berhasil Ditambahkan !!</strong>');
+        session()->setFlashdata('sukses', 'Proposal <strong>Berhasil Ditambahkan !!</strong>');
         return redirect()->to(base_url('proposal/data'));
     }
 
@@ -157,7 +157,7 @@ class Proposal extends BaseController
         $data = [
             'title' => 'Detail Proposal',
             'detailProposal' => $this->ModelProposal->detailProposal($id_propo),
-            'isi'    => 'mahasiswa/proposal/detail'
+            'isi'    => 'ormawa/proposal/detail'
         ];
         return view('layouts/mahasiswa-wrapper', $data);
     }
@@ -168,7 +168,7 @@ class Proposal extends BaseController
             'id_propo' => $id_propo,
         ];
         $this->ModelProposal->delete_data($data);
-        session()->setFlashdata('notifikasi', 'Hapus Data Berhasil dilakukan !!');
+        session()->setFlashdata('sukses', 'Hapus Data Berhasil dilakukan !!');
         return redirect()->to(base_url('proposal/data'));
     }
 
@@ -185,7 +185,7 @@ class Proposal extends BaseController
             'detailProposalNoteWadekAkem' => $this->ModelProposal->detailProposalNoteWadekAkem($id_propo),
             'detailProposalNoteWadekSumda' => $this->ModelProposal->detailProposalNoteWadekSumda($id_propo),
             'detailProposalNoteDekan' => $this->ModelProposal->detailProposalNoteDekan($id_propo),
-            'isi'    => 'mahasiswa/proposal/edit'
+            'isi'    => 'ormawa/proposal/edit'
         ];
         return view('layouts/mahasiswa-wrapper', $data);
     }
@@ -209,7 +209,7 @@ class Proposal extends BaseController
             'tentang_propo' => $this->request->getPost('tentangProposal'),
         ];
         $this->ModelProposal->edit($data);
-        session()->setFlashdata('notifikasi', 'Edit Data Berhasil dilakukan dan disimpan !!');
+        session()->setFlashdata('sukses', 'Edit Data Berhasil dilakukan dan disimpan !!');
         return redirect()->to(base_url('proposal/edit/' . $id_propo));
     }
 
@@ -220,7 +220,7 @@ class Proposal extends BaseController
             'dekan_status' => 0,
         ];
         $this->ModelProposal->edit($data);
-        session()->setFlashdata('notifikasi', 'Proposal Berhasil Diajukan !!');
+        session()->setFlashdata('sukses', 'Proposal Berhasil Diajukan !!');
         return redirect()->to(base_url('proposal/data'));
     }
     public function konfirmasiEditkeWadeksumda($id_propo)
@@ -230,7 +230,7 @@ class Proposal extends BaseController
             'wadeksumda_status' => 0,
         ];
         $this->ModelProposal->edit($data);
-        session()->setFlashdata('notifikasi', 'Proposal Berhasil Diajukan !!');
+        session()->setFlashdata('sukses', 'Proposal Berhasil Diajukan !!');
         return redirect()->to(base_url('proposal/data'));
     }
     public function konfirmasiEditkeWadekakem($id_propo)
@@ -240,7 +240,7 @@ class Proposal extends BaseController
             'wadekakem_status' => 0,
         ];
         $this->ModelProposal->edit($data);
-        session()->setFlashdata('notifikasi', 'Proposal Berhasil Diajukan !!');
+        session()->setFlashdata('sukses', 'Proposal Berhasil Diajukan !!');
         return redirect()->to(base_url('proposal/data'));
     }
     public function konfirmasiEditkeKaprodis1($id_propo)
@@ -250,7 +250,7 @@ class Proposal extends BaseController
             'kaprodis1_status' => 0,
         ];
         $this->ModelProposal->edit($data);
-        session()->setFlashdata('notifikasi', 'Proposal Berhasil Diajukan !!');
+        session()->setFlashdata('sukses', 'Proposal Berhasil Diajukan !!');
         return redirect()->to(base_url('proposal/data'));
     }
     public function konfirmasiEditkeTatausaha($id_propo)
@@ -260,7 +260,7 @@ class Proposal extends BaseController
             'tatausaha_status' => 0,
         ];
         $this->ModelProposal->edit($data);
-        session()->setFlashdata('notifikasi', 'Proposal Berhasil Diajukan !!');
+        session()->setFlashdata('sukses', 'Proposal Berhasil Diajukan !!');
         return redirect()->to(base_url('proposal/data'));
     }
     public function konfirmasiEditkeSumberdaya($id_propo)
@@ -270,7 +270,7 @@ class Proposal extends BaseController
             'sumberdaya_status' => 0,
         ];
         $this->ModelProposal->edit($data);
-        session()->setFlashdata('notifikasi', 'Proposal Berhasil Diajukan !!');
+        session()->setFlashdata('sukses', 'Proposal Berhasil Diajukan !!');
         return redirect()->to(base_url('proposal/data'));
     }
     public function konfirmasiEditkeAkademik($id_propo)
@@ -280,7 +280,7 @@ class Proposal extends BaseController
             'akademik_status' => 0,
         ];
         $this->ModelProposal->edit($data);
-        session()->setFlashdata('notifikasi', 'Proposal Berhasil Diajukan !!');
+        session()->setFlashdata('sukses', 'Proposal Berhasil Diajukan !!');
         return redirect()->to(base_url('proposal/data'));
     }
     public function konfirmasiEditkeBEM($id_propo)
@@ -290,7 +290,7 @@ class Proposal extends BaseController
             'bem_status' => 0,
         ];
         $this->ModelProposal->edit($data);
-        session()->setFlashdata('notifikasi', 'Proposal Berhasil Diajukan !!');
+        session()->setFlashdata('sukses', 'Proposal Berhasil Diajukan !!');
         return redirect()->to(base_url('proposal/data'));
     }
 }
