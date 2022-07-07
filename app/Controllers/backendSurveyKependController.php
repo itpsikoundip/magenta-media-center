@@ -45,16 +45,16 @@ class backendSurveyKependController extends BaseController
             $data = [
                 'pertanyaan' => $this->request->getPost('pertanyaan'),
                 'id_kepend' => $row['id_kepend'],
-                'created_at' => Time::now(),
-                'updated_at' => Time::now()
+                'created_at' => Time::now('Asia/Jakarta'),
+                'updated_at' => Time::now('Asia/Jakarta')
             ];
             $dataStored->addData($data);
         }
 
         $dataSingle = [
             'pertanyaan' => $this->request->getPost('pertanyaan'),
-            'created_at' => Time::now(),
-            'updated_at' => Time::now()
+            'created_at' => Time::now('Asia/Jakarta'),
+            'updated_at' => Time::now('Asia/Jakarta')
         ];
 
         $dataStoredSingle->addData($dataSingle);

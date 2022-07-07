@@ -32,8 +32,8 @@ class backendSurveyLulusanController extends BaseController
         $dataStored = new surveyLulusanModel();
         $data = [
             'pertanyaan' => $this->request->getPost('pertanyaan'),
-            'created_at' => Time::now(),
-            'updated_at' => Time::now()
+            'created_at' => Time::now('Asia/Jakarta'),
+            'updated_at' => Time::now('Asia/Jakarta')
         ];
 
         session()->setFlashdata('message', 'Data berhasil ditambahkan!');

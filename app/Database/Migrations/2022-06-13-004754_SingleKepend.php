@@ -34,6 +34,6 @@ class SingleKepend extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('single_kepend',true);
+        $this->forge->dropTable('single_kepend', true);
     }
 }
