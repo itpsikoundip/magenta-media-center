@@ -3,11 +3,11 @@
         <div class="content-body">
             <div class="card">
                 <h1 class="ml-2 mt-2">Grafik Dosen Psikologi UNDIP</h1>
-                <p id="demo"></p>
                 <table class="table table-borderless">
                     <tbody>
                         <tr>
                             <?php
+
                             $numbering = 1;
                             for ($i = 0; $i < 5; $i++) :
                                 echo '<td>';
@@ -56,28 +56,7 @@
     var arrayPertanyaanJs = <?php echo json_encode($arrayPertanyaan); ?>; //Convert array php ke array js
 
     for (let i = 0; i < arrayPertanyaanJs.length; i++) {
-        const config = {
-            type: 'doughnut',
-            data: data1,
-            options: {
-                plugins: {
-                    datalabels: {
-                        formatter: (value, context) => {
-                            const datapoints = context.chart.data.datasets[0].data;
 
-                            function totalSum(total, datapoint) {
-                                return total + datapoint;
-                            }
-                            const totalValue = datapoints.reduce(totalSum, 0)
-                            const percentageValue = (value / totalValue * 100).toFixed(1);
-                            const display = [`${percentageValue}%`]
-                            return display;
-                        }
-                    }
-                }
-            },
-            plugins: [ChartDataLabels]
-        };
     }
 
     const data1 = {
@@ -95,7 +74,7 @@
         }]
     };
 
-    const config = {
+    const config1 = {
         type: 'doughnut',
         data: data1,
         options: {
@@ -462,7 +441,7 @@
 
     const Q1 = new Chart(
         document.getElementById('Q1'),
-        config
+        config1
     );
     const Q2 = new Chart(
         document.getElementById('Q2'),
