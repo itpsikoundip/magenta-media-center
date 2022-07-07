@@ -15,11 +15,11 @@ class DataDosen extends Migration
                 'unsigned'       => TRUE,
                 'auto_increment' => TRUE,
             ],
-            'nip' => [
+            'nama_lengkap' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'nama_lengkap' => [
+            'nip' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
@@ -43,6 +43,6 @@ class DataDosen extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('data_dosen',true);
+        $this->forge->dropTable('data_dosen', true);
     }
 }

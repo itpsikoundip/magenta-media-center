@@ -4,18 +4,22 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class SingleDosen extends Migration
+class DataKepend extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id' => [
+            'id_kepend' => [
                 'type'           => 'INT',
                 'constraint'     => 11,
                 'unsigned'       => TRUE,
                 'auto_increment' => TRUE,
             ],
-            'pertanyaan' => [
+            'nama_lengkap' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'nip' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
@@ -28,12 +32,12 @@ class SingleDosen extends Migration
                 'null' => TRUE,
             ],
         ]);
-        $this->forge->addKey('id', true);
-        $this->forge->createTable('single_dosen');
+        $this->forge->addKey('id_kepend', true);
+        $this->forge->createTable('data_kepend');
     }
 
     public function down()
     {
-        $this->forge->dropTable('single_dosen',true);
+        $this->forge->dropTable('data_kepend', true);
     }
 }

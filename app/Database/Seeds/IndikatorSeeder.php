@@ -13,32 +13,32 @@ class IndikatorSeeder extends Seeder
             [
                 'indikator'               => 'Sangat Baik',
                 'skor'              => 0,
-                'created_at'        => Time::now(),
-                'updated_at'        => Time::now()
+                'created_at'        => Time::now('Asia/Jakarta'),
+                'updated_at'        => Time::now('Asia/Jakarta')
             ],
             [
                 'indikator'               => 'Baik',
                 'skor'              => 0,
-                'created_at'        => Time::now(),
-                'updated_at'        => Time::now()
+                'created_at'        => Time::now('Asia/Jakarta'),
+                'updated_at'        => Time::now('Asia/Jakarta')
             ],
             [
                 'indikator'               => 'Cukup',
                 'skor'              => 0,
-                'created_at'        => Time::now(),
-                'updated_at'        => Time::now()
+                'created_at'        => Time::now('Asia/Jakarta'),
+                'updated_at'        => Time::now('Asia/Jakarta')
             ],
             [
                 'indikator'               => 'Buruk',
                 'skor'              => 0,
-                'created_at'        => Time::now(),
-                'updated_at'        => Time::now()
+                'created_at'        => Time::now('Asia/Jakarta'),
+                'updated_at'        => Time::now('Asia/Jakarta')
             ],
             [
                 'indikator'               => 'Sangat Buruk',
                 'skor'              => 0,
-                'created_at'        => Time::now(),
-                'updated_at'        => Time::now()
+                'created_at'        => Time::now('Asia/Jakarta'),
+                'updated_at'        => Time::now('Asia/Jakarta')
             ],
         ];
 

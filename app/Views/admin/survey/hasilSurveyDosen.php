@@ -1,46 +1,3 @@
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    // Load Charts and the corechart package.
-    google.charts.load('current', {
-        'packages': ['corechart']
-    });
-
-    // Draw the pie chart for Sarah's pizza when Charts is loaded.
-    google.charts.setOnLoadCallback(drawSarahChart);
-
-    // Draw the pie chart for the Anthony's pizza when Charts is loaded.
-    google.charts.setOnLoadCallback(drawAnthonyChart);
-
-    google.charts.setOnLoadCallback(drawJuanChart);
-
-    // Callback that draws the pie chart for Sarah's pizza.
-    function drawSarahChart() {
-
-        // Create the data table for Sarah's pizza.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Indikator');
-        data.addColumn('number', 'Skor');
-        data.addRows([
-            ['Sangat Baik', 5],
-            ['Baik', 4],
-            ['Cukup', 3],
-            ['Buruk', 2],
-            ['Sangat Buruk', 1]
-        ]);
-
-        // Set options for Sarah's pie chart.
-        var options = {
-            width: 400,
-            height: 300
-        };
-
-        // Instantiate and draw the chart for Sarah's pizza.
-        var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
-        chart.draw(data, options);
-    }
-</script>
-
-
 <div class="app-content content">
     <div class="content-wrapper">
         <div class="content-body">
@@ -67,20 +24,20 @@
                                                 <th>No</th>
                                                 <th>NIP</th>
                                                 <th>Nama Lengkap</th>
-                                                <th>Pertanyaan Survey</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $numbering = 1;
-                                            foreach ($dataHasilSurveyDosen as $key => $value) : ?>
+                                            foreach ($dataDosen as $row) : ?>
                                                 <tr>
-                                                    <td><?= $key + 1 ?></td>
-                                                    <td><?= $value->nip ?></td>
-                                                    <td><?= $value->nama_lengkap ?></td>
-                                                    <td><?= $value->pertanyaan ?></td>
+                                                    <td><?= $numbering++ ?></td>
+                                                    <td><?= $row["nip"] ?></td>
+                                                    <td><?= $row["nama_lengkap"] ?></td>
                                                     <td>
-                                                        <a href="#" class="badge badge-info" data-toggle="modal" data-target="#ModalHasilSurveyDosen"><i class="ft-bar-chart-2"></i> Hasil</a>
+                                                        <a href="<?= base_url('chartSingleDosen/' . $row["id_dosen"]) ?>" class="badge badge-info">
+                                                            <i class="ft-bar-chart-2"></i> Hasil
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -92,22 +49,6 @@
                     </div>
                 </div>
             </section>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="ModalHasilSurveyDosen" arta-labelledby="ModalEditSurveyDosenLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="ModalHasilSurveyDosen"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline-style: none;">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div id="Sarah_chart_div" style="border: 1px solid #ccc"></div>
-            </div>
         </div>
     </div>
 </div>
