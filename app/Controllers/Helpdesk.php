@@ -44,9 +44,14 @@ class Helpdesk extends BaseController
     {
         $topik_id       = $this->request->getPost('inputTopik');
         $subjek         = $this->request->getPost('inputSubjek');
-        $detail         = $this->request->getPost('inputDetail');
-        $lampiran       = $this->request->getFile('inputLampiran');
-        $namaLampiran   = $lampiran->getRandomName();
+        $detail         = $this->request->getPost('inputDetail'); 
+        if ( $_FILES AND $_FILES['inputLampiran']['name'] ){
+            //kalau lampiran tidak kosong
+            $lampiran       = $this->request->getFile('inputLampiran');
+            $namaLampiran   = $lampiran->getRandomName();
+        }else{
+            $namaLampiran   = NULL;
+        }
         $mahasiswa_id   = session()->nim; 
 
         $data = [
@@ -57,8 +62,10 @@ class Helpdesk extends BaseController
             'lampiran'      => $namaLampiran,
             'created_at'    => Time::now('Asia/Jakarta'),
         ];
-
-        $lampiran->move('lampiran-helpdesk', $namaLampiran);
+        if ( $_FILES AND $_FILES['inputLampiran']['name'] ){
+            // Upload file
+            $lampiran->move('lampiran-helpdesk', $namaLampiran);
+        }
         $result = $this->ModelHelpdesk->insertTiket($data);
         // dd($result);
         if($result){   

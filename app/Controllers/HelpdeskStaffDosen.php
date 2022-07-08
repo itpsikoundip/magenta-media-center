@@ -2,21 +2,25 @@
 
 namespace App\Controllers;
 
-use App\Models\ModelHelpdesks;
+use App\Models\ModelHelpdeskStaffDosen;
 
-class Helpdesks extends BaseController
+class HelpdeskStaffDosen extends BaseController
 {
     public function __construct()
     {
         helper('form');
-        $this->ModelHelpdesks = new ModelHelpdesks();
+        $this->ModelHelpdeskStaffDosen = new ModelHelpdeskStaffDosen();
     }
 
     public function index()
     {
+        $tiket = $this->ModelHelpdeskStaffDosen->getTiket(1);
+        $tiketTerjawab = $this->ModelHelpdeskStaffDosen->getTiketTerjawab(1);
         $data = [
             'title' => 'Admin Helpdesk',
-            'isi'    => 'staffdosen/helpdesk/index'
+            'isi'    => 'staffdosen/helpdesk/index',
+            'tiket' => $tiket,
+            'tiketTerjawab' => $tiketTerjawab,
         ];
         return view('layouts/staffdosen-wrapper', $data);
     }
