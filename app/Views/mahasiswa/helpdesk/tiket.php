@@ -76,7 +76,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-md-3 label-control" for="inputRingkasan">Lampiran</label>
+                                                <label class="col-md-3 label-control" for="inputLampiran">Lampiran</label>
                                                 <div class="col-md-9">
                                                     <input id="inputLampiran" name="inputLampiran" type="file">
                                                     <div>

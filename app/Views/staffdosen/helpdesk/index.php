@@ -133,55 +133,33 @@
                                     <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
                                         <form class="form form-horizontal">
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-user"></i> Formulir Tiket</h4>
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="projectinput1">Nama Lengkap</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="projectinput1" class="form-control" placeholder="Nama Lengkap" name="fname">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="projectinput3">E-mail</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="projectinput3" class="form-control" placeholder="E-mail" name="email">
-                                                    </div>
-                                                </div>
+                                                <!-- <h4 class="form-section"><i class="ft-user"></i> Formulir Tiket</h4> -->
 
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="projectinput4">Telp/HP</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="projectinput4" class="form-control" placeholder="Phone" name="phone">
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="projectinput5">Topik</label>
-                                                    <div class="col-md-9">
-                                                        <select id="issueinput6" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
-                                                            <option value="#">Nama Departemen - Topik</option>
-                                                            <option value="#">Nama Departemen - Topik</option>
-                                                            <option value="#">Nama Departemen - Topik</option>
-                                                        </select>
+                                                    <label class="col-md-2 label-control" for="inputSubjek">Pertanyaan</label>
+                                                    <div class="col-md-10">
+                                                        <input id="inputSubjek" name="inputSubjek" class="form-control" placeholder="Pertanyaan/permasalahan">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="projectinput6">Ringkasan / Subject</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="projectinput1" class="form-control" placeholder="" name="fname">
-                                                        <br>
-                                                        <textarea id="projectinput8" rows="5" class="form-control" name="comment" placeholder="Ceritakan permasalahan"></textarea>
+                                                    <label class="col-md-2 label-control" for="inputRingkasan">Jawaban</label>
+                                                    <div class="col-md-10">
+                                                        <textarea id="inputDetail" name="inputDetail" rows="5" class="form-control" placeholder="Jawaban detail"></textarea>
                                                     </div>
                                                 </div>
+                                                
 
                                             </div>
 
-                                            <div class="form-actions">
-                                                <button type="button" class="btn btn-warning mr-1">
-                                                    <i class="ft-x"></i> Batal
-                                                </button>
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="fa fa-check-square-o"></i> Buat Tiket
-                                                </button>
+                                            <div class="form-actions justify-content-end">
+                                                <div class="d-flex justify-content-end">
+                                                    <p><i>Pertanyaan dan jawaban yang ditambahkan akan muncul pada list FAQ dan dapat dibaca oleh semua mahasiswa</i></p>
+                                                </div>
+                                                <div class="d-flex justify-content-end">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="fa fa-check-square-o"></i> Tambahkan
+                                                    </button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -192,51 +170,31 @@
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
+                                                        <th>Tanggal Tiket</th>
                                                         <th>Nama Lengkap</th>
-                                                        <th>E-Mail</th>
-                                                        <th>Nomor HP</th>
-                                                        <th>Topik</th>
-                                                        <th>Ringkasan / Subject</th>
-                                                        <th>Status Tiket</th>
-                                                        <th>Permasalahan</th>
+                                                        <th>NIM</th>
+                                                        <!-- <th>E-Mail</th>
+                                                        <th>Topik</th> -->
+                                                        <th>Ringkasan / Subjek</th>
+                                                        <!-- <th>Status Tiket</th> -->
+                                                        <th>Detail</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
                                                         <th scope="row">4890423</th>
+                                                        <td>12-07-2022, 14:30</td>
                                                         <td>Gading Ihsan</td>
-                                                        <td>gadingihsancahya@gmail.com</td>
-                                                        <td>085602577471</td>
-                                                        <td>IT - Akses Internet</td>
-                                                        <td>Akses Wifi tidak bisa</td>
-                                                        <td>
+                                                        <td>24060119140015</td>
+                                                        <!-- <td>gadingihsancahya@gmail.com</td> -->
+                                                        <!-- <td>IT - Akses Internet</td> -->
+                                                        <td>Akses Wifi tidak bisa cok asfghjklk</td>
+                                                        <!-- <td>
                                                             <div class="badge badge-pill badge-danger">Open</div>
-                                                        </td>
-                                                        <td>View</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">4890423</th>
-                                                        <td>Gading Ihsan</td>
-                                                        <td>gadingihsancahya@gmail.com</td>
-                                                        <td>085602577471</td>
-                                                        <td>IT - Akses Internet</td>
-                                                        <td>Akses Wifi tidak bisa</td>
-                                                        <td>
-                                                            <div class="badge badge-pill badge-danger">Open</div>
-                                                        </td>
-                                                        <td>View</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">4890423</th>
-                                                        <td>Gading Ihsan</td>
-                                                        <td>gadingihsancahya@gmail.com</td>
-                                                        <td>085602577471</td>
-                                                        <td>IT - Akses Internet</td>
-                                                        <td>Akses Wifi tidak bisa</td>
-                                                        <td>
-                                                            <div class="badge badge-pill badge-danger">Open</div>
-                                                        </td>
-                                                        <td>View</td>
+                                                        </td> -->
+                                                        <td>Wifi tidak bisa diakses sejak 3 hari yang lalu, login gagal terus kjhfshfahs fshf sf sfkjfhksjhf af sf kf sj fkj fgdajsdhgajdsh ajshd ads jagd jashdggahjgdhsgd hjagdshjgjd</td>
+                                                        <td><a href="#" class="btn btn-outline-secondary">Lihat</a></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
