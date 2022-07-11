@@ -103,15 +103,18 @@
                                             
                                             <div role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4 d-flex justify-content-between">
                                                 <a data-toggle="collapse" data-parent="#accordion<?php echo $i ?>" href="#accordion<?php echo $i ?>" aria-expanded="false" aria-controls="accordion<?php echo $i ?>" class="h6 blue collapsed">
-                                                    <?php echo $riwayat->subjek?>
+                                                    <b><?php echo $riwayat->subjek?></b>
                                                 </a>
-                                                <span class="badge badge-pill badge-warning">
-                                                    belum terjawab
-                                                </span>
+                                                <?php 
+                                                if($riwayat->jawaban == NULL){
+                                                    echo '<span class="badge badge-pill badge-warning">belum terjawab</span>';
+                                                }else{
+                                                    echo '<span class="badge badge-pill badge-success">terjawab</span>';
+                                                }?>
                                             </div>
                                             <div id="accordion<?php echo $i ?>" role="tabpanel" aria-labelledby="heading<?php echo $i ?>" class="collapse" aria-expanded="false">
                                                 <div class="card-body" style="border-bottom: solid 1px #cfd8dc">
-                                                    <div class="row d-flex flex-row-reverse">
+                                                    <div class="row">
                                                         
                                                         <div class="col-sm-8">
                                                             <div class="card">
@@ -151,14 +154,21 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-4">
+                                                        <div class="col-sm-4" style="border-left: 1px solid black">
                                                             <div class="card">
                                                                 <div class="card-content">
-                                                                    <img class="card-img-top img-fluid" src="<?php echo base_url('lampiran-helpdesk/'.$riwayat->lampiran) ?>" alt="Card image cap">
+                                                                <?php 
+                                                                if($riwayat->lampiran == NULL) echo
+                                                                    '<div class="d-flex justify-content-center">
+                                                                        <p>Tidak ada lampiran</p>
+                                                                    </div>';
+                                                                else echo                                                                       
+                                                                    '<img class="card-img-top img-fluid" src="'.base_url('lampiran-helpdesk/'.$riwayat->lampiran).'" alt="Card image cap">
                                                                     <div class="card-body">
-                                                                        <h4 class="card-title"><?php echo $riwayat->lampiran ?></h4>
-                                                                        <a href="<?php echo base_url('lampiran-helpdesk/'.$riwayat->lampiran) ?>" class="btn btn-outline-secondary" target="blank">Lihat File</a>
-                                                                    </div>
+                                                                        <h4 class="card-title">'.$riwayat->lampiran.'</h4>
+                                                                        <a href="'.base_url("lampiran-helpdesk/".$riwayat->lampiran).'" class="btn btn-outline-secondary" target="blank">Lihat File</a>
+                                                                    </div>';
+                                                                ?>
                                                                 </div>
                                                             </div>
                                                         </div>
