@@ -130,12 +130,12 @@
                         </div>
                     <?php } ?>
                     <div class="col-xl-3 col-lg-6 col-12">
-                        <a class="card" href="#">
+                        <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-graduation info font-large-2 float-left"></i>
+                                            <i class="icon-graduation light font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>Akademik</u></h3>
@@ -144,7 +144,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -166,12 +166,12 @@
                         </a>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12">
-                        <a class="card" href="#">
+                        <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-doc info font-large-2 float-left"></i>
+                                            <i class="icon-doc light font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>Drive File SKP</u></h3>
@@ -180,15 +180,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12">
-                        <a class="card" href="#">
+                        <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-doc info font-large-2 float-left"></i>
+                                            <i class="icon-doc light font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>Drive File IKU</u></h3>
@@ -197,15 +197,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12">
-                        <a class="card" href="#">
+                        <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-support info font-large-2 float-left"></i>
+                                            <i class="icon-support light font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>Sumber Daya</u></h3>
@@ -214,17 +214,17 @@
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-3 col-lg-6 col-12">
-                        <a class="card" href="#">
+                        <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-doc info font-large-2 float-left"></i>
+                                            <i class="icon-doc light font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>E-Surat Tugas</u></h3>
@@ -233,7 +233,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -374,12 +374,12 @@
                         </div>
                     <?php } ?>
                     <div class="col-xl-3 col-lg-6 col-12">
-                        <a class="card" href="#">
+                        <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-graduation info font-large-2 float-left"></i>
+                                            <i class="icon-graduation light font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>Akademik</u></h3>
@@ -388,7 +388,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -410,12 +410,12 @@
                         </a>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12">
-                        <a class="card" href="#">
+                        <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-doc info font-large-2 float-left"></i>
+                                            <i class="icon-doc light font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>Drive File SKP</u></h3>
@@ -424,15 +424,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12">
-                        <a class="card" href="#">
+                        <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-doc info font-large-2 float-left"></i>
+                                            <i class="icon-doc light font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>Drive File IKU</u></h3>
@@ -441,15 +441,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-12">
-                        <a class="card" href="#">
+                        <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-support info font-large-2 float-left"></i>
+                                            <i class="icon-support light font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>Sumber Daya</u></h3>
@@ -458,17 +458,17 @@
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-3 col-lg-6 col-12">
-                        <a class="card" href="#">
+                        <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-doc info font-large-2 float-left"></i>
+                                            <i class="icon-doc light font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>E-Surat Tugas</u></h3>
@@ -477,7 +477,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
