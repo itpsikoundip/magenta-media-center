@@ -47,6 +47,7 @@
                                                 <th>Proposal</th>
                                                 <th>Survey</th>
                                                 <th>Helpdesk</th>
+                                                <th>SK</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -79,6 +80,14 @@
                                                         <?php if ($value['helpdesk'] == 0) {
                                                             echo '<div class="badge badge-pill badge-danger">X</div>';
                                                         } elseif (($value['helpdesk']) == 1) {
+                                                            echo '<div class="badge badge-pill badge-success">V</div>';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle;">
+                                                        <?php if ($value['sk'] == 0) {
+                                                            echo '<div class="badge badge-pill badge-danger">X</div>';
+                                                        } elseif (($value['sk']) == 1) {
                                                             echo '<div class="badge badge-pill badge-success">V</div>';
                                                         }
                                                         ?>
@@ -148,6 +157,12 @@
                         <label>
                             <input type="checkbox" value="1" name="helpdesk">
                             Helpdesk
+                        </label>
+                    </fieldset>
+                    <fieldset class="checkbox">
+                        <label>
+                            <input type="checkbox" value="1" name="sk">
+                            SK
                         </label>
                     </fieldset>
                 </div>
@@ -225,6 +240,12 @@ foreach ($dataUserStaffDosen as $key => $value) { ?>
                             <label>
                                 <input type="checkbox" value="1" name="helpdesk">
                                 Helpdesk
+                            </label>
+                        </fieldset>
+                        <fieldset class="checkbox">
+                            <label>
+                                <input type="checkbox" value="1" name="sk">
+                                SK
                             </label>
                         </fieldset>
                     </div>

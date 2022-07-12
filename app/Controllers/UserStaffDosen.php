@@ -32,6 +32,7 @@ class UserStaffDosen extends BaseController
             'proposal' => $this->request->getPost('proposal'),
             'survey' => $this->request->getPost('survey'),
             'helpdesk' => $this->request->getPost('helpdesk'),
+            'sk' => $this->request->getPost('sk'),
         ];
         $this->ModelUserStaffDosen->add($data);
         session()->setFlashdata('sukses', 'Tambah User Berhasil dilakukan !!');
@@ -55,6 +56,7 @@ class UserStaffDosen extends BaseController
             'proposal' => $this->request->getPost('proposal'),
             'survey' => $this->request->getPost('survey'),
             'helpdesk' => $this->request->getPost('helpdesk'),
+            'sk' => $this->request->getPost('sk'),
         ];
         $this->ModelUserStaffDosen->edit($data);
         session()->setFlashdata('sukses', 'Edit Data Berhasil dilakukan dan disimpan !!');
