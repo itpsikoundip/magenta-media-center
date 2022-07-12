@@ -20,51 +20,28 @@ class Proposals extends BaseController
             // Bag.Akademik
             'allDataProposalBagAkademik' => $this->ModelProposals->allDataProposalBagAkademik(),
             'allDataProposalBagAkademikSiapACC' => $this->ModelProposals->allDataProposalBagAkademikSiapACC(),
-            'allDataProposalBagAkademikSudahACC' => $this->ModelProposals->allDataProposalBagAkademikSudahACC(),
-            'allDataProposalBagAkademikPerbaikan' => $this->ModelProposals->allDataProposalBagAkademikPerbaikan(),
-            'allDataProposalBagAkademikDitolak' => $this->ModelProposals->allDataProposalBagAkademikDitolak(),
             // Bag.Sumberdaya
             'allDataProposalBagSumberDaya' => $this->ModelProposals->allDataProposalBagSumberDaya(),
             'allDataProposalBagSumberDayaSiapACC' => $this->ModelProposals->allDataProposalBagSumberDayaSiapACC(),
-            'allDataProposalBagSumberDayaSudahACC' => $this->ModelProposals->allDataProposalBagSumberDayaSudahACC(),
-            'allDataProposalBagSumberDayaPerbaikan' => $this->ModelProposals->allDataProposalBagSumberDayaPerbaikan(),
-            'allDataProposalBagSumberDayaDitolak' => $this->ModelProposals->allDataProposalBagSumberDayaDitolak(),
             // Bag.TataUsaha
             'allDataProposalBagTataUsaha' => $this->ModelProposals->allDataProposalBagTataUsaha(),
             'allDataProposalBagTataUsahaSiapACC' => $this->ModelProposals->allDataProposalBagTataUsahaSiapACC(),
-            'allDataProposalBagTataUsahaSudahACC' => $this->ModelProposals->allDataProposalBagTataUsahaSudahACC(),
-            'allDataProposalBagTataUsahaPerbaikan' => $this->ModelProposals->allDataProposalBagTataUsahaPerbaikan(),
-            'allDataProposalBagTataUsahaDitolak' => $this->ModelProposals->allDataProposalBagTataUsahaDitolak(),
             // Bag.KaprodiS1
             'allDataProposalBagKaprodiS1' => $this->ModelProposals->allDataProposalBagKaprodiS1(),
             'allDataProposalBagKaprodiS1SiapACC' => $this->ModelProposals->allDataProposalBagKaprodiS1SiapACC(),
-            'allDataProposalBagKaprodiS1SudahACC' => $this->ModelProposals->allDataProposalBagKaprodiS1SudahACC(),
-            'allDataProposalBagKaprodiS1Perbaikan' => $this->ModelProposals->allDataProposalBagKaprodiS1Perbaikan(),
-            'allDataProposalBagKaprodiS1Ditolak' => $this->ModelProposals->allDataProposalBagKaprodiS1Ditolak(),
             // Bag.KaprodiS2
             'allDataProposalBagKaprodiS2' => $this->ModelProposals->allDataProposalBagKaprodiS2(),
             'allDataProposalBagKaprodiS2SiapACC' => $this->ModelProposals->allDataProposalBagKaprodiS2SiapACC(),
-            'allDataProposalBagKaprodiS2SudahACC' => $this->ModelProposals->allDataProposalBagKaprodiS2SudahACC(),
-            'allDataProposalBagKaprodiS2Perbaikan' => $this->ModelProposals->allDataProposalBagKaprodiS2Perbaikan(),
-            'allDataProposalBagKaprodiS2Ditolak' => $this->ModelProposals->allDataProposalBagKaprodiS2Ditolak(),
             // Bag.WadekAkem
             'allDataProposalBagWadekAkem' => $this->ModelProposals->allDataProposalBagWadekAkem(),
             'allDataProposalBagWadekAkemSiapACC' => $this->ModelProposals->allDataProposalBagWadekAkemSiapACC(),
-            'allDataProposalBagWadekAkemSudahACC' => $this->ModelProposals->allDataProposalBagWadekAkemSudahACC(),
-            'allDataProposalBagWadekAkemPerbaikan' => $this->ModelProposals->allDataProposalBagWadekAkemPerbaikan(),
-            'allDataProposalBagWadekAkemDitolak' => $this->ModelProposals->allDataProposalBagWadekAkemDitolak(),
             // Bag.WadekSumda
             'allDataProposalBagWadekSumda' => $this->ModelProposals->allDataProposalBagWadekSumda(),
             'allDataProposalBagWadekSumdaSiapACC' => $this->ModelProposals->allDataProposalBagWadekSumdaSiapACC(),
-            'allDataProposalBagWadekSumdaSudahACC' => $this->ModelProposals->allDataProposalBagWadekSumdaSudahACC(),
-            'allDataProposalBagWadekSumdaPerbaikan' => $this->ModelProposals->allDataProposalBagWadekSumdaPerbaikan(),
-            'allDataProposalBagWadekSumdaDitolak' => $this->ModelProposals->allDataProposalBagWadekSumdaDitolak(),
             // Bag.Dekan
             'allDataProposalBagDekan' => $this->ModelProposals->allDataProposalBagDekan(),
             'allDataProposalBagDekanSiapACC' => $this->ModelProposals->allDataProposalBagDekanSiapACC(),
-            'allDataProposalBagDekanSudahACC' => $this->ModelProposals->allDataProposalBagDekanSudahACC(),
-            'allDataProposalBagDekanPerbaikan' => $this->ModelProposals->allDataProposalBagDekanPerbaikan(),
-            'allDataProposalBagDekanDitolak' => $this->ModelProposals->allDataProposalBagDekanDitolak(),
+            'detailDosen'   => $this->ModelProposals->detailDosen(),
             'isi'    => 'staffdosen/proposal/index'
         ];
         return view('layouts/staffdosen-wrapper', $data);

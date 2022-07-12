@@ -37,21 +37,12 @@
                                         <a class="nav-link active" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">Menunggu Konfirmasi</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" aria-controls="tab2" href="#tab2" aria-expanded="false">Proposal Diterima</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" aria-controls="tab3" href="#tab3" aria-expanded="false">Proposal Perbaikan</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" aria-controls="tab4" href="#tab4" aria-expanded="false">Proposal Ditolak</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" aria-controls="tab5" href="#tab5" aria-expanded="false">Semua Proposal</a>
+                                        <a class="nav-link" data-toggle="tab" aria-controls="tab2" href="#tab2" aria-expanded="false">Semua Proposal</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content px-1 pt-1">
                                     <!-- Unit Subbagian Akademik dan Kemahasiswaan FPSi -->
-                                    <?php if (session()->get('unit') == 2) { ?>
+                                    <?php if ($detailDosen['unittugas_id'] == 1) { ?>
                                         <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
@@ -76,75 +67,6 @@
                                             </table>
                                         </div>
                                         <div class="tab-pane" id="tab2">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagAkademikSudahACC as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab3">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagAkademikPerbaikan as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab4">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagAkademikDitolak as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab5">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
                                                     <tr>
@@ -181,7 +103,7 @@
                                             </table>
                                         </div>
                                         <!-- Subbagian Sumberdaya FPSi -->
-                                    <?php } elseif (session()->get('unit') == 3) { ?>
+                                    <?php } elseif ($detailDosen['unittugas_id'] == 2) { ?>
                                         <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
@@ -206,75 +128,6 @@
                                             </table>
                                         </div>
                                         <div class="tab-pane" id="tab2">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagSumberDayaSudahACC as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab3">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagSumberDayaPerbaikan as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab4">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagSumberDayaDitolak as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab5">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
                                                     <tr>
@@ -311,7 +164,7 @@
                                             </table>
                                         </div>
                                         <!-- Tata Usaha -->
-                                    <?php } elseif (session()->get('unit') == 4) { ?>
+                                    <?php } elseif ($detailDosen['unittugas_id'] == 3) { ?>
                                         <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
@@ -336,75 +189,6 @@
                                             </table>
                                         </div>
                                         <div class="tab-pane" id="tab2">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagTataUsahaSudahACC as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab3">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagTataUsahaPerbaikan as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab4">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagTataUsahaDitolak as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab5">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
                                                     <tr>
@@ -441,7 +225,7 @@
                                             </table>
                                         </div>
                                         <!-- Wadek Akademik dan Kemahasiswaan -->
-                                    <?php } elseif (session()->get('unit') == 5) { ?>
+                                    <?php } elseif ($detailDosen['unittugas_id'] == 4) { ?>
                                         <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
@@ -466,75 +250,6 @@
                                             </table>
                                         </div>
                                         <div class="tab-pane" id="tab2">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagWadekAkemSudahACC as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab3">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagWadekAkemPerbaikan as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab4">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagWadekAkemDitolak as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab5">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
                                                     <tr>
@@ -571,7 +286,7 @@
                                             </table>
                                         </div>
                                         <!-- Wadek Sumber Daya -->
-                                    <?php } elseif (session()->get('unit') == 6) { ?>
+                                    <?php } elseif ($detailDosen['unittugas_id'] == 5) { ?>
                                         <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
@@ -596,75 +311,6 @@
                                             </table>
                                         </div>
                                         <div class="tab-pane" id="tab2">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagWadekSumdaSudahACC as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab3">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagWadekSumdaPerbaikan as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab4">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagWadekSumdaDitolak as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab5">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
                                                     <tr>
@@ -701,7 +347,7 @@
                                             </table>
                                         </div>
                                         <!-- Kaprodi S1 -->
-                                    <?php } elseif (session()->get('unit') == 7) { ?>
+                                    <?php } elseif ($detailDosen['unittugas_id'] == 6) { ?>
                                         <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
@@ -726,75 +372,6 @@
                                             </table>
                                         </div>
                                         <div class="tab-pane" id="tab2">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagKaprodiS1SudahACC as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab3">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagKaprodiS1Perbaikan as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab4">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagKaprodiS1Ditolak as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab5">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
                                                     <tr>
@@ -831,7 +408,7 @@
                                             </table>
                                         </div>
                                         <!-- Kaprodi S2 -->
-                                    <?php } elseif (session()->get('unit') == 8) { ?>
+                                    <?php } elseif ($detailDosen['unittugas_id'] == 7) { ?>
                                         <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
@@ -856,75 +433,6 @@
                                             </table>
                                         </div>
                                         <div class="tab-pane" id="tab2">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagKaprodiS2SudahACC as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab3">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagKaprodiS2Perbaikan as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab4">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagKaprodiS2Ditolak as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab5">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
                                                     <tr>
@@ -961,7 +469,7 @@
                                             </table>
                                         </div>
                                         <!-- Dekan -->
-                                    <?php } elseif (session()->get('unit') == 9) { ?>
+                                    <?php } elseif ($detailDosen['unittugas_id'] == 8) { ?>
                                         <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
@@ -986,75 +494,6 @@
                                             </table>
                                         </div>
                                         <div class="tab-pane" id="tab2">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagDekanSudahACC as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab3">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagDekanPerbaikan as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab4">
-                                            <table class="table table-striped table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Proposal</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php $no = 1;
-                                                    foreach ($allDataProposalBagDekanDitolak as $key => $value) { ?>
-                                                        <tr>
-                                                            <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
-                                                            <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                            <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php  } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="tab-pane" id="tab5">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
                                                     <tr>

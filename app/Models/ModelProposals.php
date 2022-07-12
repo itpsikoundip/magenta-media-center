@@ -6,10 +6,17 @@ use CodeIgniter\Model;
 
 class ModelProposals extends Model
 {
+    public function detailDosen()
+    {
+        return $this->db->table('proposal_user_staffdosen')
+            // ->join('proposal_jenis', 'proposal_jenis.id_jenis = proposal_data.jenis_propo')
+            ->where('staffdosen_id', session()->get('id'))
+            ->get()->getRowArray();
+    }
     public function detailProposal($id_propo)
     {
         return $this->db->table('proposal_data')
-            // ->join('proposal_jenis', 'proposal_jenis.id_jenis = proposal_data.jenis_propo')
+            ->join('proposal_jenis', 'proposal_jenis.id_jenis = proposal_data.jenis_propo')
             ->where('id_propo', $id_propo)
             ->get()->getResultArray();
     }
@@ -51,6 +58,16 @@ class ModelProposals extends Model
     {
         return $this->db->table('proposal_data')
             ->where('bem_status', '1')
+            ->get()->getResultArray();
+    }
+
+    public function allDataProposalBagBEM()
+    {
+        return $this->db->table('proposal_data')
+            ->where('bem_status', '0')
+            ->orwhere('bem_status', '1')
+            ->orwhere('bem_status', '2')
+            ->orwhere('bem_status', '3')
             ->get()->getResultArray();
     }
     // AKADEMIK

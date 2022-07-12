@@ -9,9 +9,9 @@
       </li>
       <li class=" nav-item"><a href="#"><i class="icon-notebook"></i><span class="menu-title" data-i18n="nav.menu_levels.main">Proposal</span></a>
         <ul class="menu-content">
-          <li><a class="menu-item" href="#" data-i18n="nav.menu_levels.second_level">List1</a>
+          <li><a class="menu-item" href="/AdminProposalData" data-i18n="nav.menu_levels.second_level">Data</a>
           </li>
-          <li><a class="menu-item" href="#" data-i18n="nav.menu_levels.second_level">User Management</a>
+          <li><a class="menu-item" href="/AdminProposalUserManagement" data-i18n="nav.menu_levels.second_level">User Management</a>
           </li>
         </ul>
       </li>
