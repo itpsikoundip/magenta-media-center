@@ -38,25 +38,27 @@ class backendSurveyDosenController extends BaseController
         $dataStored = new surveyDosenModel();
         $dataStoredSingle = new singleDosenModel();
 
-        $hasilSurveyDosenModel = $this->hasilSurveyDosenModel->findAll();
+        $dataDosen = $this->hasilSurveyDosenModel->findAll();
+        $singleSurveyDosenModel = $this->singleDosenModel->findAll();
 
-        foreach ($hasilSurveyDosenModel as $row) {
-            $data = [
-                'pertanyaan' => $this->request->getPost('pertanyaan'),
-                'id_dosen' => $row['id_dosen'],
-                'created_at' => Time::now(),
-                'updated_at' => Time::now()
-            ];
-            $dataStored->addData($data);
-        }
 
         $dataSingle = [
             'pertanyaan' => $this->request->getPost('pertanyaan'),
-            'created_at' => Time::now(),
-            'updated_at' => Time::now()
+            'created_at' => Time::now('Asia/Jakarta'),
+            'updated_at' => Time::now('Asia/Jakarta')
         ];
 
         $dataStoredSingle->addData($dataSingle);
+
+        foreach ($dataDosen as $row) {
+            $data = [
+                'pertanyaan' => $this->request->getPost('pertanyaan'),
+                'id_dosen' => $row['id_dosen'],
+                'created_at' => Time::now('Asia/Jakarta'),
+                'updated_at' => Time::now('Asia/Jakarta')
+            ];
+            $dataStored->addData($data);
+        }
 
         session()->setFlashdata('message', 'Data berhasil ditambahkan!');
         return redirect()->to(base_url('surveydosen'));
@@ -67,8 +69,8 @@ class backendSurveyDosenController extends BaseController
         $dataStored = new surveyDosenModel();
         $dataStoredSingle = new singleDosenModel();
 
-        $dataStoredSingle->deleteData($pertanyaan);
         $dataStored->deleteData($pertanyaan);
+        $dataStoredSingle->deleteData($pertanyaan);
 
         session()->setFlashdata('message', 'Data berhasil dihapus!');
         return redirect()->to(base_url('surveydosen'));

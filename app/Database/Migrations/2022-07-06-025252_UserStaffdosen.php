@@ -12,38 +12,37 @@ class UserStaffdosen extends Migration
         $this->forge->addField([
             'id_userstaffdosen' => [
                 'type'          => 'INT',
-                'constraint'    => 6,
+                'constraint'    => '6',
                 'unsigned'      => TRUE,
                 'auto_increment' => TRUE,
             ],
             'staffdosen_id' => [
                 'type'          => 'INT',
                 'constraint'    => '11',
+                'unsigned'      => TRUE,
             ],
             'password' => [
                 'type'          => 'VARCHAR',
-                'constraint'    => 255,
-                'unsigned'      => TRUE,
+                'constraint'    => '255',
             ],
             'proposal' => [
                 'type'          => 'INT',
-                'constraint'    => 1,
+                'constraint'    => '1',
                 'unsigned'      => TRUE,
             ],
             'survey' => [
                 'type'          => 'INT',
-                'constraint'    => 1,
+                'constraint'    => '1',
                 'unsigned'      => TRUE,
             ],
             'helpdesk' => [
                 'type'          => 'INT',
-                'constraint'    => 1,
+                'constraint'    => '1',
                 'unsigned'      => TRUE,
             ],
             'catatan' => [
                 'type'          => 'VARCHAR',
-                'constraint'    => 50,
-                'unsigned'      => TRUE,
+                'constraint'    => '50',
             ],
         ]);
         $this->forge->addPrimaryKey('id_userstaffdosen');

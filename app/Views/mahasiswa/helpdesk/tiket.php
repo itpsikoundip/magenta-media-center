@@ -50,7 +50,7 @@
 
                             <div class="tab-content px-1 pt-3">
                                 <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
-                                    <form class="form form-horizontal" action="kirimTiket" method="post">
+                                    <form class="form form-horizontal" action="kirimTiket" method="post" enctype="multipart/form-data">
                                         <div class="form-body">
 
                                             <div class="form-group row">
@@ -60,12 +60,6 @@
                                                         <option value="0">--Pilih Topik--</option>
                                                         <option value="1">Akademik</option>
                                                         <option value="2">Non-Akademik</option>
-                                                        <!-- <option value="1">Akademik</option>
-                                                        <option value="2">Kemahasiswaan</option>
-                                                        <option value="3">Keuangan Kuliah</option>
-                                                        <option value="4">Sarana & Prasarana</option>
-                                                        <option value="5">Kerja Sama</option>
-                                                        <option value="6">Lainnya</option> -->
                                                     </select>
                                                 </div>
                                             </div>
@@ -79,6 +73,15 @@
                                                 <label class="col-md-3 label-control" for="inputRingkasan">Detail</label>
                                                 <div class="col-md-9">
                                                     <textarea id="inputDetail" name="inputDetail" rows="5" class="form-control" placeholder="Ceritakan detail permasalahan"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 label-control" for="inputLampiran">Lampiran</label>
+                                                <div class="col-md-9">
+                                                    <input id="inputLampiran" name="inputLampiran" type="file">
+                                                    <div>
+                                                        <small>Jenis file: PDF, JPG, PNG. Ukuran maksimum: 10MB </small>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,25 +101,21 @@
                                             foreach($riwayatTiket as $riwayat){
                                             ?>
                                             
-                                            <div role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
+                                            <div role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4 d-flex justify-content-between">
                                                 <a data-toggle="collapse" data-parent="#accordion<?php echo $i ?>" href="#accordion<?php echo $i ?>" aria-expanded="false" aria-controls="accordion<?php echo $i ?>" class="h6 blue collapsed">
-                                                    <?php echo $riwayat->subjek?>
+                                                    <b><?php echo $riwayat->subjek?></b>
                                                 </a>
+                                                <?php 
+                                                if($riwayat->jawaban == NULL){
+                                                    echo '<span class="badge badge-pill badge-warning">belum terjawab</span>';
+                                                }else{
+                                                    echo '<span class="badge badge-pill badge-success">terjawab</span>';
+                                                }?>
                                             </div>
                                             <div id="accordion<?php echo $i ?>" role="tabpanel" aria-labelledby="heading<?php echo $i ?>" class="collapse" aria-expanded="false">
-                                                <div class="card-body">
-                                                    <div class="row match-height">
-                                                        <div class="col-sm-4">
-                                                            <div class="card">
-                                                                <div class="card-content">
-                                                                    <img class="card-img-top img-fluid" src="<?php echo base_url('robust/app-assets/images/carousel/06.jpg') ?>" alt="Card image cap">
-                                                                    <div class="card-body">
-                                                                        <h4 class="card-title">Nama File</h4>
-                                                                        <a href="#" class="btn btn-outline-amber">Lihat File</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                <div class="card-body" style="border-bottom: solid 1px #cfd8dc">
+                                                    <div class="row">
+                                                        
                                                         <div class="col-sm-8">
                                                             <div class="card">
                                                                 <div class="card-content">
@@ -155,9 +154,28 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-sm-4" style="border-left: 1px solid black">
+                                                            <div class="card">
+                                                                <div class="card-content">
+                                                                <?php 
+                                                                if($riwayat->lampiran == NULL) echo
+                                                                    '<div class="d-flex justify-content-center">
+                                                                        <p>Tidak ada lampiran</p>
+                                                                    </div>';
+                                                                else echo                                                                       
+                                                                    '<img class="card-img-top img-fluid" src="'.base_url('lampiran-helpdesk/'.$riwayat->lampiran).'" alt="Card image cap">
+                                                                    <div class="card-body">
+                                                                        <h4 class="card-title">'.$riwayat->lampiran.'</h4>
+                                                                        <a href="'.base_url("lampiran-helpdesk/".$riwayat->lampiran).'" class="btn btn-outline-secondary" target="blank">Lihat File</a>
+                                                                    </div>';
+                                                                ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <?php
                                             $i++;
                                             } 
@@ -165,7 +183,6 @@
 
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

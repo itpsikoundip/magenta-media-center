@@ -34,6 +34,11 @@ class Tiket extends Migration
                 'constraint'    => '5000',
                 'null'          => TRUE,
             ],
+            'lampiran' => [
+                'type'          => 'VARCHAR',
+                'constraint'    => '255',
+                'null'          => TRUE,
+            ],
             'mahasiswa_id' => [
                 'type'          => 'VARCHAR',
                 'constraint'    => '255',

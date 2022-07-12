@@ -30,4 +30,6 @@
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('robust/assets/css/style.css') ?>">
   <!-- END Custom CSS-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js" integrity="sha512-R/QOHLpV1Ggq22vfDAWYOaMd5RopHrJNMxi8/lJu8Oihwi4Ho4BRFeiMiCefn9rasajKjnx9/fTQ/xkWnkDACg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>

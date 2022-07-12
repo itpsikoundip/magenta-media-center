@@ -21,7 +21,9 @@ class SurveyDosen extends Migration
             ],
             'id_dosen' => [
                 'type' => 'INT',
-                'constraint' => '11',
+                'constraint' => 11,
+                'unsigned'      => TRUE,
+                'auto_increment' => FALSE,
             ],
             'sangat_baik' => [
                 'type' => 'INT',
@@ -57,12 +59,13 @@ class SurveyDosen extends Migration
                 'null' => TRUE,
             ],
         ]);
-        $this->forge->addKey('id', true);
+        $this->forge->addPrimaryKey('id');
+        $this->forge->addForeignKey('id_dosen', 'data_dosen', 'id_dosen');
         $this->forge->createTable('survey_dosen');
     }
 
     public function down()
     {
-        $this->forge->dropTable('survey_dosen',true);
+        $this->forge->dropTable('survey_dosen', true);
     }
 }

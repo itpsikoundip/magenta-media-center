@@ -29,7 +29,11 @@
                                                 <th>No</th>
                                                 <th>Pertanyaan Survey Dosen</th>
                                                 <?php if (count($dataSurveyDosen) <= 9) : ?>
-                                                    <th><a href="#" class="badge badge-primary" data-toggle="modal" data-target="#ModalSurveyDosen"><i class="ft-plus-circle"></i> Add</a></th>
+                                                    <th>
+                                                        <a href="#" class="badge badge-primary" data-toggle="modal" data-target="#ModalSurveyDosen">
+                                                            <i class="ft-plus-circle"></i> Add
+                                                        </a>
+                                                    </th>
                                                 <?php else : ?>
                                                     <th>Aksi</th>
                                                 <?php endif; ?>
@@ -42,7 +46,9 @@
                                                     <td><?= $numbering++; ?></td>
                                                     <td><?= $row["pertanyaan"]; ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('surveydosen/deleteSurveyDosen/' . $row["pertanyaan"]) ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin hapus data?')"><i class="ft-trash-2"></i> Delete</a>
+                                                        <a href="<?= base_url('surveydosen/deleteSurveyDosen/' . $row["pertanyaan"]) ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin hapus data?')">
+                                                            <i class="ft-trash-2"></i> Delete
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

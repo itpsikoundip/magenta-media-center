@@ -16,12 +16,12 @@ class ModelHelpdesk extends Model
 	}
 
     function getRiwayat($nim){
-        $riwayat = $this->db->table('tiket')->select('*')->where('mahasiswa_id', $nim)->get();
+        $riwayat = $this->db->table('tiket')->where('mahasiswa_id', $nim)->orderBy('created_at', 'desc')->get();
         return $riwayat->getResult();
     }
 
 	function countRiwayat($nim){
-		$riwayat = $this->db->table('tiket')->select('*')->where('mahasiswa_id', $nim)->countAllResults();
+		$riwayat = $this->db->table('tiket')->where('mahasiswa_id', $nim)->countAllResults();
         return $riwayat;
 	}
 }

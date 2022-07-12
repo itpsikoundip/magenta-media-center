@@ -21,7 +21,9 @@ class SurveyKependidikan extends Migration
             ],
             'id_kepend' => [
                 'type' => 'INT',
-                'constraint' => '11',
+                'constraint' => 11,
+                'unsigned'      => TRUE,
+                'auto_increment' => FALSE,
             ],
             'sangat_baik' => [
                 'type' => 'INT',
@@ -57,12 +59,13 @@ class SurveyKependidikan extends Migration
                 'null' => TRUE,
             ],
         ]);
-        $this->forge->addKey('id', true);
+        $this->forge->addPrimaryKey('id');
+        $this->forge->addForeignKey('id_kepend', 'data_kepend', 'id_kepend');
         $this->forge->createTable('survey_kependidikan');
     }
 
     public function down()
     {
-        $this->forge->dropTable('survey_kependidikan',true);
+        $this->forge->dropTable('survey_kependidikan', true);
     }
 }
