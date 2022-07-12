@@ -182,65 +182,56 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                    foreach($tiketTerjawab as $tiket){
+                                                    ?>
                                                     <tr>
-                                                        <th scope="row">4890423</th>
-                                                        <td>12-07-2022, 14:30</td>
-                                                        <td>Gading Ihsan</td>
-                                                        <td>24060119140015</td>
-                                                        <!-- <td>gadingihsancahya@gmail.com</td> -->
-                                                        <!-- <td>IT - Akses Internet</td> -->
-                                                        <td>Akses Wifi tidak bisa cok asfghjklk</td>
-                                                        <!-- <td>
-                                                            <div class="badge badge-pill badge-danger">Open</div>
-                                                        </td> -->
-                                                        <td>Wifi tidak bisa diakses sejak 3 hari yang lalu, login gagal terus kjhfshfahs fshf sf sfkjfhksjhf af sf kf sj fkj fgdajsdhgajdsh ajshd ads jagd jashdggahjgdhsgd hjagdshjgjd</td>
-                                                        <td><a href="#" class="btn btn-outline-secondary">Lihat</a></td>
+                                                        <th scope="row"><?php echo $tiket->id ?></th>
+                                                        <td><?php echo date("d M Y, H:i", strtotime($tiket->created_at)) ?></td>
+                                                        <td><?php echo $tiket->nama ?></td>
+                                                        <td><?php echo $tiket->mahasiswa_id ?></td>
+                                                        <td><?php echo $tiket->subjek ?></td>
+                                                        <td><?php echo $tiket->detail ?></td>
+                                                        <td><a href="<?= base_url('helpdeskstaffdosen/detail_tiket/' . $tiket->id) ?>" class="btn btn-outline-info">Lihat</a></td>
                                                     </tr>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
 
                                     <div class="tab-pane" id="tab4" aria-labelledby="base-tab4">
-                                        <div class="table-responsive">
+                                    <div class="table-responsive">
                                             <table class="table">
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
+                                                        <th>Tanggal Tiket</th>
                                                         <th>Nama Lengkap</th>
-                                                        <th>E-Mail</th>
-                                                        <th>Nomor HP</th>
-                                                        <th>Topik</th>
-                                                        <th>Ringkasan / Subject</th>
-                                                        <th>Status Tiket</th>
-                                                        <th>Permasalahan</th>
+                                                        <th>NIM</th>
+                                                        <th>Ringkasan / Subjek</th>
+                                                        <th>Detail</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                    foreach($tiketBelumTerjawab as $tiket){
+                                                    ?>
                                                     <tr>
-                                                        <th scope="row">4890423</th>
-                                                        <td>Gading Ihsan</td>
-                                                        <td>gadingihsancahya@gmail.com</td>
-                                                        <td>085602577471</td>
-                                                        <td>IT - Akses Internet</td>
-                                                        <td>Akses Wifi tidak bisa</td>
-                                                        <td>
-                                                            <div class="badge badge-pill badge-danger">Open</div>
-                                                        </td>
-                                                        <td>View</td>
+                                                        <th scope="row"><?php echo $tiket->id ?></th>
+                                                        <td><?php echo date("d M Y, H:i", strtotime($tiket->created_at)) ?></td>
+                                                        <td><?php echo $tiket->nama ?></td>
+                                                        <td><?php echo $tiket->mahasiswa_id ?></td>
+                                                        <td><?php echo $tiket->subjek ?></td>
+                                                        <td><?php echo $tiket->detail ?></td>
+                                                        <td><a href="<?= base_url('helpdeskstaffdosen/detail_tiket/' . $tiket->id) ?>" class="btn btn-outline-info">Lihat</a></td>
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">4890423</th>
-                                                        <td>Gading Ihsan</td>
-                                                        <td>gadingihsancahya@gmail.com</td>
-                                                        <td>085602577471</td>
-                                                        <td>IT - Akses Internet</td>
-                                                        <td>Akses Wifi tidak bisa</td>
-                                                        <td>
-                                                            <div class="badge badge-pill badge-danger">Open</div>
-                                                        </td>
-                                                        <td>View</td>
-                                                    </tr>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

@@ -14,13 +14,27 @@ class HelpdeskStaffDosen extends BaseController
 
     public function index()
     {
-        $tiket = $this->ModelHelpdeskStaffDosen->getTiket(1);
+        $tiketBelumTerjawab = $this->ModelHelpdeskStaffDosen->getTiketBelumTerjawab(1);
         $tiketTerjawab = $this->ModelHelpdeskStaffDosen->getTiketTerjawab(1);
+        //dd($tiketBelumTerjawab);
         $data = [
-            'title' => 'Admin Helpdesk',
+            'title' => 'Admin Helpdesk Akademik',
             'isi'    => 'staffdosen/helpdesk/index',
-            'tiket' => $tiket,
+            'tiketBelumTerjawab' => $tiketBelumTerjawab,
             'tiketTerjawab' => $tiketTerjawab,
+        ];
+        return view('layouts/staffdosen-wrapper', $data);
+    }
+
+    public function detail_tiket($tiket_id)
+    {
+        $tiket = $this->ModelHelpdeskStaffDosen->getDetail($tiket_id);
+        // dd($tiket);
+        
+        $data = [
+            'title' => 'Detail Tiket',
+            'isi'    => 'staffdosen/helpdesk/detail-tiket',
+            'tiket' => $tiket,
         ];
         return view('layouts/staffdosen-wrapper', $data);
     }
