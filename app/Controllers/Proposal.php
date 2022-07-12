@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ModelProposal;
+use App\Models\ModelProposals;
 
 class Proposal extends BaseController
 {
@@ -11,6 +12,7 @@ class Proposal extends BaseController
         helper('form');
         helper('rupiah_helper');
         $this->ModelProposal = new ModelProposal();
+        $this->ModelProposals = new ModelProposals();
     }
 
     public function index()
@@ -31,6 +33,9 @@ class Proposal extends BaseController
             'dataProposalStatus1' => $this->ModelProposal->allDataStatus1(),
             'dataProposalStatus2' => $this->ModelProposal->allDataStatus2(),
             'dataProposalStatus3' => $this->ModelProposal->allDataStatus3(),
+            // Bag.BEM
+            'allDataProposalBagBEM' => $this->ModelProposals->allDataProposalBagBEM(),
+            'allDataProposalBagBEMSiapACC' => $this->ModelProposals->allDataProposalBagBEMSiapACC(),
             'isi'    => 'ormawa/proposal/data'
         ];
         return view('layouts/mahasiswa-wrapper', $data);
@@ -292,5 +297,41 @@ class Proposal extends BaseController
         $this->ModelProposal->edit($data);
         session()->setFlashdata('sukses', 'Proposal Berhasil Diajukan !!');
         return redirect()->to(base_url('proposal/data'));
+    }
+
+    public function konfirm($id_propo)
+    {
+        $data = [
+            'title' => 'Detail & Setujui Proposal',
+            'detailProposal' => $this->ModelProposal->detailProposal($id_propo),
+            'isi'    => 'ormawa/proposal/konfirm'
+        ];
+        return view('layouts/mahasiswa-wrapper', $data);
+    }
+
+    public function editDataBEMCatatan($id_propo)
+    {
+        $data = [
+            'id_propo' => $id_propo,
+            'bem_note' => $this->request->getPost('addCatatanRevisiPerbaikan'),
+            'bem_user' => $this->request->getPost('userID'),
+            'bem_updatetime' => $this->request->getPost('timeUpdated'),
+        ];
+        $this->ModelProposal->edit($data);
+        session()->setFlashdata('notifikasi', 'Pemberian Catatan Revisi Perbaikan berhasil dilakukan dan disimpan !!');
+        return redirect()->to(base_url('proposal/konfirm/'  . $id_propo));
+    }
+
+    public function editBEMStatus($id_propo)
+    {
+        $data = [
+            'id_propo' => $id_propo,
+            'bem_status' => $this->request->getPost('statusPropo'),
+            'bem_user' => $this->request->getPost('userID'),
+            'bem_updatetime' => $this->request->getPost('timeUpdated'),
+        ];
+        $this->ModelProposal->edit($data);
+        session()->setFlashdata('notifikasi', 'Pengubahan status berhasil dilakukan dan disimpan !!');
+        return redirect()->to(base_url('proposal/konfirm/'  . $id_propo));
     }
 }

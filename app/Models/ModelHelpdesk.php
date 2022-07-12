@@ -21,7 +21,7 @@ class ModelHelpdesk extends Model
     }
 
 	function countRiwayat($nim){
-		$riwayat = $this->db->table('tiket')->select('*')->where('mahasiswa_id', $nim)->countAllResults();
+		$riwayat = $this->db->table('tiket')->where('mahasiswa_id', $nim)->countAllResults();
         return $riwayat;
 	}
 }

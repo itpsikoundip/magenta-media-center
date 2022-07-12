@@ -88,24 +88,13 @@
                                         <input type="number" class="form-control" maxlength="4" placeholder="Tahun Anggaran Kegiatan" name="tahunAnggaran" required>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Organisasi / Lembaga <strong>*</strong></label>
-                                                <select name="organisasiLembaga" class="form-control custom-select" required>
-                                                    <option value="none" disabled>-- Pilih Jenis Studi --</option>
-                                                    <?php foreach ($dataOrmawa as $key => $value) { ?>
-                                                        <option value="<?= $value['id'] ?>"><?= $value['nama_ormawa'] ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
+                                        <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Ketua / Penanggung Jawab <strong>*</strong></label>
                                                 <input type="text" class="form-control" maxlength="255" placeholder="Ketua / Penanggungjawab Organisasi / Lembaga terkait" name="ketuaPJ" required>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Nomor HP Akif <strong>*</strong></label>
                                                 <input type="number" class="form-control" maxlength="20" placeholder="Nomor HP Aktif Telepon / Whatsapp" name="noHP" required>
@@ -166,6 +155,7 @@
                                         </div>
                                     </div>
                                     <p class="text-right"><em>* bersifat wajib</em></p>
+                                    <input type="hidden" name="organisasiLembaga" value="<?= session()->get('idormawa') ?>">
                                     <div class="form-actions right">
                                         <button type="submit" class="btn btn-block btn-primary">
                                             <i class="fa fa-floppy-o"></i>&nbsp; SIMPAN

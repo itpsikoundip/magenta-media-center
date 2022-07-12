@@ -15,40 +15,77 @@
         <hr class="mb-2 mt-0">
         <div class="content-body">
             <div class="row">
-                <div class="col-xl-6 col-lg-6 col-12">
-                    <a class="card" href="<?= base_url('Proposal/pengajuan/') ?>">
-                        <div class="card-content">
-                            <div class="card-body">
-                                <div class="media d-flex">
-                                    <div class="align-self-center">
-                                        <i class="icon-pencil info font-large-2 float-left"></i>
-                                    </div>
-                                    <div class="media-body text-right">
-                                        <h3><u>Pengajuan</u></h3>
-                                        <span>Formulir Pengajuan Proposal</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-12">
-                    <a class="card" href="<?= base_url('Proposal/data') ?>">
-                        <div class="card-content">
-                            <div class="card-body">
-                                <div class="media d-flex">
-                                    <div class="align-self-center">
-                                        <i class="icon-list info font-large-2 float-left"></i>
-                                    </div>
-                                    <div class="media-body text-right">
-                                        <h3><u>Data</u></h3>
-                                        <span>Data Proposal Diajukan</span>
+                <?php if (session()->get('idormawa') == 2) { ?>
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="align-self-center">
+                                            <i class="icon-pencil light font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-right">
+                                            <h3><u>Pengajuan</u></h3>
+                                            <span>Formulir Pengajuan Proposal</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <a class="card" href="<?= base_url('Proposal/data') ?>">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="align-self-center">
+                                            <i class="icon-list info font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-right">
+                                            <h3><u>Data</u></h3>
+                                            <span>Data Proposal Diajukan</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php } else { ?>
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <a class="card" href="<?= base_url('Proposal/pengajuan/') ?>">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="align-self-center">
+                                            <i class="icon-pencil info font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-right">
+                                            <h3><u>Pengajuan</u></h3>
+                                            <span>Formulir Pengajuan Proposal</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <a class="card" href="<?= base_url('Proposal/data') ?>">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="align-self-center">
+                                            <i class="icon-list info font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-right">
+                                            <h3><u>Data</u></h3>
+                                            <span>Data Proposal Diajukan</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>
