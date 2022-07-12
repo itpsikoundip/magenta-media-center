@@ -2,7 +2,7 @@
     <div class="content-wrapper">
         <div class="content-body">
             <div class="card">
-                <h1 class="ml-2 mt-2"><b>Grafik Dosen Psikologi UNDIP</b></h1>
+                <!-- <h1 class="ml-2 mt-2"><b>Grafik Dosen Psikologi UNDIP</b></h1> -->
                 <table class="table table-borderless">
                     <tbody>
                         <tr>
@@ -73,7 +73,7 @@
     if ($arrayPertanyaan == "Tidak ada pertanyaan survey dosen") {
         echo '<p>' . $arrayPertanyaan . '</P>';
     } else { ?>
-        var bgColor = ["#33ccff", "#95CD41", "#FFEA88", "#FF9F45", "#F68989"];
+        var bgColor = ["#0096FF", "#008080", "#f28500", "#ff6361", "#ff0000 "];
         var labels = ["Sangat Baik", "Baik", "Cukup", "Buruk", "Sangat Buruk"];
 
         <?php
@@ -570,6 +570,7 @@
             options: {
                 plugins: {
                     datalabels: {
+                        color: 'white',
                         formatter: (value, context) => {
                             const datapoints = context.chart.data.datasets[0].data;
 
@@ -577,9 +578,13 @@
                                 return total + datapoint;
                             }
                             const totalValue = datapoints.reduce(totalSum, 0)
-                            const percentageValue = (value / totalValue * 100).toFixed(1);
+                            const percentageValue = (value / totalValue * 100).toFixed(0);
                             const display = [`${percentageValue}%`]
                             return display;
+                        },
+                        font: {
+                            size: 13,
+                            weight: 'bold'
                         }
                     }
                 }
@@ -608,6 +613,7 @@
             options: {
                 plugins: {
                     datalabels: {
+                        color: 'white',
                         formatter: (value, context) => {
                             const datapoints = context.chart.data.datasets[0].data;
 
@@ -615,9 +621,13 @@
                                 return total + datapoint;
                             }
                             const totalValue = datapoints.reduce(totalSum, 0)
-                            const percentageValue = (value / totalValue * 100).toFixed(1);
+                            const percentageValue = (value / totalValue * 100).toFixed(0);
                             const display = [`${percentageValue}%`]
                             return display;
+                        },
+                        font: {
+                            size: 13,
+                            weight: 'bold'
                         }
                     }
                 }
@@ -646,6 +656,7 @@
             options: {
                 plugins: {
                     datalabels: {
+                        color: 'white',
                         formatter: (value, context) => {
                             const datapoints = context.chart.data.datasets[0].data;
 
@@ -653,9 +664,13 @@
                                 return total + datapoint;
                             }
                             const totalValue = datapoints.reduce(totalSum, 0)
-                            const percentageValue = (value / totalValue * 100).toFixed(1);
+                            const percentageValue = (value / totalValue * 100).toFixed(0);
                             const display = [`${percentageValue}%`]
                             return display;
+                        },
+                        font: {
+                            size: 13,
+                            weight: 'bold'
                         }
                     }
                 }
@@ -684,6 +699,7 @@
             options: {
                 plugins: {
                     datalabels: {
+                        color: 'white',
                         formatter: (value, context) => {
                             const datapoints = context.chart.data.datasets[0].data;
 
@@ -691,9 +707,13 @@
                                 return total + datapoint;
                             }
                             const totalValue = datapoints.reduce(totalSum, 0)
-                            const percentageValue = (value / totalValue * 100).toFixed(1);
+                            const percentageValue = (value / totalValue * 100).toFixed(0);
                             const display = [`${percentageValue}%`]
                             return display;
+                        },
+                        font: {
+                            size: 13,
+                            weight: 'bold'
                         }
                     }
                 }
@@ -722,6 +742,7 @@
             options: {
                 plugins: {
                     datalabels: {
+                        color: 'white',
                         formatter: (value, context) => {
                             const datapoints = context.chart.data.datasets[0].data;
 
@@ -729,9 +750,13 @@
                                 return total + datapoint;
                             }
                             const totalValue = datapoints.reduce(totalSum, 0)
-                            const percentageValue = (value / totalValue * 100).toFixed(1);
+                            const percentageValue = (value / totalValue * 100).toFixed(0);
                             const display = [`${percentageValue}%`]
                             return display;
+                        },
+                        font: {
+                            size: 13,
+                            weight: 'bold'
                         }
                     }
                 }
@@ -760,6 +785,7 @@
             options: {
                 plugins: {
                     datalabels: {
+                        color: 'white',
                         formatter: (value, context) => {
                             const datapoints = context.chart.data.datasets[0].data;
 
@@ -767,9 +793,13 @@
                                 return total + datapoint;
                             }
                             const totalValue = datapoints.reduce(totalSum, 0)
-                            const percentageValue = (value / totalValue * 100).toFixed(1);
+                            const percentageValue = (value / totalValue * 100).toFixed(0);
                             const display = [`${percentageValue}%`]
                             return display;
+                        },
+                        font: {
+                            size: 13,
+                            weight: 'bold'
                         }
                     }
                 }
@@ -798,6 +828,7 @@
             options: {
                 plugins: {
                     datalabels: {
+                        color: 'white',
                         formatter: (value, context) => {
                             const datapoints = context.chart.data.datasets[0].data;
 
@@ -805,9 +836,13 @@
                                 return total + datapoint;
                             }
                             const totalValue = datapoints.reduce(totalSum, 0)
-                            const percentageValue = (value / totalValue * 100).toFixed(1);
+                            const percentageValue = (value / totalValue * 100).toFixed(0);
                             const display = [`${percentageValue}%`]
                             return display;
+                        },
+                        font: {
+                            size: 13,
+                            weight: 'bold'
                         }
                     }
                 }
@@ -836,6 +871,7 @@
             options: {
                 plugins: {
                     datalabels: {
+                        color: 'white',
                         formatter: (value, context) => {
                             const datapoints = context.chart.data.datasets[0].data;
 
@@ -843,9 +879,13 @@
                                 return total + datapoint;
                             }
                             const totalValue = datapoints.reduce(totalSum, 0)
-                            const percentageValue = (value / totalValue * 100).toFixed(1);
+                            const percentageValue = (value / totalValue * 100).toFixed(0);
                             const display = [`${percentageValue}%`]
                             return display;
+                        },
+                        font: {
+                            size: 13,
+                            weight: 'bold'
                         }
                     }
                 }
@@ -874,6 +914,7 @@
             options: {
                 plugins: {
                     datalabels: {
+                        color: 'white',
                         formatter: (value, context) => {
                             const datapoints = context.chart.data.datasets[0].data;
 
@@ -881,9 +922,13 @@
                                 return total + datapoint;
                             }
                             const totalValue = datapoints.reduce(totalSum, 0)
-                            const percentageValue = (value / totalValue * 100).toFixed(1);
+                            const percentageValue = (value / totalValue * 100).toFixed(0);
                             const display = [`${percentageValue}%`]
                             return display;
+                        },
+                        font: {
+                            size: 13,
+                            weight: 'bold'
                         }
                     }
                 }
@@ -912,6 +957,7 @@
             options: {
                 plugins: {
                     datalabels: {
+                        color: 'white',
                         formatter: (value, context) => {
                             const datapoints = context.chart.data.datasets[0].data;
 
@@ -919,9 +965,13 @@
                                 return total + datapoint;
                             }
                             const totalValue = datapoints.reduce(totalSum, 0)
-                            const percentageValue = (value / totalValue * 100).toFixed(1);
+                            const percentageValue = (value / totalValue * 100).toFixed(0);
                             const display = [`${percentageValue}%`]
                             return display;
+                        },
+                        font: {
+                            size: 13,
+                            weight: 'bold'
                         }
                     }
                 }

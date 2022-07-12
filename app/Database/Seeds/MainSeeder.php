@@ -10,7 +10,6 @@ class MainSeeder extends Seeder
     {
         //
         $this->call('DosenSeeder');
-        $this->call('IndikatorSeeder');
         $this->call('JenisProposalSeeder');
         $this->call('KependSeeder');
         $this->call('RefStaffdosenDepartemen');

@@ -91,4 +91,48 @@ class surveyKependModel extends Model
 
         return $query;
     }
+
+    function getAllByPertanyaan($pertanyaan)
+    {
+        $builder = $this->db->table('survey_kependidikan');
+        $query = $builder->getWhere(['pertanyaan' => $pertanyaan]);
+
+        return $query;
+    }
+
+    public function selectSangatBaik($pertanyaan)
+    {
+        $builder = $this->db->table('survey_kependidikan');
+        $builder->selectSum('sangat_baik')->where('pertanyaan', $pertanyaan);
+        $query = $builder->get();
+        return $query;
+    }
+    public function selectBaik($pertanyaan)
+    {
+        $builder = $this->db->table('survey_kependidikan');
+        $builder->selectSum('baik')->where('pertanyaan', $pertanyaan);
+        $query = $builder->get();
+        return $query;
+    }
+    public function selectCukup($pertanyaan)
+    {
+        $builder = $this->db->table('survey_kependidikan');
+        $builder->selectSum('cukup')->where('pertanyaan', $pertanyaan);
+        $query = $builder->get();
+        return $query;
+    }
+    public function selectburuk($pertanyaan)
+    {
+        $builder = $this->db->table('survey_kependidikan');
+        $builder->selectSum('buruk')->where('pertanyaan', $pertanyaan);
+        $query = $builder->get();
+        return $query;
+    }
+    public function selectsangatBuruk($pertanyaan)
+    {
+        $builder = $this->db->table('survey_kependidikan');
+        $builder->selectSum('sangat_buruk')->where('pertanyaan', $pertanyaan);
+        $query = $builder->get();
+        return $query;
+    }
 }

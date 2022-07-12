@@ -83,4 +83,48 @@ class surveyLulusanModel extends Model
 
         return $query;
     }
+
+    function getAllByPertanyaan($pertanyaan)
+    {
+        $builder = $this->db->table('survey_lulusan');
+        $query = $builder->getWhere(['pertanyaan' => $pertanyaan]);
+
+        return $query;
+    }
+
+    public function selectSangatBaik($pertanyaan)
+    {
+        $builder = $this->db->table('survey_lulusan');
+        $builder->selectSum('sangat_baik')->where('pertanyaan', $pertanyaan);
+        $query = $builder->get();
+        return $query;
+    }
+    public function selectBaik($pertanyaan)
+    {
+        $builder = $this->db->table('survey_lulusan');
+        $builder->selectSum('baik')->where('pertanyaan', $pertanyaan);
+        $query = $builder->get();
+        return $query;
+    }
+    public function selectCukup($pertanyaan)
+    {
+        $builder = $this->db->table('survey_lulusan');
+        $builder->selectSum('cukup')->where('pertanyaan', $pertanyaan);
+        $query = $builder->get();
+        return $query;
+    }
+    public function selectburuk($pertanyaan)
+    {
+        $builder = $this->db->table('survey_lulusan');
+        $builder->selectSum('buruk')->where('pertanyaan', $pertanyaan);
+        $query = $builder->get();
+        return $query;
+    }
+    public function selectsangatBuruk($pertanyaan)
+    {
+        $builder = $this->db->table('survey_lulusan');
+        $builder->selectSum('sangat_buruk')->where('pertanyaan', $pertanyaan);
+        $query = $builder->get();
+        return $query;
+    }
 }
