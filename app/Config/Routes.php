@@ -58,8 +58,10 @@ $routes->post('/surveylulusan/updateSurveyLulusan/(:num)', 'backendSurveyLulusan
 //Hasil Survey Individual
 $routes->get('/hasilSurveyDosen', 'backendHasilSurveyDosenController::index');
 $routes->get('/chartSingleDosen/(:num)', 'backendHasilSurveyDosenController::displayChart/$1');
+
 $routes->get('/hasilSurveyKepend', 'backendHasilSurveyKependController::index');
-$routes->get('/hasilSurveyLulusan', 'backendHasilSurveyLulusanController::index');
+$routes->get('/chartSingleKepend/(:num)', 'backendHasilSurveyKependController::displayChart/$1');
+
 
 //Grafik Hasil Survey
 $routes->get('/grafikDosen', 'backendGrafikDosenController::index');

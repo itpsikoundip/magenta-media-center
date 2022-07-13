@@ -6,11 +6,11 @@
                     <tbody>
                         <tr>
                             <?php
-                            if ($arrayPertanyaan == "Tidak ada pertanyaan survey dosen") {
+                            if ($arrayPertanyaan == "Tidak ada pertanyaan survey kependidikan") {
                                 echo '<br><br>';
                                 echo '<b class="m-auto">' . $arrayPertanyaan . '</b>';
                                 echo '<br>';
-                                echo '<a class="btn btn-primary m-auto" href="/surveydosen" role="button" style="background-color: #f1457e !important; border: 0 !important;">
+                                echo '<a class="btn btn-primary m-auto" href="/surveykepend" role="button" style="background-color: #f1457e !important; border: 0 !important;">
                                 Tambah Pertanyaan</a>';
                                 echo '<br>';
                             } else {
@@ -41,7 +41,7 @@
                             ?>
                         <tr>
                             <?php
-                            if ($arrayPertanyaan == "Tidak ada pertanyaan survey dosen") {
+                            if ($arrayPertanyaan == "Tidak ada pertanyaan survey kependidikan") {
                             } else {
                                 if (count($arrayPertanyaan) > 5) {
                                     $numbering = 6;
@@ -69,7 +69,7 @@
 
 <script>
     <?php
-    if ($arrayPertanyaan == "Tidak ada pertanyaan survey dosen") {
+    if ($arrayPertanyaan == "Tidak ada pertanyaan survey kependidikan") {
         echo '<p>' . $arrayPertanyaan . '</P>';
     } else { ?>
         var bgColor = ["#0096FF", "#008080", "#f28500", "#ff6361", "#ff0000 "];
@@ -79,11 +79,11 @@
 
         if (count($arrayPertanyaan) == 1) {
             $dataset1 = array(
-                $dataDosenFiltered[0]->sangat_baik,
-                $dataDosenFiltered[0]->baik,
-                $dataDosenFiltered[0]->cukup,
-                $dataDosenFiltered[0]->buruk,
-                $dataDosenFiltered[0]->sangat_buruk
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(0, 0, 0, 0, 0);
             $dataset3 = array(0, 0, 0, 0, 0);
@@ -96,18 +96,18 @@
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 2) {
             $dataset1 = array(
-                $dataDosenFiltered[0]->sangat_baik,
-                $dataDosenFiltered[0]->baik,
-                $dataDosenFiltered[0]->cukup,
-                $dataDosenFiltered[0]->buruk,
-                $dataDosenFiltered[0]->sangat_buruk
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $dataDosenFiltered[1]->sangat_baik,
-                $dataDosenFiltered[1]->baik,
-                $dataDosenFiltered[1]->cukup,
-                $dataDosenFiltered[1]->buruk,
-                $dataDosenFiltered[1]->sangat_buruk
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(0, 0, 0, 0, 0);
             $dataset4 = array(0, 0, 0, 0, 0);
@@ -119,25 +119,25 @@
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 3) {
             $dataset1 = array(
-                $dataDosenFiltered[0]->sangat_baik,
-                $dataDosenFiltered[0]->baik,
-                $dataDosenFiltered[0]->cukup,
-                $dataDosenFiltered[0]->buruk,
-                $dataDosenFiltered[0]->sangat_buruk
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $dataDosenFiltered[1]->sangat_baik,
-                $dataDosenFiltered[1]->baik,
-                $dataDosenFiltered[1]->cukup,
-                $dataDosenFiltered[1]->buruk,
-                $dataDosenFiltered[1]->sangat_buruk
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $dataDosenFiltered[2]->sangat_baik,
-                $dataDosenFiltered[2]->baik,
-                $dataDosenFiltered[2]->cukup,
-                $dataDosenFiltered[2]->buruk,
-                $dataDosenFiltered[2]->sangat_buruk
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(0, 0, 0, 0, 0);
             $dataset5 = array(0, 0, 0, 0, 0);
@@ -148,32 +148,32 @@
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 4) {
             $dataset1 = array(
-                $dataDosenFiltered[0]->sangat_baik,
-                $dataDosenFiltered[0]->baik,
-                $dataDosenFiltered[0]->cukup,
-                $dataDosenFiltered[0]->buruk,
-                $dataDosenFiltered[0]->sangat_buruk
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $dataDosenFiltered[1]->sangat_baik,
-                $dataDosenFiltered[1]->baik,
-                $dataDosenFiltered[1]->cukup,
-                $dataDosenFiltered[1]->buruk,
-                $dataDosenFiltered[1]->sangat_buruk
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $dataDosenFiltered[2]->sangat_baik,
-                $dataDosenFiltered[2]->baik,
-                $dataDosenFiltered[2]->cukup,
-                $dataDosenFiltered[2]->buruk,
-                $dataDosenFiltered[2]->sangat_buruk
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $dataDosenFiltered[3]->sangat_baik,
-                $dataDosenFiltered[3]->baik,
-                $dataDosenFiltered[3]->cukup,
-                $dataDosenFiltered[3]->buruk,
-                $dataDosenFiltered[3]->sangat_buruk
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(0, 0, 0, 0, 0);
             $dataset6 = array(0, 0, 0, 0, 0);
@@ -183,39 +183,39 @@
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 5) {
             $dataset1 = array(
-                $dataDosenFiltered[0]->sangat_baik,
-                $dataDosenFiltered[0]->baik,
-                $dataDosenFiltered[0]->cukup,
-                $dataDosenFiltered[0]->buruk,
-                $dataDosenFiltered[0]->sangat_buruk
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $dataDosenFiltered[1]->sangat_baik,
-                $dataDosenFiltered[1]->baik,
-                $dataDosenFiltered[1]->cukup,
-                $dataDosenFiltered[1]->buruk,
-                $dataDosenFiltered[1]->sangat_buruk
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $dataDosenFiltered[2]->sangat_baik,
-                $dataDosenFiltered[2]->baik,
-                $dataDosenFiltered[2]->cukup,
-                $dataDosenFiltered[2]->buruk,
-                $dataDosenFiltered[2]->sangat_buruk
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $dataDosenFiltered[3]->sangat_baik,
-                $dataDosenFiltered[3]->baik,
-                $dataDosenFiltered[3]->cukup,
-                $dataDosenFiltered[3]->buruk,
-                $dataDosenFiltered[3]->sangat_buruk
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(
-                $dataDosenFiltered[4]->sangat_baik,
-                $dataDosenFiltered[4]->baik,
-                $dataDosenFiltered[4]->cukup,
-                $dataDosenFiltered[4]->buruk,
-                $dataDosenFiltered[4]->sangat_buruk
+                $dataKependFiltered[4]->sangat_baik,
+                $dataKependFiltered[4]->baik,
+                $dataKependFiltered[4]->cukup,
+                $dataKependFiltered[4]->buruk,
+                $dataKependFiltered[4]->sangat_buruk
             );
             $dataset6 = array(0, 0, 0, 0, 0);
             $dataset7 = array(0, 0, 0, 0, 0);
@@ -224,46 +224,46 @@
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 6) {
             $dataset1 = array(
-                $dataDosenFiltered[0]->sangat_baik,
-                $dataDosenFiltered[0]->baik,
-                $dataDosenFiltered[0]->cukup,
-                $dataDosenFiltered[0]->buruk,
-                $dataDosenFiltered[0]->sangat_buruk
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $dataDosenFiltered[1]->sangat_baik,
-                $dataDosenFiltered[1]->baik,
-                $dataDosenFiltered[1]->cukup,
-                $dataDosenFiltered[1]->buruk,
-                $dataDosenFiltered[1]->sangat_buruk
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $dataDosenFiltered[2]->sangat_baik,
-                $dataDosenFiltered[2]->baik,
-                $dataDosenFiltered[2]->cukup,
-                $dataDosenFiltered[2]->buruk,
-                $dataDosenFiltered[2]->sangat_buruk
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $dataDosenFiltered[3]->sangat_baik,
-                $dataDosenFiltered[3]->baik,
-                $dataDosenFiltered[3]->cukup,
-                $dataDosenFiltered[3]->buruk,
-                $dataDosenFiltered[3]->sangat_buruk
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(
-                $dataDosenFiltered[4]->sangat_baik,
-                $dataDosenFiltered[4]->baik,
-                $dataDosenFiltered[4]->cukup,
-                $dataDosenFiltered[4]->buruk,
-                $dataDosenFiltered[4]->sangat_buruk
+                $dataKependFiltered[4]->sangat_baik,
+                $dataKependFiltered[4]->baik,
+                $dataKependFiltered[4]->cukup,
+                $dataKependFiltered[4]->buruk,
+                $dataKependFiltered[4]->sangat_buruk
             );
             $dataset6 = array(
-                $dataDosenFiltered[5]->sangat_baik,
-                $dataDosenFiltered[5]->baik,
-                $dataDosenFiltered[5]->cukup,
-                $dataDosenFiltered[5]->buruk,
-                $dataDosenFiltered[5]->sangat_buruk
+                $dataKependFiltered[5]->sangat_baik,
+                $dataKependFiltered[5]->baik,
+                $dataKependFiltered[5]->cukup,
+                $dataKependFiltered[5]->buruk,
+                $dataKependFiltered[5]->sangat_buruk
             );
             $dataset7 = array(0, 0, 0, 0, 0);
             $dataset8 = array(0, 0, 0, 0, 0);
@@ -271,251 +271,251 @@
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 7) {
             $dataset1 = array(
-                $dataDosenFiltered[0]->sangat_baik,
-                $dataDosenFiltered[0]->baik,
-                $dataDosenFiltered[0]->cukup,
-                $dataDosenFiltered[0]->buruk,
-                $dataDosenFiltered[0]->sangat_buruk
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $dataDosenFiltered[1]->sangat_baik,
-                $dataDosenFiltered[1]->baik,
-                $dataDosenFiltered[1]->cukup,
-                $dataDosenFiltered[1]->buruk,
-                $dataDosenFiltered[1]->sangat_buruk
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $dataDosenFiltered[2]->sangat_baik,
-                $dataDosenFiltered[2]->baik,
-                $dataDosenFiltered[2]->cukup,
-                $dataDosenFiltered[2]->buruk,
-                $dataDosenFiltered[2]->sangat_buruk
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $dataDosenFiltered[3]->sangat_baik,
-                $dataDosenFiltered[3]->baik,
-                $dataDosenFiltered[3]->cukup,
-                $dataDosenFiltered[3]->buruk,
-                $dataDosenFiltered[3]->sangat_buruk
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(
-                $dataDosenFiltered[4]->sangat_baik,
-                $dataDosenFiltered[4]->baik,
-                $dataDosenFiltered[4]->cukup,
-                $dataDosenFiltered[4]->buruk,
-                $dataDosenFiltered[4]->sangat_buruk
+                $dataKependFiltered[4]->sangat_baik,
+                $dataKependFiltered[4]->baik,
+                $dataKependFiltered[4]->cukup,
+                $dataKependFiltered[4]->buruk,
+                $dataKependFiltered[4]->sangat_buruk
             );
             $dataset6 = array(
-                $dataDosenFiltered[5]->sangat_baik,
-                $dataDosenFiltered[5]->baik,
-                $dataDosenFiltered[5]->cukup,
-                $dataDosenFiltered[5]->buruk,
-                $dataDosenFiltered[5]->sangat_buruk
+                $dataKependFiltered[5]->sangat_baik,
+                $dataKependFiltered[5]->baik,
+                $dataKependFiltered[5]->cukup,
+                $dataKependFiltered[5]->buruk,
+                $dataKependFiltered[5]->sangat_buruk
             );
             $dataset7 = array(
-                $dataDosenFiltered[6]->sangat_baik,
-                $dataDosenFiltered[6]->baik,
-                $dataDosenFiltered[6]->cukup,
-                $dataDosenFiltered[6]->buruk,
-                $dataDosenFiltered[6]->sangat_buruk
+                $dataKependFiltered[6]->sangat_baik,
+                $dataKependFiltered[6]->baik,
+                $dataKependFiltered[6]->cukup,
+                $dataKependFiltered[6]->buruk,
+                $dataKependFiltered[6]->sangat_buruk
             );
             $dataset8 = array(0, 0, 0, 0, 0);
             $dataset9 = array(0, 0, 0, 0, 0);
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 8) {
             $dataset1 = array(
-                $dataDosenFiltered[0]->sangat_baik,
-                $dataDosenFiltered[0]->baik,
-                $dataDosenFiltered[0]->cukup,
-                $dataDosenFiltered[0]->buruk,
-                $dataDosenFiltered[0]->sangat_buruk
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $dataDosenFiltered[1]->sangat_baik,
-                $dataDosenFiltered[1]->baik,
-                $dataDosenFiltered[1]->cukup,
-                $dataDosenFiltered[1]->buruk,
-                $dataDosenFiltered[1]->sangat_buruk
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $dataDosenFiltered[2]->sangat_baik,
-                $dataDosenFiltered[2]->baik,
-                $dataDosenFiltered[2]->cukup,
-                $dataDosenFiltered[2]->buruk,
-                $dataDosenFiltered[2]->sangat_buruk
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $dataDosenFiltered[3]->sangat_baik,
-                $dataDosenFiltered[3]->baik,
-                $dataDosenFiltered[3]->cukup,
-                $dataDosenFiltered[3]->buruk,
-                $dataDosenFiltered[3]->sangat_buruk
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(
-                $dataDosenFiltered[4]->sangat_baik,
-                $dataDosenFiltered[4]->baik,
-                $dataDosenFiltered[4]->cukup,
-                $dataDosenFiltered[4]->buruk,
-                $dataDosenFiltered[4]->sangat_buruk
+                $dataKependFiltered[4]->sangat_baik,
+                $dataKependFiltered[4]->baik,
+                $dataKependFiltered[4]->cukup,
+                $dataKependFiltered[4]->buruk,
+                $dataKependFiltered[4]->sangat_buruk
             );
             $dataset6 = array(
-                $dataDosenFiltered[5]->sangat_baik,
-                $dataDosenFiltered[5]->baik,
-                $dataDosenFiltered[5]->cukup,
-                $dataDosenFiltered[5]->buruk,
-                $dataDosenFiltered[5]->sangat_buruk
+                $dataKependFiltered[5]->sangat_baik,
+                $dataKependFiltered[5]->baik,
+                $dataKependFiltered[5]->cukup,
+                $dataKependFiltered[5]->buruk,
+                $dataKependFiltered[5]->sangat_buruk
             );
             $dataset7 = array(
-                $dataDosenFiltered[6]->sangat_baik,
-                $dataDosenFiltered[6]->baik,
-                $dataDosenFiltered[6]->cukup,
-                $dataDosenFiltered[6]->buruk,
-                $dataDosenFiltered[6]->sangat_buruk
+                $dataKependFiltered[6]->sangat_baik,
+                $dataKependFiltered[6]->baik,
+                $dataKependFiltered[6]->cukup,
+                $dataKependFiltered[6]->buruk,
+                $dataKependFiltered[6]->sangat_buruk
             );
             $dataset8 = array(
-                $dataDosenFiltered[7]->sangat_baik,
-                $dataDosenFiltered[7]->baik,
-                $dataDosenFiltered[7]->cukup,
-                $dataDosenFiltered[7]->buruk,
-                $dataDosenFiltered[7]->sangat_buruk
+                $dataKependFiltered[7]->sangat_baik,
+                $dataKependFiltered[7]->baik,
+                $dataKependFiltered[7]->cukup,
+                $dataKependFiltered[7]->buruk,
+                $dataKependFiltered[7]->sangat_buruk
             );
             $dataset9 = array(0, 0, 0, 0, 0);
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 9) {
             $dataset1 = array(
-                $dataDosenFiltered[0]->sangat_baik,
-                $dataDosenFiltered[0]->baik,
-                $dataDosenFiltered[0]->cukup,
-                $dataDosenFiltered[0]->buruk,
-                $dataDosenFiltered[0]->sangat_buruk
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $dataDosenFiltered[1]->sangat_baik,
-                $dataDosenFiltered[1]->baik,
-                $dataDosenFiltered[1]->cukup,
-                $dataDosenFiltered[1]->buruk,
-                $dataDosenFiltered[1]->sangat_buruk
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $dataDosenFiltered[2]->sangat_baik,
-                $dataDosenFiltered[2]->baik,
-                $dataDosenFiltered[2]->cukup,
-                $dataDosenFiltered[2]->buruk,
-                $dataDosenFiltered[2]->sangat_buruk
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $dataDosenFiltered[3]->sangat_baik,
-                $dataDosenFiltered[3]->baik,
-                $dataDosenFiltered[3]->cukup,
-                $dataDosenFiltered[3]->buruk,
-                $dataDosenFiltered[3]->sangat_buruk
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(
-                $dataDosenFiltered[4]->sangat_baik,
-                $dataDosenFiltered[4]->baik,
-                $dataDosenFiltered[4]->cukup,
-                $dataDosenFiltered[4]->buruk,
-                $dataDosenFiltered[4]->sangat_buruk
+                $dataKependFiltered[4]->sangat_baik,
+                $dataKependFiltered[4]->baik,
+                $dataKependFiltered[4]->cukup,
+                $dataKependFiltered[4]->buruk,
+                $dataKependFiltered[4]->sangat_buruk
             );
             $dataset6 = array(
-                $dataDosenFiltered[5]->sangat_baik,
-                $dataDosenFiltered[5]->baik,
-                $dataDosenFiltered[5]->cukup,
-                $dataDosenFiltered[5]->buruk,
-                $dataDosenFiltered[5]->sangat_buruk
+                $dataKependFiltered[5]->sangat_baik,
+                $dataKependFiltered[5]->baik,
+                $dataKependFiltered[5]->cukup,
+                $dataKependFiltered[5]->buruk,
+                $dataKependFiltered[5]->sangat_buruk
             );
             $dataset7 = array(
-                $dataDosenFiltered[6]->sangat_baik,
-                $dataDosenFiltered[6]->baik,
-                $dataDosenFiltered[6]->cukup,
-                $dataDosenFiltered[6]->buruk,
-                $dataDosenFiltered[6]->sangat_buruk
+                $dataKependFiltered[6]->sangat_baik,
+                $dataKependFiltered[6]->baik,
+                $dataKependFiltered[6]->cukup,
+                $dataKependFiltered[6]->buruk,
+                $dataKependFiltered[6]->sangat_buruk
             );
             $dataset8 = array(
-                $dataDosenFiltered[7]->sangat_baik,
-                $dataDosenFiltered[7]->baik,
-                $dataDosenFiltered[7]->cukup,
-                $dataDosenFiltered[7]->buruk,
-                $dataDosenFiltered[7]->sangat_buruk
+                $dataKependFiltered[7]->sangat_baik,
+                $dataKependFiltered[7]->baik,
+                $dataKependFiltered[7]->cukup,
+                $dataKependFiltered[7]->buruk,
+                $dataKependFiltered[7]->sangat_buruk
             );
             $dataset9 = array(
-                $dataDosenFiltered[8]->sangat_baik,
-                $dataDosenFiltered[8]->baik,
-                $dataDosenFiltered[8]->cukup,
-                $dataDosenFiltered[8]->buruk,
-                $dataDosenFiltered[8]->sangat_buruk
+                $dataKependFiltered[8]->sangat_baik,
+                $dataKependFiltered[8]->baik,
+                $dataKependFiltered[8]->cukup,
+                $dataKependFiltered[8]->buruk,
+                $dataKependFiltered[8]->sangat_buruk
             );
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 10) {
             $dataset1 = array(
-                $dataDosenFiltered[0]->sangat_baik,
-                $dataDosenFiltered[0]->baik,
-                $dataDosenFiltered[0]->cukup,
-                $dataDosenFiltered[0]->buruk,
-                $dataDosenFiltered[0]->sangat_buruk
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $dataDosenFiltered[1]->sangat_baik,
-                $dataDosenFiltered[1]->baik,
-                $dataDosenFiltered[1]->cukup,
-                $dataDosenFiltered[1]->buruk,
-                $dataDosenFiltered[1]->sangat_buruk
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $dataDosenFiltered[2]->sangat_baik,
-                $dataDosenFiltered[2]->baik,
-                $dataDosenFiltered[2]->cukup,
-                $dataDosenFiltered[2]->buruk,
-                $dataDosenFiltered[2]->sangat_buruk
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $dataDosenFiltered[3]->sangat_baik,
-                $dataDosenFiltered[3]->baik,
-                $dataDosenFiltered[3]->cukup,
-                $dataDosenFiltered[3]->buruk,
-                $dataDosenFiltered[3]->sangat_buruk
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(
-                $dataDosenFiltered[4]->sangat_baik,
-                $dataDosenFiltered[4]->baik,
-                $dataDosenFiltered[4]->cukup,
-                $dataDosenFiltered[4]->buruk,
-                $dataDosenFiltered[4]->sangat_buruk
+                $dataKependFiltered[4]->sangat_baik,
+                $dataKependFiltered[4]->baik,
+                $dataKependFiltered[4]->cukup,
+                $dataKependFiltered[4]->buruk,
+                $dataKependFiltered[4]->sangat_buruk
             );
             $dataset6 = array(
-                $dataDosenFiltered[5]->sangat_baik,
-                $dataDosenFiltered[5]->baik,
-                $dataDosenFiltered[5]->cukup,
-                $dataDosenFiltered[5]->buruk,
-                $dataDosenFiltered[5]->sangat_buruk
+                $dataKependFiltered[5]->sangat_baik,
+                $dataKependFiltered[5]->baik,
+                $dataKependFiltered[5]->cukup,
+                $dataKependFiltered[5]->buruk,
+                $dataKependFiltered[5]->sangat_buruk
             );
             $dataset7 = array(
-                $dataDosenFiltered[6]->sangat_baik,
-                $dataDosenFiltered[6]->baik,
-                $dataDosenFiltered[6]->cukup,
-                $dataDosenFiltered[6]->buruk,
-                $dataDosenFiltered[6]->sangat_buruk
+                $dataKependFiltered[6]->sangat_baik,
+                $dataKependFiltered[6]->baik,
+                $dataKependFiltered[6]->cukup,
+                $dataKependFiltered[6]->buruk,
+                $dataKependFiltered[6]->sangat_buruk
             );
             $dataset8 = array(
-                $dataDosenFiltered[7]->sangat_baik,
-                $dataDosenFiltered[7]->baik,
-                $dataDosenFiltered[7]->cukup,
-                $dataDosenFiltered[7]->buruk,
-                $dataDosenFiltered[7]->sangat_buruk
+                $dataKependFiltered[7]->sangat_baik,
+                $dataKependFiltered[7]->baik,
+                $dataKependFiltered[7]->cukup,
+                $dataKependFiltered[7]->buruk,
+                $dataKependFiltered[7]->sangat_buruk
             );
             $dataset9 = array(
-                $dataDosenFiltered[8]->sangat_baik,
-                $dataDosenFiltered[8]->baik,
-                $dataDosenFiltered[8]->cukup,
-                $dataDosenFiltered[8]->buruk,
-                $dataDosenFiltered[8]->sangat_buruk
+                $dataKependFiltered[8]->sangat_baik,
+                $dataKependFiltered[8]->baik,
+                $dataKependFiltered[8]->cukup,
+                $dataKependFiltered[8]->buruk,
+                $dataKependFiltered[8]->sangat_buruk
             );
             $dataset10 = array(
-                $dataDosenFiltered[9]->sangat_baik,
-                $dataDosenFiltered[9]->baik,
-                $dataDosenFiltered[9]->cukup,
-                $dataDosenFiltered[9]->buruk,
-                $dataDosenFiltered[9]->sangat_buruk
+                $dataKependFiltered[9]->sangat_baik,
+                $dataKependFiltered[9]->baik,
+                $dataKependFiltered[9]->cukup,
+                $dataKependFiltered[9]->buruk,
+                $dataKependFiltered[9]->sangat_buruk
             );
         }
         ?>
