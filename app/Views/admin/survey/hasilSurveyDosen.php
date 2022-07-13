@@ -1,4 +1,7 @@
 <div class="app-content content">
+    <div class="loader">
+        <img src="/images/loading.gif" alt="Loading..." />
+    </div>
     <div class="content-wrapper">
         <div class="content-body">
             <!-- Zero configuration table -->
@@ -54,6 +57,10 @@
 </div>
 
 <script>
+    window.addEventListener("load", function() {
+        const loader = document.querySelector(".loader");
+        loader.className += " hidden"; // class "loader hidden"
+    });
     $(document).ready(function() {
         $('#tbl_dataHasilSurveyDosen').DataTable({});
     });

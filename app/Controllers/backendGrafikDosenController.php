@@ -7,7 +7,6 @@ use App\Models\surveyDosenModel;
 use App\Models\hasilSurveyDosenModel;
 use App\Models\singleDosenModel;
 
-use App\Models\indikatorModel;
 
 
 class backendGrafikDosenController extends BaseController
@@ -17,7 +16,6 @@ class backendGrafikDosenController extends BaseController
     protected $hasilSurveyDosenModel;
     protected $singleDosenModel;
 
-    protected $indikatorModel;
 
 
     public function __construct()
@@ -25,10 +23,9 @@ class backendGrafikDosenController extends BaseController
         $this->surveyDosenModel = new surveyDosenModel();
         $this->hasilSurveyDosenModel = new hasilSurveyDosenModel();
         $this->singleDosenModel = new singleDosenModel();
-        $this->indikatorModel = new indikatorModel();
     }
 
-
+    //All Dosen Grafik
     public function index()
     {
         $displaySingleDosen = $this->singleDosenModel->findAll();
@@ -80,19 +77,5 @@ class backendGrafikDosenController extends BaseController
 
             return view('layouts/survey-wrapper', $data);
         }
-    }
-
-    public function displayChart($pertanyaan)
-    {
-        $filteredByPertanyaan = $this->surveyDosenModel->getAllByPertanyaan($pertanyaan);
-
-        $data = [
-            'title' => 'Grafik Dosen',
-            'idDosen' => $pertanyaan,
-            'dataDosenFiltered' => $filteredByPertanyaan->getResult(),
-            'isi'    => 'admin/survey/chartSingleDosen'
-        ];
-
-        return view('layouts/survey-wrapper', $data);
     }
 }

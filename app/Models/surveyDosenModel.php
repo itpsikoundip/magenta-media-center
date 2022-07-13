@@ -96,6 +96,7 @@ class surveyDosenModel extends Model
         return $query->getResult();
     }
 
+    //Get Where Id
     function getAllInputDosen($id)
     {
         $builder = $this->db->table('survey_dosen');
