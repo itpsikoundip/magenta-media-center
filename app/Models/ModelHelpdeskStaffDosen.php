@@ -28,6 +28,10 @@ class ModelHelpdeskStaffDosen extends Model
         $tiket = $this->db->table('tiket')->where('id', $tiket_id)
                     ->join('mahasiswa','mahasiswa.nim =  tiket.mahasiswa_id')
                     ->get();
-        return $tiket->getRowArray();
+        return $tiket->getResult();
     }
+
+    function updateTiket($tiket_id, $data) {
+		return $this->db->table('tiket')->update($data, ['id' => $tiket_id]);
+	}
 }

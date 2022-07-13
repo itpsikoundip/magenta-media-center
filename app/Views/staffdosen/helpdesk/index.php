@@ -9,6 +9,7 @@
         </div>
         <hr class="mb-2 mt-0">
         <div class="content-body">
+
             <div class="row">
                 <div class="col-xl-3 col-lg-6 col-12">
                     <div class="card">
@@ -79,6 +80,20 @@
                     </div>
                 </div>
             </div>
+
+            <?php
+            if (session()->getFlashdata('error')) {
+                echo '<div class="alert alert-danger" role="alert">';
+                echo session()->getFlashdata('error');
+                echo '</div>';
+            }
+            if (session()->getFlashdata('sukses')) {
+                echo '<div class="alert alert-success" role="alert">';
+                echo session()->getFlashdata('sukses');
+                echo '</div>';
+            }
+            ?>
+
             <div class="row">
                 <div class="col-12">
                     <div class="card">
