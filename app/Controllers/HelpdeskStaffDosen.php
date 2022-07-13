@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use CodeIgniter\I18n\Time;
 
 use App\Models\ModelHelpdeskStaffDosen;
 
@@ -37,6 +38,35 @@ class HelpdeskStaffDosen extends BaseController
             'tiket' => $tiket,
         ];
         return view('layouts/staffdosen-wrapper', $data);
+    }
+
+    public function jawabTiket($tiket_id)
+    {
+        $jawaban        = $this->request->getPost('inputJawaban');
+        $tgl_terjawab   = Time::now('Asia/Jakarta');
+        
+        if($jawaban == ""){
+            $jawaban = NULL;
+        }
+
+        $data = [
+            'jawaban'   => $jawaban,
+            'updated_at'=> $tgl_terjawab
+        ];
+
+        $result = $this->ModelHelpdeskStaffDosen->updateTiket($tiket_id, $data);
+        // dd($result);
+        if($result){
+            if($jawaban == ""){
+                session()->setFlashdata('sukses', 'Jawaban tiket berhasil <b>dihapus</b>, dapat dilihat pada tab Tiket Belum Terjawab');
+            }else{
+                session()->setFlashdata('sukses', 'Jawaban tiket berhasil <b>disimpan</b>, dapat dilihat pada tab Tiket Terjawab');
+            }
+            return redirect()->to(base_url('helpdeskstaffdosen'));
+        }else{
+            session()->setFlashdata('error', 'Jawaban tiket gagal disimpan. Silakan coba lagi');
+            return redirect()->to(base_url('helpdeskstaffdosen'));
+        }
     }
 
     public function tiket()

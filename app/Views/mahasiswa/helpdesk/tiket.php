@@ -160,14 +160,18 @@
                                                             <div class="card">
                                                                 <div class="card-content">
                                                                 <?php 
-                                                                if($riwayat->lampiran == NULL) echo
-                                                                    '<p>Tidak ada lampiran</p>';
-                                                                else echo                                                                       
-                                                                    '<img class="card-img-top img-fluid" src="'.base_url('lampiran-helpdesk/'.$riwayat->lampiran).'" alt="Card image cap">
+                                                                if($riwayat->lampiran == NULL) {?>
+                                                                    <p>Tidak ada lampiran</p>
+                                                                <?php
+                                                                } else {
+                                                                ?>                                                                      
+                                                                    <img class="card-img-top img-fluid" src="<?php echo base_url('lampiran-helpdesk/'.$riwayat->lampiran)?>" alt="Card image cap">
                                                                     <div class="card-body">
-                                                                        <h4 class="card-title">'.$riwayat->lampiran.'</h4>
-                                                                        <a href="'.base_url("lampiran-helpdesk/".$riwayat->lampiran).'" class="btn btn-outline-secondary" target="blank">Lihat File</a>
-                                                                    </div>';
+                                                                        <h4 class="card-title"><?php echo $riwayat->lampiran ?></h4>
+                                                                        <a href="<?php echo base_url('lampiran-helpdesk/'.$riwayat->lampiran)?>" class="btn btn-outline-secondary" target="blank">Lihat File</a>
+                                                                    </div>
+                                                                <?php
+                                                                }
                                                                 ?>
                                                                 </div>
                                                             </div>
