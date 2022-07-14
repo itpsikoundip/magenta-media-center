@@ -3,66 +3,60 @@
         <div class="content-body">
             <div class="card">
                 <!-- <h1 class="ml-2 mt-2"><b>Grafik Dosen Psikologi UNDIP</b></h1> -->
-                <table class="table table-borderless">
-                    <tbody>
-                        <tr>
-                            <?php
-                            if ($arrayPertanyaan == "Tidak ada pertanyaan survey kependidikan") {
-                                echo '<br><br>';
-                                echo '<b class="m-auto">' . $arrayPertanyaan . '</b>';
-                                echo '<br>';
-                                echo '<a class="btn btn-primary m-auto" href="/surveykepend" role="button" style="background-color: #f1457e !important; border: 0 !important;">
+                <div class="row">
+                    <?php
+                    if ($arrayPertanyaan == "Tidak ada pertanyaan survey kependidikan") {
+                        echo '<div class="col text-center m-4">';
+                        echo '<p><b>' . $arrayPertanyaan . '</b></p>';
+                        echo '<br>';
+                        echo '<a class="btn btn-primary m-auto" href="' . base_url('/surveyKepend') . '" role="button" style="background-color: #f1457e !important; border: 0 !important;">
                                 Tambah Pertanyaan</a>';
+                        echo '</div>';
+                    } else {
+                        if (count($arrayPertanyaan) <= 5) {
+                            $numbering = 1;
+                            for ($i = 0; $i < count($arrayPertanyaan); $i++) :
+                                echo '<div class="col">';
+                                echo '<div class="chartBox" style="width: 290px;">';
+                                echo '<canvas id="Q' . $numbering++ . '"></canvas>';
                                 echo '<br>';
-                            } else {
-                                if (count($arrayPertanyaan) <= 5) {
-                                    $numbering = 1;
-                                    for ($i = 0; $i < count($arrayPertanyaan); $i++) :
-                                        echo '<td>';
-                                        echo '<div class="chartBox" style="width: 290px;">';
-                                        echo '<canvas id="Q' . $numbering++ . '"></canvas>';
-                                        echo '<br>';
-                                        echo "<p class='text-center'><b>" . $arrayPertanyaan[$i] . "</b></p>";
-                                        echo '</div>';
-                                        echo '</td>';
-                                    endfor;
-                                } else {
-                                    $numbering = 1;
-                                    for ($i = 0; $i < 5; $i++) :
-                                        echo '<td>';
-                                        echo '<div class="chartBox" style="width: 290px;">';
-                                        echo '<canvas id="Q' . $numbering++ . '"></canvas>';
-                                        echo '<br>';
-                                        echo "<p class='text-center'><b>" . $arrayPertanyaan[$i] . "</b></p>";
-                                        echo '</div>';
-                                        echo '</td>';
-                                    endfor;
-                                }
-                            }
-                            ?>
-                        <tr>
-                            <?php
-                            if ($arrayPertanyaan == "Tidak ada pertanyaan survey kependidikan") {
-                            } else {
-                                if (count($arrayPertanyaan) > 5) {
-                                    $numbering = 6;
-                                    for ($i = 5; $i < count($arrayPertanyaan); $i++) :
-                                        echo '<td>';
-                                        echo '<div class="chartBox" style="width: 290px;">';
-                                        echo '<canvas id="Q' . $numbering++ . '"></canvas>';
-                                        echo '<br>';
-                                        echo "<p class='text-center'><b>" . $arrayPertanyaan[$i] . "</b></p>";
-                                        echo '</div>';
-                                        echo '</td>';
-                                    endfor;
-                                } else {
-                                    echo '';
-                                }
-                            }
-                            ?>
-                        </tr>
-                    </tbody>
-                </table>
+                                echo "<p class='text-center'><b>" . $arrayPertanyaan[$i] . "</b></p>";
+                                echo '</div>';
+                                echo '</div>';
+                            endfor;
+                        } else {
+                            $numbering = 1;
+                            for ($i = 0; $i < 5; $i++) :
+                                echo '<div class="col">';
+                                echo '<div class="chartBox" style="width: 290px;">';
+                                echo '<canvas id="Q' . $numbering++ . '"></canvas>';
+                                echo '<br>';
+                                echo "<p class='text-center'><b>" . $arrayPertanyaan[$i] . "</b></p>";
+                                echo '</div>';
+                                echo '</div>';
+                            endfor;
+                        }
+                    }
+
+                    if ($arrayPertanyaan == "Tidak ada pertanyaan survey kependidikan") {
+                    } else {
+                        if (count($arrayPertanyaan) > 5) {
+                            $numbering = 6;
+                            for ($i = 5; $i < count($arrayPertanyaan); $i++) :
+                                echo '<div class="col">';
+                                echo '<div class="chartBox" style="width: 290px;">';
+                                echo '<canvas id="Q' . $numbering++ . '"></canvas>';
+                                echo '<br>';
+                                echo "<p class='text-center'><b>" . $arrayPertanyaan[$i] . "</b></p>";
+                                echo '</div>';
+                                echo '</div>';
+                            endfor;
+                        } else {
+                            echo '';
+                        }
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     </div>
