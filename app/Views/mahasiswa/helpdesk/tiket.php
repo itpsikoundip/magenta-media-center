@@ -51,10 +51,10 @@
                             <div class="tab-content px-1 pt-3">
                                 <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
                                     <form class="form form-horizontal" action="kirimTiket" method="post" enctype="multipart/form-data">
+                                    <?= csrf_field(); ?>
                                         <div class="form-body">
-
                                             <div class="form-group row">
-                                                <label class="col-md-3 label-control" for="pilihKategori"><b>Topik</b></label>
+                                                <label class="col-md-3 label-control" for="inputTopik"><b>Topik</b></label>
                                                 <div class="col-md-9">
                                                     <select id="inputTopik" name="inputTopik" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
                                                         <option value="0">--Pilih Topik--</option>

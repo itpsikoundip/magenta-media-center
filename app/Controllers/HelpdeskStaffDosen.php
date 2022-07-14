@@ -69,6 +69,30 @@ class HelpdeskStaffDosen extends BaseController
         }
     }
 
+    public function addFAQ(){
+        $topik_id       = $this->request->getPost('inputTopik');
+        $pertanyaan     = $this->request->getPost('inputPertanyaan');
+        $jawaban        = $this->request->getPost('inputJawaban'); 
+
+        $data = [
+            'topik_id'      => $topik_id,
+            'pertanyaan'    => $pertanyaan,
+            'jawaban'       => $jawaban,
+            'created_at'    => Time::now('Asia/Jakarta'),
+        ];
+
+        $result = $this->ModelHelpdeskStaffDosen->insertFAQ($data);
+
+        if($result){
+            session()->setFlashdata('sukses', 'FAQ baru berhasil <b>ditambahkan</b>, dapat dilihat pada tab List FAQ');
+            return redirect()->to(base_url('helpdeskstaffdosen'));
+        }else{
+            session()->setFlashdata('error', 'FAQ gagal ditambahkan. Silakan coba lagi');
+            return redirect()->to(base_url('helpdeskstaffdosen'));
+        }
+        
+    }
+
     public function tiket()
     {
         $data = [

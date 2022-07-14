@@ -146,24 +146,32 @@
                                     </div>
 
                                     <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
-                                        <form class="form form-horizontal">
+                                        <form class="form form-horizontal" action="helpdeskstaffdosen/addFAQ" method="post" enctype="multipart/form-data">
+                                        <?= csrf_field(); ?>
                                             <div class="form-body">
                                                 <!-- <h4 class="form-section"><i class="ft-user"></i> Formulir Tiket</h4> -->
-
                                                 <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="inputSubjek">Pertanyaan</label>
+                                                    <label class="col-md-2 label-control" for="inputTopik"><b>Topik</b></label>
                                                     <div class="col-md-10">
-                                                        <input id="inputSubjek" name="inputSubjek" class="form-control" placeholder="Pertanyaan/permasalahan">
+                                                        <select id="inputTopik" name="inputTopik" class="form-control">
+                                                            <option value="0">--Pilih Topik--</option>
+                                                            <option value="1">Akademik</option>
+                                                            <option value="2">Non-Akademik</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="inputRingkasan">Jawaban</label>
+                                                    <label class="col-md-2 label-control" for="inputPertanyaan"><b>Pertanyaan</b></label>
                                                     <div class="col-md-10">
-                                                        <textarea id="inputDetail" name="inputDetail" rows="5" class="form-control" placeholder="Jawaban detail"></textarea>
+                                                        <input id="inputSubjek" name="inputPertanyaan" class="form-control" placeholder="Pertanyaan/permasalahan">
                                                     </div>
                                                 </div>
-                                                
-
+                                                <div class="form-group row">
+                                                    <label class="col-md-2 label-control" for="inputJawaban"><b>Jawaban</b></label>
+                                                    <div class="col-md-10">
+                                                        <textarea id="inputJawaban" name="inputJawaban" rows="5" class="form-control" placeholder="Jawaban detail"></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div class="form-actions justify-content-end">

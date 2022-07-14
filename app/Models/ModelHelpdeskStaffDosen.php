@@ -34,4 +34,15 @@ class ModelHelpdeskStaffDosen extends Model
     function updateTiket($tiket_id, $data) {
 		return $this->db->table('tiket')->update($data, ['id' => $tiket_id]);
 	}
+
+    function getFAQ(){
+        $faq = $this->db->table('faq')
+                ->join('topik', 'topik.id = tiket.topik_id')
+                ->orderBy('created_at', 'desc')->get();
+        return $faq->getResult();
+    }
+
+    function insertFAQ($data){
+        return $this->db->table('faq')->insert($data);
+    }
 }
