@@ -5,6 +5,11 @@
                 <div class="card-body">
                     <h1 class="text-center mb-2 mt-2"><b>Survey Lulusan Psikologi UNDIP</b></h1>
                     <hr>
+                    <?php if (!empty(session()->getFlashdata('message'))) : ?>
+                        <div class="alert alert-danger text-center">
+                            <?= session()->getFlashdata('message'); ?>
+                        </div>
+                    <?php endif; ?>
                     <div class="row mx-3">
                         <table class="table table-borderless">
                             <?php $numbering = 1;

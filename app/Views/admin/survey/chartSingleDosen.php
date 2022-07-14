@@ -10,7 +10,7 @@
                                 echo '<br><br>';
                                 echo '<b class="m-auto">' . $arrayPertanyaan . '</b>';
                                 echo '<br>';
-                                echo '<a class="btn btn-primary m-auto" href="/surveydosen" role="button" style="background-color: #f1457e !important; border: 0 !important;">
+                                echo '<a class="btn btn-primary m-auto" href="' . base_url('/surveydosen') . '" role="button" style="background-color: #f1457e !important; border: 0 !important;">
                                 Tambah Pertanyaan</a>';
                                 echo '<br>';
                             } else {

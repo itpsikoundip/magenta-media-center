@@ -61,7 +61,7 @@ class frontendSelectKependController extends BaseController
 
         $update = $model->inputSkor($arrayInput);
         if ($update) {
-            return $this->doneSurvey($namaKepend, 1);
+            return $this->doneSurvey($namaKepend, 2);
         }
     }
 
@@ -82,12 +82,12 @@ class frontendSelectKependController extends BaseController
         return $input;
     }
 
-    public function doneSurvey($namaKepend, $isMhs)
+    public function doneSurvey($namaKepend, $who)
     {
         $data = [
             'isi' => 'survey/doneSurvey',
             'nama' => $namaKepend,
-            'isMhs' => $isMhs
+            'who' => $who
         ];
 
         return view('layouts/mahasiswa-wrapper', $data);
