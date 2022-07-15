@@ -99,7 +99,7 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
-                                <ul class="nav nav-tabs">
+                                <ul class="nav nav-tabs nav-underline">
                                     <li class="nav-item">
                                         <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">List FAQ</a>
                                     </li>
@@ -117,30 +117,28 @@
                                     <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
                                         <div id="accordionWrap1" role="tablist" aria-multiselectable="true">
                                             <div class="card collapse-icon panel mb-0 box-shadow-0 border-0">
-                                                <div role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion12" aria-expanded="false" aria-controls="accordion12" class="h6 blue collapsed">Bagaimana prosedur untuk mengajukan banding UKT?</a>
+                                                <?php 
+                                                $i = 1;
+                                                foreach($faqs as $faq){
+                                                ?>
+
+                                                <div id="heading<?php echo $i ?>" role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
+                                                    <a data-toggle="collapse" data-parent="#accordion<?php echo $i ?>" href="#accordion<?php echo $i ?>" aria-expanded="false" aria-controls="accordion<?php echo $i ?>" class="h6 blue collapsed">
+                                                        <b><?php echo $faq->pertanyaan?></b>
+                                                    </a>
                                                 </div>
-                                                <div id="accordion12" role="tabpanel" aria-labelledby="heading12" class="collapse" aria-expanded="false">
+                                                <div id="accordion<?php echo $i ?>" role="tabpanel" aria-labelledby="heading<?php echo $i ?>" class="collapse" aria-expanded="false">
                                                     <div class="card-body">
-                                                        <p class="card-text">Sugar plum bear claw oat cake chocolate jelly tiramisu dessert pie. Tiramisu macaroon muffin jelly marshmallow cake. Pastry oat cake chupa chups.</p>
+                                                        <p class="card-text">
+                                                            <?php echo $faq->jawaban?>
+                                                        </p>
                                                     </div>
                                                 </div>
-                                                <div id="heading13" role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion13" aria-expanded="false" aria-controls="accordion13" class="h6 blue collapsed">Kapan batas waktu mengajukan pembatalan SKS semester genap?</a>
-                                                </div>
-                                                <div id="accordion13" role="tabpanel" aria-labelledby="heading13" class="collapse" aria-expanded="false">
-                                                    <div class="card-body">
-                                                        <p class="card-text">Candy cupcake sugar plum oat cake wafer marzipan jujubes lollipop macaroon. Cake dragée jujubes donut chocolate bar chocolate cake cupcake chocolate topping.</p>
-                                                    </div>
-                                                </div>
-                                                <div id="heading14" role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                                    <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion14" aria-expanded="false" aria-controls="accordion14" class="h6 blue collapsed">Apakah Fakultas Psikologi akan membangun kantin?</a>
-                                                </div>
-                                                <div id="accordion14" role="tabpanel" aria-labelledby="heading14" class="card-collapse collapse" aria-expanded="false" style="height: 0px;">
-                                                    <div class="card-body">
-                                                        <p class="card-text">Sesame snaps chocolate lollipop sesame snaps apple pie chocolate cake sweet roll. Dragée candy canes carrot cake chupa chups danish cake sugar plum candy.</p>
-                                                    </div>
-                                                </div>
+
+                                                <?php
+                                                $i++;
+                                                } 
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
@@ -150,7 +148,7 @@
                                         <?= csrf_field(); ?>
                                             <div class="form-body">
                                                 <!-- <h4 class="form-section"><i class="ft-user"></i> Formulir Tiket</h4> -->
-                                                <div class="form-group row">
+                                                <!-- <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputTopik"><b>Topik</b></label>
                                                     <div class="col-md-10">
                                                         <select id="inputTopik" name="inputTopik" class="form-control">
@@ -159,7 +157,7 @@
                                                             <option value="2">Non-Akademik</option>
                                                         </select>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputPertanyaan"><b>Pertanyaan</b></label>
                                                     <div class="col-md-10">
@@ -175,8 +173,8 @@
                                             </div>
 
                                             <div class="form-actions justify-content-end">
-                                                <div class="d-flex justify-content-end">
-                                                    <p><i>Pertanyaan dan jawaban yang ditambahkan akan muncul pada list FAQ dan dapat dibaca oleh semua mahasiswa</i></p>
+                                                <div class="d-flex justify-content-end"> 
+                                                    <p><i>Pertanyaan dan jawaban yang ditambahkan akan muncul pada list FAQ <?php echo strtolower($kategori) ?> dan dapat dibaca oleh semua mahasiswa</i></p>
                                                 </div>
                                                 <div class="d-flex justify-content-end">
                                                     <button type="submit" class="btn btn-primary">
@@ -188,6 +186,7 @@
                                     </div>
 
                                     <div class="tab-pane" id="tab3" aria-labelledby="base-tab3">
+                                        <p><i>Tiket yang ditampilkan hanyalah tiket dengan topik <?php echo strtolower($kategori) ?></i></p>
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead>
@@ -226,7 +225,8 @@
                                     </div>
 
                                     <div class="tab-pane" id="tab4" aria-labelledby="base-tab4">
-                                    <div class="table-responsive">
+                                        <p><i>Tiket yang ditampilkan hanyalah tiket dengan topik <?php echo strtolower($kategori) ?></i></p>
+                                        <div class="table-responsive">
                                             <table class="table">
                                                 <thead>
                                                     <tr>

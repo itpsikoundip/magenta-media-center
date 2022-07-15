@@ -10,13 +10,13 @@ class RefStaffdosenUnit2 extends Seeder
     {
         $data = [
             [
-                'nama_unit2'    => 'Unknown',
-            ],
-            [
                 'nama_unit2'    => 'Akademik',
             ],
             [
-                'nama_unit2'    => 'Non Akademik',
+                'nama_unit2'    => 'Non-akademik',
+            ],
+            [
+                'nama_unit2'    => 'Lainnya',
             ],
         ];
         $this->db->table('ref_stafdosen_unit2')->insertBatch($data);

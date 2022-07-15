@@ -20,6 +20,14 @@ class ModelHelpdesk extends Model
         return $riwayat->getResult();
     }
 
+	function getFAQ($topik_id){
+        $faq = $this->db->table('faq')
+                ->where('topik_id', $topik_id)
+                ->join('topik', 'topik.id = faq.topik_id')
+                ->orderBy('created_at', 'desc')->get();
+        return $faq->getResult();
+    }
+
 	function countRiwayat($nim){
 		$riwayat = $this->db->table('tiket')->where('mahasiswa_id', $nim)->countAllResults();
         return $riwayat;

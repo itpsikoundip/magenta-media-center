@@ -25,7 +25,8 @@ class ModelHelpdeskStaffDosen extends Model
     }
 
     function getDetail($tiket_id){
-        $tiket = $this->db->table('tiket')->where('id', $tiket_id)
+        $tiket = $this->db->table('tiket')
+                    ->where('id', $tiket_id)
                     ->join('mahasiswa','mahasiswa.nim =  tiket.mahasiswa_id')
                     ->get();
         return $tiket->getResult();
@@ -35,9 +36,10 @@ class ModelHelpdeskStaffDosen extends Model
 		return $this->db->table('tiket')->update($data, ['id' => $tiket_id]);
 	}
 
-    function getFAQ(){
+    function getFAQ($topik_id){
         $faq = $this->db->table('faq')
-                ->join('topik', 'topik.id = tiket.topik_id')
+                ->where('topik_id', $topik_id)
+                ->join('topik', 'topik.id = faq.topik_id')
                 ->orderBy('created_at', 'desc')->get();
         return $faq->getResult();
     }

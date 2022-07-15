@@ -2,6 +2,14 @@
     .media-body span {
         color: black;
     }
+
+    .collapse-icon a[data-toggle="collapse"]:before {
+        opacity: 0;
+    }
+
+    .collapse-icon a[data-toggle="collapse"]:after {
+        opacity: 0;
+    }
 </style>
 <div class="app-content content">
     <div class="container mt-4">
@@ -59,7 +67,7 @@
                                                     <select id="inputTopik" name="inputTopik" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
                                                         <option value="0">--Pilih Topik--</option>
                                                         <option value="1">Akademik</option>
-                                                        <option value="2">Non-Akademik</option>
+                                                        <option value="2">Non-akademik</option>
                                                     </select>
                                                 </div>
                                             </div>

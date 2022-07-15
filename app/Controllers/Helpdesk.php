@@ -16,9 +16,13 @@ class Helpdesk extends BaseController
 
     public function index()
     {
+        $faqs_akdm = $this->ModelHelpdesk->getFAQ(1);
+        $faqs_nonakdm = $this->ModelHelpdesk->getFAQ(2);
         $data = [
             'title' => 'Helpdesk',
-            'isi'    => 'mahasiswa/helpdesk/index'
+            'isi'    => 'mahasiswa/helpdesk/index',
+            'faqs_akdm' => $faqs_akdm,
+            'faqs_nonakdm' => $faqs_nonakdm
         ];
         return view('layouts/mahasiswa-wrapper', $data);
     }
