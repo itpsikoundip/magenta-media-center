@@ -1,6 +1,6 @@
 <div class="app-content content">
     <div class="loader">
-        <img src="/images/loading.gif" alt="Loading..." />
+        <img src="<?php echo base_url('/images/loading.gif') ?>" alt="Loading..." />
     </div>
     <div class="content-wrapper">
         <div class="content-body">
@@ -24,21 +24,21 @@
                                     <table id="tbl_dataHasilSurveyDosen" class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-                                                <th>NIP</th>
-                                                <th>Nama Lengkap</th>
-                                                <th>Aksi</th>
+                                                <th class="text-center">No</th>
+                                                <th class="text-center">NIP</th>
+                                                <th class="text-center">Nama Lengkap Dosen</th>
+                                                <th class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $numbering = 1;
                                             foreach ($dataDosen as $row) : ?>
                                                 <tr>
-                                                    <td><?= $numbering++ ?></td>
-                                                    <td><?= $row["nip"] ?></td>
-                                                    <td><?= $row["nama_lengkap"] ?></td>
-                                                    <td>
-                                                        <a href="<?= base_url('chartSingleDosen/' . $row["id_dosen"]) ?>" class="badge badge-info">
+                                                    <td class="align-middle text-center"><?= $numbering++ ?></td>
+                                                    <td class="align-middle"><?= $row["nip"] ?></td>
+                                                    <td class="align-middle"><?= $row["nama_lengkap"] ?></td>
+                                                    <td class="text-center">
+                                                        <a href="<?= base_url('chartSingleDosen/' . $row["id_dosen"]) ?>" class="badge badge-info px-1 py-1">
                                                             <i class="ft-bar-chart-2"></i> Hasil
                                                         </a>
                                                     </td>

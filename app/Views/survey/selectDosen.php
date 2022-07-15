@@ -1,7 +1,7 @@
 <div class="bg-input">
     <div class="app-content content">
         <div class="loader">
-            <img src="/images/loading.gif" alt="Loading..." />
+            <img src="<?php echo base_url('/images/loading.gif') ?>" alt="Loading..." />
         </div>
         <div class="container-fluid">
             <div class="card-body">

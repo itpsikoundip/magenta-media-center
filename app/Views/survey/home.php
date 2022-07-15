@@ -24,25 +24,25 @@
                 </div>
                 <div class="row d-flex justify-content-center">
                     <?php if ($isMhs == 1) : ?>
-                        <div class="card col-lg-5 mx-2">
+                        <div class="card col-lg-5 mx-3">
                             <a href="<?php echo base_url('/selectDosen') ?>">
                                 <div class="card-content">
-                                    <img class="card-img-top img-fluid" src="/images/homeKepend.jpg" alt="Card image cap" />
+                                    <img class="card-img-top img-fluid" src="<?php echo base_url('/images/homeKepend.jpg') ?>" alt="Card image cap" />
                                     <div class="card-body">
-                                        <h4 class="card-title text-center mt-1">Dosen</h4>
-                                        <p class="card-title text-center">Survey dosen Fakultas Psikologi UNDIP</p>
+                                        <h3 class="text-center font-weight-bold mt-1">Dosen</h3>
+                                        <p class="card-title text-center mt-2">Survey dosen Fakultas Psikologi UNDIP</p>
                                     </div>
                                 </div>
                             </a>
                         </div>
 
-                        <div class="card col-lg-5 mx-2">
+                        <div class="card col-lg-5 mx-3">
                             <a href="<?php echo base_url('/selectKepend') ?>">
                                 <div class="card-content">
-                                    <img class="card-img-top img-fluid" src="/images/homeDosen.jpg" alt="Card image cap" />
+                                    <img class="card-img-top img-fluid" src="<?php echo base_url('/images/homeDosen.jpg') ?>" alt="Card image cap" />
                                     <div class="card-body">
-                                        <h4 class="card-title text-center mt-1">Tenaga Kependidikan</h4>
-                                        <p class="card-title text-center">Survey tenaga kependidikan Fakultas Psikologi UNDIP</p>
+                                        <h3 class="text-center font-weight-bold mt-1">Tenaga Kependidikan</h3>
+                                        <p class="card-title text-center mt-2">Survey tenaga kependidikan Fakultas Psikologi UNDIP</p>
                                     </div>
                                 </div>
                             </a>
@@ -52,10 +52,10 @@
                 <div class="card mx-3 mb-3">
                     <a href="<?php echo base_url('/inputLulusan') ?>">
                         <div class="card-content m-2">
-                            <img class="card-img-top img-fluid" src="/images/homeLus.jpg" alt="Card image cap" />
+                            <img class="card-img-top img-fluid" src="<?php echo base_url('/images/homeLus.jpg') ?>" alt="Card image cap" />
                             <div class="card-body">
-                                <h4 class="card-title text-center mt-1">Lulusan</h4>
-                                <p class="card-title text-center">Survey lulusan Fakultas Psikologi UNDIP</p>
+                                <h3 class="text-center font-weight-bold mt-1">Lulusan</h3>
+                                <p class="card-title text-center mt-2">Survey lulusan Fakultas Psikologi UNDIP</p>
                             </div>
                         </div>
                     </a>

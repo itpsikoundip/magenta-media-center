@@ -24,15 +24,20 @@
                                         </div>
                                     <?php endif; ?>
 
-                                    <table class="table table-striped table-bordered zero-configuration">
+                                    <table class="table table-striped table-bordered">
+                                        <!--zero-configuration ^^-->
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Pertanyaan Survey Lulusan</th>
+                                                <th class="text-center align-middle">No</th>
+                                                <th class="text-center align-middle">Pertanyaan Survey Lulusan</th>
                                                 <?php if (count($dataSurveyLulusan) <= 9) : ?>
-                                                    <th><a href="#" class="badge badge-primary" data-toggle="modal" data-target="#ModalSurveyLulusan"><i class="ft-plus-circle"></i> Add</a></th>
+                                                    <th class="text-center">
+                                                        <a href="#" class="badge badge-primary px-1 py-1" data-toggle="modal" data-target="#ModalSurveyLulusan" style="display:inline-block; width:100px">
+                                                            <i class="ft-plus-circle"></i> Tambah
+                                                        </a>
+                                                    </th>
                                                 <?php else : ?>
-                                                    <th>Aksi</th>
+                                                    <th class="text-center align-middle">Aksi</th>
                                                 <?php endif; ?>
                                             </tr>
                                         </thead>
@@ -40,11 +45,13 @@
                                             <?php $numbering = 1;
                                             foreach ($dataSurveyLulusan as $row) : ?>
                                                 <tr>
-                                                    <td><?= $numbering++; ?></td>
-                                                    <td><?= $row["pertanyaan"]; ?></td>
-                                                    <td>
+                                                    <td class="text-center align-middle"><?= $numbering++; ?></td>
+                                                    <td class="align-middle"><?= $row["pertanyaan"]; ?></td>
+                                                    <td class="text-center">
                                                         <!-- <a href="#" class="badge badge-info" data-toggle="modal" data-target="#ModalEditSurveyLulusan<?php echo $row['id']; ?>"><i class="ft-edit"></i></a> -->
-                                                        <a href="<?= base_url('surveylulusan/deleteSurveyLulusan/' . $row["id"]) ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin hapus data?')"><i class="ft-trash-2"></i> Delete</a>
+                                                        <a href="<?= base_url('surveylulusan/deleteSurveyLulusan/' . $row["id"]) ?>" class="badge badge-danger px-1 py-1" onclick="return confirm('Yakin ingin hapus data?')" style="display:inline-block; width:100px">
+                                                            <i class="ft-trash-2"></i> Hapus
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

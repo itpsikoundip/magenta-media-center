@@ -24,27 +24,33 @@
                                         </div>
                                     <?php endif; ?>
 
-                                    <table class="table table-striped table-bordered zero-configuration">
+                                    <table class="table table-striped table-bordered">
+                                        <!--zero-configuration ^^-->
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Pertanyaan Survey Tenaga Kependidikan</th>
+                                                <th class="text-center align-middle">No</th>
+                                                <th class="text-center align-middle">Pertanyaan Survey Tenaga Kependidikan</th>
                                                 <?php if (count($dataSurveyKepend) <= 9) : ?>
-                                                    <th><a href="#" class="badge badge-primary" data-toggle="modal" data-target="#ModalSurveyKepend"><i class="ft-plus-circle"></i> Add</a></th>
+                                                    <th class="text-center">
+                                                        <a href="#" class="badge badge-primary px-1 py-1" data-toggle="modal" data-target="#ModalSurveyKepend" style="display:inline-block; width:100px">
+                                                            <i class="ft-plus-circle"></i> Tambah
+                                                        </a>
+                                                    </th>
                                                 <?php else : ?>
-                                                    <th>Aksi</th>
+                                                    <th class="text-center align-middle">Aksi</th>
                                                 <?php endif; ?>
-
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $numbering = 1;
                                             foreach ($dataSurveyKepend as $row) : ?>
                                                 <tr>
-                                                    <td><?= $numbering++; ?></td>
-                                                    <td><?= $row["pertanyaan"]; ?></td>
-                                                    <td>
-                                                        <a href="<?= base_url('surveykepend/deleteSurveyKepend/' . $row["pertanyaan"]) ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin hapus data?')"><i class="ft-trash-2"></i> Delete</a>
+                                                    <td class="text-center align-middle"><?= $numbering++; ?></td>
+                                                    <td class="align-middle"><?= $row["pertanyaan"]; ?></td>
+                                                    <td class="text-center">
+                                                        <a href="<?= base_url('surveykepend/deleteSurveyKepend/' . $row["pertanyaan"]) ?>" class="badge badge-danger px-1 py-1" onclick="return confirm('Yakin ingin hapus data?')" style="display:inline-block; width:100px">
+                                                            <i class="ft-trash-2"></i> Hapus
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
