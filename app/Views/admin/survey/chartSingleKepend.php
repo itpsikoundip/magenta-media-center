@@ -2,59 +2,66 @@
     <div class="content-wrapper">
         <div class="content-body">
             <div class="card">
-                <!-- <h1 class="ml-2 mt-2"><b>Grafik Dosen Psikologi UNDIP</b></h1> -->
-                <div class="row">
-                    <?php if ($arrayPertanyaan == "Tidak ada pertanyaan survey dosen") {
-                        echo '<div class="col text-center m-4">';
-                        echo '<p><b>' . $arrayPertanyaan . '</b></p>';
-                        echo '<br>';
-                        echo '<a class="btn btn-primary m-auto" href="' . base_url('/surveydosen') . '" role="button" style="background-color: #f1457e !important; border: 0 !important;">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <?php
+                            if ($arrayPertanyaan == "Tidak ada pertanyaan survey kependidikan") {
+                                echo '<br><br>';
+                                echo '<b class="m-auto">' . $arrayPertanyaan . '</b>';
+                                echo '<br>';
+                                echo '<a class="btn btn-primary m-auto" href="' . base_url('/surveyKepend') . '" role="button" style="background-color: #f1457e !important; border: 0 !important;">
                                 Tambah Pertanyaan</a>';
-                        echo '</div>';
-                    } else {
-                        if (count($arrayPertanyaan) <= 5) {
-                            $numbering = 1;
-                            for ($i = 0; $i < count($arrayPertanyaan); $i++) :
-                                echo '<div class="col">';
-                                echo '<div class="chartBox" style="width: 290px;">';
-                                echo '<canvas id="Q' . $numbering++ . '"></canvas>';
                                 echo '<br>';
-                                echo "<p class='text-center'><b>" . $arrayPertanyaan[$i] . "</b></p>";
-                                echo '</div>';
-                                echo '</div>';
-                            endfor;
-                        } else {
-                            $numbering = 1;
-                            for ($i = 0; $i < 5; $i++) :
-                                echo '<div class="col">';
-                                echo '<div class="chartBox" style="width: 290px;">';
-                                echo '<canvas id="Q' . $numbering++ . '"></canvas>';
-                                echo '<br>';
-                                echo "<p class='text-center'><b>" . $arrayPertanyaan[$i] . "</b></p>";
-                                echo '</div>';
-                                echo '</div>';
-                            endfor;
-                        }
-                    }
-                    if ($arrayPertanyaan == "Tidak ada pertanyaan survey dosen") {
-                    } else {
-                        if (count($arrayPertanyaan) > 5) {
-                            $numbering = 6;
-                            for ($i = 5; $i < count($arrayPertanyaan); $i++) :
-                                echo '<div class="col">';
-                                echo '<div class="chartBox" style="width: 290px;">';
-                                echo '<canvas id="Q' . $numbering++ . '"></canvas>';
-                                echo '<br>';
-                                echo "<p class='text-center'><b>" . $arrayPertanyaan[$i] . "</b></p>";
-                                echo '</div>';
-                                echo '</div>';
-                            endfor;
-                        } else {
-                            echo '';
-                        }
-                    }
-                    ?>
-                </div>
+                            } else {
+                                if (count($arrayPertanyaan) <= 5) {
+                                    $numbering = 1;
+                                    for ($i = 0; $i < count($arrayPertanyaan); $i++) :
+                                        echo '<td>';
+                                        echo '<div class="chartBox" style="width: 290px;">';
+                                        echo '<canvas id="Q' . $numbering++ . '"></canvas>';
+                                        echo '<br>';
+                                        echo "<p class='text-center'><b>" . $arrayPertanyaan[$i] . "</b></p>";
+                                        echo '</div>';
+                                        echo '</td>';
+                                    endfor;
+                                } else {
+                                    $numbering = 1;
+                                    for ($i = 0; $i < 5; $i++) :
+                                        echo '<td>';
+                                        echo '<div class="chartBox" style="width: 290px;">';
+                                        echo '<canvas id="Q' . $numbering++ . '"></canvas>';
+                                        echo '<br>';
+                                        echo "<p class='text-center'><b>" . $arrayPertanyaan[$i] . "</b></p>";
+                                        echo '</div>';
+                                        echo '</td>';
+                                    endfor;
+                                }
+                            }
+                            ?>
+                        <tr>
+                            <?php
+                            if ($arrayPertanyaan == "Tidak ada pertanyaan survey kependidikan") {
+                            } else {
+                                if (count($arrayPertanyaan) > 5) {
+                                    $numbering = 6;
+                                    for ($i = 5; $i < count($arrayPertanyaan); $i++) :
+                                        echo '<td>';
+                                        echo '<div class="chartBox" style="width: 290px;">';
+                                        echo '<canvas id="Q' . $numbering++ . '"></canvas>';
+                                        echo '<br>';
+                                        echo "<p class='text-center'><b>" . $arrayPertanyaan[$i] . "</b></p>";
+                                        echo '</div>';
+                                        echo '</td>';
+                                    endfor;
+                                } else {
+                                    echo '';
+                                }
+                            }
+                            ?>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -62,26 +69,21 @@
 
 <script>
     <?php
-    if ($arrayPertanyaan == "Tidak ada pertanyaan survey dosen") {
+    if ($arrayPertanyaan == "Tidak ada pertanyaan survey kependidikan") {
         echo '<p>' . $arrayPertanyaan . '</P>';
     } else { ?>
         var bgColor = ["#0096FF", "#008080", "#f28500", "#ff6361", "#ff0000 "];
         var labels = ["Sangat Baik", "Baik", "Cukup", "Buruk", "Sangat Buruk"];
 
         <?php
-        $valueSangatBaik = json_decode(json_encode($sumSangatBaik), true);
-        $valueBaik = json_decode(json_encode($sumBaik), true);
-        $valueCukup = json_decode(json_encode($sumCukup), true);
-        $valueBuruk = json_decode(json_encode($sumBuruk), true);
-        $valueSangatBuruk = json_decode(json_encode($sumSangatBuruk), true);
 
         if (count($arrayPertanyaan) == 1) {
             $dataset1 = array(
-                $valueSangatBaik[0][0]["sangat_baik"],
-                $valueBaik[0][0]["baik"],
-                $valueCukup[0][0]["cukup"],
-                $valueBuruk[0][0]["buruk"],
-                $valueSangatBuruk[0][0]["sangat_buruk"]
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(0, 0, 0, 0, 0);
             $dataset3 = array(0, 0, 0, 0, 0);
@@ -94,18 +96,18 @@
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 2) {
             $dataset1 = array(
-                $valueSangatBaik[0][0]["sangat_baik"],
-                $valueBaik[0][0]["baik"],
-                $valueCukup[0][0]["cukup"],
-                $valueBuruk[0][0]["buruk"],
-                $valueSangatBuruk[0][0]["sangat_buruk"]
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $valueSangatBaik[1][0]["sangat_baik"],
-                $valueBaik[1][0]["baik"],
-                $valueCukup[1][0]["cukup"],
-                $valueBuruk[1][0]["buruk"],
-                $valueSangatBuruk[1][0]["sangat_buruk"]
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(0, 0, 0, 0, 0);
             $dataset4 = array(0, 0, 0, 0, 0);
@@ -117,25 +119,25 @@
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 3) {
             $dataset1 = array(
-                $valueSangatBaik[0][0]["sangat_baik"],
-                $valueBaik[0][0]["baik"],
-                $valueCukup[0][0]["cukup"],
-                $valueBuruk[0][0]["buruk"],
-                $valueSangatBuruk[0][0]["sangat_buruk"]
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $valueSangatBaik[1][0]["sangat_baik"],
-                $valueBaik[1][0]["baik"],
-                $valueCukup[1][0]["cukup"],
-                $valueBuruk[1][0]["buruk"],
-                $valueSangatBuruk[1][0]["sangat_buruk"]
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $valueSangatBaik[2][0]["sangat_baik"],
-                $valueBaik[2][0]["baik"],
-                $valueCukup[2][0]["cukup"],
-                $valueBuruk[2][0]["buruk"],
-                $valueSangatBuruk[2][0]["sangat_buruk"]
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(0, 0, 0, 0, 0);
             $dataset5 = array(0, 0, 0, 0, 0);
@@ -146,32 +148,32 @@
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 4) {
             $dataset1 = array(
-                $valueSangatBaik[0][0]["sangat_baik"],
-                $valueBaik[0][0]["baik"],
-                $valueCukup[0][0]["cukup"],
-                $valueBuruk[0][0]["buruk"],
-                $valueSangatBuruk[0][0]["sangat_buruk"]
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $valueSangatBaik[1][0]["sangat_baik"],
-                $valueBaik[1][0]["baik"],
-                $valueCukup[1][0]["cukup"],
-                $valueBuruk[1][0]["buruk"],
-                $valueSangatBuruk[1][0]["sangat_buruk"]
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $valueSangatBaik[2][0]["sangat_baik"],
-                $valueBaik[2][0]["baik"],
-                $valueCukup[2][0]["cukup"],
-                $valueBuruk[2][0]["buruk"],
-                $valueSangatBuruk[2][0]["sangat_buruk"]
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $valueSangatBaik[3][0]["sangat_baik"],
-                $valueBaik[3][0]["baik"],
-                $valueCukup[3][0]["cukup"],
-                $valueBuruk[3][0]["buruk"],
-                $valueSangatBuruk[3][0]["sangat_buruk"]
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(0, 0, 0, 0, 0);
             $dataset6 = array(0, 0, 0, 0, 0);
@@ -181,39 +183,39 @@
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 5) {
             $dataset1 = array(
-                $valueSangatBaik[0][0]["sangat_baik"],
-                $valueBaik[0][0]["baik"],
-                $valueCukup[0][0]["cukup"],
-                $valueBuruk[0][0]["buruk"],
-                $valueSangatBuruk[0][0]["sangat_buruk"]
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $valueSangatBaik[1][0]["sangat_baik"],
-                $valueBaik[1][0]["baik"],
-                $valueCukup[1][0]["cukup"],
-                $valueBuruk[1][0]["buruk"],
-                $valueSangatBuruk[1][0]["sangat_buruk"]
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $valueSangatBaik[2][0]["sangat_baik"],
-                $valueBaik[2][0]["baik"],
-                $valueCukup[2][0]["cukup"],
-                $valueBuruk[2][0]["buruk"],
-                $valueSangatBuruk[2][0]["sangat_buruk"]
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $valueSangatBaik[3][0]["sangat_baik"],
-                $valueBaik[3][0]["baik"],
-                $valueCukup[3][0]["cukup"],
-                $valueBuruk[3][0]["buruk"],
-                $valueSangatBuruk[3][0]["sangat_buruk"]
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(
-                $valueSangatBaik[4][0]["sangat_baik"],
-                $valueBaik[4][0]["baik"],
-                $valueCukup[4][0]["cukup"],
-                $valueBuruk[4][0]["buruk"],
-                $valueSangatBuruk[4][0]["sangat_buruk"]
+                $dataKependFiltered[4]->sangat_baik,
+                $dataKependFiltered[4]->baik,
+                $dataKependFiltered[4]->cukup,
+                $dataKependFiltered[4]->buruk,
+                $dataKependFiltered[4]->sangat_buruk
             );
             $dataset6 = array(0, 0, 0, 0, 0);
             $dataset7 = array(0, 0, 0, 0, 0);
@@ -222,46 +224,46 @@
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 6) {
             $dataset1 = array(
-                $valueSangatBaik[0][0]["sangat_baik"],
-                $valueBaik[0][0]["baik"],
-                $valueCukup[0][0]["cukup"],
-                $valueBuruk[0][0]["buruk"],
-                $valueSangatBuruk[0][0]["sangat_buruk"]
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $valueSangatBaik[1][0]["sangat_baik"],
-                $valueBaik[1][0]["baik"],
-                $valueCukup[1][0]["cukup"],
-                $valueBuruk[1][0]["buruk"],
-                $valueSangatBuruk[1][0]["sangat_buruk"]
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $valueSangatBaik[2][0]["sangat_baik"],
-                $valueBaik[2][0]["baik"],
-                $valueCukup[2][0]["cukup"],
-                $valueBuruk[2][0]["buruk"],
-                $valueSangatBuruk[2][0]["sangat_buruk"]
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $valueSangatBaik[3][0]["sangat_baik"],
-                $valueBaik[3][0]["baik"],
-                $valueCukup[3][0]["cukup"],
-                $valueBuruk[3][0]["buruk"],
-                $valueSangatBuruk[3][0]["sangat_buruk"]
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(
-                $valueSangatBaik[4][0]["sangat_baik"],
-                $valueBaik[4][0]["baik"],
-                $valueCukup[4][0]["cukup"],
-                $valueBuruk[4][0]["buruk"],
-                $valueSangatBuruk[4][0]["sangat_buruk"]
+                $dataKependFiltered[4]->sangat_baik,
+                $dataKependFiltered[4]->baik,
+                $dataKependFiltered[4]->cukup,
+                $dataKependFiltered[4]->buruk,
+                $dataKependFiltered[4]->sangat_buruk
             );
             $dataset6 = array(
-                $valueSangatBaik[5][0]["sangat_baik"],
-                $valueBaik[5][0]["baik"],
-                $valueCukup[5][0]["cukup"],
-                $valueBuruk[5][0]["buruk"],
-                $valueSangatBuruk[5][0]["sangat_buruk"]
+                $dataKependFiltered[5]->sangat_baik,
+                $dataKependFiltered[5]->baik,
+                $dataKependFiltered[5]->cukup,
+                $dataKependFiltered[5]->buruk,
+                $dataKependFiltered[5]->sangat_buruk
             );
             $dataset7 = array(0, 0, 0, 0, 0);
             $dataset8 = array(0, 0, 0, 0, 0);
@@ -269,251 +271,251 @@
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 7) {
             $dataset1 = array(
-                $valueSangatBaik[0][0]["sangat_baik"],
-                $valueBaik[0][0]["baik"],
-                $valueCukup[0][0]["cukup"],
-                $valueBuruk[0][0]["buruk"],
-                $valueSangatBuruk[0][0]["sangat_buruk"]
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $valueSangatBaik[1][0]["sangat_baik"],
-                $valueBaik[1][0]["baik"],
-                $valueCukup[1][0]["cukup"],
-                $valueBuruk[1][0]["buruk"],
-                $valueSangatBuruk[1][0]["sangat_buruk"]
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $valueSangatBaik[2][0]["sangat_baik"],
-                $valueBaik[2][0]["baik"],
-                $valueCukup[2][0]["cukup"],
-                $valueBuruk[2][0]["buruk"],
-                $valueSangatBuruk[2][0]["sangat_buruk"]
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $valueSangatBaik[3][0]["sangat_baik"],
-                $valueBaik[3][0]["baik"],
-                $valueCukup[3][0]["cukup"],
-                $valueBuruk[3][0]["buruk"],
-                $valueSangatBuruk[3][0]["sangat_buruk"]
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(
-                $valueSangatBaik[4][0]["sangat_baik"],
-                $valueBaik[4][0]["baik"],
-                $valueCukup[4][0]["cukup"],
-                $valueBuruk[4][0]["buruk"],
-                $valueSangatBuruk[4][0]["sangat_buruk"]
+                $dataKependFiltered[4]->sangat_baik,
+                $dataKependFiltered[4]->baik,
+                $dataKependFiltered[4]->cukup,
+                $dataKependFiltered[4]->buruk,
+                $dataKependFiltered[4]->sangat_buruk
             );
             $dataset6 = array(
-                $valueSangatBaik[5][0]["sangat_baik"],
-                $valueBaik[5][0]["baik"],
-                $valueCukup[5][0]["cukup"],
-                $valueBuruk[5][0]["buruk"],
-                $valueSangatBuruk[5][0]["sangat_buruk"]
+                $dataKependFiltered[5]->sangat_baik,
+                $dataKependFiltered[5]->baik,
+                $dataKependFiltered[5]->cukup,
+                $dataKependFiltered[5]->buruk,
+                $dataKependFiltered[5]->sangat_buruk
             );
             $dataset7 = array(
-                $valueSangatBaik[6][0]["sangat_baik"],
-                $valueBaik[6][0]["baik"],
-                $valueCukup[6][0]["cukup"],
-                $valueBuruk[6][0]["buruk"],
-                $valueSangatBuruk[6][0]["sangat_buruk"]
+                $dataKependFiltered[6]->sangat_baik,
+                $dataKependFiltered[6]->baik,
+                $dataKependFiltered[6]->cukup,
+                $dataKependFiltered[6]->buruk,
+                $dataKependFiltered[6]->sangat_buruk
             );
             $dataset8 = array(0, 0, 0, 0, 0);
             $dataset9 = array(0, 0, 0, 0, 0);
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 8) {
             $dataset1 = array(
-                $valueSangatBaik[0][0]["sangat_baik"],
-                $valueBaik[0][0]["baik"],
-                $valueCukup[0][0]["cukup"],
-                $valueBuruk[0][0]["buruk"],
-                $valueSangatBuruk[0][0]["sangat_buruk"]
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $valueSangatBaik[1][0]["sangat_baik"],
-                $valueBaik[1][0]["baik"],
-                $valueCukup[1][0]["cukup"],
-                $valueBuruk[1][0]["buruk"],
-                $valueSangatBuruk[1][0]["sangat_buruk"]
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $valueSangatBaik[2][0]["sangat_baik"],
-                $valueBaik[2][0]["baik"],
-                $valueCukup[2][0]["cukup"],
-                $valueBuruk[2][0]["buruk"],
-                $valueSangatBuruk[2][0]["sangat_buruk"]
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $valueSangatBaik[3][0]["sangat_baik"],
-                $valueBaik[3][0]["baik"],
-                $valueCukup[3][0]["cukup"],
-                $valueBuruk[3][0]["buruk"],
-                $valueSangatBuruk[3][0]["sangat_buruk"]
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(
-                $valueSangatBaik[4][0]["sangat_baik"],
-                $valueBaik[4][0]["baik"],
-                $valueCukup[4][0]["cukup"],
-                $valueBuruk[4][0]["buruk"],
-                $valueSangatBuruk[4][0]["sangat_buruk"]
+                $dataKependFiltered[4]->sangat_baik,
+                $dataKependFiltered[4]->baik,
+                $dataKependFiltered[4]->cukup,
+                $dataKependFiltered[4]->buruk,
+                $dataKependFiltered[4]->sangat_buruk
             );
             $dataset6 = array(
-                $valueSangatBaik[5][0]["sangat_baik"],
-                $valueBaik[5][0]["baik"],
-                $valueCukup[5][0]["cukup"],
-                $valueBuruk[5][0]["buruk"],
-                $valueSangatBuruk[5][0]["sangat_buruk"]
+                $dataKependFiltered[5]->sangat_baik,
+                $dataKependFiltered[5]->baik,
+                $dataKependFiltered[5]->cukup,
+                $dataKependFiltered[5]->buruk,
+                $dataKependFiltered[5]->sangat_buruk
             );
             $dataset7 = array(
-                $valueSangatBaik[6][0]["sangat_baik"],
-                $valueBaik[6][0]["baik"],
-                $valueCukup[6][0]["cukup"],
-                $valueBuruk[6][0]["buruk"],
-                $valueSangatBuruk[6][0]["sangat_buruk"]
+                $dataKependFiltered[6]->sangat_baik,
+                $dataKependFiltered[6]->baik,
+                $dataKependFiltered[6]->cukup,
+                $dataKependFiltered[6]->buruk,
+                $dataKependFiltered[6]->sangat_buruk
             );
             $dataset8 = array(
-                $valueSangatBaik[7][0]["sangat_baik"],
-                $valueBaik[7][0]["baik"],
-                $valueCukup[7][0]["cukup"],
-                $valueBuruk[7][0]["buruk"],
-                $valueSangatBuruk[7][0]["sangat_buruk"]
+                $dataKependFiltered[7]->sangat_baik,
+                $dataKependFiltered[7]->baik,
+                $dataKependFiltered[7]->cukup,
+                $dataKependFiltered[7]->buruk,
+                $dataKependFiltered[7]->sangat_buruk
             );
             $dataset9 = array(0, 0, 0, 0, 0);
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 9) {
             $dataset1 = array(
-                $valueSangatBaik[0][0]["sangat_baik"],
-                $valueBaik[0][0]["baik"],
-                $valueCukup[0][0]["cukup"],
-                $valueBuruk[0][0]["buruk"],
-                $valueSangatBuruk[0][0]["sangat_buruk"]
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $valueSangatBaik[1][0]["sangat_baik"],
-                $valueBaik[1][0]["baik"],
-                $valueCukup[1][0]["cukup"],
-                $valueBuruk[1][0]["buruk"],
-                $valueSangatBuruk[1][0]["sangat_buruk"]
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $valueSangatBaik[2][0]["sangat_baik"],
-                $valueBaik[2][0]["baik"],
-                $valueCukup[2][0]["cukup"],
-                $valueBuruk[2][0]["buruk"],
-                $valueSangatBuruk[2][0]["sangat_buruk"]
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $valueSangatBaik[3][0]["sangat_baik"],
-                $valueBaik[3][0]["baik"],
-                $valueCukup[3][0]["cukup"],
-                $valueBuruk[3][0]["buruk"],
-                $valueSangatBuruk[3][0]["sangat_buruk"]
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(
-                $valueSangatBaik[4][0]["sangat_baik"],
-                $valueBaik[4][0]["baik"],
-                $valueCukup[4][0]["cukup"],
-                $valueBuruk[4][0]["buruk"],
-                $valueSangatBuruk[4][0]["sangat_buruk"]
+                $dataKependFiltered[4]->sangat_baik,
+                $dataKependFiltered[4]->baik,
+                $dataKependFiltered[4]->cukup,
+                $dataKependFiltered[4]->buruk,
+                $dataKependFiltered[4]->sangat_buruk
             );
             $dataset6 = array(
-                $valueSangatBaik[5][0]["sangat_baik"],
-                $valueBaik[5][0]["baik"],
-                $valueCukup[5][0]["cukup"],
-                $valueBuruk[5][0]["buruk"],
-                $valueSangatBuruk[5][0]["sangat_buruk"]
+                $dataKependFiltered[5]->sangat_baik,
+                $dataKependFiltered[5]->baik,
+                $dataKependFiltered[5]->cukup,
+                $dataKependFiltered[5]->buruk,
+                $dataKependFiltered[5]->sangat_buruk
             );
             $dataset7 = array(
-                $valueSangatBaik[6][0]["sangat_baik"],
-                $valueBaik[6][0]["baik"],
-                $valueCukup[6][0]["cukup"],
-                $valueBuruk[6][0]["buruk"],
-                $valueSangatBuruk[6][0]["sangat_buruk"]
+                $dataKependFiltered[6]->sangat_baik,
+                $dataKependFiltered[6]->baik,
+                $dataKependFiltered[6]->cukup,
+                $dataKependFiltered[6]->buruk,
+                $dataKependFiltered[6]->sangat_buruk
             );
             $dataset8 = array(
-                $valueSangatBaik[7][0]["sangat_baik"],
-                $valueBaik[7][0]["baik"],
-                $valueCukup[7][0]["cukup"],
-                $valueBuruk[7][0]["buruk"],
-                $valueSangatBuruk[7][0]["sangat_buruk"]
+                $dataKependFiltered[7]->sangat_baik,
+                $dataKependFiltered[7]->baik,
+                $dataKependFiltered[7]->cukup,
+                $dataKependFiltered[7]->buruk,
+                $dataKependFiltered[7]->sangat_buruk
             );
             $dataset9 = array(
-                $valueSangatBaik[8][0]["sangat_baik"],
-                $valueBaik[8][0]["baik"],
-                $valueCukup[8][0]["cukup"],
-                $valueBuruk[8][0]["buruk"],
-                $valueSangatBuruk[8][0]["sangat_buruk"]
+                $dataKependFiltered[8]->sangat_baik,
+                $dataKependFiltered[8]->baik,
+                $dataKependFiltered[8]->cukup,
+                $dataKependFiltered[8]->buruk,
+                $dataKependFiltered[8]->sangat_buruk
             );
             $dataset10 = array(0, 0, 0, 0, 0);
         } elseif (count($arrayPertanyaan) == 10) {
             $dataset1 = array(
-                $valueSangatBaik[0][0]["sangat_baik"],
-                $valueBaik[0][0]["baik"],
-                $valueCukup[0][0]["cukup"],
-                $valueBuruk[0][0]["buruk"],
-                $valueSangatBuruk[0][0]["sangat_buruk"]
+                $dataKependFiltered[0]->sangat_baik,
+                $dataKependFiltered[0]->baik,
+                $dataKependFiltered[0]->cukup,
+                $dataKependFiltered[0]->buruk,
+                $dataKependFiltered[0]->sangat_buruk
             );
             $dataset2 = array(
-                $valueSangatBaik[1][0]["sangat_baik"],
-                $valueBaik[1][0]["baik"],
-                $valueCukup[1][0]["cukup"],
-                $valueBuruk[1][0]["buruk"],
-                $valueSangatBuruk[1][0]["sangat_buruk"]
+                $dataKependFiltered[1]->sangat_baik,
+                $dataKependFiltered[1]->baik,
+                $dataKependFiltered[1]->cukup,
+                $dataKependFiltered[1]->buruk,
+                $dataKependFiltered[1]->sangat_buruk
             );
             $dataset3 = array(
-                $valueSangatBaik[2][0]["sangat_baik"],
-                $valueBaik[2][0]["baik"],
-                $valueCukup[2][0]["cukup"],
-                $valueBuruk[2][0]["buruk"],
-                $valueSangatBuruk[2][0]["sangat_buruk"]
+                $dataKependFiltered[2]->sangat_baik,
+                $dataKependFiltered[2]->baik,
+                $dataKependFiltered[2]->cukup,
+                $dataKependFiltered[2]->buruk,
+                $dataKependFiltered[2]->sangat_buruk
             );
             $dataset4 = array(
-                $valueSangatBaik[3][0]["sangat_baik"],
-                $valueBaik[3][0]["baik"],
-                $valueCukup[3][0]["cukup"],
-                $valueBuruk[3][0]["buruk"],
-                $valueSangatBuruk[3][0]["sangat_buruk"]
+                $dataKependFiltered[3]->sangat_baik,
+                $dataKependFiltered[3]->baik,
+                $dataKependFiltered[3]->cukup,
+                $dataKependFiltered[3]->buruk,
+                $dataKependFiltered[3]->sangat_buruk
             );
             $dataset5 = array(
-                $valueSangatBaik[4][0]["sangat_baik"],
-                $valueBaik[4][0]["baik"],
-                $valueCukup[4][0]["cukup"],
-                $valueBuruk[4][0]["buruk"],
-                $valueSangatBuruk[4][0]["sangat_buruk"]
+                $dataKependFiltered[4]->sangat_baik,
+                $dataKependFiltered[4]->baik,
+                $dataKependFiltered[4]->cukup,
+                $dataKependFiltered[4]->buruk,
+                $dataKependFiltered[4]->sangat_buruk
             );
             $dataset6 = array(
-                $valueSangatBaik[5][0]["sangat_baik"],
-                $valueBaik[5][0]["baik"],
-                $valueCukup[5][0]["cukup"],
-                $valueBuruk[5][0]["buruk"],
-                $valueSangatBuruk[5][0]["sangat_buruk"]
+                $dataKependFiltered[5]->sangat_baik,
+                $dataKependFiltered[5]->baik,
+                $dataKependFiltered[5]->cukup,
+                $dataKependFiltered[5]->buruk,
+                $dataKependFiltered[5]->sangat_buruk
             );
             $dataset7 = array(
-                $valueSangatBaik[6][0]["sangat_baik"],
-                $valueBaik[6][0]["baik"],
-                $valueCukup[6][0]["cukup"],
-                $valueBuruk[6][0]["buruk"],
-                $valueSangatBuruk[6][0]["sangat_buruk"]
+                $dataKependFiltered[6]->sangat_baik,
+                $dataKependFiltered[6]->baik,
+                $dataKependFiltered[6]->cukup,
+                $dataKependFiltered[6]->buruk,
+                $dataKependFiltered[6]->sangat_buruk
             );
             $dataset8 = array(
-                $valueSangatBaik[7][0]["sangat_baik"],
-                $valueBaik[7][0]["baik"],
-                $valueCukup[7][0]["cukup"],
-                $valueBuruk[7][0]["buruk"],
-                $valueSangatBuruk[7][0]["sangat_buruk"]
+                $dataKependFiltered[7]->sangat_baik,
+                $dataKependFiltered[7]->baik,
+                $dataKependFiltered[7]->cukup,
+                $dataKependFiltered[7]->buruk,
+                $dataKependFiltered[7]->sangat_buruk
             );
             $dataset9 = array(
-                $valueSangatBaik[8][0]["sangat_baik"],
-                $valueBaik[8][0]["baik"],
-                $valueCukup[8][0]["cukup"],
-                $valueBuruk[8][0]["buruk"],
-                $valueSangatBuruk[8][0]["sangat_buruk"]
+                $dataKependFiltered[8]->sangat_baik,
+                $dataKependFiltered[8]->baik,
+                $dataKependFiltered[8]->cukup,
+                $dataKependFiltered[8]->buruk,
+                $dataKependFiltered[8]->sangat_buruk
             );
             $dataset10 = array(
-                $valueSangatBaik[9][0]["sangat_baik"],
-                $valueBaik[9][0]["baik"],
-                $valueCukup[9][0]["cukup"],
-                $valueBuruk[9][0]["buruk"],
-                $valueSangatBuruk[9][0]["sangat_buruk"]
+                $dataKependFiltered[9]->sangat_baik,
+                $dataKependFiltered[9]->baik,
+                $dataKependFiltered[9]->cukup,
+                $dataKependFiltered[9]->buruk,
+                $dataKependFiltered[9]->sangat_buruk
             );
         }
         ?>

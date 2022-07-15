@@ -2,6 +2,14 @@
     .media-body span {
         color: black;
     }
+
+    .collapse-icon a[data-toggle="collapse"]:before {
+        opacity: 0;
+    }
+
+    .collapse-icon a[data-toggle="collapse"]:after {
+        opacity: 0;
+    }
 </style>
 <div class="app-content content">
     <div class="container mt-4">
@@ -51,36 +59,36 @@
                             <div class="tab-content px-1 pt-3">
                                 <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
                                     <form class="form form-horizontal" action="kirimTiket" method="post" enctype="multipart/form-data">
+                                    <?= csrf_field(); ?>
                                         <div class="form-body">
-
                                             <div class="form-group row">
-                                                <label class="col-md-3 label-control" for="pilihKategori">Topik</label>
+                                                <label class="col-md-3 label-control" for="inputTopik"><b>Topik</b></label>
                                                 <div class="col-md-9">
                                                     <select id="inputTopik" name="inputTopik" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
                                                         <option value="0">--Pilih Topik--</option>
                                                         <option value="1">Akademik</option>
-                                                        <option value="2">Non-Akademik</option>
+                                                        <option value="2">Non-akademik</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-md-3 label-control" for="inputSubjek">Ringkasan/Subjek</label>
+                                                <label class="col-md-3 label-control" for="inputSubjek"><b>Ringkasan/Subjek</b></label>
                                                 <div class="col-md-9">
                                                     <input id="inputSubjek" name="inputSubjek" class="form-control" placeholder="Ringkasan pertanyaan/permasalahan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-md-3 label-control" for="inputRingkasan">Detail</label>
+                                                <label class="col-md-3 label-control" for="inputRingkasan"><b>Detail</b></label>
                                                 <div class="col-md-9">
                                                     <textarea id="inputDetail" name="inputDetail" rows="5" class="form-control" placeholder="Ceritakan detail permasalahan"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-md-3 label-control" for="inputLampiran">Lampiran</label>
+                                                <label class="col-md-3 label-control" for="inputLampiran"><b>Lampiran</b></label>
                                                 <div class="col-md-9">
                                                     <input id="inputLampiran" name="inputLampiran" type="file">
                                                     <div>
-                                                        <small>Jenis file: PDF, JPG, PNG. Ukuran maksimum: 10MB </small>
+                                                        <small>Jenis file: JPG, JPEG, PNG. Ukuran maksimum: 10MB </small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -105,12 +113,14 @@
                                                 <a data-toggle="collapse" data-parent="#accordion<?php echo $i ?>" href="#accordion<?php echo $i ?>" aria-expanded="false" aria-controls="accordion<?php echo $i ?>" class="h6 blue collapsed">
                                                     <b><?php echo $riwayat->subjek?></b>
                                                 </a>
-                                                <?php 
-                                                if($riwayat->jawaban == NULL){
-                                                    echo '<span class="badge badge-pill badge-warning">belum terjawab</span>';
-                                                }else{
-                                                    echo '<span class="badge badge-pill badge-success">terjawab</span>';
-                                                }?>
+                                                <div>         
+                                                    <?php 
+                                                    if($riwayat->jawaban == NULL){
+                                                        echo '<span class="badge badge-pill badge-warning">belum terjawab</span>';
+                                                    }else{
+                                                        echo '<span class="badge badge-pill badge-success">terjawab</span>';
+                                                    }?>
+                                                </div>
                                             </div>
                                             <div id="accordion<?php echo $i ?>" role="tabpanel" aria-labelledby="heading<?php echo $i ?>" class="collapse" aria-expanded="false">
                                                 <div class="card-body" style="border-bottom: solid 1px #cfd8dc">
@@ -154,20 +164,22 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-4" style="border-left: 1px solid black">
+                                                        <div class="col-sm-4 d-flex justify-content-center align-items-center" style="border-left: 1px solid #cfd8dc"">
                                                             <div class="card">
                                                                 <div class="card-content">
                                                                 <?php 
-                                                                if($riwayat->lampiran == NULL) echo
-                                                                    '<div class="d-flex justify-content-center">
-                                                                        <p>Tidak ada lampiran</p>
-                                                                    </div>';
-                                                                else echo                                                                       
-                                                                    '<img class="card-img-top img-fluid" src="'.base_url('lampiran-helpdesk/'.$riwayat->lampiran).'" alt="Card image cap">
+                                                                if($riwayat->lampiran == NULL) {?>
+                                                                    <p>Tidak ada lampiran</p>
+                                                                <?php
+                                                                } else {
+                                                                ?>                                                                      
+                                                                    <img class="card-img-top img-fluid" src="<?php echo base_url('lampiran-helpdesk/'.$riwayat->lampiran)?>" alt="Card image cap">
                                                                     <div class="card-body">
-                                                                        <h4 class="card-title">'.$riwayat->lampiran.'</h4>
-                                                                        <a href="'.base_url("lampiran-helpdesk/".$riwayat->lampiran).'" class="btn btn-outline-secondary" target="blank">Lihat File</a>
-                                                                    </div>';
+                                                                        <h4 class="card-title"><?php echo $riwayat->lampiran ?></h4>
+                                                                        <a href="<?php echo base_url('lampiran-helpdesk/'.$riwayat->lampiran)?>" class="btn btn-outline-secondary" target="blank">Lihat File</a>
+                                                                    </div>
+                                                                <?php
+                                                                }
                                                                 ?>
                                                                 </div>
                                                             </div>

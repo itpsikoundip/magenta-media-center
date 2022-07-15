@@ -35,55 +35,58 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Login::index');
+if (session()->nama == NULL) {
+    $routes->get('/', 'Login::index');
+} else {
 
-//BACKEND
+    //BACKEND
+    //Pertanyaan Survey
+    $routes->get('/surveydosen', 'backendSurveyDosenController::index');
+    $routes->post('/surveydosen/addSurveyDosen', 'backendSurveyDosenController::addSurveyDosen');
+    $routes->get('/surveydosen/deleteSurveyDosen/(:any)', 'backendSurveyDosenController::deleteSurveyDosen/$1');
+    $routes->post('/surveydosen/updateSurveyDosen/(:num)', 'backendSurveyDosenController::updateSurveyDosen/$1');
 
-//Pertanyaan Survey
-$routes->get('/surveydosen', 'backendSurveyDosenController::index');
-$routes->post('/surveydosen/addSurveyDosen', 'backendSurveyDosenController::addSurveyDosen');
-$routes->get('/surveydosen/deleteSurveyDosen/(:any)', 'backendSurveyDosenController::deleteSurveyDosen/$1');
-$routes->post('/surveydosen/updateSurveyDosen/(:num)', 'backendSurveyDosenController::updateSurveyDosen/$1');
+    $routes->get('/surveykepend', 'backendSurveyKependController::index');
+    $routes->post('/surveykepend/addSurveyKepend', 'backendSurveyKependController::addSurveyKepend');
+    $routes->get('/surveykepend/deleteSurveyKepend/(:any)', 'backendSurveyKependController::deleteSurveyKepend/$1');
+    $routes->post('/surveykepend/updateSurveyKepend/(:num)', 'backendSurveyKependController::updateSurveyKepend/$1');
 
-$routes->get('/surveykepend', 'backendSurveyKependController::index');
-$routes->post('/surveykepend/addSurveyKepend', 'backendSurveyKependController::addSurveyKepend');
-$routes->get('/surveykepend/deleteSurveyKepend/(:any)', 'backendSurveyKependController::deleteSurveyKepend/$1');
-$routes->post('/surveykepend/updateSurveyKepend/(:num)', 'backendSurveyKependController::updateSurveyKepend/$1');
+    $routes->get('/surveylulusan', 'backendSurveyLulusanController::index');
+    $routes->post('/surveylulusan/addSurveyLulusan', 'backendSurveyLulusanController::addSurveyLulusan');
+    $routes->get('/surveylulusan/deleteSurveyLulusan/(:num)', 'backendSurveyLulusanController::deleteSurveyLulusan/$1');
+    $routes->post('/surveylulusan/updateSurveyLulusan/(:num)', 'backendSurveyLulusanController::updateSurveyLulusan/$1');
 
-$routes->get('/surveylulusan', 'backendSurveyLulusanController::index');
-$routes->post('/surveylulusan/addSurveyLulusan', 'backendSurveyLulusanController::addSurveyLulusan');
-$routes->get('/surveylulusan/deleteSurveyLulusan/(:num)', 'backendSurveyLulusanController::deleteSurveyLulusan/$1');
-$routes->post('/surveylulusan/updateSurveyLulusan/(:num)', 'backendSurveyLulusanController::updateSurveyLulusan/$1');
+    //Hasil Survey Individual
+    $routes->get('/hasilSurveyDosen', 'backendHasilSurveyDosenController::index');
+    $routes->get('/chartSingleDosen/(:num)', 'backendHasilSurveyDosenController::displayChart/$1');
 
-//Hasil Survey Individual
-$routes->get('/hasilSurveyDosen', 'backendHasilSurveyDosenController::index');
-$routes->get('/chartSingleDosen/(:num)', 'backendHasilSurveyDosenController::displayChart/$1');
-$routes->get('/hasilSurveyKepend', 'backendHasilSurveyKependController::index');
-$routes->get('/hasilSurveyLulusan', 'backendHasilSurveyLulusanController::index');
+    $routes->get('/hasilSurveyKepend', 'backendHasilSurveyKependController::index');
+    $routes->get('/chartSingleKepend/(:num)', 'backendHasilSurveyKependController::displayChart/$1');
 
-//Grafik Hasil Survey
-$routes->get('/grafikDosen', 'backendGrafikDosenController::index');
-$routes->get('/grafikKepend', 'backendGrafikKependController::index');
-$routes->get('/grafikLulusan', 'backendGrafikLulusanController::index');
 
-//FRONTEND
+    //Grafik Hasil Survey
+    $routes->get('/grafikDosen', 'backendGrafikDosenController::index');
+    $routes->get('/grafikKepend', 'backendGrafikKependController::index');
+    $routes->get('/grafikLulusan', 'backendGrafikLulusanController::index');
 
-//3 Menu Card Landing
-$routes->get('/menuDisplay/(:num)', 'frontendMenuDisplayController::index/$1');
+    //FRONTEND
+    //3 Menu Card Landing
+    $routes->get('/menuDisplay/(:num)', 'frontendMenuDisplayController::index/$1');
 
-//Table Select & Input Dosen
-$routes->get('/selectDosen', 'frontendSelectDosenController::index');
-$routes->get('/gotoInputDosen/(:num)/(:segment)', 'frontendSelectDosenController::gotoInputDosen/$1/$2');
-$routes->post('/inputDosen/(:num)/(:segment)', 'frontendSelectDosenController::inputDosen/$1/$2');
+    //Table Select & Input Dosen
+    $routes->get('/selectDosen', 'frontendSelectDosenController::index');
+    $routes->get('/gotoInputDosen/(:num)/(:segment)', 'frontendSelectDosenController::gotoInputDosen/$1/$2');
+    $routes->post('/inputDosen/(:num)/(:segment)', 'frontendSelectDosenController::inputDosen/$1/$2');
 
-//Table Select & Input Tenaga Kependidikan
-$routes->get('/selectKepend', 'frontendSelectKependController::index');
-$routes->get('/gotoInputKepend/(:num)/(:segment)', 'frontendSelectKependController::gotoInputKepend/$1/$2');
-$routes->post('/inputKepend/(:num)/(:segment)', 'frontendSelectKependController::inputKepend/$1/$2');
+    //Table Select & Input Tenaga Kependidikan
+    $routes->get('/selectKepend', 'frontendSelectKependController::index');
+    $routes->get('/gotoInputKepend/(:num)/(:segment)', 'frontendSelectKependController::gotoInputKepend/$1/$2');
+    $routes->post('/inputKepend/(:num)/(:segment)', 'frontendSelectKependController::inputKepend/$1/$2');
 
-//Survey Lulusan
-$routes->get('/inputLulusan', 'frontendInputLulusanController::index');
-$routes->post('/inputLulusan/input/(:num)', 'frontendInputLulusanController::inputLulusan/$1');
+    //Survey Lulusan
+    $routes->get('/inputLulusan', 'frontendInputLulusanController::index');
+    $routes->post('/inputLulusan/input/(:num)', 'frontendInputLulusanController::inputLulusan/$1');
+}
 
 /*
  * --------------------------------------------------------------------

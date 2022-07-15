@@ -29,16 +29,36 @@ class backendHasilSurveyDosenController extends BaseController
 
         return view('layouts/survey-wrapper', $data);
     }
+
     public function displayChart($idDosen)
     {
         $filteredById = $this->surveyDosenModel->getAllInputDosen($idDosen);
-        $data = [
-            'title' => 'Survey Dosen',
-            'idDosen' => $idDosen,
-            'dataDosenFiltered' => $filteredById->getResult(),
-            'isi'    => 'admin/survey/chartSingleDosen'
-        ];
+        $convertPertanyaan = json_decode(json_encode($filteredById->getResult()), true);
 
-        return view('layouts/survey-wrapper', $data);
+        $array = array();
+
+        foreach ($convertPertanyaan as $row) {
+            array_push($array, $row["pertanyaan"]);
+        }
+
+        if (count($array) == 0) {
+            $data = [
+                'title' => 'Hasil Survey Dosen',
+                'arrayPertanyaan' => "Tidak ada pertanyaan survey dosen",
+                'dataDosenFiltered' => $filteredById->getResult(),
+                'isi'    => 'admin/survey/chartSingleDosen'
+            ];
+
+            return view('layouts/survey-wrapper', $data);
+        } else {
+            $data = [
+                'title' => 'Hasil Survey Dosen',
+                'arrayPertanyaan' => $array,
+                'dataDosenFiltered' => $filteredById->getResult(),
+                'isi'    => 'admin/survey/chartSingleDosen'
+            ];
+
+            return view('layouts/survey-wrapper', $data);
+        }
     }
 }

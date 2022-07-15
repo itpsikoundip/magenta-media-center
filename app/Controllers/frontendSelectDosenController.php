@@ -82,12 +82,12 @@ class frontendSelectDosenController extends BaseController
         return $input;
     }
 
-    public function doneSurvey($namaDosen, $isMhs)
+    public function doneSurvey($namaDosen, $who)
     {
         $data = [
             'isi' => 'survey/doneSurvey',
             'nama' => $namaDosen,
-            'isMhs' => $isMhs
+            'who' => $who
         ];
 
         return view('layouts/mahasiswa-wrapper', $data);

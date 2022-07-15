@@ -22,50 +22,45 @@
                         <h1 class="mb-4 display-3 text-center text-white"><b>Selamat datang di halaman <br>survey Magenta Media Center</b></h1>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="card-deck-wrapper">
-                            <div class="card-deck">
-                                <?php if ($isMhs == 1) : ?>
-                                    <div class="card mx-3 mb-1">
-                                        <a href="/selectDosen">
-                                            <div class="card-content m-2">
-                                                <img class="card-img-top img-fluid" src="/images/homeKepend.jpg" alt="Card image cap" />
-                                                <div class="card-body">
-                                                    <h4 class="card-title text-center mt-1">Dosen</h4>
-                                                    <p class="card-title text-center">Survey dosen Fakultas Psikologi UNDIP</p>
-                                                </div>
-                                            </div>
-                                        </a>
+                <div class="row d-flex justify-content-center">
+                    <?php if ($isMhs == 1) : ?>
+                        <div class="card col-lg-5 mx-2">
+                            <a href="<?php echo base_url('/selectDosen') ?>">
+                                <div class="card-content">
+                                    <img class="card-img-top img-fluid" src="/images/homeKepend.jpg" alt="Card image cap" />
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center mt-1">Dosen</h4>
+                                        <p class="card-title text-center">Survey dosen Fakultas Psikologi UNDIP</p>
                                     </div>
-                                    <div class="card mx-3 mb-1">
-                                        <a href="/selectKepend">
-                                            <div class="card-content m-2">
-                                                <img class="card-img-top img-fluid" src="/images/homeDosen.jpg" alt="Card image cap" />
-                                                <div class="card-body">
-                                                    <h4 class="card-title text-center mt-1">Tenaga Kependidikan</h4>
-                                                    <p class="card-title text-center">Survey tenaga kependidikan Fakultas Psikologi UNDIP</p>
-                                                </div>
-                                            </div>
-                                        </a>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="card col-lg-5 mx-2">
+                            <a href="<?php echo base_url('/selectKepend') ?>">
+                                <div class="card-content">
+                                    <img class="card-img-top img-fluid" src="/images/homeDosen.jpg" alt="Card image cap" />
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center mt-1">Tenaga Kependidikan</h4>
+                                        <p class="card-title text-center">Survey tenaga kependidikan Fakultas Psikologi UNDIP</p>
                                     </div>
-                                <?php else : ?>
-                                    <div class="card mx-3 mb-3">
-                                        <a href="/inputLulusan">
-                                            <div class="card-content m-2">
-                                                <img class="card-img-top img-fluid" src="/images/homeLus.jpg" alt="Card image cap" />
-                                                <div class="card-body">
-                                                    <h4 class="card-title text-center mt-1">Lulusan</h4>
-                                                    <p class="card-title text-center">Survey lulusan Fakultas Psikologi UNDIP</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                <?php endif; ?>
+                                </div>
+                            </a>
+                        </div>
+                </div>
+            <?php else : ?>
+                <div class="card mx-3 mb-3">
+                    <a href="<?php echo base_url('/inputLulusan') ?>">
+                        <div class="card-content m-2">
+                            <img class="card-img-top img-fluid" src="/images/homeLus.jpg" alt="Card image cap" />
+                            <div class="card-body">
+                                <h4 class="card-title text-center mt-1">Lulusan</h4>
+                                <p class="card-title text-center">Survey lulusan Fakultas Psikologi UNDIP</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
+            <?php endif; ?>
             </section>
         </div>
     </div>

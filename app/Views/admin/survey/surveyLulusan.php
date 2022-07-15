@@ -29,7 +29,11 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Pertanyaan Survey Lulusan</th>
-                                                <th><a href="#" class="badge badge-primary" data-toggle="modal" data-target="#ModalSurveyLulusan"><i class="ft-plus-circle"></i> Add</a></th>
+                                                <?php if (count($dataSurveyLulusan) <= 9) : ?>
+                                                    <th><a href="#" class="badge badge-primary" data-toggle="modal" data-target="#ModalSurveyLulusan"><i class="ft-plus-circle"></i> Add</a></th>
+                                                <?php else : ?>
+                                                    <th>Aksi</th>
+                                                <?php endif; ?>
                                             </tr>
                                         </thead>
                                         <tbody>

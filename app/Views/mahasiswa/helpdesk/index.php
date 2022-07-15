@@ -75,30 +75,68 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-content">
-                            <div id="accordionWrap1" role="tablist" aria-multiselectable="true">
-                                <div class="card collapse-icon panel mb-0 box-shadow-0 border-0">
-                                    <div role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                        <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion12" aria-expanded="false" aria-controls="accordion12" class="h6 blue collapsed">Bagaimana prosedur untuk mengajukan banding UKT?</a>
-                                    </div>
-                                    <div id="accordion12" role="tabpanel" aria-labelledby="heading12" class="collapse" aria-expanded="false">
-                                        <div class="card-body">
-                                            <p class="card-text">Sugar plum bear claw oat cake chocolate jelly tiramisu dessert pie. Tiramisu macaroon muffin jelly marshmallow cake. Pastry oat cake chupa chups.</p>
+                            <ul class="nav nav-tabs nav-underline">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">Akademik</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="base-tab2" data-toggle="tab" aria-controls="tab2" href="#tab2" aria-expanded="false">Non-akademik</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content px-1 pt-1">
+                                <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
+                                    <div id="accordionWrap1" role="tablist" aria-multiselectable="true">
+                                        <div class="card collapse-icon panel mb-0 box-shadow-0 border-0">
+                                            <?php 
+                                            $i = 1;
+                                            foreach($faqs_akdm as $faq){
+                                            ?>
+
+                                            <div id="heading<?php echo $i ?>" role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
+                                                <a data-toggle="collapse" data-parent="#accordion<?php echo $i ?>" href="#accordion<?php echo $i ?>" aria-expanded="false" aria-controls="accordion<?php echo $i ?>" class="h6 blue collapsed">
+                                                    <b><?php echo $faq->pertanyaan?></b>
+                                                </a>
+                                            </div>
+                                            <div id="accordion<?php echo $i ?>" role="tabpanel" aria-labelledby="heading<?php echo $i ?>" class="collapse" aria-expanded="false">
+                                                <div class="card-body">
+                                                    <p class="card-text">
+                                                        <?php echo $faq->jawaban?>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <?php
+                                            $i++;
+                                            } 
+                                            ?>
                                         </div>
                                     </div>
-                                    <div id="heading13" role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                        <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion13" aria-expanded="false" aria-controls="accordion13" class="h6 blue collapsed">Kapan batas waktu mengajukan pembatalan SKS semester genap?</a>
-                                    </div>
-                                    <div id="accordion13" role="tabpanel" aria-labelledby="heading13" class="collapse" aria-expanded="false">
-                                        <div class="card-body">
-                                            <p class="card-text">Candy cupcake sugar plum oat cake wafer marzipan jujubes lollipop macaroon. Cake dragée jujubes donut chocolate bar chocolate cake cupcake chocolate topping.</p>
-                                        </div>
-                                    </div>
-                                    <div id="heading14" role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                        <a data-toggle="collapse" data-parent="#accordionWrap1" href="#accordion14" aria-expanded="false" aria-controls="accordion14" class="h6 blue collapsed">Apakah Fakultas Psikologi akan membangun kantin?</a>
-                                    </div>
-                                    <div id="accordion14" role="tabpanel" aria-labelledby="heading14" class="card-collapse collapse" aria-expanded="false" style="height: 0px;">
-                                        <div class="card-body">
-                                            <p class="card-text">Sesame snaps chocolate lollipop sesame snaps apple pie chocolate cake sweet roll. Dragée candy canes carrot cake chupa chups danish cake sugar plum candy.</p>
+                                </div>
+                                <div role="tabpanel" class="tab-pane active" id="tab2" aria-expanded="true" aria-labelledby="base-tab2">
+                                    <div id="accordionWrap1" role="tablist" aria-multiselectable="true">
+                                        <div class="card collapse-icon panel mb-0 box-shadow-0 border-0">
+                                            <?php 
+                                            $i = 1;
+                                            foreach($faqs_nonakdm as $faq){
+                                            ?>
+
+                                            <div id="heading<?php echo $i ?>" role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
+                                                <a data-toggle="collapse" data-parent="#accordion<?php echo $i ?>" href="#accordion<?php echo $i ?>" aria-expanded="false" aria-controls="accordion<?php echo $i ?>" class="h6 blue collapsed">
+                                                    <b><?php echo $faq->pertanyaan?></b>
+                                                </a>
+                                            </div>
+                                            <div id="accordion<?php echo $i ?>" role="tabpanel" aria-labelledby="heading<?php echo $i ?>" class="collapse" aria-expanded="false">
+                                                <div class="card-body">
+                                                    <p class="card-text">
+                                                        <?php echo $faq->jawaban?>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <?php
+                                            $i++;
+                                            } 
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
