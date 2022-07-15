@@ -15,14 +15,24 @@ class HelpdeskStaffDosen extends BaseController
 
     public function index()
     {
-        $tiketBelumTerjawab = $this->ModelHelpdeskStaffDosen->getTiketBelumTerjawab(1);
-        $tiketTerjawab = $this->ModelHelpdeskStaffDosen->getTiketTerjawab(1);
+        $session = session()->unit2;
+        $topik_id = $session;
+        $faqs = $this->ModelHelpdeskStaffDosen->getFAQ($topik_id);
+        $tiketBelumTerjawab = $this->ModelHelpdeskStaffDosen->getTiketBelumTerjawab($topik_id);
+        $tiketTerjawab = $this->ModelHelpdeskStaffDosen->getTiketTerjawab($topik_id);
+        if(session()->unit2 == 1){
+            $kategori = 'Akademik';
+        }else{
+            $kategori = 'Non-akademik';
+        }
         //dd($tiketBelumTerjawab);
         $data = [
-            'title' => 'Admin Helpdesk Akademik',
+            'title' => 'Admin Helpdesk '.$kategori,
             'isi'    => 'staffdosen/helpdesk/index',
+            'faqs'   => $faqs,
             'tiketBelumTerjawab' => $tiketBelumTerjawab,
             'tiketTerjawab' => $tiketTerjawab,
+            'kategori' => $kategori
         ];
         return view('layouts/staffdosen-wrapper', $data);
     }
@@ -70,7 +80,7 @@ class HelpdeskStaffDosen extends BaseController
     }
 
     public function addFAQ(){
-        $topik_id       = $this->request->getPost('inputTopik');
+        $topik_id       = session()->unit2;
         $pertanyaan     = $this->request->getPost('inputPertanyaan');
         $jawaban        = $this->request->getPost('inputJawaban'); 
 
