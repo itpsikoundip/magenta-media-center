@@ -112,7 +112,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane active" id="tab2" aria-expanded="true" aria-labelledby="base-tab2">
+                                <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
                                     <div id="accordionWrap1" role="tablist" aria-multiselectable="true">
                                         <div class="card collapse-icon panel mb-0 box-shadow-0 border-0">
                                             <?php 
