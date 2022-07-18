@@ -133,6 +133,14 @@
                                                             <?php echo $faq->jawaban?>
                                                         </p>
                                                     </div>
+                                                    <div class="d-flex justify-content-end">
+                                                        <button class="btn btn-outline-danger btn-sm mr-1">
+                                                            Hapus
+                                                        </button>
+                                                        <a href="" class="btn btn-outline-secondary btn-sm">
+                                                            Edit
+                                                        </a>
+                                                    </div>
                                                 </div>
 
                                                 <?php
@@ -147,17 +155,6 @@
                                         <form class="form form-horizontal" action="helpdeskstaffdosen/addFAQ" method="post" enctype="multipart/form-data">
                                         <?= csrf_field(); ?>
                                             <div class="form-body">
-                                                <!-- <h4 class="form-section"><i class="ft-user"></i> Formulir Tiket</h4> -->
-                                                <!-- <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="inputTopik"><b>Topik</b></label>
-                                                    <div class="col-md-10">
-                                                        <select id="inputTopik" name="inputTopik" class="form-control">
-                                                            <option value="0">--Pilih Topik--</option>
-                                                            <option value="1">Akademik</option>
-                                                            <option value="2">Non-Akademik</option>
-                                                        </select>
-                                                    </div>
-                                                </div> -->
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputPertanyaan"><b>Pertanyaan</b></label>
                                                     <div class="col-md-10">
@@ -178,7 +175,7 @@
                                                 </div>
                                                 <div class="d-flex justify-content-end">
                                                     <button type="submit" class="btn btn-primary">
-                                                        <i class="fa fa-check-square-o"></i> Tambahkan
+                                                        Tambahkan
                                                     </button>
                                                 </div>
                                             </div>
@@ -214,7 +211,7 @@
                                                         <td><?php echo $tiket->mahasiswa_id ?></td>
                                                         <td><?php echo $tiket->subjek ?></td>
                                                         <td><?php echo $tiket->detail ?></td>
-                                                        <td><a href="<?= base_url('helpdeskstaffdosen/detail_tiket/' . $tiket->id) ?>" class="btn btn-outline-info">Lihat</a></td>
+                                                        <td><a href="<?= base_url('helpdeskstaffdosen/detail_tiket/' . $tiket->id) ?>" class="btn btn-outline-info btn-sm">Lihat</a></td>
                                                     </tr>
                                                     <?php
                                                     }
@@ -250,7 +247,7 @@
                                                         <td><?php echo $tiket->mahasiswa_id ?></td>
                                                         <td><?php echo $tiket->subjek ?></td>
                                                         <td><?php echo $tiket->detail ?></td>
-                                                        <td><a href="<?= base_url('helpdeskstaffdosen/detail_tiket/' . $tiket->id) ?>" class="btn btn-outline-info">Lihat</a></td>
+                                                        <td><a href="<?= base_url('helpdeskstaffdosen/detail_tiket/' . $tiket->id) ?>" class="btn btn-outline-info btn-sm">Lihat</a></td>
                                                     </tr>
                                                     <?php
                                                     }

@@ -150,7 +150,7 @@
                                                         </div>
                                                         <div class="d-flex justify-content-end">
                                                             <button type="submit" class="btn btn-primary">
-                                                                <i class="fa fa-check-square-o"></i> Simpan
+                                                                Simpan
                                                             </button>
                                                         </div>
                                                     </div>
