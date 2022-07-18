@@ -23,5 +23,6 @@ class MainSeeder extends Seeder
         $this->call('MahasiswaOrmawaSeeder');
         $this->call('TopikSeeder');
         $this->call('UserStaffDosen');
+        $this->call('ProposalUnitTugas');
     }
 }

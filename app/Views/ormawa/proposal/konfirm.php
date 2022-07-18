@@ -123,7 +123,7 @@
                                 <fieldset class="form-group">
                                     <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['akademik_note']  ?></textarea>
                                 </fieldset>
-                                <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                                <input type="hidden" name="userID" value="<?= session()->get('nim') ?>">
                                 <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
                                 <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                                 <?php echo form_close() ?>
@@ -161,7 +161,7 @@
                                     <option value="1">Ditolak</option>
                                 </select>
                             </fieldset>
-                            <input type="hidden" name="userID" value="<?= session()->get('id') ?>">
+                            <input type="hidden" name="userID" value="<?= session()->get('nim') ?>">
                             <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
                             <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                             <?php echo form_close() ?>

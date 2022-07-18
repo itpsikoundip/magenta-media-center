@@ -11,7 +11,7 @@ class JenisProposal extends Migration
         $this->forge->addField([
             'id_jenis' => [
                 'type' => 'INT',
-                'constraint' => 11,
+                'constraint' => 2,
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE,
             ],
@@ -26,6 +26,6 @@ class JenisProposal extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('proposal_jenis',true);
+        $this->forge->dropTable('proposal_jenis', true);
     }
 }

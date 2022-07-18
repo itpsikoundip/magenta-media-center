@@ -58,10 +58,9 @@
                                             <label>Jenis Proposal <strong>*</strong></label>
                                             <select name="jenisProposal" class="form-control custom-select" required>
                                                 <option value="none" disabled>-- Pilih Jenis Proposal --</option>
-                                                <option value="0">Acara</option>
-                                                <option value="1">Lomba</option>
-                                                <option value="2">UKM</option>
-                                                <option value="3">Lainnya</option>
+                                                <option value="1">Kegiatan</option>
+                                                <option value="2">Pengajuan Dana</option>
+                                                <option value="3">Kerjasama</option>
                                             </select>
                                         </div>
                                         <div class="row">
