@@ -40,6 +40,11 @@ class UserStaffdosen extends Migration
                 'constraint'    => '1',
                 'unsigned'      => TRUE,
             ],
+            'sk' => [
+                'type'          => 'INT',
+                'constraint'    => '1',
+                'unsigned'      => TRUE,
+            ],
             'catatan' => [
                 'type'          => 'VARCHAR',
                 'constraint'    => '50',

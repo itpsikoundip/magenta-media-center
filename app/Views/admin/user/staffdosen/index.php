@@ -43,7 +43,6 @@
                                             <tr>
                                                 <th>NIP</th>
                                                 <th>Nama</th>
-                                                <th>Created At</th>
                                                 <th>Proposal</th>
                                                 <th>Survey</th>
                                                 <th>Helpdesk</th>
@@ -57,9 +56,6 @@
                                                 <tr>
                                                     <td style="vertical-align: middle;"><?= $value['nip']  ?></td>
                                                     <td style="text-align: left; vertical-align: middle;"><?= $value['nama']  ?></td>
-                                                    <td style="text-align: center; vertical-align: middle;">
-                                                        <?= $value['created_at']  ?>
-                                                    </td>
                                                     <td style="text-align: center; vertical-align: middle;">
                                                         <?php if ($value['proposal'] == 0) {
                                                             echo '<div class="badge badge-pill badge-danger">X</div>';

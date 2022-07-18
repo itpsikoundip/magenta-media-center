@@ -1,6 +1,6 @@
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('proposal/data') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
+        <a href="<?= base_url('proposals') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
         <?php
         if (session()->getFlashdata('notifikasi')) {
             echo '
@@ -17,8 +17,8 @@
         ?>
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
-                <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>
-                <h4 class="grey">Mahasiswa</h4>
+                <h2 class="mb-0 d-inline-block font-weight-bold"></h2>
+                <h4 class="grey"></h4>
             </div>
         </div>
         <hr class="mb-2 mt-0">
@@ -95,86 +95,8 @@
                             </table>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-8">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Isi File Proposal</h4>
-                        </div>
-                        <?php
-                        foreach ($detailProposal as $key => $value) { ?>
-                            <iframe src="<?= base_url('uploadproposal/' . $value['upload_proposal']) ?>" frameborder="0" height="1000px" width="auto">
-                            </iframe>
-                        <?php  } ?>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Catatan Revisi / Perbaikan</h4>
-                        </div>
-                        <div class="card-body">
-                            <?php
-                            foreach ($detailProposal as $key => $value) { ?>
-                                <?php
-                                echo form_open('Proposal/editDataBEMCatatan/' . $value['id_propo']);
-                                ?>
-                                <fieldset class="form-group">
-                                    <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['akademik_note']  ?></textarea>
-                                </fieldset>
-                                <input type="hidden" name="userID" value="<?= session()->get('nim') ?>">
-                                <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
-                                <button type="submit" class="btn btn-primary btn-block">Simpan</button>
-                                <?php echo form_close() ?>
-                            <?php  } ?>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Status Proposal</h4>
-                        </div>
-                        <div class="card-body">
-                            <?php
-                            echo form_open('Proposal/editBEMStatus/' . $value['id_propo']);
-                            ?>
-                            <div class="alert alert-info mb-2" role="alert">
-                                Status saat ini :
-                                <strong>
-                                    <?php if ($value['bem_status'] == 0) {
-                                        echo 'Belum ada status';
-                                    } elseif (($value['bem_status']) == 1) {
-                                        echo 'Ditolak';
-                                    } elseif (($value['bem_status']) == 2) {
-                                        echo 'Perbaikan';
-                                    } elseif (($value['bem_status']) == 3) {
-                                        echo 'Disetujui';
-                                    }
-                                    ?>
-                                </strong>
-                            </div>
-                            <fieldset class="form-group">
-                                <select class="form-control" name="statusPropo">
-                                    <option hidden>-- Pilih Status Proposal --</option>
-                                    <option value="3">Disetujui</option>
-                                    <option value="2">Perbaikan</option>
-                                    <option value="1">Ditolak</option>
-                                </select>
-                            </fieldset>
-                            <input type="hidden" name="userID" value="<?= session()->get('nim') ?>">
-                            <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
-                            <button type="submit" class="btn btn-primary btn-block">Simpan</button>
-                            <?php echo form_close() ?>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function() {
-        $('#tbl_datapengajuanmodul').DataTable({});
-    });
-</script>

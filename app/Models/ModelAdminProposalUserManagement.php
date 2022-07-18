@@ -50,7 +50,7 @@ class ModelAdminProposalUserManagement extends Model
     public function allDataAksesProposalOrmawa()
     {
         return $this->db->table('proposal_user_ormawa')
-            ->join('mahasiswa_ormawa', 'mahasiswa_ormawa.id_mahasiswa = proposal_user_ormawa.mahasiswaormawa_id')
+            ->join('mahasiswa_ormawa', 'mahasiswa_ormawa.id = proposal_user_ormawa.mahasiswaormawa_id')
             ->join('mahasiswa', 'mahasiswa.nim = mahasiswa_ormawa.mahasiswa_id')
             ->join('ormawa', 'ormawa.id = mahasiswa_ormawa.ormawa_id')
             ->get()->getResultArray();

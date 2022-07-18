@@ -276,7 +276,7 @@ foreach ($allDataUser as $key => $value) { ?>
                     <select class="select2 form-control" style="width: 100%" name="selectMahasiswaOrmawa">
                         <?php
                         foreach ($allDataMahasiswaOrmawa as $key => $value) { ?>
-                            <option value="<?= $value['id_mahasiswa']  ?>"><?= $value['nama']  ?> - <?= $value['nim']  ?> (<?= $value['nama_ormawa']  ?>)</option>
+                            <option value="<?= $value['id']  ?>"><?= $value['nama']  ?> - <?= $value['nim']  ?> (<?= $value['nama_ormawa']  ?>)</option>
                         <?php  } ?>
                     </select>
                 </div>
