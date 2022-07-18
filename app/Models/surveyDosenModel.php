@@ -148,4 +148,13 @@ class surveyDosenModel extends Model
         $query = $builder->get();
         return $query;
     }
+
+    public function truncateTableLg()
+    {
+        $builder = $this->db->table('survey_dosen');
+
+        $builder->truncate();
+
+        return $builder;
+    }
 }

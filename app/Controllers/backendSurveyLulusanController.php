@@ -61,4 +61,25 @@ class backendSurveyLulusanController extends BaseController
         session()->setFlashdata('message', 'Data berhasil dihapus!');
         return redirect()->to(base_url('surveylulusan'));
     }
+
+    public function export()
+    {
+        $hasilSurveyLulusanModel = $this->surveyLulusanModel->findAll();
+        $timeNow = date_format(Time::now('Asia/Jakarta'), "d-m-Y");
+        $data = [
+            'title' => 'Export Lulusan',
+            'hasilSurveyLulusanModel' => $hasilSurveyLulusanModel,
+            'timeNow' => $timeNow,
+            'isi'    => 'admin/survey/exportLulusan'
+        ];
+
+        return view('layouts/content', $data);
+    }
+
+    public function truncateAll()
+    {
+        $this->surveyLulusanModel->truncateTableLg();
+        session()->setFlashdata('message', 'Seluruh data berhasil dihapus!');
+        return $this->index();
+    }
 }

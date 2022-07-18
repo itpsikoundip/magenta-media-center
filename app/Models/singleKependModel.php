@@ -39,4 +39,13 @@ class singleKependModel extends Model
     {
         return $this->db->table('single_kepend')->where(['id' => $id])->get()->getRowArray();
     }
+
+    public function truncateTableSm()
+    {
+        $builder = $this->db->table('single_kepend');
+
+        $builder->truncate();
+
+        return $builder;
+    }
 }

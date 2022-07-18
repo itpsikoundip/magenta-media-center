@@ -127,4 +127,13 @@ class surveyLulusanModel extends Model
         $query = $builder->get();
         return $query;
     }
+
+    public function truncateTableLg()
+    {
+        $builder = $this->db->table('survey_lulusan');
+
+        $builder->truncate();
+
+        return $builder;
+    }
 }

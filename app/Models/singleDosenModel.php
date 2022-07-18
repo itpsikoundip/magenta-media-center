@@ -39,4 +39,13 @@ class singleDosenModel extends Model
     {
         return $this->db->table('single_dosen')->where(['id_dosen' => $id])->get()->getRowArray();
     }
+
+    public function truncateTableSm()
+    {
+        $builder = $this->db->table('single_dosen');
+
+        $builder->truncate();
+
+        return $builder;
+    }
 }
