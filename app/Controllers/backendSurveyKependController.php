@@ -91,4 +91,25 @@ class backendSurveyKependController extends BaseController
         session()->setFlashdata('message', 'Data berhasil diupdate!');
         return redirect()->to(base_url('surveykepend'));
     }
+
+    public function export()
+    {
+        $hasilSurveyKependModel = $this->hasilSurveyKependModel->getAll();
+        $timeNow = date_format(Time::now('Asia/Jakarta'), "d-m-Y");
+        $data = [
+            'title' => 'Export Kependidikan',
+            'hasilSurveyKependModel' => $hasilSurveyKependModel,
+            'timeNow' => $timeNow,
+            'isi'    => 'admin/survey/exportKepend'
+        ];
+
+        return view('layouts/content', $data);
+    }
+    public function truncateAll()
+    {
+        $this->surveyKependModel->truncateTableLg();
+        $this->singleKependModel->truncateTableSm();
+        session()->setFlashdata('message', 'Seluruh data berhasil dihapus!');
+        return $this->index();
+    }
 }

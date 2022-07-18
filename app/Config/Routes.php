@@ -38,13 +38,22 @@ $routes->setAutoRoute(true);
 if (session()->nama == NULL) {
     $routes->get('/', 'Login::index');
 } else {
-
     //BACKEND
     //Pertanyaan Survey
     $routes->get('/surveydosen', 'backendSurveyDosenController::index');
     $routes->post('/surveydosen/addSurveyDosen', 'backendSurveyDosenController::addSurveyDosen');
     $routes->get('/surveydosen/deleteSurveyDosen/(:any)', 'backendSurveyDosenController::deleteSurveyDosen/$1');
     $routes->post('/surveydosen/updateSurveyDosen/(:num)', 'backendSurveyDosenController::updateSurveyDosen/$1');
+
+    //Truncate Data
+    $routes->get('/truncateDosen', 'backendSurveyDosenController::truncateAll');
+    $routes->get('/truncateKepend', 'backendSurveyKependController::truncateAll');
+    $routes->get('/truncateLulusan', 'backendSurveyLulusanController::truncateAll');
+
+    //Export
+    $routes->get('/exportDosen', 'backendSurveyDosenController::export');
+    $routes->get('/exportKepend', 'backendSurveyKependController::export');
+    $routes->get('/exportLulusan', 'backendSurveyLulusanController::export');
 
     $routes->get('/surveykepend', 'backendSurveyKependController::index');
     $routes->post('/surveykepend/addSurveyKepend', 'backendSurveyKependController::addSurveyKepend');

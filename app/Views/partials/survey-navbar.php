@@ -55,6 +55,25 @@
                     <span class="menu-title">Grafik Lulusan</span>
                 </a>
             </li>
+
+            <li class=" navigation-header"><span data-i18n="nav.category.support">Export Excel</span>
+                <i class="ft-more-horizontal ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Support">
+                </i>
+            <li class=" nav-item"><a href=" <?= base_url('/exportDosen') ?>">
+                    <i class="ft-download-cloud"></i>
+                    <span class="menu-title">Export Dosen</span>
+                </a>
+            </li>
+            <li class=" nav-item"><a href=" <?= base_url('/exportKepend') ?>">
+                    <i class="ft-download-cloud"></i>
+                    <span class="menu-title">Export Kependidikan</span>
+                </a>
+            </li>
+            <li class=" nav-item"><a href=" <?= base_url('/exportLulusan') ?>">
+                    <i class="ft-download-cloud"></i>
+                    <span class="menu-title">Export Lulusan</span>
+                </a>
+            </li>
         </ul>
 
     </div>

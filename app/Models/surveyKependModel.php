@@ -135,4 +135,13 @@ class surveyKependModel extends Model
         $query = $builder->get();
         return $query;
     }
+
+    public function truncateTableLg()
+    {
+        $builder = $this->db->table('survey_kependidikan');
+
+        $builder->truncate();
+
+        return $builder;
+    }
 }

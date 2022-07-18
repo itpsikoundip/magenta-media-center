@@ -29,6 +29,7 @@
                                 <div class="card-content">
                                     <img class="card-img-top img-fluid" src="<?php echo base_url('/images/homeKepend.jpg') ?>" alt="Card image cap" />
                                     <div class="card-body">
+                                        <hr>
                                         <h3 class="text-center font-weight-bold mt-1">Dosen</h3>
                                         <p class="card-title text-center mt-2">Survey dosen Fakultas Psikologi UNDIP</p>
                                     </div>
@@ -41,6 +42,7 @@
                                 <div class="card-content">
                                     <img class="card-img-top img-fluid" src="<?php echo base_url('/images/homeDosen.jpg') ?>" alt="Card image cap" />
                                     <div class="card-body">
+                                        <hr>
                                         <h3 class="text-center font-weight-bold mt-1">Tenaga Kependidikan</h3>
                                         <p class="card-title text-center mt-2">Survey tenaga kependidikan Fakultas Psikologi UNDIP</p>
                                     </div>

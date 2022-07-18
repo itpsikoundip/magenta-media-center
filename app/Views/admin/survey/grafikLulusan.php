@@ -64,7 +64,7 @@
 
 <script>
     <?php
-    if ($arrayPertanyaan == "Tidak ada pertanyaan survey Lulusan") {
+    if ($arrayPertanyaan == "Tidak ada pertanyaan survey lulusan") {
         echo '<p>' . $arrayPertanyaan . '</P>';
     } else { ?>
         var bgColor = ["#0096FF", "#008080", "#f28500", "#ff6361", "#ff0000 "];

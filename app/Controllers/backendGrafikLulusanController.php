@@ -42,7 +42,7 @@ class backendGrafikLulusanController extends BaseController
         if (count($array) == 0) {
             $data = [
                 'title' => 'Grafik Lulusan',
-                'arrayPertanyaan' => "Tidak ada pertanyaan survey Lulusan",
+                'arrayPertanyaan' => "Tidak ada pertanyaan survey lulusan",
                 'sumSangatBaik' => 0,
                 'sumBaik' => 0,
                 'sumCukup' => 0,

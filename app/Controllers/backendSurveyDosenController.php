@@ -94,4 +94,26 @@ class backendSurveyDosenController extends BaseController
         session()->setFlashdata('message', 'Data berhasil diupdate!');
         return redirect()->to(base_url('surveydosen'));
     }
+
+    public function export()
+    {
+        $hasilSurveyDosenModel = $this->hasilSurveyDosenModel->getAll();
+        $timeNow = date_format(Time::now('Asia/Jakarta'), "d-m-Y");
+        $data = [
+            'title' => 'Export Dosen',
+            'hasilSurveyDosenModel' => $hasilSurveyDosenModel,
+            'timeNow' => $timeNow,
+            'isi'    => 'admin/survey/exportDosen'
+        ];
+
+        return view('layouts/content', $data);
+    }
+
+    public function truncateAll()
+    {
+        $this->surveyDosenModel->truncateTableLg();
+        $this->singleDosenModel->truncateTableSm();
+        session()->setFlashdata('message', 'Seluruh data berhasil dihapus!');
+        return $this->index();
+    }
 }
