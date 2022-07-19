@@ -52,7 +52,7 @@
                     </div>
                 <?php } else { ?>
                     <div class="col-xl-6 col-lg-6 col-12">
-                        <a class="card" href="<?= base_url('Proposal/pengajuan/') ?>">
+                        <a class="card" href="<?= base_url('proposal/pengajuan') ?>">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
@@ -69,7 +69,7 @@
                         </a>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-12">
-                        <a class="card" href="<?= base_url('Proposal/data') ?>">
+                        <a class="card" href="<?= base_url('proposal/data') ?>">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">

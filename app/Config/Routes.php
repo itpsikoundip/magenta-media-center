@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -96,6 +96,25 @@ if (session()->nama == NULL) {
     $routes->get('/inputLulusan', 'frontendInputLulusanController::index');
     $routes->post('/inputLulusan/input/(:num)', 'frontendInputLulusanController::inputLulusan/$1');
 }
+
+$routes->get('/proposal', 'Proposal::index');
+$routes->get('/proposal/pengajuan', 'Proposal::pengajuan');
+$routes->get('/proposal/data', 'Proposal::data');
+$routes->post('/proposal/proses', 'Proposal::add');
+$routes->get('/proposal/detail/(:num)', 'Proposal::detail/$1');
+$routes->get('/proposal/edit/(:num)', 'Proposal::edit/$1');
+$routes->post('/proposal/konfirm/(:num)', 'Proposal::konfirm/$1');
+$routes->post('/proposal/editpengajuan/(:num)', 'Proposal::konfirm/$1');
+$routes->post('/proposal/editdata/(:num)', 'Proposal::editData/$1');
+$routes->post('/proposal/editdaeditfileproposalta/(:num)', 'Proposal::editFileProposal/$1');
+$routes->post('/proposal/konfirmasieditkedekan/(:num)', 'Proposal::konfirmasiEditkeDekan/$1');
+$routes->post('/proposal/konfirmasieditkewadeksumda/(:num)', 'Proposal::konfirmasiEditkeWadeksumda/$1');
+$routes->post('/proposal/konfirmasieditkewadekakakem/(:num)', 'Proposal::konfirmasiEditkeWadekakem/$1');
+$routes->post('/proposal/konfirmasieditkekaprodis1/(:num)', 'Proposal::konfirmasiEditkeKaprodis1/$1');
+$routes->post('/proposal/konfirmasieditketatausaha/(:num)', 'Proposal::konfirmasiEditkeTatausaha/$1');
+$routes->post('/proposal/konfirmasieditkesumberdaya/(:num)', 'Proposal::konfirmasiEditkeSumberdaya/$1');
+$routes->post('/proposal/konfirmasieditkeakademik/(:num)', 'Proposal::konfirmasiEditkeAkademik/$1');
+$routes->post('/proposal/konfirmasieditkebem/(:num)', 'Proposal::konfirmasiEditkeBEM/$1');
 
 /*
  * --------------------------------------------------------------------
