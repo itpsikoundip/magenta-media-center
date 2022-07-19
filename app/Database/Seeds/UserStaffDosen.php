@@ -22,7 +22,7 @@ class UserStaffDosen extends Seeder
             [
                 'staffdosen_id'         => '36',
                 'password'              => '$2y$10$WmlmU3PfoIhXcDxIkBAeoumw/bHDpdE4uJsWXM.gJ0FJ80MWYobG6 ',
-                'proposal'              => '0',
+                'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '0',
@@ -31,7 +31,7 @@ class UserStaffDosen extends Seeder
             [
                 'staffdosen_id'         => '62',
                 'password'              => '$2y$10$WmlmU3PfoIhXcDxIkBAeoumw/bHDpdE4uJsWXM.gJ0FJ80MWYobG6 ',
-                'proposal'              => '0',
+                'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '0',
@@ -40,7 +40,7 @@ class UserStaffDosen extends Seeder
             [
                 'staffdosen_id'         => '35',
                 'password'              => '$2y$10$WmlmU3PfoIhXcDxIkBAeoumw/bHDpdE4uJsWXM.gJ0FJ80MWYobG6 ',
-                'proposal'              => '0',
+                'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '0',
@@ -49,7 +49,7 @@ class UserStaffDosen extends Seeder
             [
                 'staffdosen_id'         => '17',
                 'password'              => '$2y$10$WmlmU3PfoIhXcDxIkBAeoumw/bHDpdE4uJsWXM.gJ0FJ80MWYobG6 ',
-                'proposal'              => '0',
+                'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '0',
@@ -58,7 +58,7 @@ class UserStaffDosen extends Seeder
             [
                 'staffdosen_id'         => '20',
                 'password'              => '$2y$10$WmlmU3PfoIhXcDxIkBAeoumw/bHDpdE4uJsWXM.gJ0FJ80MWYobG6 ',
-                'proposal'              => '0',
+                'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '0',
@@ -67,7 +67,7 @@ class UserStaffDosen extends Seeder
             [
                 'staffdosen_id'         => '9',
                 'password'              => '$2y$10$WmlmU3PfoIhXcDxIkBAeoumw/bHDpdE4uJsWXM.gJ0FJ80MWYobG6 ',
-                'proposal'              => '0',
+                'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '0',
@@ -76,7 +76,7 @@ class UserStaffDosen extends Seeder
             [
                 'staffdosen_id'         => '27',
                 'password'              => '$2y$10$WmlmU3PfoIhXcDxIkBAeoumw/bHDpdE4uJsWXM.gJ0FJ80MWYobG6 ',
-                'proposal'              => '0',
+                'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '0',
@@ -85,7 +85,7 @@ class UserStaffDosen extends Seeder
             [
                 'staffdosen_id'         => '22',
                 'password'              => '$2y$10$WmlmU3PfoIhXcDxIkBAeoumw/bHDpdE4uJsWXM.gJ0FJ80MWYobG6 ',
-                'proposal'              => '0',
+                'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '0',
