@@ -9,7 +9,7 @@
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                 <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>
-                <h4 class="grey">Ormawa</h4>
+                <h4 class="grey">Ormawa <?php echo session()->namaormawa ?></h4>
             </div>
         </div>
         <hr class="mb-2 mt-0">
