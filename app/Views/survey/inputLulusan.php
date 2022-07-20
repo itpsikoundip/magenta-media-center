@@ -15,6 +15,7 @@
                             <?php $numbering = 1;
                             foreach ($dataSurveyLulusan as $key => $value) : ?>
                                 <form action="<?= base_url('inputLulusan/input/' . $value["id"]) ?>" method="post">
+                                    <?= csrf_field(); ?>
                                     <tr>
                                         <td class="text-center d-none d-lg-block d-xl-block"><?= $numbering++; ?></td>
                                         <td><b><?= $value["pertanyaan"] ?></b>
