@@ -15,6 +15,7 @@
                     <div class="row mx-3">
                         <table class="table table-borderless">
                             <form action="<?= base_url('inputKepend/' . $idSend . '/' . $namaKepend) ?>" method="post">
+                                <?= csrf_field(); ?>
                                 <?php $numbering = 1;
                                 foreach ($dataSurveyKepend as $key => $value) : ?>
                                     <tr>
