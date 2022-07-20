@@ -19,7 +19,7 @@ class StaffdosenSeeder extends Seeder
             (6, '196411061990032001', 'Dra. Darosy Endah Hyoscyamina, M.Pd.', 2, 1, 1, 3, 1),
             (7, '196007011991032001', 'Dr. Hastaning Sakti, M.Kes., Psi.', 2, 1, 1, 3, 1),
             (8, '197111151998022001', 'Harlina Nurtjahjanti, S.Psi., M.Si.', 2, 1, 1, 3, 1),
-            (9, '196309131991032002', 'Dr. Dra. Endah Kumala Dewi, M.Kes.', 2, 1, 7, 3, 1),
+            (9, '196309131991032002', 'Dr. Dra. Endah Kumala Dewi, M.Kes.', 3, 1, 7, 3, 1),
             (10, '196910131999031002', 'Suparno, S.Ag., M.S.I.', 2, 1, 1, 3, 1),
             (11, '197106251998022001', 'Anita Listiara, S.Psi., M.A.', 2, 1, 1, 3, 1),
             (12, '196603212001122001', 'Endah Mujiasih, S.Psi., M.Si.', 2, 1, 1, 3, 1),
@@ -27,17 +27,17 @@ class StaffdosenSeeder extends Seeder
             (14, '197711202001122001', 'Kartika Sari Dewi, S.Psi., M.Psi.', 2, 1, 1, 3, 1),
             (15, '197803032002121001', 'Imam Setyawan, S.Psi., M.A.', 2, 1, 1, 3, 1),
             (16, '197912122008012017', 'Jati Ariati, S.Psi., M.Psi.', 2, 1, 1, 3, 1),
-            (17, '198302172008012007', 'Dr.phil. Dian Veronika Sakti Kaloeti, S.Psi., M.Psi.', 2, 1, 5, 1, 1),
+            (17, '198302172008012007', 'Dr.phil. Dian Veronika Sakti Kaloeti, S.Psi., M.Psi.', 3, 1, 5, 1, 1),
             (18, '198201242008122002', 'Nailul Fauziah, S.Psi., M.Psi.', 2, 1, 1, 3, 1),
             (19, '198402282008122003', 'Dr. Ika Febrian Kristiana, S.Psi., M.Psi.', 2, 1, 1, 3, 1),
-            (20, '197311122009122001', 'Dr. Novi Qonitatin, S.Psi., M.A.', 2, 1, 6, 2, 1),
+            (20, '197311122009122001', 'Dr. Novi Qonitatin, S.Psi., M.A.', 3, 1, 6, 2, 1),
             (21, '198305252009122006', 'Anggun Resdasari Prasetyo, S.Psi., M.Psi.', 2, 1, 1, 3, 1),
-            (22, '197809012002122001', 'Prof. Dian Ratna Sawitri, S.Psi., M.Si., Ph.D.', 2, 1, 9, 3, 1),
+            (22, '197809012002122001', 'Prof. Dian Ratna Sawitri, S.Psi., M.Si., Ph.D.', 3, 1, 9, 3, 1),
             (23, '197309131999032002', 'Annastasia Ediati, S.Psi., M.Sc. Ph.D', 2, 1, 1, 3, 1),
             (24, '198212242010122002', 'Erin Ratna Kustanti, S.Psi., M.Psi., Psikolog', 2, 1, 1, 3, 1),
             (25, '198412012010122003', 'Ika Zenita Ratnaningsih, S.Psi., M.Psi.', 2, 1, 1, 3, 1),
             (26, '197806022006042001', 'Dr. Unika Prihatsanti, S.Psi., M.A.', 2, 1, 1, 3, 1),
-            (27, '197812252005012001', 'Dr. Dinie Ratri Desiningrum, S.Psi., M.Si.', 2, 1, 8, 3, 1),
+            (27, '197812252005012001', 'Dr. Dinie Ratri Desiningrum, S.Psi., M.Si.', 3, 1, 8, 3, 1),
             (28, '198102262006042002', 'Costrie Ganes Widayanti, S.Psi., M.Si.Med., Ph.D.', 2, 1, 1, 3, 1),
             (29, '196907271999031001', 'Nofiar Aldriandy Putra, S.Psi.', 1, 2, 2, 2, 1),
             (30, '197805082002121001', 'Achmad Mujab Masykur, S.Psi., M.A.', 2, 1, 1, 3, 1),
@@ -82,7 +82,7 @@ class StaffdosenSeeder extends Seeder
             (69, 'H.7.199210042022041001', 'Nanang Setiono', 1, 2, 3, 2, 1),
             (70, 'H.7.199808072022041001', 'Muhammad Furqon Warid', 1, 2, 3, 2, 1),
             (71, 'H.7.199510142022041001', 'Dwi Hardani Oktawirawan, S.Psi., M.Si.', 2, 1, 1, 3, 1),
-            (72, 'H.7.199601082022042001', 'Jessica Dhoria Arywibowo, S.Psi., M.Psi., Psikolog', 2, 1, 1, 3, 1);" 
+            (72, 'H.7.199601082022042001', 'Jessica Dhoria Arywibowo, S.Psi., M.Psi., Psikolog', 2, 1, 1, 3, 1);"
         );
     }
 }
