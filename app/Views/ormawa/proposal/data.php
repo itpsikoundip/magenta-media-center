@@ -34,7 +34,7 @@
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                 <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>
-                <h4 class="grey">Mahasiswa</h4>
+                <h4 class="grey">Ormawa <?php echo session()->namaormawa ?></h4>
             </div>
         </div>
         <hr class="mb-2 mt-0">
@@ -71,7 +71,7 @@
                                                     <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
                                                     <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('Proposal/konfirm/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                        <a href="<?= base_url('proposal/konfirm/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php  } ?>
@@ -107,7 +107,7 @@
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <a href="<?= base_url('Proposal/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                        <a href="<?= base_url('proposal/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php  } ?>
@@ -203,23 +203,23 @@
                                                 ?>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url('Proposal/detail/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                <a href="<?= base_url('proposal/detail/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                 <?php if (($value['dekan_status']) == 2) { ?>
-                                                    <a href="<?= base_url('Proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                    <a href="<?= base_url('proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                 <?php } elseif (($value['wadeksumda_status']) == 2) { ?>
-                                                    <a href="<?= base_url('Proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                    <a href="<?= base_url('proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                 <?php } elseif (($value['wadekakem_status']) == 2) { ?>
-                                                    <a href="<?= base_url('Proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                    <a href="<?= base_url('proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                 <?php } elseif (($value['kaprodis1_status']) == 2) { ?>
-                                                    <a href="<?= base_url('Proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                    <a href="<?= base_url('proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                 <?php } elseif (($value['tatausaha_status']) == 2) { ?>
-                                                    <a href="<?= base_url('Proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                    <a href="<?= base_url('proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                 <?php } elseif (($value['sumberdaya_status']) == 2) { ?>
-                                                    <a href="<?= base_url('Proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                    <a href="<?= base_url('proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                 <?php } elseif (($value['akademik_status']) == 2) { ?>
-                                                    <a href="<?= base_url('Proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                    <a href="<?= base_url('proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                 <?php } elseif (($value['bem_status']) == 2) { ?>
-                                                    <a href="<?= base_url('Proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                    <a href="<?= base_url('proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                 <?php } ?>
 
                                             </td>

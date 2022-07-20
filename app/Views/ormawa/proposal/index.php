@@ -9,7 +9,7 @@
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                 <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>
-                <h4 class="grey">Ormawa</h4>
+                <h4 class="grey">Ormawa <?php echo session()->namaormawa ?></h4>
             </div>
         </div>
         <hr class="mb-2 mt-0">
@@ -52,7 +52,7 @@
                     </div>
                 <?php } else { ?>
                     <div class="col-xl-6 col-lg-6 col-12">
-                        <a class="card" href="<?= base_url('Proposal/pengajuan/') ?>">
+                        <a class="card" href="<?= base_url('proposal/pengajuan') ?>">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
@@ -69,7 +69,7 @@
                         </a>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-12">
-                        <a class="card" href="<?= base_url('Proposal/data') ?>">
+                        <a class="card" href="<?= base_url('proposal/data') ?>">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">

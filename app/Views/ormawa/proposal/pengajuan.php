@@ -30,11 +30,11 @@
                 </ul>
             </div>
         <?php } ?>
-        <a href="<?= base_url('proposal/') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
+        <a href="<?= base_url('proposal') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                 <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>
-                <h4 class="grey">Ormawa</h4>
+                <h4 class="grey">Ormawa <?php echo session()->namaormawa ?></h4>
             </div>
         </div>
         <hr class="mb-2 mt-0">
@@ -46,7 +46,7 @@
                             <div class="card-content collapse show">
                                 <div class="card-body">
                                     <?php
-                                    echo form_open_multipart('/proposal/add');
+                                    echo form_open_multipart('proposal/proses');
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-file-o"></i> Informasi Proposal</h4>
