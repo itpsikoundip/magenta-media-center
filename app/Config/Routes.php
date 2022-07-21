@@ -41,7 +41,7 @@ $routes->group('admin', function ($routes) {
 
 $routes->group('staffdosen', function ($routes) {
 
-    $routes->group('survey', ['namespace' => 'App\Controllers\Admin\Survey', 'filter' => 'authStaffDosen'], function ($routes) {
+    $routes->group('survey', ['namespace' => 'App\Controllers\StaffDosen\Survey', 'filter' => 'authStaffDosen'], function ($routes) {
         //BACKEND SURVEY
         //Pertanyaan Survey
         $routes->get('surveydosen', 'backendSurveyDosenController::index');

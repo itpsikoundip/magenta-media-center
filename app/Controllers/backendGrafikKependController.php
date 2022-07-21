@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-
+use App\Controllers\BaseController;
 use App\Models\surveyKependModel;
 use App\Models\hasilSurveyKependModel;
 use App\Models\singleKependModel;
