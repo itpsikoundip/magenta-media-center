@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Mahasiswa\Helpdesk;
 
+use App\Controllers\BaseController;
 use App\Models\ModelHelpdesk;
 use CodeIgniter\I18n\Time;
-use CodeIgniter\Model;
 
 class Helpdesk extends BaseController
 {
@@ -49,6 +49,7 @@ class Helpdesk extends BaseController
         $topik_id       = $this->request->getPost('inputTopik');
         $subjek         = $this->request->getPost('inputSubjek');
         $detail         = $this->request->getPost('inputDetail'); 
+        
         if ( $_FILES AND $_FILES['inputLampiran']['name'] ){
             //kalau lampiran tidak kosong
             $lampiran       = $this->request->getFile('inputLampiran');
@@ -74,10 +75,10 @@ class Helpdesk extends BaseController
         // dd($result);
         if($result){   
             session()->setFlashdata('sukses', 'Tiket berhasil dikirim. Jawaban dapat dilihat pada riwayat');
-            return redirect()->to(base_url('helpdesk/tiket'));
+            return redirect()->to(base_url('mahasiswa/helpdesk/tiket'));
         }else{
             session()->setFlashdata('error', 'Tiket gagal dikirim. Silakan coba lagi');
-            return redirect()->to(base_url('helpdesk/tiket'));
+            return redirect()->to(base_url('mahasiswa/helpdesk/tiket'));
         }
     }
 
