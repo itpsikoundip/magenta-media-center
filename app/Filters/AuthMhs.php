@@ -12,6 +12,7 @@ class AuthMhs implements FilterInterface
     {
         // Do something here
         if (session('nim') == null) {
+            session()->destroy();
             return redirect()->to('/login');
         }
     }

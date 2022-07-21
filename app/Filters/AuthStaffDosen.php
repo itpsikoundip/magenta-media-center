@@ -12,6 +12,7 @@ class AuthStaffDosen implements FilterInterface
     {
         // Do something here
         if (session('id') == null) {
+            session()->destroy();
             return redirect()->to('/login');
         }
     }
