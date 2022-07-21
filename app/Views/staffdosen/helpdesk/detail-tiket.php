@@ -89,7 +89,7 @@
                                 <div class="tab-content px-1 pt-1">
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <form class="form form-horizontal" action="<?= base_url('/helpdeskstaffdosen/jawabTiket/'.$tiket[0]->id) ?>" method="post" enctype="multipart/form-data">
+                                            <form class="form form-horizontal" action="<?= base_url('/helpdeskstaffdosen/jawabtiket/'.$tiket[0]->id) ?>" method="post" enctype="multipart/form-data">
                                             <?= csrf_field(); ?>
                                                 <div class="card">
                                                     <div class="card-content">
