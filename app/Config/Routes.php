@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(false);
+$routes->setAutoRoute(true);
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -36,60 +36,72 @@ $routes->setAutoRoute(false);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-//BACKEND SURVEY
-//Pertanyaan Survey
-$routes->get('/surveydosen', 'backendSurveyDosenController::index');
-$routes->post('/surveydosen/addSurveyDosen', 'backendSurveyDosenController::addSurveyDosen');
-$routes->get('/surveydosen/deleteSurveyDosen/(:any)', 'backendSurveyDosenController::deleteSurveyDosen/$1');
+$routes->group('admin', function ($routes) {
+});
 
-$routes->get('/surveykepend', 'backendSurveyKependController::index');
-$routes->post('/surveykepend/addSurveyKepend', 'backendSurveyKependController::addSurveyKepend');
-$routes->get('/surveykepend/deleteSurveyKepend/(:any)', 'backendSurveyKependController::deleteSurveyKepend/$1');
+$routes->group('staffdosen', function ($routes) {
 
-$routes->get('/surveylulusan', 'backendSurveyLulusanController::index');
-$routes->post('/surveylulusan/addSurveyLulusan', 'backendSurveyLulusanController::addSurveyLulusan');
-$routes->get('/surveylulusan/deleteSurveyLulusan/(:num)', 'backendSurveyLulusanController::deleteSurveyLulusan/$1');
+    $routes->group('survey', ['namespace' => 'App\Controllers\Admin\Survey', 'filter' => 'authStaffDosen'], function ($routes) {
+        //BACKEND SURVEY
+        //Pertanyaan Survey
+        $routes->get('surveydosen', 'backendSurveyDosenController::index');
+        $routes->post('surveydosen/addSurveyDosen', 'backendSurveyDosenController::addSurveyDosen');
+        $routes->get('surveydosen/deleteSurveyDosen/(:any)', 'backendSurveyDosenController::deleteSurveyDosen/$1');
 
-//Truncate Data
-$routes->get('/truncateDosen', 'backendSurveyDosenController::truncateAll');
-$routes->get('/truncateKepend', 'backendSurveyKependController::truncateAll');
-$routes->get('/truncateLulusan', 'backendSurveyLulusanController::truncateAll');
+        $routes->get('surveykepend', 'backendSurveyKependController::index');
+        $routes->post('surveykepend/addSurveyKepend', 'backendSurveyKependController::addSurveyKepend');
+        $routes->get('surveykepend/deleteSurveyKepend/(:any)', 'backendSurveyKependController::deleteSurveyKepend/$1');
 
-//Hasil Survey Individual
-$routes->get('/hasilSurveyDosen', 'backendHasilSurveyDosenController::index');
-$routes->get('/chartSingleDosen/(:num)', 'backendHasilSurveyDosenController::displayChart/$1');
+        $routes->get('surveylulusan', 'backendSurveyLulusanController::index');
+        $routes->post('surveylulusan/addSurveyLulusan', 'backendSurveyLulusanController::addSurveyLulusan');
+        $routes->get('surveylulusan/deleteSurveyLulusan/(:num)', 'backendSurveyLulusanController::deleteSurveyLulusan/$1');
 
-$routes->get('/hasilSurveyKepend', 'backendHasilSurveyKependController::index');
-$routes->get('/chartSingleKepend/(:num)', 'backendHasilSurveyKependController::displayChart/$1');
+        //Truncate Data
+        $routes->get('truncateDosen', 'backendSurveyDosenController::truncateAll');
+        $routes->get('truncateKepend', 'backendSurveyKependController::truncateAll');
+        $routes->get('truncateLulusan', 'backendSurveyLulusanController::truncateAll');
 
-//Grafik Hasil Survey
-$routes->get('/grafikDosen', 'backendGrafikDosenController::index');
-$routes->get('/grafikKepend', 'backendGrafikKependController::index');
-$routes->get('/grafikLulusan', 'backendGrafikLulusanController::index');
+        //Hasil Survey Individual
+        $routes->get('hasilSurveyDosen', 'backendHasilSurveyDosenController::index');
+        $routes->get('chartSingleDosen/(:num)', 'backendHasilSurveyDosenController::displayChart/$1');
 
-//Export
-$routes->get('/exportDosen', 'backendSurveyDosenController::export');
-$routes->get('/exportKepend', 'backendSurveyKependController::export');
-$routes->get('/exportLulusan', 'backendSurveyLulusanController::export');
+        $routes->get('hasilSurveyKepend', 'backendHasilSurveyKependController::index');
+        $routes->get('chartSingleKepend/(:num)', 'backendHasilSurveyKependController::displayChart/$1');
 
-//FRONTEND SURVEY
-//3 Menu Card Landing
-$routes->get('/menuDisplay/(:num)', 'frontendMenuDisplayController::index/$1', ['filter' => 'authMhs']);
+        //Grafik Hasil Survey
+        $routes->get('grafikDosen', 'backendGrafikDosenController::index');
+        $routes->get('grafikKepend', 'backendGrafikKependController::index');
+        $routes->get('grafikLulusan', 'backendGrafikLulusanController::index');
 
-//Table Select & Input Dosen
-$routes->get('/selectDosen', 'frontendSelectDosenController::index', ['filter' => 'authMhs']);
-$routes->get('/gotoInputDosen/(:num)/(:segment)', 'frontendSelectDosenController::gotoInputDosen/$1/$2', ['filter' => 'authMhs']);
-$routes->post('/inputDosen/(:num)/(:segment)', 'frontendSelectDosenController::inputDosen/$1/$2', ['filter' => 'authMhs']);
+        //Export
+        $routes->get('exportDosen', 'backendSurveyDosenController::export');
+        $routes->get('exportKepend', 'backendSurveyKependController::export');
+        $routes->get('exportLulusan', 'backendSurveyLulusanController::export');
+    });
+});
 
-//Table Select & Input Tenaga Kependidikan
-$routes->get('/selectKepend', 'frontendSelectKependController::index', ['filter' => 'authMhs']);
-$routes->get('/gotoInputKepend/(:num)/(:segment)', 'frontendSelectKependController::gotoInputKepend/$1/$2', ['filter' => 'authMhs']);
-$routes->post('/inputKepend/(:num)/(:segment)', 'frontendSelectKependController::inputKepend/$1/$2', ['filter' => 'authMhs']);
+$routes->group('mahasiswa', ['namespace' => 'App\Controllers\Mahasiswa\Survey', 'filter' => 'authMhs'], function ($routes) {
 
-//Survey Lulusan
-$routes->get('/inputLulusan', 'frontendInputLulusanController::index');
-$routes->post('/inputLulusan/input/(:num)', 'frontendInputLulusanController::inputLulusan/$1');
+    $routes->group('survey', ['namespace' => 'App\Controllers\Mahasiswa\Survey', 'filter' => 'authMhs'], function ($routes) {
+        //FRONTEND SURVEY
+        //3 Menu Card Landing
+        $routes->get('menuDisplay/(:num)', 'frontendMenuDisplayController::index/$1', ['filter' => 'authMhs']);
 
+        //Table Select & Input Dosen
+        $routes->get('selectDosen', 'frontendSelectDosenController::index', ['filter' => 'authMhs']);
+        $routes->get('gotoInputDosen/(:num)/(:segment)', 'frontendSelectDosenController::gotoInputDosen/$1/$2', ['filter' => 'authMhs']);
+        $routes->post('inputDosen/(:num)/(:segment)', 'frontendSelectDosenController::inputDosen/$1/$2', ['filter' => 'authMhs']);
+
+        //Table Select & Input Tenaga Kependidikan
+        $routes->get('selectKepend', 'frontendSelectKependController::index', ['filter' => 'authMhs']);
+        $routes->get('gotoInputKepend/(:num)/(:segment)', 'frontendSelectKependController::gotoInputKepend/$1/$2', ['filter' => 'authMhs']);
+        $routes->post('inputKepend/(:num)/(:segment)', 'frontendSelectKependController::inputKepend/$1/$2', ['filter' => 'authMhs']);
+
+        //Survey Lulusan
+        $routes->get('inputLulusan', 'frontendInputLulusanController::index');
+        $routes->post('inputLulusan/input/(:num)', 'frontendInputLulusanController::inputLulusan/$1');
+    });
+});
 
 $routes->get('/proposal', 'Proposal::index');
 $routes->get('/proposal/pengajuan', 'Proposal::pengajuan');
