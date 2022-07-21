@@ -122,6 +122,19 @@ $routes->post('/proposal/konfirmasieditkesumberdaya/(:num)', 'Proposal::konfirma
 $routes->post('/proposal/konfirmasieditkeakademik/(:num)', 'Proposal::konfirmasiEditkeAkademik/$1');
 $routes->post('/proposal/konfirmasieditkebem/(:num)', 'Proposal::konfirmasiEditkeBEM/$1');
 
+//HELPDESK MAHASISWA
+$routes->get('/helpdesk', 'Helpdesk::index');
+$routes->get('/helpdesk/tiket', 'Helpdesk::tiket');
+$routes->post('/helpdesk/tiket/kirim', 'Helpdesk::kirimTiket');
+$routes->get('/helpdesk/hotline', 'Helpdesk::hotline');
+
+//HELPDESK STAFF DOSEN
+$routes->get('/helpdeskstaffdosen', 'HelpdeskStaffDosen::index');
+$routes->get('/helpdeskstaffdosen/detailtiket/(:num)', 'HelpdeskStaffDosen::detailTiket/$1');
+$routes->post('/helpdeskstaffdosen/jawabtiket/(:num)', 'HelpdeskStaffDosen::jawabTiket/$1');
+$routes->post('/helpdeskstaffdosen/addfaq', 'HelpdeskStaffDosen::addFAQ');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
