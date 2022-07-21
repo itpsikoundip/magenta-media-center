@@ -37,7 +37,7 @@ class HelpdeskStaffDosen extends BaseController
         return view('layouts/staffdosen-wrapper', $data);
     }
 
-    public function detail_tiket($tiket_id)
+    public function detailTiket($tiket_id)
     {
         $tiket = $this->ModelHelpdeskStaffDosen->getDetail($tiket_id);
         // dd($tiket);
@@ -103,21 +103,4 @@ class HelpdeskStaffDosen extends BaseController
         
     }
 
-    public function tiket()
-    {
-        $data = [
-            'title' => 'Tiket',
-            'isi'    => 'staffdosen/helpdesk/tiket'
-        ];
-        return view('layouts/staffdosen-wrapper', $data);
-    }
-
-    public function hotline()
-    {
-        $data = [
-            'title' => 'Hotline',
-            'isi'    => 'staffdosen/helpdesk/hotline'
-        ];
-        return view('layouts/staffdosen-wrapper', $data);
-    }
 }

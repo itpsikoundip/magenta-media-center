@@ -211,7 +211,7 @@
                                                         <td><?php echo $tiket->mahasiswa_id ?></td>
                                                         <td><?php echo $tiket->subjek ?></td>
                                                         <td><?php echo $tiket->detail ?></td>
-                                                        <td><a href="<?= base_url('helpdeskstaffdosen/detail_tiket/' . $tiket->id) ?>" class="btn btn-outline-info btn-sm">Lihat</a></td>
+                                                        <td><a href="<?= base_url('helpdeskstaffdosen/detailtiket/' . $tiket->id) ?>" class="btn btn-outline-info btn-sm">Lihat</a></td>
                                                     </tr>
                                                     <?php
                                                     }
@@ -247,7 +247,7 @@
                                                         <td><?php echo $tiket->mahasiswa_id ?></td>
                                                         <td><?php echo $tiket->subjek ?></td>
                                                         <td><?php echo $tiket->detail ?></td>
-                                                        <td><a href="<?= base_url('helpdeskstaffdosen/detail_tiket/' . $tiket->id) ?>" class="btn btn-outline-info btn-sm">Lihat</a></td>
+                                                        <td><a href="<?= base_url('helpdeskstaffdosen/detailtiket/' . $tiket->id) ?>" class="btn btn-outline-info btn-sm">Lihat</a></td>
                                                     </tr>
                                                     <?php
                                                     }
