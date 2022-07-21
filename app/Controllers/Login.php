@@ -230,36 +230,21 @@ class Login extends BaseController
 
     public function logoutAdmin()
     {
-        session()->remove('id');
-        session()->remove('log');
-        session()->remove('username');
-        session()->remove('level');
+        $this->session->destroy();
         session()->setFlashdata('sukses', 'Logout sukses');
         return redirect()->to(base_url('login/admin'));
     }
 
     public function logoutMhs()
     {
-        session()->remove('id');
-        session()->remove('log');
-        session()->remove('nama');
-        session()->remove('email');
-        session()->remove('level');
+        session()->destroy();
         session()->setFlashdata('sukses', 'Logout sukses');
         return redirect()->to(base_url('login/mahasiswa'));
     }
 
     public function logoutStaffDosen()
     {
-        session()->remove('id');
-        session()->remove('log');
-        session()->remove('nip');
-        session()->remove('nama');
-        session()->remove('jenispegawai');
-        session()->remove('departemen');
-        session()->remove('unit');
-        session()->remove('unit2');
-        session()->remove('statusstaffdosen');
+        $this->session->destroy();
         session()->setFlashdata('sukses', 'Logout Suksess !!!');
         return redirect()->to(base_url('login/staffdosen'));
     }
