@@ -101,6 +101,13 @@ $routes->group('mahasiswa', function ($routes) {
         $routes->get('inputlulusan', 'frontendInputLulusanController::index');
         $routes->post('inputlulusan/input/(:num)', 'frontendInputLulusanController::inputLulusan/$1');
     });
+
+    $routes->group('helpdesk', ['namespace' => 'App\Controllers\Mahasiswa\Helpdesk', 'filter' => 'authMhs'], function ($routes) {
+        $routes->get('/', 'Helpdesk::index');
+        $routes->get('tiket', 'Helpdesk::tiket');
+        $routes->post('tiket/kirim', 'Helpdesk::kirimTiket');
+        $routes->get('hotline', 'Helpdesk::hotline');
+    });
 });
 
 $routes->get('/proposal', 'Proposal::index');
@@ -121,12 +128,6 @@ $routes->post('/proposal/konfirmasieditketatausaha/(:num)', 'Proposal::konfirmas
 $routes->post('/proposal/konfirmasieditkesumberdaya/(:num)', 'Proposal::konfirmasiEditkeSumberdaya/$1');
 $routes->post('/proposal/konfirmasieditkeakademik/(:num)', 'Proposal::konfirmasiEditkeAkademik/$1');
 $routes->post('/proposal/konfirmasieditkebem/(:num)', 'Proposal::konfirmasiEditkeBEM/$1');
-
-//HELPDESK MAHASISWA
-$routes->get('/helpdesk', 'Helpdesk::index');
-$routes->get('/helpdesk/tiket', 'Helpdesk::tiket');
-$routes->post('/helpdesk/tiket/kirim', 'Helpdesk::kirimTiket');
-$routes->get('/helpdesk/hotline', 'Helpdesk::hotline');
 
 //HELPDESK STAFF DOSEN
 $routes->get('/helpdeskstaffdosen', 'HelpdeskStaffDosen::index');

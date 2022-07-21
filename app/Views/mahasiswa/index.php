@@ -62,7 +62,7 @@
                     </a>
                 </div>
                 <div class="col-xl-4 col-lg-6 col-12">
-                    <a class="card" href=" <?= base_url('helpdesk/') ?>">
+                    <a class="card" href=" <?= base_url('mahasiswa/helpdesk/') ?>">
                         <div class="card-content">
                             <div class="card-body">
                                 <div class="media d-flex">

@@ -230,7 +230,7 @@ class Login extends BaseController
 
     public function logoutAdmin()
     {
-        $this->session->destroy();
+        session()->destroy();
         session()->setFlashdata('sukses', 'Logout sukses');
         return redirect()->to(base_url('login/admin'));
     }
@@ -244,7 +244,7 @@ class Login extends BaseController
 
     public function logoutStaffDosen()
     {
-        $this->session->destroy();
+        session()->destroy();
         session()->setFlashdata('sukses', 'Logout Suksess !!!');
         return redirect()->to(base_url('login/staffdosen'));
     }
