@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Survey;
 
 use CodeIgniter\Model;
 
@@ -8,11 +8,6 @@ class surveyKependModel extends Model
 {
 
     protected $table = 'survey_kependidikan';
-
-    public function getItemById($id)
-    {
-        return $this->where(['id' => $id])->first();
-    }
 
     public function addData($data)
     {
@@ -22,16 +17,6 @@ class surveyKependModel extends Model
     public function deleteData($pertanyaan)
     {
         return $this->db->table('survey_kependidikan')->delete(['pertanyaan' => $pertanyaan]);
-    }
-
-    public function editData($id)
-    {
-        return $this->db->table('survey_kependidikan')->where(['id' => $id])->get()->getRowArray();
-    }
-
-    public function updateData($data, $id)
-    {
-        return $this->db->table('survey_kependidikan')->update($data, ['id' => $id]);
     }
 
     public function inputSkor($arrayInput)
@@ -88,14 +73,6 @@ class surveyKependModel extends Model
     {
         $builder = $this->db->table('survey_kependidikan');
         $query = $builder->getWhere(['id_kepend' => $id]);
-
-        return $query;
-    }
-
-    function getAllByPertanyaan($pertanyaan)
-    {
-        $builder = $this->db->table('survey_kependidikan');
-        $query = $builder->getWhere(['pertanyaan' => $pertanyaan]);
 
         return $query;
     }

@@ -69,7 +69,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="<?= base_url('/staffdosen/survey/surveykepend/addsurveykepend') ?>" method="post">
+                            <form action="<?= base_url('/staffdosen/survey/addsurveykepend') ?>" method="post">
                                 <?= csrf_field(); ?>
                                 <div class="form-group">
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tulis Survey..." name="pertanyaan" style="height:150px;" required></textarea>
@@ -104,7 +104,7 @@
                                 </p>
                             </div>
                             <div class="modal-footer">
-                                <a class="btn btn-danger" href="<?= base_url('/staffdosen/survey/surveykepend/deletesurveykepend/' . $row["pertanyaan"]) ?>" role="button">
+                                <a class="btn btn-danger" href="<?= base_url('/staffdosen/survey/deletesurveykepend/' . $row["pertanyaan"]) ?>" role="button">
                                     <i class="ft-alert-triangle"></i> Hapus
                                 </a>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

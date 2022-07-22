@@ -3,13 +3,11 @@
 namespace App\Controllers\StaffDosen\Survey;
 
 use App\Controllers\BaseController;
-use App\Models\surveyDosenModel;
-use App\Models\hasilSurveyDosenModel;
-use App\Models\singleDosenModel;
+use App\Models\Survey\surveyDosenModel;
+use App\Models\Survey\hasilSurveyDosenModel;
+use App\Models\Survey\singleDosenModel;
 
-
-
-class backendGrafikDosenController extends BaseController
+class grafikDosenController extends BaseController
 {
 
     protected $surveyDosenModel;

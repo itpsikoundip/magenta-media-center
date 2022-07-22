@@ -3,10 +3,10 @@
 namespace App\Controllers\Mahasiswa\Survey;
 
 use App\Controllers\BaseController;
-use App\Models\surveyLulusanModel;
+use App\Models\Survey\surveyLulusanModel;
 use Exception;
 
-class frontendInputLulusanController extends BaseController
+class inputLulusanController extends BaseController
 {
 
     protected $surveyLulusanModel;

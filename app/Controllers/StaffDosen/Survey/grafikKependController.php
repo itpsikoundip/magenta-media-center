@@ -3,11 +3,11 @@
 namespace App\Controllers\StaffDosen\Survey;
 
 use App\Controllers\BaseController;
-use App\Models\surveyKependModel;
-use App\Models\hasilSurveyKependModel;
-use App\Models\singleKependModel;
+use App\Models\Survey\surveyKependModel;
+use App\Models\Survey\hasilSurveyKependModel;
+use App\Models\Survey\singleKependModel;
 
-class backendGrafikKependController extends BaseController
+class grafikKependController extends BaseController
 {
 
     protected $surveyKependModel;

@@ -3,10 +3,10 @@
 namespace App\Controllers\StaffDosen\Survey;
 
 use App\Controllers\BaseController;
-use App\Models\surveyLulusanModel;
+use App\Models\Survey\surveyLulusanModel;
 use CodeIgniter\I18n\Time;
 
-class backendSurveyLulusanController extends BaseController
+class surveyLulusanController extends BaseController
 {
 
     protected $surveyLulusanModel;

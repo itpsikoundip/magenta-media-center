@@ -3,12 +3,12 @@
 namespace App\Controllers\StaffDosen\Survey;
 
 use App\Controllers\BaseController;
-use App\Models\surveyDosenModel;
-use App\Models\hasilSurveyDosenModel;
-use App\Models\singleDosenModel;
+use App\Models\Survey\surveyDosenModel;
+use App\Models\Survey\hasilSurveyDosenModel;
+use App\Models\Survey\singleDosenModel;
 use CodeIgniter\I18n\Time;
 
-class backendSurveyDosenController extends BaseController
+class surveyDosenController extends BaseController
 {
 
     protected $surveyDosenModel;

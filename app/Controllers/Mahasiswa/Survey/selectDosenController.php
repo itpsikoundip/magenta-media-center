@@ -3,55 +3,55 @@
 namespace App\Controllers\Mahasiswa\Survey;
 
 use App\Controllers\BaseController;
-use App\Models\surveyKependModel;
-use App\Models\hasilSurveyKependModel;
+use App\Models\Survey\surveyDosenModel;
+use App\Models\Survey\hasilSurveyDosenModel;
 use Exception;
 
-class frontendSelectKependController extends BaseController
+class selectDosenController extends BaseController
 {
 
-    protected $surveyKependModel;
-    protected $hasilSurveyKependModel;
+    protected $surveyDosenModel;
+    protected $hasilSurveyDosenModel;
 
     public function __construct()
     {
-        $this->surveyKependModel = new surveyKependModel();
-        $this->hasilSurveyKependModel = new hasilSurveyKependModel();
+        $this->surveyDosenModel = new surveyDosenModel();
+        $this->hasilSurveyDosenModel = new hasilSurveyDosenModel();
     }
 
     public function index()
     {
-        $displayListKepend = $this->hasilSurveyKependModel->findAll();
+        $displayListDosen = $this->hasilSurveyDosenModel->findAll();
         $data = [
-            'title' => 'Select Kepend',
-            'dataListKepend' => $displayListKepend,
-            'isi' => '/mahasiswa/survey/selectkepend'
+            'title' => 'Select Dosen',
+            'dataListDosen' => $displayListDosen,
+            'isi' => '/mahasiswa/survey/selectdosen'
         ];
 
         return view('layouts/mahasiswa-wrapper', $data);
     }
 
-    public function gotoInputKepend($id, $namaDosen)
+    public function gotoInputDosen($id, $namaDosen)
     {
 
-        $model = new surveyKependModel;
-        $dataFilter = $model->getAllInputKepend($id);
+        $model = new surveyDosenModel;
+        $dataFilter = $model->getAllInputDosen($id);
 
         $data = [
-            'title' => 'Survey Kepend',
-            'dataSurveyKepend' => $dataFilter->getResult(),
+            'title' => 'Survey Dosen',
+            'dataSurveyDosen' => $dataFilter->getResult(),
             'idSend' => $id,
-            'namaKepend' => $namaDosen,
-            'isi' => '/mahasiswa/survey/inputkepend'
+            'namaDosen' => $namaDosen,
+            'isi' => '/mahasiswa/survey/inputdosen'
         ];
 
         return view('layouts/mahasiswa-wrapper', $data);
     }
 
-    public function inputKepend($idSend, $namaKepend)
+    public function inputDosen($idSend, $namaDosen)
     {
-        $model = new surveyKependModel;
-        $dataFilter = $model->getAllInputKepend($idSend)->getResult();
+        $model = new surveyDosenModel;
+        $dataFilter = $model->getAllInputDosen($idSend)->getResult();
         try {
             $arrayInput = $this->getInput($dataFilter);
         } catch (Exception $e) {
@@ -62,7 +62,7 @@ class frontendSelectKependController extends BaseController
 
         $update = $model->inputSkor($arrayInput);
         if ($update) {
-            return $this->doneSurvey($namaKepend, 2);
+            return $this->doneSurvey($namaDosen, 1);
         }
     }
 
@@ -83,11 +83,11 @@ class frontendSelectKependController extends BaseController
         return $input;
     }
 
-    public function doneSurvey($namaKepend, $who)
+    public function doneSurvey($namaDosen, $who)
     {
         $data = [
             'isi' => '/mahasiswa/survey/donesurvey',
-            'nama' => $namaKepend,
+            'nama' => $namaDosen,
             'who' => $who
         ];
 
