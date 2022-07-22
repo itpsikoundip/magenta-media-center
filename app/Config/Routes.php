@@ -77,6 +77,13 @@ $routes->group('staffdosen', function ($routes) {
         $routes->get('exportkepend', 'surveyKependController::export');
         $routes->get('exportlulusan', 'surveyLulusanController::export');
     });
+
+    $routes->group('helpdesk', ['namespace' => 'App\Controllers\StaffDosen\Helpdesk', 'filter' => 'authStaffDosen'], function ($routes) {
+        $routes->get('/', 'Helpdesk::index');
+        $routes->get('detailtiket/(:num)', 'Helpdesk::detailTiket/$1');
+        $routes->post('jawabtiket/(:num)', 'Helpdesk::jawabTiket/$1');
+        $routes->post('addfaq', 'Helpdesk::addFAQ');
+    });
 });
 
 $routes->group('mahasiswa', function ($routes) {
@@ -126,12 +133,6 @@ $routes->post('/proposal/konfirmasieditketatausaha/(:num)', 'Proposal::konfirmas
 $routes->post('/proposal/konfirmasieditkesumberdaya/(:num)', 'Proposal::konfirmasiEditkeSumberdaya/$1');
 $routes->post('/proposal/konfirmasieditkeakademik/(:num)', 'Proposal::konfirmasiEditkeAkademik/$1');
 $routes->post('/proposal/konfirmasieditkebem/(:num)', 'Proposal::konfirmasiEditkeBEM/$1');
-
-//HELPDESK STAFF DOSEN
-$routes->get('/helpdeskstaffdosen', 'HelpdeskStaffDosen::index');
-$routes->get('/helpdeskstaffdosen/detailtiket/(:num)', 'HelpdeskStaffDosen::detailTiket/$1');
-$routes->post('/helpdeskstaffdosen/jawabtiket/(:num)', 'HelpdeskStaffDosen::jawabTiket/$1');
-$routes->post('/helpdeskstaffdosen/addfaq', 'HelpdeskStaffDosen::addFAQ');
 
 
 /*

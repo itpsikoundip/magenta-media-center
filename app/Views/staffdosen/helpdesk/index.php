@@ -152,7 +152,7 @@
                                     </div>
 
                                     <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
-                                        <form class="form form-horizontal" action="helpdeskstaffdosen/addFAQ" method="post" enctype="multipart/form-data">
+                                        <form class="form form-horizontal" action="<?= base_url('staffdosen/helpdesk/addfaq/') ?>" method="post" enctype="multipart/form-data">
                                         <?= csrf_field(); ?>
                                             <div class="form-body">
                                                 <div class="form-group row">
@@ -211,7 +211,7 @@
                                                         <td><?php echo $tiket->mahasiswa_id ?></td>
                                                         <td><?php echo $tiket->subjek ?></td>
                                                         <td><?php echo $tiket->detail ?></td>
-                                                        <td><a href="<?= base_url('helpdeskstaffdosen/detailtiket/' . $tiket->id) ?>" class="btn btn-outline-info btn-sm">Lihat</a></td>
+                                                        <td><a href="<?= base_url('staffdosen/helpdesk/detailtiket/' . $tiket->id) ?>" class="btn btn-outline-info btn-sm">Lihat</a></td>
                                                     </tr>
                                                     <?php
                                                     }
@@ -247,7 +247,7 @@
                                                         <td><?php echo $tiket->mahasiswa_id ?></td>
                                                         <td><?php echo $tiket->subjek ?></td>
                                                         <td><?php echo $tiket->detail ?></td>
-                                                        <td><a href="<?= base_url('helpdeskstaffdosen/detailtiket/' . $tiket->id) ?>" class="btn btn-outline-info btn-sm">Lihat</a></td>
+                                                        <td><a href="<?= base_url('staffdosen/helpdesk/detailtiket/' . $tiket->id) ?>" class="btn btn-outline-info btn-sm">Lihat</a></td>
                                                     </tr>
                                                     <?php
                                                     }
