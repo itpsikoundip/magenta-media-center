@@ -3,9 +3,9 @@
 namespace App\Controllers\StaffDosen\Survey;
 
 use App\Controllers\BaseController;
-use App\Models\surveyLulusanModel;
+use App\Models\Survey\surveyLulusanModel;
 
-class backendGrafikLulusanController extends BaseController
+class grafikLulusanController extends BaseController
 {
 
     protected $surveyLulusanModel;

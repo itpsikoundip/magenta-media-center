@@ -23,7 +23,7 @@ class UserStaffDosen extends Seeder
                 'staffdosen_id'         => '36',
                 'password'              => '$2y$10$WmlmU3PfoIhXcDxIkBAeoumw/bHDpdE4uJsWXM.gJ0FJ80MWYobG6 ',
                 'proposal'              => '1',
-                'survey'                => '0',
+                'survey'                => '1',
                 'helpdesk'              => '0',
                 'sk'                    => '1',
                 'catatan'               => 'Manager Tata Usaha',

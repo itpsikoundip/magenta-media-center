@@ -1,19 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Survey;
 
 use CodeIgniter\Model;
-use App\Models\hasilSurveyDosenModel;
 
 class surveyDosenModel extends Model
 {
 
     protected $table = 'survey_dosen';
-
-    public function getItemById($id)
-    {
-        return $this->where(['id' => $id])->first();
-    }
 
     public function addData($data)
     {
@@ -23,26 +17,6 @@ class surveyDosenModel extends Model
     public function deleteData($pertanyaan)
     {
         return $this->db->table('survey_dosen')->delete(['pertanyaan' => $pertanyaan]);
-    }
-
-    public function editData($id)
-    {
-        return $this->db->table('survey_dosen')->where(['id' => $id])->get()->getRowArray();
-    }
-
-    public function updateData($data, $id)
-    {
-        return $this->db->table('survey_dosen')->update($data, ['id' => $id]);
-    }
-
-    public function getIdDosen($id)
-    {
-        return $this->db->table('survey_dosen')->where(['id_dosen' => $id])->get()->getRowArray();
-    }
-
-    public function getRowName()
-    {
-        return $this->db->getFieldNames('survey_dosen');
     }
 
     public function inputSkor($arrayInput)
@@ -101,14 +75,6 @@ class surveyDosenModel extends Model
     {
         $builder = $this->db->table('survey_dosen');
         $query = $builder->getWhere(['id_dosen' => $id]);
-
-        return $query;
-    }
-
-    function getAllByPertanyaan($pertanyaan)
-    {
-        $builder = $this->db->table('survey_dosen');
-        $query = $builder->getWhere(['pertanyaan' => $pertanyaan]);
 
         return $query;
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Survey;
 
 use CodeIgniter\Model;
 
@@ -8,12 +8,6 @@ class hasilSurveyDosenModel extends Model
 {
 
     protected $table = 'data_dosen';
-
-
-    public function getItemById($id)
-    {
-        return $this->where(['id' => $id])->first();
-    }
 
     function getAll()
     {

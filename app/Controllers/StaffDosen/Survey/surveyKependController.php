@@ -3,12 +3,12 @@
 namespace App\Controllers\StaffDosen\Survey;
 
 use App\Controllers\BaseController;
-use App\Models\surveyKependModel;
-use App\Models\hasilSurveyKependModel;
-use App\Models\singleKependModel;
+use App\Models\Survey\surveyKependModel;
+use App\Models\Survey\hasilSurveyKependModel;
+use App\Models\Survey\singleKependModel;
 use CodeIgniter\I18n\Time;
 
-class backendSurveyKependController extends BaseController
+class surveyKependController extends BaseController
 {
 
     protected $surveyKependModel;

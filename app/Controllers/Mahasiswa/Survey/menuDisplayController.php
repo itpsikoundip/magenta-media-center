@@ -4,7 +4,7 @@ namespace App\Controllers\Mahasiswa\Survey;
 
 use App\Controllers\BaseController;
 
-class frontendMenuDisplayController extends BaseController
+class menuDisplayController extends BaseController
 {
     public function index($isMhs)
     {
