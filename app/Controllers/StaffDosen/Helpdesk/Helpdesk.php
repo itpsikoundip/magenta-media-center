@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\StaffDosen\Helpdesk;
+
+use App\Controllers\BaseController;
+use App\Models\ModelHelpdeskStaffDosen;
 use CodeIgniter\I18n\Time;
 
-use App\Models\ModelHelpdeskStaffDosen;
-
-class HelpdeskStaffDosen extends BaseController
+class Helpdesk extends BaseController
 {
     public function __construct()
     {
@@ -72,10 +73,10 @@ class HelpdeskStaffDosen extends BaseController
             }else{
                 session()->setFlashdata('sukses', 'Jawaban tiket berhasil <b>disimpan</b>, dapat dilihat pada tab Tiket Terjawab');
             }
-            return redirect()->to(base_url('helpdeskstaffdosen'));
+            return redirect()->to(base_url('staffdosen/helpdesk'));
         }else{
             session()->setFlashdata('error', 'Jawaban tiket gagal disimpan. Silakan coba lagi');
-            return redirect()->to(base_url('helpdeskstaffdosen'));
+            return redirect()->to(base_url('staffdosen/helpdesk'));
         }
     }
 
@@ -95,10 +96,10 @@ class HelpdeskStaffDosen extends BaseController
 
         if($result){
             session()->setFlashdata('sukses', 'FAQ baru berhasil <b>ditambahkan</b>, dapat dilihat pada tab List FAQ');
-            return redirect()->to(base_url('helpdeskstaffdosen'));
+            return redirect()->to(base_url('staffdosen/helpdesk'));
         }else{
             session()->setFlashdata('error', 'FAQ gagal ditambahkan. Silakan coba lagi');
-            return redirect()->to(base_url('helpdeskstaffdosen'));
+            return redirect()->to(base_url('staffdosen/helpdesk'));
         }
         
     }
