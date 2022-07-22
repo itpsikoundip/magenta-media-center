@@ -25,7 +25,7 @@ class UserStaffDosen extends Seeder
                 'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
-                'sk'                    => '0',
+                'sk'                    => '1',
                 'catatan'               => 'Manager Tata Usaha',
             ],
             [
@@ -34,7 +34,7 @@ class UserStaffDosen extends Seeder
                 'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
-                'sk'                    => '0',
+                'sk'                    => '1',
                 'catatan'               => 'Akademik dan Kemahasiswaan',
             ],
             [
@@ -43,7 +43,7 @@ class UserStaffDosen extends Seeder
                 'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
-                'sk'                    => '0',
+                'sk'                    => '1',
                 'catatan'               => 'Sumberdaya',
             ],
             [
@@ -52,7 +52,7 @@ class UserStaffDosen extends Seeder
                 'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
-                'sk'                    => '0',
+                'sk'                    => '1',
                 'catatan'               => 'Wadek Akademik dan Kemahasiswaan',
             ],
             [
@@ -61,7 +61,7 @@ class UserStaffDosen extends Seeder
                 'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
-                'sk'                    => '0',
+                'sk'                    => '1',
                 'catatan'               => 'Wadek Sumber Daya',
             ],
             [
@@ -88,8 +88,26 @@ class UserStaffDosen extends Seeder
                 'proposal'              => '1',
                 'survey'                => '0',
                 'helpdesk'              => '0',
-                'sk'                    => '0',
+                'sk'                    => '1',
                 'catatan'               => 'Dekan',
+            ],
+            [
+                'staffdosen_id'         => '39',
+                'password'              => '$2y$10$WmlmU3PfoIhXcDxIkBAeoumw/bHDpdE4uJsWXM.gJ0FJ80MWYobG6 ',
+                'proposal'              => '0',
+                'survey'                => '0',
+                'helpdesk'              => '0',
+                'sk'                    => '1',
+                'catatan'               => 'Sumberdaya',
+            ],
+            [
+                'staffdosen_id'         => '29',
+                'password'              => '$2y$10$WmlmU3PfoIhXcDxIkBAeoumw/bHDpdE4uJsWXM.gJ0FJ80MWYobG6 ',
+                'proposal'              => '0',
+                'survey'                => '0',
+                'helpdesk'              => '0',
+                'sk'                    => '1',
+                'catatan'               => 'Akademik dan Kemahasiswaan',
             ],
         ];
 

@@ -6,13 +6,12 @@ use CodeIgniter\Model;
 
 class ModelSKDekan extends Model
 {
-    // public function allData()
-    // {
-    //     return $this->db->table('proposal_data')
-    //         ->join('proposal_jenis', 'proposal_jenis.id_jenis = proposal_data.jenis_propo')
-    //         ->where('organisasi_lembaga', session()->get('idormawa'))
-    //         ->get()->getResultArray();
-    // }
+    public function detailAksesUserOp()
+    {
+        return $this->db->table('sk_dekan_user_op')
+            ->where('staffdosen_id', session()->get('id'))
+            ->get()->getRowArray();
+    }
     public function dataSKDekanPengaju()
     {
         return $this->db->table('sk_dekan')

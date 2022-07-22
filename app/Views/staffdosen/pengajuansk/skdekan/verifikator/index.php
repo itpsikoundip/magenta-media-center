@@ -46,75 +46,86 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content px-1 pt-1">
-                                    <div role="tabpanel" class="tab-pane active" id="tab31" aria-expanded="true" aria-labelledby="base-tab31">
-                                        <table class="table table-striped table-bordered zero-configuration">
-                                            <thead>
-                                                <tr>
-                                                    <th>Judul SK</th>
-                                                    <th>Tanggal Pembuatan</th>
-                                                    <th>Status</th>
-                                                    <th>Aksi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                foreach ($dataSKDekanSiapVerif as $key => $value) { ?>
+                                    <?php if ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 1) { ?>
+                                        <div role="tabpanel" class="tab-pane active" id="tab31" aria-expanded="true" aria-labelledby="base-tab31">
+                                            <table class="table table-striped table-bordered zero-configuration">
+                                                <thead>
                                                     <tr>
-                                                    <tr>
-                                                        <td><?= $value['judul_sk']  ?></td>
-                                                        <td><?= $value['tanggal_pembuatan']  ?></td>
-                                                        <td>status</td>
-                                                        <td>
-                                                            <a href="<?= base_url('PengajuanSKDekanVerifikator/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
-                                                        </td>
+                                                        <th>Judul SK</th>
+                                                        <th>Tanggal Pembuatan</th>
+                                                        <th>Aksi</th>
                                                     </tr>
-                                                <?php  } ?>
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Judul SK</th>
-                                                    <th>Tanggal Pembuatan</th>
-                                                    <th>Status</th>
-                                                    <th>Aksi</th>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
-                                    <div class="tab-pane" id="tab32" aria-labelledby="base-tab32">
-                                        <table class="table table-striped table-bordered zero-configuration">
-                                            <thead>
-                                                <tr>
-                                                    <th>Judul SK</th>
-                                                    <th>Tanggal Pembuatan</th>
-                                                    <th>Status</th>
-                                                    <th>Aksi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                foreach ($dataSKDekanSiapVerif as $key => $value) { ?>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    foreach ($dataSKDekanSiapVerif as $key => $value) { ?>
+                                                        <tr>
+                                                        <tr>
+                                                            <td><?= $value['judul_sk']  ?></td>
+                                                            <td><?= $value['tanggal_pembuatan']  ?></td>
+                                                            <td>
+                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                    <?php  } ?>
+                                                </tbody>
+                                                <tfoot>
                                                     <tr>
+                                                        <th>Judul SK</th>
+                                                        <th>Tanggal Pembuatan</th>
+                                                        <th>Aksi</th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                        <div class="tab-pane" id="tab32" aria-labelledby="base-tab32">
+                                            <table class="table table-striped table-bordered zero-configuration">
+                                                <thead>
                                                     <tr>
-                                                        <td><?= $value['judul_sk']  ?></td>
-                                                        <td><?= $value['tanggal_pembuatan']  ?></td>
-                                                        <td>status</td>
-                                                        <td>
+                                                        <th>Judul SK</th>
+                                                        <th>Tanggal Pembuatan</th>
+                                                        <th>Status</th>
+                                                        <th>Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    foreach ($dataSKDekanSiapVerif as $key => $value) { ?>
+                                                        <tr>
+                                                        <tr>
+                                                            <td><?= $value['judul_sk']  ?></td>
+                                                            <td><?= $value['tanggal_pembuatan']  ?></td>
+                                                            <td>
+                                                                <?php if ($value['sk_akem_status'] == 0) {
+                                                                    echo '<div class="badge badge-primary">Belum ada Status</div>';
+                                                                } elseif (($value['sk_akem_status']) == 1) {
+                                                                    echo '<div class="badge badge-danger">Ditolak</div>';
+                                                                } elseif (($value['sk_akem_status']) == 2) {
+                                                                    echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                                } elseif (($value['sk_akem_status']) == 3) {
+                                                                    echo '<div class="badge badge-success">Disetujui</div>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td>
 
-                                                        </td>
+                                                            </td>
+                                                        </tr>
+                                                    <?php  } ?>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Judul SK</th>
+                                                        <th>Tanggal Pembuatan</th>
+                                                        <th>Status</th>
+                                                        <th>Aksi</th>
                                                     </tr>
-                                                <?php  } ?>
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Judul SK</th>
-                                                    <th>Tanggal Pembuatan</th>
-                                                    <th>Status</th>
-                                                    <th>Aksi</th>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
+                                                </tfoot>
+                                            </table>
+                                        </div>
                                 </div>
+                            <?php } elseif ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 2) { ?>
+                            <?php } ?>
                             </div>
                         </div>
                     </div>
