@@ -26,5 +26,10 @@ class MainSeeder extends Seeder
         $this->call('ProposalUnitTugas');
         $this->call('ProposalUserOrmawa');
         $this->call('ProposalUserStaffDosen');
+        $this->call('SKDekanJenisOp');
+        $this->call('SKDekanJenisVerifikator');
+        $this->call('SKDekanUserOp');
+        $this->call('SKDekanUserVerifikator');
+        $this->call('SKDekan');
     }
 }

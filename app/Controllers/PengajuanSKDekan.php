@@ -26,6 +26,7 @@ class PengajuanSKDekan extends BaseController
     {
         $data = [
             'title' => 'Tambah Pengajuan SK Dekan',
+            'detailAksesUserOp' => $this->ModelSKDekan->detailAksesUserOp(),
             'isi'    => 'staffdosen/pengajuansk/skdekan/add'
         ];
         return view('layouts/staffdosen-wrapper', $data);
@@ -51,6 +52,7 @@ class PengajuanSKDekan extends BaseController
             //jika valid
             $data = array(
                 'pengaju_id' => $this->request->getPost('idPengaju'),
+                'jenis_op_id' => $this->request->getPost('jenisOp'),
                 'judul_sk' => $this->request->getPost('judulSKDekan'),
                 'tanggal_pembuatan' => $this->request->getPost('tanggalPembuatanSKDekan'),
                 'tmt_kegiatan' => $this->request->getPost('tmtKegiatanSKDekan'),
