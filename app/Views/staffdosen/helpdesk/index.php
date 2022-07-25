@@ -119,6 +119,7 @@
                                             <div class="card collapse-icon panel mb-0 box-shadow-0 border-0">
                                                 <?php 
                                                 $i = 1;
+                                                // dd($faqs);
                                                 foreach($faqs as $faq){
                                                 ?>
 
@@ -134,12 +135,32 @@
                                                         </p>
                                                     </div>
                                                     <div class="d-flex justify-content-end">
-                                                        <button class="btn btn-outline-danger btn-sm mr-1">
+                                                        <button class="btn btn-outline-danger btn-sm mr-1" data-toggle="modal" data-target="#konfirmasiHapus<?php echo $i ?>">
                                                             Hapus
                                                         </button>
                                                         <a href="" class="btn btn-outline-secondary btn-sm">
                                                             Edit
                                                         </a>
+                                                    </div>
+
+                                                    <div class="modal fade" id="konfirmasiHapus<?php echo $i ?>" tabindex="-1" aria-labelledby="konfirmasiHapus<?php echo $i ?>" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content">
+                                                            <div class="modal-header bg-danger">
+                                                                <h5 class="modal-title text-white" id="exampleModalLabel">Konfirmasi Hapus</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Apakah Anda yakin akan menghapus FAQ tersebut? FAQ yang dihapus tidak dapat dibaca lagi oleh mahasiswa.
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <a class="btn btn-outline-danger" href="<?= base_url('staffdosen/helpdesk/deletefaq/' . $faq->id) ?>" role="button">Hapus</a>
+                                                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Kembali</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     </div>
                                                 </div>
 

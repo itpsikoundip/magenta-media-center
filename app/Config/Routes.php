@@ -83,6 +83,7 @@ $routes->group('staffdosen', function ($routes) {
         $routes->get('detailtiket/(:num)', 'Helpdesk::detailTiket/$1');
         $routes->post('jawabtiket/(:num)', 'Helpdesk::jawabTiket/$1');
         $routes->post('addfaq', 'Helpdesk::addFAQ');
+        $routes->get('deletefaq/(:num)', 'Helpdesk::deleteFAQ/$1');
     });
 });
 

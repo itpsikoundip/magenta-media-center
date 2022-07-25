@@ -92,7 +92,7 @@ class Helpdesk extends BaseController
             'created_at'    => Time::now('Asia/Jakarta'),
         ];
 
-        $result = $this->ModelHelpdeskStaffDosen->insertFAQ($data);
+        $result = $this->ModelHelpdeskStaffDosen->addFAQ($data);
 
         if($result){
             session()->setFlashdata('sukses', 'FAQ baru berhasil <b>ditambahkan</b>, dapat dilihat pada tab List FAQ');
@@ -102,6 +102,20 @@ class Helpdesk extends BaseController
             return redirect()->to(base_url('staffdosen/helpdesk'));
         }
         
+    }
+
+    public function deleteFAQ($faq_id){
+ 
+        $result = $this->ModelHelpdeskStaffDosen->deleteFAQ($faq_id);
+        // dd($result);
+
+        if($result){
+            session()->setFlashdata('sukses', 'FAQ berhasil <b>dihapus</b>');
+            return redirect()->to(base_url('staffdosen/helpdesk'));
+        }else{
+            session()->setFlashdata('error', 'gagal menghapus FAQ. Silakan coba lagi');
+            return redirect()->to(base_url('staffdosen/helpdesk'));
+        }
     }
 
 }
