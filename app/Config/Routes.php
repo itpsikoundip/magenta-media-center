@@ -115,6 +115,8 @@ $routes->group('mahasiswa', function ($routes) {
     });
 });
 
+$routes->get('/', 'Login::index');
+
 $routes->get('/proposal', 'Proposal::index');
 $routes->get('/proposal/pengajuan', 'Proposal::pengajuan');
 $routes->get('/proposal/data', 'Proposal::data');

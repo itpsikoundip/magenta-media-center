@@ -1,6 +1,6 @@
 <style>
     .card {
-        border-radius: 4px;
+        border-radius: 20px;
         box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
         transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
             0.3s box-shadow,

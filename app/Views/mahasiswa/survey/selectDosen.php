@@ -7,6 +7,9 @@
                         <div class="col-12 mb-5">
                             <div class="card mt-2">
                                 <div class="card-header">
+                                    <a href="<?php echo base_url('/mahasiswa/survey/menudisplay/1') ?>" class="btn btn-secondary align-center" role="button">
+                                        <i class="ft-chevron-left"></i> Kembali
+                                    </a>
                                     <h1 class="text-center mt-2"><b>Daftar Dosen Psikologi UNDIP</b></h1>
                                 </div>
                                 <div class="card-content collapse show">
