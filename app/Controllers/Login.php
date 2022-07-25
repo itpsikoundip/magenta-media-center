@@ -19,6 +19,7 @@ class Login extends BaseController
 
     public function index()
     {
+
         $data = [
             'isi'    => 'login/index'
         ];

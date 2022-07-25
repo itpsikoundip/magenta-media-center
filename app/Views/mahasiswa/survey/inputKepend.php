@@ -3,6 +3,9 @@
         <div class="container mt-4">
             <div class="card mb-3">
                 <div class="card-body">
+                    <a href="<?php echo base_url('/mahasiswa/survey/selectkepend') ?>" class="btn btn-secondary align-center" role="button">
+                        <i class="ft-chevron-left"></i> Kembali
+                    </a>
                     <h1 class="text-center mb-3 mt-2"><b>Survey Tenaga Pendidik Psikologi UNDIP</b></h1>
                     <h3 class="text-center mt-2">Tenaga Pendidik:</h3>
                     <h3 class="text-center mb-2"><?= $namaKepend ?></h3>
