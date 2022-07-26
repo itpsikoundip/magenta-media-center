@@ -54,7 +54,7 @@ class grafikKependController extends BaseController
                 'sumCukup' => 0,
                 'sumBuruk' => 0,
                 'sumSangatBuruk' => 0,
-                'isi'    => 'staffdosen/survey/grafikkepend'
+                'isi'    => 'staffdosen/survey/grafikKepend'
             ];
 
             return view('layouts/survey-wrapper', $data);
@@ -67,7 +67,7 @@ class grafikKependController extends BaseController
                 'sumCukup' => $arrayCukup,
                 'sumBuruk' => $arrayBuruk,
                 'sumSangatBuruk' => $arraySangatBuruk,
-                'isi'    => 'staffdosen/survey/grafikkepend'
+                'isi'    => 'staffdosen/survey/grafikKepend'
             ];
 
             return view('layouts/survey-wrapper', $data);

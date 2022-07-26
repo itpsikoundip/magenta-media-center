@@ -82,7 +82,7 @@ class surveyDosenController extends BaseController
             'title' => 'Export Dosen',
             'hasilSurveyDosenModel' => $hasilSurveyDosenModel,
             'timeNow' => $timeNow,
-            'isi'    => 'staffdosen/survey/exportdosen'
+            'isi'    => 'staffdosen/survey/exportDosen'
         ];
 
         return view('layouts/content', $data);

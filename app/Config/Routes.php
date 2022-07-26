@@ -41,6 +41,8 @@ $routes->group('admin', function ($routes) {
 
 $routes->group('staffdosen', function ($routes) {
 
+    $routes->get('/', 'StaffDosen::index');
+
     $routes->group('survey', ['namespace' => 'App\Controllers\StaffDosen\Survey', 'filter' => 'authStaffDosen'], function ($routes) {
         //Pertanyaan Survey
         $routes->get('surveydosen', 'surveyDosenController::index');

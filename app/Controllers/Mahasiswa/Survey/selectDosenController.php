@@ -29,7 +29,7 @@ class selectDosenController extends BaseController
         $data = [
             'title' => 'Select Dosen',
             'dataListDosen' => $displayListDosen,
-            'isi' => '/mahasiswa/survey/selectdosen'
+            'isi' => '/mahasiswa/survey/selectDosen'
         ];
 
         return view('layouts/mahasiswa-wrapper', $data);
@@ -46,7 +46,7 @@ class selectDosenController extends BaseController
             'dataSurveyDosen' => $dataFilter->getResult(),
             'idSend' => $id,
             'namaDosen' => $namaDosen,
-            'isi' => '/mahasiswa/survey/inputdosen'
+            'isi' => '/mahasiswa/survey/inputDosen'
         ];
 
         return view('layouts/mahasiswa-wrapper', $data);

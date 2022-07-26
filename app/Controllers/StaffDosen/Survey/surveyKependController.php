@@ -82,7 +82,7 @@ class surveyKependController extends BaseController
             'title' => 'Export Kependidikan',
             'hasilSurveyKependModel' => $hasilSurveyKependModel,
             'timeNow' => $timeNow,
-            'isi'    => 'staffdosen/survey/exportkepend'
+            'isi'    => 'staffdosen/survey/exportKepend'
         ];
 
         return view('layouts/content', $data);
