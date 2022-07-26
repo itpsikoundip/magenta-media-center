@@ -87,6 +87,11 @@ $routes->group('staffdosen', function ($routes) {
         $routes->post('addfaq', 'HelpdeskController::addFAQ');
         $routes->get('deletefaq/(:num)', 'HelpdeskController::deleteFAQ/$1');
     });
+
+    $routes->group('kegiatan', ['namespace' => 'App\Controllers\StaffDosen\Kegiatan', 'filter' => 'authStaffDosen'], function ($routes) {
+        $routes->get('/', 'KegiatanController::index');
+        
+    });
 });
 
 $routes->group('mahasiswa', function ($routes) {
