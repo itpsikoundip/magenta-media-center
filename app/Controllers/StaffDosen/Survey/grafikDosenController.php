@@ -57,7 +57,7 @@ class grafikDosenController extends BaseController
                 'sumCukup' => 0,
                 'sumBuruk' => 0,
                 'sumSangatBuruk' => 0,
-                'isi'    => 'staffdosen/survey/grafikdosen'
+                'isi'    => 'staffdosen/survey/grafikDosen'
             ];
 
             return view('layouts/survey-wrapper', $data);
@@ -70,7 +70,7 @@ class grafikDosenController extends BaseController
                 'sumCukup' => $arrayCukup,
                 'sumBuruk' => $arrayBuruk,
                 'sumSangatBuruk' => $arraySangatBuruk,
-                'isi'    => 'staffdosen/survey/grafikdosen'
+                'isi'    => 'staffdosen/survey/grafikDosen'
             ];
 
             return view('layouts/survey-wrapper', $data);

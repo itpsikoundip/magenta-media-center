@@ -58,7 +58,7 @@ class surveyLulusanController extends BaseController
             'title' => 'Export Lulusan',
             'hasilSurveyLulusanModel' => $hasilSurveyLulusanModel,
             'timeNow' => $timeNow,
-            'isi'    => 'staffdosen/survey/exportlulusan'
+            'isi'    => 'staffdosen/survey/exportLulusan'
         ];
 
         return view('layouts/content', $data);

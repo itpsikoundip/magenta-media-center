@@ -29,7 +29,7 @@ class selectKependController extends BaseController
         $data = [
             'title' => 'Select Kepend',
             'dataListKepend' => $displayListKepend,
-            'isi' => '/mahasiswa/survey/selectkepend'
+            'isi' => '/mahasiswa/survey/selectKepend'
         ];
 
         return view('layouts/mahasiswa-wrapper', $data);
@@ -46,7 +46,7 @@ class selectKependController extends BaseController
             'dataSurveyKepend' => $dataFilter->getResult(),
             'idSend' => $id,
             'namaKepend' => $namaDosen,
-            'isi' => '/mahasiswa/survey/inputkepend'
+            'isi' => '/mahasiswa/survey/inputKepend'
         ];
 
         return view('layouts/mahasiswa-wrapper', $data);
