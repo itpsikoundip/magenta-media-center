@@ -4,7 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class SKDekanJenisOp extends Seeder
+class SKJenisOp extends Seeder
 {
     public function run()
     {
@@ -18,6 +18,6 @@ class SKDekanJenisOp extends Seeder
             ]
         ];
 
-        $this->db->table('sk_dekan_jenis_op')->insertBatch($data);
+        $this->db->table('sk_jenis_op')->insertBatch($data);
     }
 }

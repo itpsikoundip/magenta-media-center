@@ -15,9 +15,40 @@ class PengajuanSKDekanVerifikator extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Vefifikasi Pengajuan SK Dekan',
-            'dataSKDekanSiapVerif' => $this->ModelSKDekanVerifikator->dataSKDekanSiapVerif(),
+            'title' => 'Verifikasi Pengajuan SK Dekan',
+            // 'dataSKDekanSiapVerif' => $this->ModelSKDekanVerifikator->dataSKDekanSiapVerif(),
             'detailVerifikator' => $this->ModelSKDekanVerifikator->detailVerifikator(),
+
+
+            // SV AKEM
+            'allDataSKDekanSVAkem' => $this->ModelSKDekanVerifikator->allDataSKDekanSVAkem(),
+            'allDataSKDekanSVAkemSiapVerif' => $this->ModelSKDekanVerifikator->allDataSKDekanSVAkemSiapVerif(),
+
+            // SV SUMDA
+            'allDataSKDekanSVSumda' => $this->ModelSKDekanVerifikator->allDataSKDekanSVSumda(),
+            'allDataSKDekanSVSumdaSiapVerif' => $this->ModelSKDekanVerifikator->allDataSKDekanSVSumdaSiapVerif(),
+
+            // MANAGER TU
+            'allDataSKDekanManagerTU' => $this->ModelSKDekanVerifikator->allDataSKDekanManagerTU(),
+            'allDataSKDekanManagerTUSiapVerif' => $this->ModelSKDekanVerifikator->allDataSKDekanManagerTUSiapVerif(),
+
+            // WADEK AKEM
+            'allDataSKDekanWadekAkem' => $this->ModelSKDekanVerifikator->allDataSKDekanWadekAkem(),
+            'allDataSKDekanWadekAkemSiapVerif' => $this->ModelSKDekanVerifikator->allDataSKDekanWadekAkemSiapVerif(),
+
+            // WADEK SUMDA
+            'allDataSKDekanWadekSumda' => $this->ModelSKDekanVerifikator->allDataSKDekanWadekSumda(),
+            'allDataSKDekanWadekSumdaSiapVerif' => $this->ModelSKDekanVerifikator->allDataSKDekanWadekSumdaSiapVerif(),
+
+            // DEKAN
+            'allDataSKDekanDekan' => $this->ModelSKDekanVerifikator->allDataSKDekanDekan(),
+            'allDataSKDekanDekanSiapVerif' => $this->ModelSKDekanVerifikator->allDataSKDekanDekanSiapVerif(),
+
+
+
+
+
+
             'isi'    => 'staffdosen/pengajuansk/skdekan/verifikator/index'
         ];
         return view('layouts/staffdosen-wrapper', $data);

@@ -73,7 +73,7 @@
                             <?php
                             foreach ($detailSKDekan as $key => $value) { ?>
                                 <!-- Unit Subbagian Akademik dan Kemahasiswaan FPSi -->
-                                <?php if ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 1) { ?>
+                                <?php if ($detailVerifikator['sk_jenis_verifikator_id'] == 1) { ?>
                                     <?php
                                     echo form_open('PengajuanSKDekanVerifikator/editDataSvAkakemCatatan/' . $value['id_sk_dekan']);
                                     ?>
@@ -86,7 +86,7 @@
                                     <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                                     <?php echo form_close() ?>
                                     <!-- Subbagian Sumberdaya FPSi -->
-                                <?php } elseif ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 2) { ?>
+                                <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 2) { ?>
                                     <?php
                                     echo form_open('PengajuanSKDekanVerifikator/editDataSvSumdaCatatan/' . $value['id_sk_dekan']);
                                     ?>
@@ -99,7 +99,7 @@
                                     <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                                     <?php echo form_close() ?>
                                     <!-- Tata Usaha -->
-                                <?php } elseif ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 3) { ?>
+                                <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 3) { ?>
                                     <?php
                                     echo form_open('PengajuanSKDekanVerifikator/editDataManagerTUCatatan/' . $value['id_sk_dekan']);
                                     ?>
@@ -112,7 +112,7 @@
                                     <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                                     <?php echo form_close() ?>
                                     <!-- Wadek Akademik dan Kemahasiswaan -->
-                                <?php } elseif ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 4) { ?>
+                                <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 4) { ?>
                                     <?php
                                     echo form_open('PengajuanSKDekanVerifikator/editDataWadekAkakemCatatan/' . $value['id_sk_dekan']);
                                     ?>
@@ -125,7 +125,7 @@
                                     <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                                     <?php echo form_close() ?>
                                     <!-- Wadek Sumber Daya -->
-                                <?php } elseif ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 5) { ?>
+                                <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 5) { ?>
                                     <?php
                                     echo form_open('PengajuanSKDekanVerifikator/editDataWadekSumdaCatatan/' . $value['id_sk_dekan']);
                                     ?>
@@ -138,7 +138,7 @@
                                     <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                                     <?php echo form_close() ?>
                                     <!-- Dekan -->
-                                <?php } elseif ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 6) { ?>
+                                <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 6) { ?>
                                     <?php
                                     echo form_open('PengajuanSKDekanVerifikator/editDataDekanCatatan/' . $value['id_sk_dekan']);
                                     ?>
@@ -160,7 +160,7 @@
                         </div>
                         <div class="card-body">
                             <!-- Unit Subbagian Akademik dan Kemahasiswaan FPSi -->
-                            <?php if ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 1) { ?>
+                            <?php if ($detailVerifikator['sk_jenis_verifikator_id'] == 1) { ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :
                                     <strong>
@@ -192,7 +192,7 @@
                                 <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                                 <?php echo form_close() ?>
                                 <!-- Subbagian Sumberdaya FPSi -->
-                            <?php } elseif ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 2) { ?>
+                            <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 2) { ?>
                                 <?php
                                 echo form_open('PengajuanSKDekanVerifikator/editDataSvSumdaStatus/' . $value['id_sk_dekan']);
                                 ?>
@@ -224,7 +224,7 @@
                                 <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                                 <?php echo form_close() ?>
                                 <!-- Tata Usaha -->
-                            <?php } elseif ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 3) { ?>
+                            <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 3) { ?>
                                 <?php
                                 echo form_open('PengajuanSKDekanVerifikator/editDataManagerTUStatus/' . $value['id_sk_dekan']);
                                 ?>
@@ -256,7 +256,7 @@
                                 <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                                 <?php echo form_close() ?>
                                 <!-- Wadek Akademik dan Kemahasiswaan -->
-                            <?php } elseif ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 4) { ?>
+                            <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 4) { ?>
                                 <?php
                                 echo form_open('PengajuanSKDekanVerifikator/editDataWadekAkakemStatus/' . $value['id_sk_dekan']);
                                 ?>
@@ -288,7 +288,7 @@
                                 <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                                 <?php echo form_close() ?>
                                 <!-- Wadek Sumber Daya -->
-                            <?php } elseif ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 5) { ?>
+                            <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 5) { ?>
                                 <?php
                                 echo form_open('PengajuanSKDekanVerifikator/editDataWadekSumdaStatus/' . $value['id_sk_dekan']);
                                 ?>
@@ -320,7 +320,7 @@
                                 <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                                 <?php echo form_close() ?>
                                 <!-- Dekan -->
-                            <?php } elseif ($detailVerifikator['sk_dekan_jenis_verifikator_id'] == 6) { ?>
+                            <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 6) { ?>
                                 <?php
                                 echo form_open('PengajuanSKDekanVerifikator/editDataDekanStatus/' . $value['id_sk_dekan']);
                                 ?>

@@ -53,8 +53,8 @@
                                                     <td style="text-align: center; vertical-align: middle;"><?= $value['nip']  ?></td>
                                                     <td style="text-align: center; vertical-align: middle;"><?= $value['nama_jenis_op']  ?></td>
                                                     <td style="text-align: center; vertical-align: middle;">
-                                                        <button type="button" class="btn btn-success mr-1 mb-1" data-toggle="modal" data-target="#edit<?= $value['id_sk_dekan_user_op']  ?>"><i class="ft-edit"></i> Edit</button>
-                                                        <button type="button" class="btn btn-danger mr-1 mb-1" data-toggle="modal" data-target="#delete<?= $value['id_sk_dekan_user_op']  ?>"><i class="ft-trash"></i> Hapus</button>
+                                                        <button type="button" class="btn btn-success mr-1 mb-1" data-toggle="modal" data-target="#edit<?= $value['id_sk_user_op']  ?>"><i class="ft-edit"></i> Edit</button>
+                                                        <button type="button" class="btn btn-danger mr-1 mb-1" data-toggle="modal" data-target="#delete<?= $value['id_sk_user_op']  ?>"><i class="ft-trash"></i> Hapus</button>
                                                     </td>
                                                 </tr>
                                             <?php  } ?>
@@ -109,8 +109,8 @@
                                                     <td style="text-align: center; vertical-align: middle;"><?= $value['nip']  ?></td>
                                                     <td style="text-align: center; vertical-align: middle;"><?= $value['nama_jenis_verifikator']  ?></td>
                                                     <td style="text-align: center; vertical-align: middle;">
-                                                        <button type="button" class="btn btn-success mr-1 mb-1" data-toggle="modal" data-target="#editVerifikator<?= $value['id_sk_dekan_user_verifikator']  ?>"><i class="ft-edit"></i> Edit</button>
-                                                        <button type="button" class="btn btn-danger mr-1 mb-1" data-toggle="modal" data-target="#deleteVerifikator<?= $value['id_sk_dekan_user_verifikator']  ?>"><i class="ft-trash"></i> Hapus</button>
+                                                        <button type="button" class="btn btn-success mr-1 mb-1" data-toggle="modal" data-target="#editVerifikator<?= $value['id_sk_user_verifikator']  ?>"><i class="ft-edit"></i> Edit</button>
+                                                        <button type="button" class="btn btn-danger mr-1 mb-1" data-toggle="modal" data-target="#deleteVerifikator<?= $value['id_sk_user_verifikator']  ?>"><i class="ft-trash"></i> Hapus</button>
                                                     </td>
                                                 </tr>
                                             <?php  } ?>
@@ -172,6 +172,7 @@
                     </label>
                 </fieldset>
             </div>
+            <input type="hidden" id="custId" name="custId" value="3487">
             <div class="modal-footer">
                 <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="Batal">
                 <input type="submit" class="btn btn-outline-primary btn-lg" value="Tambah">
@@ -185,7 +186,7 @@
 <!-- Delete Modal -->
 <?php
 foreach ($allDataUserOp as $key => $value) { ?>
-    <div class="modal fade text-left" id="delete<?= $value['id_sk_dekan_user_op']  ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+    <div class="modal fade text-left" id="delete<?= $value['id_sk_user_op']  ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-danger white">
@@ -199,7 +200,7 @@ foreach ($allDataUserOp as $key => $value) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Batal</button>
-                    <a href="<?= base_url('AdminSKUserManagement/deleteAksesUserOperator/' . $value['id_sk_dekan_user_op']) ?>" class="btn btn-outline-danger">Hapus</a>
+                    <a href="<?= base_url('AdminSKUserManagement/deleteAksesUserOperator/' . $value['id_sk_user_op']) ?>" class="btn btn-outline-danger">Hapus</a>
                 </div>
             </div>
         </div>
@@ -210,7 +211,7 @@ foreach ($allDataUserOp as $key => $value) { ?>
 <!-- Modal Edit -->
 <?php
 foreach ($allDataUserOp as $key => $value) { ?>
-    <div class="modal fade text-left" id="edit<?= $value['id_sk_dekan_user_op']  ?>" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+    <div class="modal fade text-left" id="edit<?= $value['id_sk_user_op']  ?>" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -220,7 +221,7 @@ foreach ($allDataUserOp as $key => $value) { ?>
                     </button>
                 </div>
                 <?php
-                echo form_open('AdminSKUserManagement/editAksesUserOperator/' . $value['id_sk_dekan_user_op']);
+                echo form_open('AdminSKUserManagement/editAksesUserOperator/' . $value['id_sk_user_op']);
                 ?>
                 <div class="modal-body">
                     <label>Staff & Dosen : </label>
@@ -334,7 +335,7 @@ foreach ($allDataUserOp as $key => $value) { ?>
 <!-- Delete Modal -->
 <?php
 foreach ($allDataUserVerifikator as $key => $value) { ?>
-    <div class="modal fade text-left" id="deleteVerifikator<?= $value['id_sk_dekan_user_verifikator']  ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+    <div class="modal fade text-left" id="deleteVerifikator<?= $value['id_sk_user_verifikator']  ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-danger white">
@@ -348,7 +349,7 @@ foreach ($allDataUserVerifikator as $key => $value) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Batal</button>
-                    <a href="<?= base_url('AdminSKUserManagement/deleteAksesUserVerifikator/' . $value['id_sk_dekan_user_verifikator']) ?>" class="btn btn-outline-danger">Hapus</a>
+                    <a href="<?= base_url('AdminSKUserManagement/deleteAksesUserVerifikator/' . $value['id_sk_user_verifikator']) ?>" class="btn btn-outline-danger">Hapus</a>
                 </div>
             </div>
         </div>
@@ -359,7 +360,7 @@ foreach ($allDataUserVerifikator as $key => $value) { ?>
 <!-- Modal Edit -->
 <?php
 foreach ($allDataUserVerifikator as $key => $value) { ?>
-    <div class="modal fade text-left" id="editVerifikator<?= $value['id_sk_dekan_user_verifikator']  ?>" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+    <div class="modal fade text-left" id="editVerifikator<?= $value['id_sk_user_verifikator']  ?>" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -369,7 +370,7 @@ foreach ($allDataUserVerifikator as $key => $value) { ?>
                     </button>
                 </div>
                 <?php
-                echo form_open('AdminSKUserManagement/editAksesUserVerifikator/' . $value['id_sk_dekan_user_verifikator']);
+                echo form_open('AdminSKUserManagement/editAksesUserVerifikator/' . $value['id_sk_user_verifikator']);
                 ?>
                 <div class="modal-body">
                     <label>Staff & Dosen : </label>

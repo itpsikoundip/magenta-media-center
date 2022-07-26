@@ -32,28 +32,28 @@ class AdminSKUserManagement extends BaseController
     {
         $data = [
             'staffdosen_id' => $this->request->getPost('selectStaffdosen'),
-            'sk_dekan_jenis_op_id' => $this->request->getPost('jenisOperator'),
+            'sk_jenis_op_id' => $this->request->getPost('jenisOperator'),
         ];
         $this->ModelAdminSKUserManagement->add($data);
         session()->setFlashdata('sukses', 'Tambah Akses SK User Operator Berhasil dilakukan !!');
         return redirect()->to(base_url('AdminSKUserManagement'));
     }
 
-    public function deleteAksesUserOperator($id_sk_dekan_user_op)
+    public function deleteAksesUserOperator($id_sk_user_op)
     {
         $data = [
-            'id_sk_dekan_user_op' => $id_sk_dekan_user_op,
+            'id_sk_user_op' => $id_sk_user_op,
         ];
         $this->ModelAdminSKUserManagement->delete_data($data);
         session()->setFlashdata('sukses', 'Hapus Akses SK User Operator Berhasil dilakukan !!');
         return redirect()->to(base_url('AdminSKUserManagement'));
     }
 
-    public function editAksesUserOperator($id_sk_dekan_user_op)
+    public function editAksesUserOperator($id_sk_user_op)
     {
         $data = [
-            'id_sk_dekan_user_op' => $id_sk_dekan_user_op,
-            'sk_dekan_jenis_op_id' => $this->request->getPost('jenisOperator'),
+            'id_sk_user_op' => $id_sk_user_op,
+            'sk_jenis_op_id' => $this->request->getPost('jenisOperator'),
         ];
         $this->ModelAdminSKUserManagement->edit($data);
         session()->setFlashdata('sukses', 'Edit Akses SK User Operator Berhasil dilakukan !!');
@@ -64,28 +64,28 @@ class AdminSKUserManagement extends BaseController
     {
         $data = [
             'staffdosen_id' => $this->request->getPost('selectStaffdosen'),
-            'sk_dekan_jenis_verifikator_id' => $this->request->getPost('jenisVerifikator'),
+            'sk_jenis_verifikator_id' => $this->request->getPost('jenisVerifikator'),
         ];
         $this->ModelAdminSKUserManagement->addVerifikator($data);
         session()->setFlashdata('sukses', 'Tambah Akses SK User Verifikator Berhasil dilakukan !!');
         return redirect()->to(base_url('AdminSKUserManagement'));
     }
 
-    public function deleteAksesUserVerifikator($id_sk_dekan_user_verifikator)
+    public function deleteAksesUserVerifikator($id_sk_user_verifikator)
     {
         $data = [
-            'id_sk_dekan_user_verifikator' => $id_sk_dekan_user_verifikator,
+            'id_sk_user_verifikator' => $id_sk_user_verifikator,
         ];
         $this->ModelAdminSKUserManagement->delete_dataVerifikator($data);
         session()->setFlashdata('sukses', 'Hapus Akses SK User Verifikator Berhasil dilakukan !!');
         return redirect()->to(base_url('AdminSKUserManagement'));
     }
 
-    public function editAksesUserVerifikator($id_sk_dekan_user_verifikator)
+    public function editAksesUserVerifikator($id_sk_user_verifikator)
     {
         $data = [
-            'id_sk_dekan_user_verifikator' => $id_sk_dekan_user_verifikator,
-            'sk_dekan_jenis_verifikator_id' => $this->request->getPost('jenisVerifikator'),
+            'id_sk_user_verifikator' => $id_sk_user_verifikator,
+            'sk_jenis_verifikator_id' => $this->request->getPost('jenisVerifikator'),
         ];
         $this->ModelAdminSKUserManagement->editVerifikator($data);
         session()->setFlashdata('sukses', 'Edit Akses SK User Verifikator Berhasil dilakukan !!');
