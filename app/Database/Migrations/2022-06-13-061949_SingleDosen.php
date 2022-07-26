@@ -29,11 +29,11 @@ class SingleDosen extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('single_dosen');
+        $this->forge->createTable('survey_singledosen');
     }
 
     public function down()
     {
-        $this->forge->dropTable('single_dosen', true);
+        $this->forge->dropTable('survey_singledosen', true);
     }
 }
