@@ -79,11 +79,11 @@ $routes->group('staffdosen', function ($routes) {
     });
 
     $routes->group('helpdesk', ['namespace' => 'App\Controllers\StaffDosen\Helpdesk', 'filter' => 'authStaffDosen'], function ($routes) {
-        $routes->get('/', 'Helpdesk::index');
-        $routes->get('detailtiket/(:num)', 'Helpdesk::detailTiket/$1');
-        $routes->post('jawabtiket/(:num)', 'Helpdesk::jawabTiket/$1');
-        $routes->post('addfaq', 'Helpdesk::addFAQ');
-        $routes->get('deletefaq/(:num)', 'Helpdesk::deleteFAQ/$1');
+        $routes->get('/', 'HelpdeskController::index');
+        $routes->get('detailtiket/(:num)', 'HelpdeskController::detailTiket/$1');
+        $routes->post('jawabtiket/(:num)', 'HelpdeskController::jawabTiket/$1');
+        $routes->post('addfaq', 'HelpdeskController::addFAQ');
+        $routes->get('deletefaq/(:num)', 'HelpdeskController::deleteFAQ/$1');
     });
 });
 
@@ -109,10 +109,10 @@ $routes->group('mahasiswa', function ($routes) {
     });
 
     $routes->group('helpdesk', ['namespace' => 'App\Controllers\Mahasiswa\Helpdesk', 'filter' => 'authMhs'], function ($routes) {
-        $routes->get('/', 'Helpdesk::index');
-        $routes->get('tiket', 'Helpdesk::tiket');
-        $routes->post('tiket/kirim', 'Helpdesk::kirimTiket');
-        $routes->get('hotline', 'Helpdesk::hotline');
+        $routes->get('/', 'HelpdeskController::index');
+        $routes->get('tiket', 'HelpdeskController::tiket');
+        $routes->post('tiket/kirim', 'HelpdeskController::kirimTiket');
+        $routes->get('hotline', 'HelpdeskController::hotline');
     });
 });
 

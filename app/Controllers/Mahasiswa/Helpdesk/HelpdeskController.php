@@ -3,22 +3,24 @@
 namespace App\Controllers\Mahasiswa\Helpdesk;
 
 use App\Controllers\BaseController;
-use App\Models\ModelHelpdesk;
+use App\Models\Helpdesk\TiketModel;
+use App\Models\Helpdesk\FaqModel;
 use CodeIgniter\I18n\Time;
 
-class Helpdesk extends BaseController
+class HelpdeskController extends BaseController
 {
     public function __construct()
     {
         helper('form');
-        $this->ModelHelpdesk = new ModelHelpdesk();
+        $this->TiketModel = new TiketModel();
+        $this->FaqModel = new FaqModel();
     }
 
     public function index()
     {
-        $faqs_akdm = $this->ModelHelpdesk->getFAQ(1);
-        $faqs_nonakdm = $this->ModelHelpdesk->getFAQ(2);
-        // $faqs_dumb = $this->ModelHelpdesk->findAll();
+        $faqs_akdm = $this->FaqModel->getFAQ(1);
+        $faqs_nonakdm = $this->FaqModel->getFAQ(2);
+        // $faqs_dumb = $this->FaqModel->findAll();
         // dd($faqs_dumb);
         $data = [
             'title' => 'Helpdesk',
@@ -32,8 +34,8 @@ class Helpdesk extends BaseController
     public function tiket()
     {
 
-        $riwayatTiket = $this->ModelHelpdesk->getRiwayat(session()->nim);
-        $jumlahTiket = $this->ModelHelpdesk->countRiwayat(session()->nim);
+        $riwayatTiket = $this->TiketModel->getRiwayat(session()->nim);
+        $jumlahTiket = $this->TiketModel->countRiwayat(session()->nim);
         // dd($jumlahTiket);
 
         // return $query->getResult();
@@ -73,7 +75,7 @@ class Helpdesk extends BaseController
             // Upload file
             $lampiran->move('lampiran-helpdesk', $namaLampiran);
         }
-        $result = $this->ModelHelpdesk->insertTiket($data);
+        $result = $this->TiketModel->insertTiket($data);
         // dd($result);
         if($result){   
             session()->setFlashdata('sukses', 'Tiket berhasil dikirim. Jawaban dapat dilihat pada riwayat');
