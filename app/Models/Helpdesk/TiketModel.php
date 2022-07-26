@@ -1,11 +1,17 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Helpdesk;
 
 use CodeIgniter\Model;
 
-class ModelHelpdeskStaffDosen extends Model
+class TiketModel extends Model
 {
+    protected $table = 'tiket';
+
+    function insertTiket($data) {
+		return $this->db->table('tiket')->insert($data);
+	}
+
     function getTiketBelumTerjawab($topik_id){
         $tiketBelumTerjawab = $this->db->table('tiket')
                                 ->where('topik_id', $topik_id)->where('jawaban', NULL)
@@ -36,24 +42,14 @@ class ModelHelpdeskStaffDosen extends Model
 		return $this->db->table('tiket')->update($data, ['id' => $tiket_id]);
 	}
 
-    function getFAQ($topik_id){
-        $faq = $this->db->table('faq')
-                ->where('topik_id', $topik_id)
-                // ->join('topik', 'topik.id = faq.topik_id')
-                ->orderBy('created_at', 'desc')->get();
-        return $faq->getResult();
+    function getRiwayat($nim){
+        $riwayat = $this->db->table('tiket')->where('mahasiswa_id', $nim)->orderBy('created_at', 'desc')->get();
+        return $riwayat->getResult();
     }
 
-    function addFAQ($data){
-        return $this->db->table('faq')->insert($data);
-    }
-
-    function deleteFAQ($faq_id){
-        
-        return $this->db->table('faq')->delete(['id'=> $faq_id]);
-    }
-
-    function updateFAQ($faq_id, $data){
-        return $this->db->table('faq')->update($data, ['id' => $faq_id]);
-    }
+    function countRiwayat($nim){
+		$riwayat = $this->db->table('tiket')->where('mahasiswa_id', $nim)->countAllResults();
+        return $riwayat;
+	}
+    
 }

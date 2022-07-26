@@ -3,24 +3,26 @@
 namespace App\Controllers\StaffDosen\Helpdesk;
 
 use App\Controllers\BaseController;
-use App\Models\ModelHelpdeskStaffDosen;
+use App\Models\Helpdesk\TiketModel;
+use App\Models\Helpdesk\FaqModel;
 use CodeIgniter\I18n\Time;
 
-class Helpdesk extends BaseController
+class HelpdeskController extends BaseController
 {
     public function __construct()
     {
         helper('form');
-        $this->ModelHelpdeskStaffDosen = new ModelHelpdeskStaffDosen();
+        $this->TiketModel = new TiketModel();
+        $this->FaqModel = new FaqModel();
     }
 
     public function index()
     {
         $session = session()->unit2;
         $topik_id = $session;
-        $faqs = $this->ModelHelpdeskStaffDosen->getFAQ($topik_id);
-        $tiketBelumTerjawab = $this->ModelHelpdeskStaffDosen->getTiketBelumTerjawab($topik_id);
-        $tiketTerjawab = $this->ModelHelpdeskStaffDosen->getTiketTerjawab($topik_id);
+        $faqs = $this->FaqModel->getFAQ($topik_id);
+        $tiketBelumTerjawab = $this->TiketModel->getTiketBelumTerjawab($topik_id);
+        $tiketTerjawab = $this->TiketModel->getTiketTerjawab($topik_id);
         if(session()->unit2 == 1){
             $kategori = 'Akademik';
         }else{
@@ -40,7 +42,7 @@ class Helpdesk extends BaseController
 
     public function detailTiket($tiket_id)
     {
-        $tiket = $this->ModelHelpdeskStaffDosen->getDetail($tiket_id);
+        $tiket = $this->TiketModel->getDetail($tiket_id);
         // dd($tiket);
         
         $data = [
@@ -65,7 +67,7 @@ class Helpdesk extends BaseController
             'updated_at'=> $tgl_terjawab
         ];
 
-        $result = $this->ModelHelpdeskStaffDosen->updateTiket($tiket_id, $data);
+        $result = $this->TiketModel->updateTiket($tiket_id, $data);
         // dd($result);
         if($result){
             if($jawaban == ""){
@@ -92,7 +94,7 @@ class Helpdesk extends BaseController
             'created_at'    => Time::now('Asia/Jakarta'),
         ];
 
-        $result = $this->ModelHelpdeskStaffDosen->addFAQ($data);
+        $result = $this->FaqModel->addFAQ($data);
 
         if($result){
             session()->setFlashdata('sukses', 'FAQ baru berhasil <b>ditambahkan</b>, dapat dilihat pada tab List FAQ');
@@ -106,7 +108,7 @@ class Helpdesk extends BaseController
 
     public function deleteFAQ($faq_id){
  
-        $result = $this->ModelHelpdeskStaffDosen->deleteFAQ($faq_id);
+        $result = $this->FaqModel->deleteFAQ($faq_id);
         // dd($result);
 
         if($result){
