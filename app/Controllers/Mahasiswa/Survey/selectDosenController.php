@@ -4,18 +4,22 @@ namespace App\Controllers\Mahasiswa\Survey;
 
 use App\Controllers\BaseController;
 use App\Models\Survey\surveyDosenModel;
+use App\Models\Survey\saranDosenModel;
 use App\Models\Survey\hasilSurveyDosenModel;
+use CodeIgniter\I18n\Time;
 use Exception;
 
 class selectDosenController extends BaseController
 {
 
     protected $surveyDosenModel;
+    protected $saranDosenModel;
     protected $hasilSurveyDosenModel;
 
     public function __construct()
     {
         $this->surveyDosenModel = new surveyDosenModel();
+        $this->saranDosenModel = new saranDosenModel();
         $this->hasilSurveyDosenModel = new hasilSurveyDosenModel();
     }
 
@@ -51,7 +55,10 @@ class selectDosenController extends BaseController
     public function inputDosen($idSend, $namaDosen)
     {
         $model = new surveyDosenModel;
+        $modelSaran = new saranDosenModel;
+
         $dataFilter = $model->getAllInputDosen($idSend)->getResult();
+
         try {
             $arrayInput = $this->getInput($dataFilter);
         } catch (Exception $e) {
@@ -60,8 +67,17 @@ class selectDosenController extends BaseController
             return redirect()->back();
         }
 
+        $dataSaran = [
+            'saran_dosen'   => $this->request->getPost('saran'),
+            'id_dosen'      => $idSend,
+            'created_at'    => Time::now('Asia/Jakarta'),
+            'updated_at'    => Time::now('Asia/Jakarta')
+        ];
+
+        $updateSaran = $modelSaran->addData($dataSaran);
         $update = $model->inputSkor($arrayInput);
-        if ($update) {
+
+        if ($update && $updateSaran) {
             return $this->doneSurvey($namaDosen, 1);
         }
     }

@@ -3,22 +3,25 @@
 namespace App\Controllers\StaffDosen\Survey;
 
 use App\Controllers\BaseController;
+use App\Models\Survey\saranLulusanModel;
 use App\Models\Survey\surveyLulusanModel;
 
 class grafikLulusanController extends BaseController
 {
 
     protected $surveyLulusanModel;
+    protected $saranLulusanModel;
 
     public function __construct()
     {
         $this->surveyLulusanModel = new surveyLulusanModel();
+        $this->saranLulusanModel = new saranLulusanModel();
     }
 
     public function index()
     {
         $displaySingleLulusan = $this->surveyLulusanModel->findAll();
-
+        $arraySaran = $this->saranLulusanModel->findAll();
         $array = array();
 
         foreach ($displaySingleLulusan as $row) {
@@ -41,27 +44,28 @@ class grafikLulusanController extends BaseController
         //Sum Passing
         if (count($array) == 0) {
             $data = [
-                'title' => 'Grafik Lulusan',
-                'arrayPertanyaan' => "Tidak ada pertanyaan survey lulusan",
-                'sumSangatBaik' => 0,
-                'sumBaik' => 0,
-                'sumCukup' => 0,
-                'sumBuruk' => 0,
-                'sumSangatBuruk' => 0,
-                'isi'    => 'staffdosen/survey/grafiklulusan'
+                'title'             => 'Grafik Lulusan',
+                'arrayPertanyaan'   => "Tidak ada pertanyaan survey lulusan",
+                'sumSangatBaik'     => 0,
+                'sumBaik'           => 0,
+                'sumCukup'          => 0,
+                'sumBuruk'          => 0,
+                'sumSangatBuruk'    => 0,
+                'isi'               => 'staffdosen/survey/grafiklulusan'
             ];
 
             return view('layouts/survey-wrapper', $data);
         } else {
             $data = [
-                'title' => 'Grafik Lulusan',
-                'arrayPertanyaan' => $array,
-                'sumSangatBaik' => $arraySangatBaik,
-                'sumBaik' => $arrayBaik,
-                'sumCukup' => $arrayCukup,
-                'sumBuruk' => $arrayBuruk,
-                'sumSangatBuruk' => $arraySangatBuruk,
-                'isi'    => 'staffdosen/survey/grafiklulusan'
+                'title'             => 'Grafik Lulusan',
+                'dataSaranLulusan'  => $arraySaran,
+                'arrayPertanyaan'   => $array,
+                'sumSangatBaik'     => $arraySangatBaik,
+                'sumBaik'           => $arrayBaik,
+                'sumCukup'          => $arrayCukup,
+                'sumBuruk'          => $arrayBuruk,
+                'sumSangatBuruk'    => $arraySangatBuruk,
+                'isi'               => 'staffdosen/survey/grafiklulusan'
             ];
 
             return view('layouts/survey-wrapper', $data);

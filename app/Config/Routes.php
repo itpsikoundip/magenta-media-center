@@ -62,10 +62,10 @@ $routes->group('staffdosen', function ($routes) {
 
         //Hasil Survey Individual
         $routes->get('hasilsurveydosen', 'hasilSurveyDosenController::index');
-        $routes->get('chartsingledosen/(:num)', 'hasilSurveyDosenController::displayChart/$1');
+        $routes->get('chartsingledosen/(:num)/(:segment)', 'hasilSurveyDosenController::displayChart/$1/$2');
 
         $routes->get('hasilsurveykepend', 'hasilSurveyKependController::index');
-        $routes->get('chartsinglekepend/(:num)', 'hasilSurveyKependController::displayChart/$1');
+        $routes->get('chartsinglekepend/(:num)/(:segment)', 'hasilSurveyKependController::displayChart/$1/$2');
 
         //Grafik Hasil Survey
         $routes->get('grafikdosen', 'grafikDosenController::index');

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class SingleDosen extends Migration
+class SaranKepend extends Migration
 {
     public function up()
     {
@@ -15,7 +15,13 @@ class SingleDosen extends Migration
                 'unsigned'       => TRUE,
                 'auto_increment' => TRUE,
             ],
-            'pertanyaan' => [
+            'id_kepend' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned'      => TRUE,
+                'auto_increment' => FALSE,
+            ],
+            'saran_kepend' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
@@ -29,11 +35,12 @@ class SingleDosen extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('single_dosen');
+        $this->forge->addForeignKey('id_kepend', 'data_kepend', 'id_kepend');
+        $this->forge->createTable('survey_sarankepend');
     }
 
     public function down()
     {
-        $this->forge->dropTable('single_dosen', true);
+        $this->forge->dropTable('survey_sarankepend', true);
     }
 }

@@ -4,18 +4,22 @@ namespace App\Controllers\Mahasiswa\Survey;
 
 use App\Controllers\BaseController;
 use App\Models\Survey\surveyKependModel;
+use App\Models\Survey\saranKependModel;
 use App\Models\Survey\hasilSurveyKependModel;
+use CodeIgniter\I18n\Time;
 use Exception;
 
 class selectKependController extends BaseController
 {
 
     protected $surveyKependModel;
+    protected $saranKependModel;
     protected $hasilSurveyKependModel;
 
     public function __construct()
     {
         $this->surveyKependModel = new surveyKependModel();
+        $this->saranKependModel = new saranKependModel();
         $this->hasilSurveyKependModel = new hasilSurveyKependModel();
     }
 
@@ -51,7 +55,10 @@ class selectKependController extends BaseController
     public function inputKepend($idSend, $namaKepend)
     {
         $model = new surveyKependModel;
+        $modelSaran = new saranKependModel;
+
         $dataFilter = $model->getAllInputKepend($idSend)->getResult();
+
         try {
             $arrayInput = $this->getInput($dataFilter);
         } catch (Exception $e) {
@@ -60,8 +67,17 @@ class selectKependController extends BaseController
             return redirect()->back();
         }
 
+        $dataSaran = [
+            'saran_kepend'  => $this->request->getPost('saran'),
+            'id_kepend'     => $idSend,
+            'created_at'    => Time::now('Asia/Jakarta'),
+            'updated_at'    => Time::now('Asia/Jakarta')
+        ];
+
+        $updateSaran = $modelSaran->addData($dataSaran);
         $update = $model->inputSkor($arrayInput);
-        if ($update) {
+
+        if ($update && $updateSaran) {
             return $this->doneSurvey($namaKepend, 2);
         }
     }
