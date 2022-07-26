@@ -41,6 +41,14 @@
                                 <tr>
                                     <td colspan="2">
                                         <hr>
+                                        <p class="my-2">Saran bagi lulusan Psikologi UNDIP</b></p>
+                                        <textarea class="form-control" name="saran" rows="5" maxlength="500"></textarea>
+                                        <p class="text-right">(Maksimum 500 karakter)</b></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <hr>
                                         <p class="mt-1">Dengan menyelesaikan survey ini maka secara tidak langsung saya menyatakan bahwa :<br>
                                             <li>Saya bersedia untuk menjadi responden dalam survey ini dan telah memberikan informasi yang sebenar-benarnya.</li><br>
                                             <li>Informasi/data yang saya berikan akan dijaga kerahasiannya dan hanya digunakan untuk kepentingan survey.</li><br>

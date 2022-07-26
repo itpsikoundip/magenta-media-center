@@ -2,6 +2,7 @@
     <div class="content-wrapper">
         <div class="content-body">
             <div class="card">
+                <h1 class="text-center mt-2 mb-1"><b><?php echo $namaDosen ?></b></h1>
                 <div class="row">
                     <?php if ($arrayPertanyaan == "Tidak ada pertanyaan survey dosen") {
                         echo '<div class="col text-center m-4">';
@@ -53,6 +54,33 @@
                         }
                     }
                     ?>
+                </div>
+            </div>
+            <div class="card">
+                <h1 class="text-center mt-2 mb-1"><b>Saran Untuk Dosen</b></h1>
+                <div class="mx-3">
+                    <table id="tbl_dataSaranDosen" class="table table-bordered mb-3 zero-configuration">
+                        <thead>
+                            <tr>
+                                <th class="text-center align-middle" style="width: 1%;">No</th>
+                                <th class="text-center align-middle">Saran</th>
+                                <th class="text-center align-middle" style="width: 10%;">Tanggal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $numbering = 1;
+                            foreach ($dataSaranDosen as $row) :
+                                $date = strtotime($row["created_at"]);
+                            ?>
+                                <tr>
+                                    <td class="text-center align-middle"><?= $numbering++; ?></td>
+                                    <td class="align-middle"><?= $row["saran_dosen"]; ?></td>
+                                    <td class="align-middle"><?= date('d-M-Y', $date) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -1007,4 +1035,10 @@
         );
 
     <?php } ?>
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#tbl_dataSaranDosen').DataTable({});
+    });
 </script>

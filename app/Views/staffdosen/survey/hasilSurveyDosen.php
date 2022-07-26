@@ -35,7 +35,7 @@
                                                     <td class="align-middle"><?= $row["nip"] ?></td>
                                                     <td class="align-middle"><?= $row["nama_lengkap"] ?></td>
                                                     <td class="text-center">
-                                                        <a href="<?= base_url('/staffdosen/survey/chartsingledosen/' . $row["id_dosen"]) ?>" class="badge badge-info px-1 py-1">
+                                                        <a href="<?= base_url('/staffdosen/survey/chartsingledosen/' . $row["id_dosen"] . '/' . $row["nama_lengkap"]) ?>" class="badge badge-info px-1 py-1">
                                                             <i class="ft-bar-chart-2"></i> Hasil
                                                         </a>
                                                     </td>

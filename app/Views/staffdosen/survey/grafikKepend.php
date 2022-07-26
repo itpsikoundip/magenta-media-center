@@ -2,7 +2,7 @@
     <div class="content-wrapper">
         <div class="content-body">
             <div class="card">
-                <!-- <h1 class="ml-2 mt-2"><b>Grafik Dosen Psikologi UNDIP</b></h1> -->
+                <h1 class="text-center my-1"><b>Grafik Tenaga Pendidik Psikologi UNDIP</b></h1>
                 <div class="row">
                     <?php
                     if ($arrayPertanyaan == "Tidak ada pertanyaan survey kependidikan") {

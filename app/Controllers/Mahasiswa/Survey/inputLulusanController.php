@@ -4,16 +4,20 @@ namespace App\Controllers\Mahasiswa\Survey;
 
 use App\Controllers\BaseController;
 use App\Models\Survey\surveyLulusanModel;
+use App\Models\Survey\saranLulusanModel;
+use CodeIgniter\I18n\Time;
 use Exception;
 
 class inputLulusanController extends BaseController
 {
 
     protected $surveyLulusanModel;
+    protected $saranLulusanModel;
 
     public function __construct()
     {
         $this->surveyLulusanModel = new surveyLulusanModel();
+        $this->saranLulusanModel = new saranLulusanModel();
     }
 
     public function index()
@@ -40,13 +44,16 @@ class inputLulusanController extends BaseController
             'sangat_buruk' => $this->request->getPost('sangatBuruk'),
         ];
         $dataStored->updateData($data, $id);
+
         return redirect()->to(base_url('menudisplay'));
     }
 
     public function inputLulusan()
     {
         $model = new surveyLulusanModel;
+        $modelSaran = new saranLulusanModel;
         $dataFilter = $model->getAllInputLulusan()->getResult();
+
         try {
             $arrayInput = $this->getInput($dataFilter);
         } catch (Exception $e) {
@@ -55,8 +62,16 @@ class inputLulusanController extends BaseController
             return redirect()->back();
         }
 
+        $dataSaran = [
+            'saran_lulusan' => $this->request->getPost('saran'),
+            'created_at'    => Time::now('Asia/Jakarta'),
+            'updated_at'    => Time::now('Asia/Jakarta')
+        ];
+
+        $updateSaran = $modelSaran->addData($dataSaran);
         $update = $model->inputSkor($arrayInput);
-        if ($update) {
+
+        if ($update && $updateSaran) {
             return $this->doneSurvey(3);
         }
     }

@@ -4,17 +4,20 @@ namespace App\Controllers\StaffDosen\Survey;
 
 use App\Controllers\BaseController;
 use App\Models\Survey\surveyDosenModel;
+use App\Models\Survey\saranDosenModel;
 use App\Models\Survey\hasilSurveyDosenModel;
 
 class hasilSurveyDosenController extends BaseController
 {
 
     protected $surveyDosenModel;
+    protected $saranDosenModel;
     protected $hasilSurveyDosenModel;
 
     public function __construct()
     {
         $this->surveyDosenModel = new surveyDosenModel();
+        $this->saranDosenModel = new saranDosenModel();
         $this->hasilSurveyDosenModel = new hasilSurveyDosenModel();
     }
 
@@ -31,8 +34,9 @@ class hasilSurveyDosenController extends BaseController
         return view('layouts/survey-wrapper', $data);
     }
 
-    public function displayChart($idDosen)
+    public function displayChart($idDosen, $namaDosen)
     {
+        $arraySaran = $this->displaySaran($idDosen);
         $filteredById = $this->surveyDosenModel->getAllInputDosen($idDosen);
         $convertPertanyaan = json_decode(json_encode($filteredById->getResult()), true);
 
@@ -44,22 +48,30 @@ class hasilSurveyDosenController extends BaseController
 
         if (count($array) == 0) {
             $data = [
-                'title' => 'Hasil Survey Dosen',
-                'arrayPertanyaan' => "Tidak ada pertanyaan survey dosen",
+                'title'             => 'Hasil Survey Dosen',
+                'arrayPertanyaan'   => "Tidak ada pertanyaan survey dosen",
                 'dataDosenFiltered' => $filteredById->getResult(),
-                'isi'    => 'staffdosen/survey/chartsingledosen'
+                'isi'               => 'staffdosen/survey/chartsingledosen'
             ];
 
             return view('layouts/survey-wrapper', $data);
         } else {
             $data = [
-                'title' => 'Hasil Survey Dosen',
-                'arrayPertanyaan' => $array,
+                'title'             => 'Hasil Survey Dosen',
+                'arrayPertanyaan'   => $array,
+                'namaDosen'         => $namaDosen,
+                'dataSaranDosen'    => $arraySaran,
                 'dataDosenFiltered' => $filteredById->getResult(),
-                'isi'    => 'staffdosen/survey/chartsingledosen'
+                'isi'               => 'staffdosen/survey/chartsingledosen'
             ];
 
             return view('layouts/survey-wrapper', $data);
         }
+    }
+
+    public function displaySaran($idDosen)
+    {
+        $model = new saranDosenModel;
+        return $model->getAllInputDosen($idDosen)->getResultArray();
     }
 }
