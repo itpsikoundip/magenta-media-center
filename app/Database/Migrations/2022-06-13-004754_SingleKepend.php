@@ -29,11 +29,11 @@ class SingleKepend extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('single_kepend');
+        $this->forge->createTable('survey_singlekepend');
     }
 
     public function down()
     {
-        $this->forge->dropTable('single_kepend', true);
+        $this->forge->dropTable('survey_singlekepend', true);
     }
 }
