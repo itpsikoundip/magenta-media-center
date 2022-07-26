@@ -89,6 +89,7 @@
                                         <div class="card collapse-icon panel mb-0 box-shadow-0 border-0">
                                             <?php 
                                             $i = 1;
+                                            // dd($faqs_akdm);
                                             foreach($faqs_akdm as $faq){
                                             ?>
 
@@ -117,6 +118,7 @@
                                         <div class="card collapse-icon panel mb-0 box-shadow-0 border-0">
                                             <?php 
                                             $i = 1;
+                                            // dd($faqs_nonakdm);
                                             foreach($faqs_nonakdm as $faq){
                                             ?>
 

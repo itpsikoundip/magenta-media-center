@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class ModelHelpdesk extends Model
 {
-    protected $table = 'tiket';
+    protected $table = 'faq';
 	// public function __construct(ConnectionInterface &$db) {
 	// 	$this->db =& $db;
 	// }
@@ -22,8 +22,9 @@ class ModelHelpdesk extends Model
 
 	function getFAQ($topik_id){
         $faq = $this->db->table('faq')
+                // ->select('faq.id, faq.topik_id, faq.pertanyaan, faq.jawaban, faq.created_at, topik.nama')
                 ->where('topik_id', $topik_id)
-                ->join('topik', 'topik.id = faq.topik_id')
+                // ->join('topik', 'topik.id = faq.topik_id')
                 ->orderBy('created_at', 'desc')->get();
         return $faq->getResult();
     }
