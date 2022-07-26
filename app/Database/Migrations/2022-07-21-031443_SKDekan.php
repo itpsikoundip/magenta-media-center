@@ -176,7 +176,7 @@ class SKDekan extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id_sk_dekan');
-        $this->forge->addForeignKey('jenis_op_id', 'sk_dekan_jenis_op', 'id_sk_dekan_jenis_op');
+        $this->forge->addForeignKey('jenis_op_id', 'sk_jenis_op', 'id_sk_jenis_op');
         $this->forge->addForeignKey('pengaju_id', 'data_staffdosen', 'id_staffdosen');
         $this->forge->addForeignKey('sk_akem_user', 'data_staffdosen', 'id_staffdosen');
         $this->forge->addForeignKey('sv_sumda_user', 'data_staffdosen', 'id_staffdosen');

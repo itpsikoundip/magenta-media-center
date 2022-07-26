@@ -4,7 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class SKDekanJenisVerifikator extends Seeder
+class SKJenisVerifikator extends Seeder
 {
     public function run()
     {
@@ -30,6 +30,6 @@ class SKDekanJenisVerifikator extends Seeder
             ],
         ];
 
-        $this->db->table('sk_dekan_jenis_verifikator')->insertBatch($data);
+        $this->db->table('sk_jenis_verifikator')->insertBatch($data);
     }
 }

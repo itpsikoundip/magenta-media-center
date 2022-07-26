@@ -8,9 +8,9 @@ class ModelAdminSKUserManagement extends Model
 {
     public function allDataUserOp()
     {
-        return $this->db->table('sk_dekan_user_op')
-            ->join('data_staffdosen', 'data_staffdosen.id_staffdosen = sk_dekan_user_op.staffdosen_id')
-            ->join('sk_dekan_jenis_op', 'sk_dekan_jenis_op.id_sk_dekan_jenis_op = sk_dekan_user_op.sk_dekan_jenis_op_id')
+        return $this->db->table('sk_user_op')
+            ->join('data_staffdosen', 'data_staffdosen.id_staffdosen = sk_user_op.staffdosen_id')
+            ->join('sk_jenis_op', 'sk_jenis_op.id_sk_jenis_op = sk_user_op.sk_jenis_op_id')
             ->get()->getResultArray();
     }
 
@@ -24,47 +24,47 @@ class ModelAdminSKUserManagement extends Model
 
     public function add($data)
     {
-        $this->db->table('sk_dekan_user_op')->insert($data);
+        $this->db->table('sk_user_op')->insert($data);
     }
 
     public function delete_data($data)
     {
-        $this->db->table('sk_dekan_user_op')
-            ->where('id_sk_dekan_user_op', $data['id_sk_dekan_user_op'])
+        $this->db->table('sk_user_op')
+            ->where('id_sk_user_op', $data['id_sk_user_op'])
             ->delete($data);
     }
 
     public function edit($data)
     {
-        $this->db->table('sk_dekan_user_op')
-            ->where('id_sk_dekan_user_op', $data['id_sk_dekan_user_op'])
+        $this->db->table('sk_user_op')
+            ->where('id_sk_user_op', $data['id_sk_user_op'])
             ->update($data);
     }
 
     public function allDataUserVerifikator()
     {
-        return $this->db->table('sk_dekan_user_verifikator')
-            ->join('data_staffdosen', 'data_staffdosen.id_staffdosen = sk_dekan_user_verifikator.staffdosen_id')
-            ->join('sk_dekan_jenis_verifikator', 'sk_dekan_jenis_verifikator.id_sk_dekan_jenis_verifikator = sk_dekan_user_verifikator.sk_dekan_jenis_verifikator_id')
+        return $this->db->table('sk_user_verifikator')
+            ->join('data_staffdosen', 'data_staffdosen.id_staffdosen = sk_user_verifikator.staffdosen_id')
+            ->join('sk_jenis_verifikator', 'sk_jenis_verifikator.id_sk_jenis_verifikator = sk_user_verifikator.sk_jenis_verifikator_id')
             ->get()->getResultArray();
     }
 
     public function addVerifikator($data)
     {
-        $this->db->table('sk_dekan_user_verifikator')->insert($data);
+        $this->db->table('sk_user_verifikator')->insert($data);
     }
 
     public function delete_dataVerifikator($data)
     {
-        $this->db->table('sk_dekan_user_verifikator')
-            ->where('id_sk_dekan_user_verifikator', $data['id_sk_dekan_user_verifikator'])
+        $this->db->table('sk_user_verifikator')
+            ->where('id_sk_user_verifikator', $data['id_sk_user_verifikator'])
             ->delete($data);
     }
 
     public function editVerifikator($data)
     {
-        $this->db->table('sk_dekan_user_verifikator')
-            ->where('id_sk_dekan_user_verifikator', $data['id_sk_dekan_user_verifikator'])
+        $this->db->table('sk_user_verifikator')
+            ->where('id_sk_user_verifikator', $data['id_sk_user_verifikator'])
             ->update($data);
     }
 }

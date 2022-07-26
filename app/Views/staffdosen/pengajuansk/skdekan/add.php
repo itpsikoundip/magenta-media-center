@@ -63,7 +63,7 @@
                                         <input type="file" class="form-control" name="uploadSKDekan">
                                         <p class="text-left"><small class="text-muted">Format file wajib .pdf | Ukuran maks 5MB</small></p>
                                     </div>
-                                    <input type="hidden" name="jenisOp" value="<?= $detailAksesUserOp['sk_dekan_jenis_op_id'] ?>">
+                                    <input type="hidden" name="jenisOp" value="<?= $detailAksesUserOp['sk_jenis_op_id'] ?>">
                                     <input type="hidden" name="idPengaju" value="<?= session()->get('id') ?>">
                                     <div class="form-actions">
                                         <button type="submit" class="btn btn-block btn-primary mt-2">
