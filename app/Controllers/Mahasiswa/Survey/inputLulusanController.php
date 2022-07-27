@@ -26,7 +26,7 @@ class inputLulusanController extends BaseController
         $data = [
             'title' => 'Survey Lulusan',
             'dataSurveyLulusan' => $displaySurveyLulusan,
-            'isi' => '/mahasiswa/survey/inputlulusan'
+            'isi' => '/mahasiswa/survey/inputLulusan'
         ];
 
         return view('layouts/mahasiswa-wrapper', $data);
