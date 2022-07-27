@@ -54,7 +54,7 @@
                 <div class="card mx-3 mb-3">
                     <a href="<?php echo base_url('/mahasiswa/survey/inputlulusan') ?>">
                         <div class="card-content m-2">
-                            <img class="card-img-top img-fluid" src="<?php echo base_url('/images/homeLus.jpg') ?>" alt="Card image cap" />
+                            <img class="card-img-top img-fluid" src="<?php echo base_url('/images/HomeLus.jpg') ?>" alt="Card image cap" />
                             <div class="card-body">
                                 <h3 class="text-center font-weight-bold mt-1">Lulusan</h3>
                                 <p class="card-title text-center mt-2">Survey lulusan Fakultas Psikologi UNDIP</p>

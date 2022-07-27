@@ -68,7 +68,7 @@ class grafikLulusanController extends BaseController
                 'sumSangatBuruk'    => $arraySangatBuruk,
                 'isi'               => 'staffdosen/survey/grafikLulusan'
             ];
-            dd($data);
+
             return view('layouts/survey-wrapper', $data);
         }
     }
