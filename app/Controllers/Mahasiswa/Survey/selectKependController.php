@@ -102,7 +102,7 @@ class selectKependController extends BaseController
     public function doneSurvey($namaKepend, $who)
     {
         $data = [
-            'isi' => '/mahasiswa/survey/donesurvey',
+            'isi' => '/mahasiswa/survey/doneSurvey',
             'nama' => $namaKepend,
             'who' => $who
         ];
