@@ -52,6 +52,7 @@ class hasilSurveyKependController extends BaseController
                 'title'                 => 'Hasil Survey Kependidikan',
                 'arrayPertanyaan'       => "Tidak ada pertanyaan survey kependidikan",
                 'namaKepend'            => $namaKepend,
+                'dataSaranKepend'       => [],
                 'dataKependFiltered'    => $filteredById->getResult(),
                 'isi'                   => 'staffdosen/survey/chartSingleKepend'
             ];

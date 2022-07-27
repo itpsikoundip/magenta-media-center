@@ -50,6 +50,7 @@ class hasilSurveyDosenController extends BaseController
             $data = [
                 'title'             => 'Hasil Survey Dosen',
                 'namaDosen'         => $namaDosen,
+                'dataSaranDosen'    => [],
                 'arrayPertanyaan'   => "Tidak ada pertanyaan survey dosen",
                 'dataDosenFiltered' => $filteredById->getResult(),
                 'isi'               => 'staffdosen/survey/chartSingleDosen'
