@@ -49,6 +49,7 @@ class hasilSurveyDosenController extends BaseController
         if (count($array) == 0) {
             $data = [
                 'title'             => 'Hasil Survey Dosen',
+                'namaDosen'         => $namaDosen,
                 'arrayPertanyaan'   => "Tidak ada pertanyaan survey dosen",
                 'dataDosenFiltered' => $filteredById->getResult(),
                 'isi'               => 'staffdosen/survey/chartSingleDosen'
