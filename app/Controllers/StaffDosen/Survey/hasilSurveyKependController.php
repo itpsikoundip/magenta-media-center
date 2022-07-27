@@ -52,7 +52,7 @@ class hasilSurveyKependController extends BaseController
                 'title'                 => 'Hasil Survey Kependidikan',
                 'arrayPertanyaan'       => "Tidak ada pertanyaan survey kependidikan",
                 'dataKependFiltered'    => $filteredById->getResult(),
-                'isi'                   => 'staffdosen/survey/chartsinglekepend'
+                'isi'                   => 'staffdosen/survey/chartSingleKepend'
             ];
 
             return view('layouts/survey-wrapper', $data);
@@ -63,7 +63,7 @@ class hasilSurveyKependController extends BaseController
                 'dataSaranKepend'       => $arraySaran,
                 'namaKepend'            => $namaKepend,
                 'dataKependFiltered'    => $filteredById->getResult(),
-                'isi'                   => 'staffdosen/survey/chartsinglekepend'
+                'isi'                   => 'staffdosen/survey/chartSingleKepend'
             ];
 
             return view('layouts/survey-wrapper', $data);

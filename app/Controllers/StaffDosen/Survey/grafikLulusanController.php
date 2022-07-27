@@ -46,6 +46,7 @@ class grafikLulusanController extends BaseController
             $data = [
                 'title'             => 'Grafik Lulusan',
                 'arrayPertanyaan'   => "Tidak ada pertanyaan survey lulusan",
+                'dataSaranLulusan'  => [],
                 'sumSangatBaik'     => 0,
                 'sumBaik'           => 0,
                 'sumCukup'          => 0,
@@ -67,7 +68,7 @@ class grafikLulusanController extends BaseController
                 'sumSangatBuruk'    => $arraySangatBuruk,
                 'isi'               => 'staffdosen/survey/grafikLulusan'
             ];
-
+            dd($data);
             return view('layouts/survey-wrapper', $data);
         }
     }

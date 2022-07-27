@@ -51,7 +51,7 @@ class hasilSurveyDosenController extends BaseController
                 'title'             => 'Hasil Survey Dosen',
                 'arrayPertanyaan'   => "Tidak ada pertanyaan survey dosen",
                 'dataDosenFiltered' => $filteredById->getResult(),
-                'isi'               => 'staffdosen/survey/chartsingledosen'
+                'isi'               => 'staffdosen/survey/chartSingleDosen'
             ];
 
             return view('layouts/survey-wrapper', $data);
@@ -62,7 +62,7 @@ class hasilSurveyDosenController extends BaseController
                 'namaDosen'         => $namaDosen,
                 'dataSaranDosen'    => $arraySaran,
                 'dataDosenFiltered' => $filteredById->getResult(),
-                'isi'               => 'staffdosen/survey/chartsingledosen'
+                'isi'               => 'staffdosen/survey/chartSingleDosen'
             ];
 
             return view('layouts/survey-wrapper', $data);

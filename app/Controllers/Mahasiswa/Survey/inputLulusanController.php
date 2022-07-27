@@ -96,7 +96,7 @@ class inputLulusanController extends BaseController
     public function doneSurvey($who)
     {
         $data = [
-            'isi' => '/mahasiswa/survey/donesurvey',
+            'isi' => '/mahasiswa/survey/doneSurvey',
             'nama' => '',
             'who' => $who
         ];

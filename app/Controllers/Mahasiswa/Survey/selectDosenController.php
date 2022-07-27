@@ -102,7 +102,7 @@ class selectDosenController extends BaseController
     public function doneSurvey($namaDosen, $who)
     {
         $data = [
-            'isi' => '/mahasiswa/survey/donesurvey',
+            'isi' => '/mahasiswa/survey/doneSurvey',
             'nama' => $namaDosen,
             'who' => $who
         ];
