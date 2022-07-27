@@ -12,7 +12,7 @@ class Tiket extends Migration
         $this->forge->addField([
             'id' => [
                 'type'          => 'INT',
-                'constraint'    => 6,
+                'constraint'    => 11,
                 'unsigned'      => TRUE,
                 'auto_increment'=> TRUE, 
             ],
