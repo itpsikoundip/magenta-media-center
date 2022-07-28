@@ -11,10 +11,10 @@ class TopikSeeder extends Seeder
         //
         $data = [
             [
-                'nama'         => 'akademik',
+                'nama'         => 'Akademik',
             ],
             [
-                'nama'         => 'non-akademik',
+                'nama'         => 'Non-akademik',
             ],
         ];
 
