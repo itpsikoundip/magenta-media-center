@@ -1,6 +1,6 @@
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('PengajuanSKDekanVerifikator') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
+        <a href="<?= base_url('PengajuanSKDekanVerifikator') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
         <?php
         if (session()->getFlashdata('notifikasi')) {
             echo '
@@ -17,8 +17,11 @@
         ?>
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
-                <h2 class="mb-0 d-inline-block font-weight-bold"></h2>
-                <h4 class="grey"></h4>
+                <?php
+                foreach ($detailSKDekan as $key => $value) { ?>
+                    <h2 class="mb-0 d-inline-block font-weight-bold"><?= $value['judul_sk']  ?></h2>
+                    <h4 class="grey"><?= $value['tanggal_pembuatan']  ?></h4>
+                <?php  } ?>
             </div>
         </div>
         <hr class="mb-2 mt-0">

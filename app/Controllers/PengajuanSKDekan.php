@@ -16,7 +16,9 @@ class PengajuanSKDekan extends BaseController
     {
         $data = [
             'title' => 'Pengajuan SK Dekan',
-            'dataSKDekanPengaju' => $this->ModelSKDekan->dataSKDekanPengaju(),
+            'dataSKDekanPengajuMenungguKonfirmasi' => $this->ModelSKDekan->dataSKDekanPengajuMenungguKonfirmasi(),
+            'dataSKDekanPengajuSemuaSK' => $this->ModelSKDekan->dataSKDekanPengajuSemuaSK(),
+            'detailAksesUserOp' => $this->ModelSKDekan->detailAksesUserOp(),
             'isi'    => 'staffdosen/pengajuansk/skdekan/index'
         ];
         return view('layouts/staffdosen-wrapper', $data);
@@ -75,6 +77,12 @@ class PengajuanSKDekan extends BaseController
         $data = [
             'title' => 'Pengajuan SK Dekan',
             'detailSKDekan' => $this->ModelSKDekan->detailSKDekan($id_sk_dekan),
+            'detailSKDekanNoteSVAkademik' => $this->ModelSKDekan->detailSKDekanNoteSVAkademik($id_sk_dekan),
+            'detailSKDekanNoteSVSumda' => $this->ModelSKDekan->detailSKDekanNoteSVSumda($id_sk_dekan),
+            'detailSKDekanNoteTataUsaha' => $this->ModelSKDekan->detailSKDekanNoteTataUsaha($id_sk_dekan),
+            'detailSKDekanNoteWadekAkem' => $this->ModelSKDekan->detailSKDekanNoteWadekAkem($id_sk_dekan),
+            'detailSKDekanNoteWadekSumda' => $this->ModelSKDekan->detailSKDekanNoteWadekSumda($id_sk_dekan),
+            'detailSKDekanNoteDekan' => $this->ModelSKDekan->detailSKDekanNoteDekan($id_sk_dekan),
             'isi'    => 'staffdosen/pengajuansk/skdekan/edit'
         ];
         return view('layouts/staffdosen-wrapper', $data);

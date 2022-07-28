@@ -22,7 +22,7 @@ class ModelSKDekanVerifikator extends Model
             ->get()->getResultArray();
     }
 
-    public function detailSKDekan($id_sk_dekan)
+    public function detailSKDekanArray($id_sk_dekan)
     {
         return $this->db->table('sk_dekan')
             ->join('data_staffdosen', 'data_staffdosen.id_staffdosen = sk_dekan.pengaju_id')
@@ -36,6 +36,12 @@ class ModelSKDekanVerifikator extends Model
             ->update($data);
     }
 
+    public function detailSKDekan($id_sk_dekan)
+    {
+        return $this->db->table('sk_dekan')
+            ->where('id_sk_dekan', $id_sk_dekan)
+            ->get()->getRowArray();
+    }
 
 
 
@@ -106,16 +112,16 @@ class ModelSKDekanVerifikator extends Model
     public function allDataSKDekanWadekSumda()
     {
         return $this->db->table('sk_dekan')
-            ->where('wadek_akem_status', '1')
-            ->orwhere('wadek_akem_status', '2')
-            ->orwhere('wadek_akem_status', '3')
+            ->where('wadek_sumda_status', '1')
+            ->orwhere('wadek_sumda_status', '2')
+            ->orwhere('wadek_sumda_status', '3')
             ->get()->getResultArray();
     }
     public function allDataSKDekanWadekSumdaSiapVerif()
     {
         return $this->db->table('sk_dekan')
             ->where('wadek_akem_status', '3')
-            ->where('wadek_akem_status', '0')
+            ->where('wadek_sumda_status', '0')
             ->get()->getResultArray();
     }
     // DEKAN

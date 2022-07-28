@@ -58,7 +58,7 @@ class PengajuanSKDekanVerifikator extends BaseController
     {
         $data = [
             'title' => 'Detail & Setujui SK Dekan',
-            'detailSKDekan' => $this->ModelSKDekanVerifikator->detailSKDekan($id_sk_dekan),
+            'detailSKDekan' => $this->ModelSKDekanVerifikator->detailSKDekanArray($id_sk_dekan),
             'detailVerifikator' => $this->ModelSKDekanVerifikator->detailVerifikator(),
             'isi'    => 'staffdosen/pengajuansk/skdekan/verifikator/edit'
         ];
@@ -220,6 +220,15 @@ class PengajuanSKDekanVerifikator extends BaseController
         return redirect()->to(base_url('PengajuanSKDekanVerifikator/edit/'  . $id_sk_dekan));
     }
 
+    public function view($id_sk_dekan)
+    {
+        $data = [
+            'title' => 'Pengajuan SK Dekan',
+            'detailSKDekan' => $this->ModelSKDekanVerifikator->detailSKDekan($id_sk_dekan),
+            'isi'    => 'staffdosen/pengajuansk/skdekan/verifikator/view'
+        ];
+        return view('layouts/staffdosen-wrapper', $data);
+    }
 
     // public function add()
     // {
