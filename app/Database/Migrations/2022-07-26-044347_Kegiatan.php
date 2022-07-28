@@ -14,12 +14,12 @@ class Kegiatan extends Migration
                 'type'          => 'INT',
                 'constraint'    => 6,
                 'unsigned'      => TRUE,
-                'auto_increment'=> TRUE, 
+                'auto_increment' => TRUE,
             ],
             'ruangan_id' => [
                 'type'          => 'INT',
                 'constraint'    => 6,
-                'unsigned'      => TRUE, 
+                'unsigned'      => TRUE,
             ],
             'tanggal' => [
                 'type' => 'DATE',
@@ -50,7 +50,7 @@ class Kegiatan extends Migration
             'status_id' => [
                 'type'          => 'INT',
                 'constraint'    => 6,
-                'unsigned'      => TRUE, 
+                'unsigned'      => TRUE,
             ],
             'created_at' => [
                 'type'          => 'DATETIME',
@@ -62,8 +62,8 @@ class Kegiatan extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('ruangan_id','ruangan','id');
-        $this->forge->addForeignKey('status_id','status_kegiatan','id');
+        $this->forge->addForeignKey('ruangan_id', 'kegiatan_ruangan', 'id');
+        $this->forge->addForeignKey('status_id', 'kegiatan_status', 'id');
         $this->forge->createTable('kegiatan');
     }
 

@@ -14,7 +14,7 @@ class StatusKegiatan extends Migration
                 'type'          => 'INT',
                 'constraint'    => 6,
                 'unsigned'      => TRUE,
-                'auto_increment'=> TRUE, 
+                'auto_increment' => TRUE,
             ],
             'nama' => [
                 'type'          => 'VARCHAR',
@@ -22,12 +22,12 @@ class StatusKegiatan extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('status_kegiatan');
+        $this->forge->createTable('kegiatan_status');
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('status_kegiatan', true);
+        $this->forge->dropTable('kegiatan_status', true);
     }
 }
