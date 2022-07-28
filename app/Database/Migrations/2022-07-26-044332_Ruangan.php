@@ -14,7 +14,7 @@ class Ruangan extends Migration
                 'type'          => 'INT',
                 'constraint'    => 6,
                 'unsigned'      => TRUE,
-                'auto_increment'=> TRUE, 
+                'auto_increment' => TRUE,
             ],
             'nama' => [
                 'type'          => 'VARCHAR',
@@ -27,12 +27,12 @@ class Ruangan extends Migration
             ]
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('ruangan');
+        $this->forge->createTable('kegiatan_ruangan');
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('ruangan', true);
+        $this->forge->dropTable('kegiatan_ruangan', true);
     }
 }
