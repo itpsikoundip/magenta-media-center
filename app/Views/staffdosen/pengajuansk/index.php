@@ -5,7 +5,7 @@
 </style>
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('staffdosen') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
+        <a href="<?= base_url('staffdosen') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
         <!-- Apabila Bukan User Operator -->
         <?php if (!isset($detailAksesUserOp['sk_jenis_op_id'])) { ?>
             <!-- Apabila User Operator -->
@@ -14,9 +14,9 @@
                 <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                     <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>
                     <?php if ($detailAksesUserOp['sk_jenis_op_id'] == 1) { ?>
-                        <h4 class="grey">[Operator] Akademik dan Kemahasiswaan</h4>
+                        <h4 class="grey">Operator Akademik dan Kemahasiswaan</h4>
                     <?php } elseif ($detailAksesUserOp['sk_jenis_op_id'] == 2) { ?>
-                        <h4 class="grey">[Operator] Sumber Daya</h4>
+                        <h4 class="grey">Operator Sumber Daya</h4>
                     <?php } ?>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-pencil info font-large-2 float-left"></i>
+                                            <i class="icon-doc info font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>SK Rektor</u></h3>
@@ -46,7 +46,7 @@
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-list info font-large-2 float-left"></i>
+                                            <i class="icon-doc info font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>SK Dekan</u></h3>
@@ -68,17 +68,17 @@
                 <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                     <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>
                     <?php if ($detailAksesUserVerifikator['sk_jenis_verifikator_id'] == 1) { ?>
-                        <h4 class="grey">[Verifikator] Supervisor Akem</h4>
+                        <h4 class="grey">Verifikator Supervisor Akem</h4>
                     <?php } elseif ($detailAksesUserVerifikator['sk_jenis_verifikator_id'] == 2) { ?>
-                        <h4 class="grey">[Verifikator] Supervisor Sumda</h4>
+                        <h4 class="grey">Verifikator Supervisor Sumda</h4>
                     <?php } elseif ($detailAksesUserVerifikator['sk_jenis_verifikator_id'] == 3) { ?>
-                        <h4 class="grey">[Verifikator] Manager TU</h4>
+                        <h4 class="grey">Verifikator Manager TU</h4>
                     <?php } elseif ($detailAksesUserVerifikator['sk_jenis_verifikator_id'] == 4) { ?>
-                        <h4 class="grey">[Verifikator] Wadek Akem</h4>
+                        <h4 class="grey">Verifikator Wadek Akem</h4>
                     <?php } elseif ($detailAksesUserVerifikator['sk_jenis_verifikator_id'] == 5) { ?>
-                        <h4 class="grey">[Verifikator] Wadek Sumda</h4>
+                        <h4 class="grey">Verifikator Wadek Sumda</h4>
                     <?php } elseif ($detailAksesUserVerifikator['sk_jenis_verifikator_id'] == 6) { ?>
-                        <h4 class="grey">[Verifikator] Dekan</h4>
+                        <h4 class="grey">Verifikator Dekan</h4>
                     <?php } ?>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-pencil info font-large-2 float-left"></i>
+                                            <i class="icon-doc info font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>SK Rektor</u></h3>
@@ -108,7 +108,7 @@
                                 <div class="card-body">
                                     <div class="media d-flex">
                                         <div class="align-self-center">
-                                            <i class="icon-list info font-large-2 float-left"></i>
+                                            <i class="icon-doc info font-large-2 float-left"></i>
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>SK Dekan</u></h3>

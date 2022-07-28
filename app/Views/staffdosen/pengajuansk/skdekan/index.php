@@ -28,7 +28,7 @@
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                 <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>
-                <h4 class="grey">[Operator]</h4>
+                <h4 class="grey"><?= $detailAksesUserOp['nama_jenis_op']  ?></h4>
             </div>
             <div class="content-header-right col-md-4 col-12">
                 <div class="btn-group float-md-right">
@@ -64,7 +64,7 @@
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                foreach ($dataSKDekanPengaju as $key => $value) { ?>
+                                                foreach ($dataSKDekanPengajuMenungguKonfirmasi as $key => $value) { ?>
                                                     <tr>
                                                         <td><?= $value['judul_sk']  ?></td>
                                                         <td><?= $value['tanggal_pembuatan']  ?></td>
@@ -81,46 +81,50 @@
                                                                 echo 'Supervisor Sumber Daya';
                                                             } elseif (($value['sk_akem_status']) != 0) {
                                                                 echo 'Supervisor Akademik';
+                                                            } elseif (($value['sk_akem_status']) == 0) {
+                                                                echo 'Supervisor Akademik';
                                                             }
                                                             ?>
                                                         </td>
                                                         <td>
                                                             <?php if ($value['dekan_status'] == 3) {
-                                                                echo 'Diterima';
+                                                                echo '<div class="badge badge-success">Disetujui</div>';
                                                             } elseif (($value['dekan_status']) == 2) {
-                                                                echo 'Perbaikan';
+                                                                echo '<div class="badge badge-warning">Perbaikan</div>';
                                                             } elseif (($value['dekan_status']) == 1) {
-                                                                echo 'Ditolak';
+                                                                echo '<div class="badge badge-danger">Ditolak</div>';
                                                             } elseif (($value['wadek_sumda_status']) == 3) {
-                                                                echo 'Diterima';
+                                                                echo '<div class="badge badge-success">Disetujui</div>';
                                                             } elseif (($value['wadek_sumda_status']) == 2) {
-                                                                echo 'Perbaikan';
+                                                                echo '<div class="badge badge-warning">Perbaikan</div>';
                                                             } elseif (($value['wadek_sumda_status']) == 1) {
-                                                                echo 'Ditolak';
+                                                                echo '<div class="badge badge-danger">Ditolak</div>';
                                                             } elseif (($value['wadek_akem_status']) == 3) {
-                                                                echo 'Diterima';
+                                                                echo '<div class="badge badge-success">Disetujui</div>';
                                                             } elseif (($value['wadek_akem_status']) == 2) {
-                                                                echo 'Perbaikan';
+                                                                echo '<div class="badge badge-warning">Perbaikan</div>';
                                                             } elseif (($value['wadek_akem_status']) == 1) {
-                                                                echo 'Ditolak';
+                                                                echo '<div class="badge badge-danger">Ditolak</div>';
                                                             } elseif (($value['manager_tu_status']) == 3) {
-                                                                echo 'Diterima';
+                                                                echo '<div class="badge badge-success">Disetujui</div>';
                                                             } elseif (($value['manager_tu_status']) == 2) {
-                                                                echo 'Perbaikan';
+                                                                echo '<div class="badge badge-warning">Perbaikan</div>';
                                                             } elseif (($value['manager_tu_status']) == 1) {
-                                                                echo 'Ditolak';
+                                                                echo '<div class="badge badge-danger">Ditolak</div>';
                                                             } elseif (($value['sv_sumda_status']) == 3) {
-                                                                echo 'Diterima';
+                                                                echo '<div class="badge badge-success">Disetujui</div>';
                                                             } elseif (($value['sv_sumda_status']) == 2) {
-                                                                echo 'Perbaikan';
+                                                                echo '<div class="badge badge-warning">Perbaikan</div>';
                                                             } elseif (($value['sv_sumda_status']) == 1) {
-                                                                echo 'Ditolak';
+                                                                echo '<div class="badge badge-danger">Ditolak</div>';
                                                             } elseif (($value['sk_akem_status']) == 3) {
-                                                                echo 'Diterima';
+                                                                echo '<div class="badge badge-success">Disetujui</div>';
                                                             } elseif (($value['sk_akem_status']) == 2) {
-                                                                echo 'Perbaikan';
+                                                                echo '<div class="badge badge-warning">Perbaikan</div>';
                                                             } elseif (($value['sk_akem_status']) == 1) {
-                                                                echo 'Ditolak';
+                                                                echo '<div class="badge badge-danger">Ditolak</div>';
+                                                            } elseif (($value['sk_akem_status']) == 0) {
+                                                                echo '<div class="badge badge-info">Proses</div>';
                                                             }
                                                             ?>
                                                         </td>
@@ -167,7 +171,7 @@
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                foreach ($dataSKDekanPengaju as $key => $value) { ?>
+                                                foreach ($dataSKDekanPengajuSemuaSK as $key => $value) { ?>
                                                     <tr>
                                                         <td><?= $value['judul_sk']  ?></td>
                                                         <td><?= $value['tanggal_pembuatan']  ?></td>
@@ -184,51 +188,55 @@
                                                                 echo 'Supervisor Sumber Daya';
                                                             } elseif (($value['sk_akem_status']) != 0) {
                                                                 echo 'Supervisor Akademik';
+                                                            } elseif (($value['sk_akem_status']) == 0) {
+                                                                echo 'Supervisor Akademik';
                                                             }
                                                             ?>
                                                         </td>
                                                         <td>
                                                             <?php if ($value['dekan_status'] == 3) {
-                                                                echo 'Diterima';
+                                                                echo '<div class="badge badge-success">Disetujui</div>';
                                                             } elseif (($value['dekan_status']) == 2) {
-                                                                echo 'Perbaikan';
+                                                                echo '<div class="badge badge-warning">Perbaikan</div>';
                                                             } elseif (($value['dekan_status']) == 1) {
-                                                                echo 'Ditolak';
+                                                                echo '<div class="badge badge-danger">Ditolak</div>';
                                                             } elseif (($value['wadek_sumda_status']) == 3) {
-                                                                echo 'Diterima';
+                                                                echo '<div class="badge badge-success">Disetujui</div>';
                                                             } elseif (($value['wadek_sumda_status']) == 2) {
-                                                                echo 'Perbaikan';
+                                                                echo '<div class="badge badge-warning">Perbaikan</div>';
                                                             } elseif (($value['wadek_sumda_status']) == 1) {
-                                                                echo 'Ditolak';
+                                                                echo '<div class="badge badge-danger">Ditolak</div>';
                                                             } elseif (($value['wadek_akem_status']) == 3) {
-                                                                echo 'Diterima';
+                                                                echo '<div class="badge badge-success">Disetujui</div>';
                                                             } elseif (($value['wadek_akem_status']) == 2) {
-                                                                echo 'Perbaikan';
+                                                                echo '<div class="badge badge-warning">Perbaikan</div>';
                                                             } elseif (($value['wadek_akem_status']) == 1) {
-                                                                echo 'Ditolak';
+                                                                echo '<div class="badge badge-danger">Ditolak</div>';
                                                             } elseif (($value['manager_tu_status']) == 3) {
-                                                                echo 'Diterima';
+                                                                echo '<div class="badge badge-success">Disetujui</div>';
                                                             } elseif (($value['manager_tu_status']) == 2) {
-                                                                echo 'Perbaikan';
+                                                                echo '<div class="badge badge-warning">Perbaikan</div>';
                                                             } elseif (($value['manager_tu_status']) == 1) {
-                                                                echo 'Ditolak';
+                                                                echo '<div class="badge badge-danger">Ditolak</div>';
                                                             } elseif (($value['sv_sumda_status']) == 3) {
-                                                                echo 'Diterima';
+                                                                echo '<div class="badge badge-success">Disetujui</div>';
                                                             } elseif (($value['sv_sumda_status']) == 2) {
-                                                                echo 'Perbaikan';
+                                                                echo '<div class="badge badge-warning">Perbaikan</div>';
                                                             } elseif (($value['sv_sumda_status']) == 1) {
-                                                                echo 'Ditolak';
+                                                                echo '<div class="badge badge-danger">Ditolak</div>';
                                                             } elseif (($value['sk_akem_status']) == 3) {
-                                                                echo 'Diterima';
+                                                                echo '<div class="badge badge-success">Disetujui</div>';
                                                             } elseif (($value['sk_akem_status']) == 2) {
-                                                                echo 'Perbaikan';
+                                                                echo '<div class="badge badge-warning">Perbaikan</div>';
                                                             } elseif (($value['sk_akem_status']) == 1) {
-                                                                echo 'Ditolak';
+                                                                echo '<div class="badge badge-danger">Ditolak</div>';
+                                                            } elseif (($value['sk_akem_status']) == 0) {
+                                                                echo '<div class="badge badge-info">Proses</div>';
                                                             }
                                                             ?>
                                                         </td>
                                                         <td>
-
+                                                            <a href="<?= base_url('PengajuanSKDekan/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                         </td>
                                                     </tr>
                                                 <?php  } ?>

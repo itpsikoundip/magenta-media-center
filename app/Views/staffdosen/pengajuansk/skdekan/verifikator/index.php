@@ -29,17 +29,17 @@
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                 <h2 class="mb-0 d-inline-block font-weight-bold"><?= $title ?></h2>
                 <?php if ($detailVerifikator['sk_jenis_verifikator_id'] == 1) { ?>
-                    <h4 class="grey">[Verifikator] Supervisor Akem</h4>
+                    <h4 class="grey">Verifikator Supervisor Akem</h4>
                 <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 2) { ?>
-                    <h4 class="grey">[Verifikator] Supervisor Sumda</h4>
+                    <h4 class="grey">Verifikator Supervisor Sumda</h4>
                 <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 3) { ?>
-                    <h4 class="grey">[Verifikator] Manager TU</h4>
+                    <h4 class="grey">Verifikator Manager TU</h4>
                 <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 4) { ?>
-                    <h4 class="grey">[Verifikator] Wadek Akem</h4>
+                    <h4 class="grey">Verifikator Wadek Akem</h4>
                 <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 5) { ?>
-                    <h4 class="grey">[Verifikator] Wadek Sumda</h4>
+                    <h4 class="grey">Verifikator Wadek Sumda</h4>
                 <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 6) { ?>
-                    <h4 class="grey">[Verifikator] Dekan</h4>
+                    <h4 class="grey">Verifikator Dekan</h4>
                 <?php } ?>
             </div>
         </div>
@@ -118,7 +118,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-
+                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -196,7 +196,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-
+                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -273,7 +273,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-
+                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -350,7 +350,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-
+                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -427,7 +427,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-
+                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -504,7 +504,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-
+                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>

@@ -28,6 +28,7 @@
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                 <h2 class="mb-0 d-inline-block font-weight-bold">Edit <?= $detailSKDekan['judul_sk'] ?></h2>
+                <h4 class="grey"><?= $detailSKDekan['tanggal_pembuatan']  ?></h4>
             </div>
         </div>
         <div class="content-body">
@@ -111,9 +112,63 @@
                                     <tbody>
                                         <tr>
                                             <td><strong>SV Akem</strong><small><br>
+                                                    <?php
+                                                    foreach ($detailSKDekanNoteSVAkademik as $key => $a) { ?>
+                                                        <?= $a['nama']  ?>
+                                                    <?php  } ?>
                                                     <i><?= $detailSKDekan['sk_akem_updatetime']  ?></i></small>
                                             </td>
                                             <td><small><?= $detailSKDekan['sk_akem_note']  ?></small></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>SV Sumda</strong><small><br>
+                                                    <?php
+                                                    foreach ($detailSKDekanNoteSVSumda as $key => $a) { ?>
+                                                        <?= $a['nama']  ?>
+                                                    <?php  } ?>
+                                                    <i><?= $detailSKDekan['sv_sumda_updatetime']  ?></i></small>
+                                            </td>
+                                            <td><small><?= $detailSKDekan['sv_sumda_note']  ?></small></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Manager TU</strong><small><br>
+                                                    <?php
+                                                    foreach ($detailSKDekanNoteTataUsaha as $key => $a) { ?>
+                                                        <?= $a['nama']  ?>
+                                                    <?php  } ?>
+                                                    <i><?= $detailSKDekan['manager_tu_updatetime']  ?></i></small>
+                                            </td>
+                                            <td><small><?= $detailSKDekan['manager_tu_note']  ?></small></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Wadek Akem</strong><small><br>
+                                                    <?php
+                                                    foreach ($detailSKDekanNoteWadekAkem as $key => $a) { ?>
+                                                        <?= $a['nama']  ?>
+                                                    <?php  } ?>
+                                                    <i><?= $detailSKDekan['wadek_akem_updatetime']  ?></i></small>
+                                            </td>
+                                            <td><small><?= $detailSKDekan['wadek_akem_note']  ?></small></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Wadek Sumda</strong><small><br>
+                                                    <?php
+                                                    foreach ($detailSKDekanNoteWadekSumda as $key => $a) { ?>
+                                                        <?= $a['nama']  ?>
+                                                    <?php  } ?>
+                                                    <i><?= $detailSKDekan['wadek_sumda_updatetime']  ?></i></small>
+                                            </td>
+                                            <td><small><?= $detailSKDekan['wadek_sumda_note']  ?></small></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Dekan</strong><small><br>
+                                                    <?php
+                                                    foreach ($detailSKDekanNoteDekan as $key => $a) { ?>
+                                                        <?= $a['nama']  ?>
+                                                    <?php  } ?>
+                                                    <i><?= $detailSKDekan['dekan_updatetime']  ?></i></small>
+                                            </td>
+                                            <td><small><?= $detailSKDekan['dekan_note']  ?></small></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -127,7 +182,7 @@
                                 echo form_open_multipart('PengajuanSKDekan/editData');
                                 ?>
                                 <div class="form-body">
-                                    <h4 class="form-section"><i class="fa fa-file-o"></i> Informasi SK</h4>
+                                    <h4 class="form-section"><i class="fa fa-file-pdf-o"></i> File SK Saat ini</h4>
                                     <a href="<?= base_url('uploadskdekan/' . $detailSKDekan['upload_sk_dekan']) ?>" target="_blank" class="btn btn-info btn-block btn-lg"><i class="fa fa-file-pdf-o"></i> <?= $detailSKDekan['upload_sk_dekan'] ?></a>
                                 </div>
                                 <?php echo form_close() ?>
