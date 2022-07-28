@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\SK;
 
 use CodeIgniter\Model;
 
-class ModelSKDekanVerifikator extends Model
+class ModelVerifikatorSKDekan extends Model
 {
     public function detailVerifikator()
     {

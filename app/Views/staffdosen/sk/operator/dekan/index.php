@@ -5,7 +5,7 @@
 </style>
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('PengajuanSK') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
+        <a href="<?= base_url('staffdosen/sk') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
         <?php
         if (session()->getFlashdata('error')) {
             echo '<<div class="alert alert-danger alert-dismissible mb-2" role="alert">
@@ -32,7 +32,7 @@
             </div>
             <div class="content-header-right col-md-4 col-12">
                 <div class="btn-group float-md-right">
-                    <a href="<?= base_url('PengajuanSKDekan/add') ?>" class="btn btn-info btn-min-width"><i class="fa fa-plus"></i> Tambah</a>
+                    <a href="<?= base_url('staffdosen/sk/operator/dekan/add') ?>" class="btn btn-info btn-min-width"><i class="fa fa-plus"></i> Tambah</a>
                 </div>
             </div>
         </div>
@@ -129,19 +129,19 @@
                                                             ?>
                                                         </td>
                                                         <td>
-                                                            <a href="<?= base_url('PengajuanSKDekan/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                            <a href="<?= base_url('staffdosen/sk/operator/dekan/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             <?php if (($value['dekan_status']) == 2) { ?>
-                                                                <a href="<?= base_url('PengajuanSKDekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/operator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             <?php } elseif (($value['wadek_sumda_status']) == 2) { ?>
-                                                                <a href="<?= base_url('PengajuanSKDekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/operator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             <?php } elseif (($value['wadek_akem_status']) == 2) { ?>
-                                                                <a href="<?= base_url('PengajuanSKDekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/operator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             <?php } elseif (($value['manager_tu_status']) == 2) { ?>
-                                                                <a href="<?= base_url('PengajuanSKDekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/operator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             <?php } elseif (($value['sv_sumda_status']) == 2) { ?>
-                                                                <a href="<?= base_url('PengajuanSKDekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/operator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             <?php } elseif (($value['sk_akem_status']) == 2) { ?>
-                                                                <a href="<?= base_url('PengajuanSKDekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/operator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             <?php } ?>
                                                         </td>
                                                     </tr>
@@ -236,7 +236,7 @@
                                                             ?>
                                                         </td>
                                                         <td>
-                                                            <a href="<?= base_url('PengajuanSKDekan/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                            <a href="<?= base_url('staffdosen/sk/operator/dekan/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                         </td>
                                                     </tr>
                                                 <?php  } ?>

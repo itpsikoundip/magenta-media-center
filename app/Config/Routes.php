@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -90,7 +90,48 @@ $routes->group('staffdosen', function ($routes) {
 
     $routes->group('kegiatan', ['namespace' => 'App\Controllers\StaffDosen\Kegiatan', 'filter' => 'authStaffDosen'], function ($routes) {
         $routes->get('/', 'KegiatanController::index');
-        
+    });
+
+    $routes->group('sk', ['namespace' => 'App\Controllers\StaffDosen\SK', 'filter' => 'authStaffDosen'], function ($routes) {
+        $routes->get('/', 'ControllerSK::index');
+        $routes->group('operator', ['filter' => 'authStaffDosen'], function ($routes) {
+            $routes->group('dekan', ['namespace' => 'App\Controllers\StaffDosen\SK', 'filter' => 'authStaffDosen'], function ($routes) {
+                $routes->get('/', 'ControllerOperatorSKDekan::index');
+                $routes->get('add', 'ControllerOperatorSKDekan::add');
+                $routes->post('addData', 'ControllerOperatorSKDekan::addData');
+                $routes->get('view/(:num)', 'ControllerOperatorSKDekan::view/$1');
+                $routes->get('edit/(:num)', 'ControllerOperatorSKDekan::edit/$1');
+                $routes->post('editdata/(:num)', 'ControllerOperatorSKDekan::editData/$1');
+                $routes->post('editdatafilesk/(:num)', 'ControllerOperatorSKDekan::editDataFileSK/$1');
+                $routes->post('konfirmasieditkedekan/(:num)', 'ControllerOperatorSKDekan::konfirmasiEditkeDekan/$1');
+                $routes->post('konfirmiaseditkewadeksumda/(:num)', 'ControllerOperatorSKDekan::konfirmasiEditkeWadeksumda/$1');
+                $routes->post('konfirmasieditkewadekakem/(:num)', 'ControllerOperatorSKDekan::konfirmasiEditkeWadekakem/$1');
+                $routes->post('konfirmasieditketatausaha/(:num)', 'ControllerOperatorSKDekan::konfirmasiEditkeTatausaha/$1');
+                $routes->post('konfirmasieditkesumberdaya/(:num)', 'ControllerOperatorSKDekan::konfirmasiEditkeSumberdaya/$1');
+                $routes->post('konfirmasieditkeakademik/(:num)', 'ControllerOperatorSKDekan::konfirmasiEditkeAkademik/$1');
+            });
+        });
+        $routes->group('verifikator', ['filter' => 'authStaffDosen'], function ($routes) {
+            $routes->group('dekan', ['namespace' => 'App\Controllers\StaffDosen\SK', 'filter' => 'authStaffDosen'], function ($routes) {
+                $routes->get('/', 'ControllerVerifikatorSKDekan::index');
+                $routes->get('view/(:num)', 'ControllerVerifikatorSKDekan::view/$1');
+                $routes->get('edit/(:num)', 'ControllerVerifikatorSKDekan::edit/$1');
+                // Catatan Revisi / Perbaikan
+                $routes->post('editdatasvakakemcatatan/(:num)', 'ControllerVerifikatorSKDekan::editDataSvAkakemCatatan/$1');
+                $routes->post('editdatasvsumdacatatan/(:num)', 'ControllerVerifikatorSKDekan::editDataSvSumdaCatatan/$1');
+                $routes->post('editdatamanagertucatatan/(:num)', 'ControllerVerifikatorSKDekan::editDataManagerTUCatatan/$1');
+                $routes->post('editdatawadekakakemcatatan/(:num)', 'ControllerVerifikatorSKDekan::editDataWadekAkakemCatatan/$1');
+                $routes->post('editdatawadeksumdacatatan/(:num)', 'ControllerVerifikatorSKDekan::editDataWadekSumdaCatatan/$1');
+                $routes->post('editdatadekancatatan/(:num)', 'ControllerVerifikatorSKDekan::editDataDekanCatatan/$1');
+                // Status Proposal
+                $routes->post('editdatasvakakemstatus/(:num)', 'ControllerVerifikatorSKDekan::editDataSvAkakemStatus/$1');
+                $routes->post('editdatasvsumdastatus/(:num)', 'ControllerVerifikatorSKDekan::editDataSvSumdaStatus/$1');
+                $routes->post('editdatamanagertustatus/(:num)', 'ControllerVerifikatorSKDekan::editDataManagerTUStatus/$1');
+                $routes->post('editdatawadekakakemstatus/(:num)', 'ControllerVerifikatorSKDekan::editDataWadekAkakemStatus/$1');
+                $routes->post('editdatawadeksumdastatus/(:num)', 'ControllerVerifikatorSKDekan::editDataWadekSumdaStatus/$1');
+                $routes->post('editdatadekanstatus/(:num)', 'ControllerVerifikatorSKDekan::editDataDekanStatus/$1');
+            });
+        });
     });
 });
 

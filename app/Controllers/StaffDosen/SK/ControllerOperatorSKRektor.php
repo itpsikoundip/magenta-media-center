@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class PengajuanSKRektor extends BaseController
+class ControllerOperatorSKRektor extends BaseController
 {
     public function index()
     {

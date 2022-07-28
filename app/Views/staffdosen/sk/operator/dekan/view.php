@@ -5,7 +5,7 @@
 </style>
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('PengajuanSKDekan') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
+        <a href="<?= base_url('staffdosen/sk/operator/dekan') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
         <?php
         if (session()->getFlashdata('error')) {
             echo '<<div class="alert alert-danger alert-dismissible mb-2" role="alert">
@@ -63,7 +63,7 @@
                                                 } elseif (($detailSKDekan['sk_akem_status']) == 1) {
                                                     echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
                                                 } elseif (($detailSKDekan['sk_akem_status']) == 2) {
-                                                    echo '<a href="/PengajuanSKDekan/edit/' . $detailSKDekan['id_sk_dekan'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                    echo '<a href="' . base_url('staffdosen/sk/operator/dekan/edit/' . $detailSKDekan['id_sk_dekan'])   . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                 } elseif (($detailSKDekan['sk_akem_status']) == 3) {
                                                     echo '<div class="badge badge-success">Disetujui</div>';
                                                 }
@@ -78,7 +78,7 @@
                                                 } elseif (($detailSKDekan['sv_sumda_status']) == 1) {
                                                     echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
                                                 } elseif (($detailSKDekan['sv_sumda_status']) == 2) {
-                                                    echo '<a href="/PengajuanSKDekan/edit/' . $detailSKDekan['id_sk_dekan'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                    echo '<a href="' . base_url('staffdosen/sk/operator/dekan/edit/' . $detailSKDekan['id_sk_dekan'])   . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                 } elseif (($detailSKDekan['sv_sumda_status']) == 3) {
                                                     echo '<div class="badge badge-success">Disetujui</div>';
                                                 }
@@ -93,7 +93,7 @@
                                                 } elseif (($detailSKDekan['manager_tu_status']) == 1) {
                                                     echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
                                                 } elseif (($detailSKDekan['manager_tu_status']) == 2) {
-                                                    echo '<a href="/PengajuanSKDekan/edit/' . $detailSKDekan['id_sk_dekan'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                    echo '<a href="' . base_url('staffdosen/sk/operator/dekan/edit/' . $detailSKDekan['id_sk_dekan'])   . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                 } elseif (($detailSKDekan['manager_tu_status']) == 3) {
                                                     echo '<div class="badge badge-success">Disetujui</div>';
                                                 }
@@ -108,7 +108,7 @@
                                                 } elseif (($detailSKDekan['wadek_akem_status']) == 1) {
                                                     echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
                                                 } elseif (($detailSKDekan['wadek_akem_status']) == 2) {
-                                                    echo '<a href="/PengajuanSKDekan/edit/' . $detailSKDekan['id_sk_dekan'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                    echo '<a href="' . base_url('staffdosen/sk/operator/dekan/edit/' . $detailSKDekan['id_sk_dekan'])   . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                 } elseif (($detailSKDekan['wadek_akem_status']) == 3) {
                                                     echo '<div class="badge badge-success">Disetujui</div>';
                                                 }
@@ -123,7 +123,7 @@
                                                 } elseif (($detailSKDekan['wadek_sumda_status']) == 1) {
                                                     echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
                                                 } elseif (($detailSKDekan['wadek_sumda_status']) == 2) {
-                                                    echo '<a href="/PengajuanSKDekan/edit/' . $detailSKDekan['id_sk_dekan'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                    echo '<a href="' . base_url('staffdosen/sk/operator/dekan/edit/' . $detailSKDekan['id_sk_dekan'])   . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                 } elseif (($detailSKDekan['wadek_sumda_status']) == 3) {
                                                     echo '<div class="badge badge-success">Disetujui</div>';
                                                 }
@@ -138,7 +138,7 @@
                                                 } elseif (($detailSKDekan['dekan_status']) == 1) {
                                                     echo '<button type="button" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</button>';
                                                 } elseif (($detailSKDekan['dekan_status']) == 2) {
-                                                    echo '<a href="/PengajuanSKDekan/edit/' . $detailSKDekan['id_sk_dekan'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
+                                                    echo '<a href="' . base_url('staffdosen/sk/operator/dekan/edit/' . $detailSKDekan['id_sk_dekan'])   . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                 } elseif (($detailSKDekan['dekan_status']) == 3) {
                                                     echo '<div class="badge badge-success">Disetujui</div>';
                                                 }

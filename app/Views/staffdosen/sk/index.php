@@ -41,7 +41,7 @@
                         </a>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-12">
-                        <a class="card" href="<?= base_url('PengajuanSKDekan') ?>">
+                        <a class="card" href="<?= base_url('staffdosen/sk/operator/dekan') ?>">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
@@ -103,7 +103,7 @@
                         </a>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-12">
-                        <a class="card" href="<?= base_url('PengajuanSKDekanVerifikator') ?>">
+                        <a class="card" href="<?= base_url('staffdosen/sk/verifikator/dekan') ?>">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
