@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\SK;
 
 use CodeIgniter\Model;
 
-class ModelSKDekan extends Model
+class ModelOperatorSKDekan extends Model
 {
     public function detailAksesUserOp()
     {

@@ -5,7 +5,7 @@
 </style>
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('PengajuanSK') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
+        <a href="<?= base_url('staffdosen/sk') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
         <?php
         if (session()->getFlashdata('error')) {
             echo '<<div class="alert alert-danger alert-dismissible mb-2" role="alert">
@@ -75,7 +75,7 @@
                                                             <td><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/verifikator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -118,7 +118,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/verifikator/dekan/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -153,7 +153,7 @@
                                                             <td><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/verifikator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -196,7 +196,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/verifikator/dekan/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -230,7 +230,7 @@
                                                             <td><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/verifikator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -273,7 +273,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/verifikator/dekan/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -307,7 +307,7 @@
                                                             <td><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/verifikator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -350,7 +350,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/verifikator/dekan/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -384,7 +384,7 @@
                                                             <td><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/verifikator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -427,7 +427,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/verifikator/dekan/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -461,7 +461,7 @@
                                                             <td><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/verifikator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -504,7 +504,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('PengajuanSKDekanVerifikator/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/sk/verifikator/dekan/view/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>

@@ -1,6 +1,6 @@
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('PengajuanSKDekan') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
+        <a href="<?= base_url('staffdosen/sk/operator/dekan') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
         <?php
         if (session()->getFlashdata('error')) {
             echo '<<div class="alert alert-danger alert-dismissible mb-2" role="alert">
@@ -43,7 +43,7 @@
                         <div class="card-content">
                             <div class="card-body">
                                 <?php
-                                echo form_open_multipart('PengajuanSKDekan/addData');
+                                echo form_open_multipart('staffdosen/sk/operator/dekan/addData');
                                 ?>
                                 <div class="form-body">
                                     <div class="form-group">

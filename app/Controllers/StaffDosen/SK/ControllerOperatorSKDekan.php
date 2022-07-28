@@ -1,25 +1,26 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\StaffDosen\SK;
 
-use App\Models\ModelSKDekan;
+use App\Controllers\BaseController;
+use App\Models\SK\ModelOperatorSKDekan;
 
-class PengajuanSKDekan extends BaseController
+class ControllerOperatorSKDekan extends BaseController
 {
     public function __construct()
     {
         helper('form');
-        $this->ModelSKDekan = new ModelSKDekan();
+        $this->ModelOperatorSKDekan = new ModelOperatorSKDekan();
     }
 
     public function index()
     {
         $data = [
             'title' => 'Pengajuan SK Dekan',
-            'dataSKDekanPengajuMenungguKonfirmasi' => $this->ModelSKDekan->dataSKDekanPengajuMenungguKonfirmasi(),
-            'dataSKDekanPengajuSemuaSK' => $this->ModelSKDekan->dataSKDekanPengajuSemuaSK(),
-            'detailAksesUserOp' => $this->ModelSKDekan->detailAksesUserOp(),
-            'isi'    => 'staffdosen/pengajuansk/skdekan/index'
+            'dataSKDekanPengajuMenungguKonfirmasi' => $this->ModelOperatorSKDekan->dataSKDekanPengajuMenungguKonfirmasi(),
+            'dataSKDekanPengajuSemuaSK' => $this->ModelOperatorSKDekan->dataSKDekanPengajuSemuaSK(),
+            'detailAksesUserOp' => $this->ModelOperatorSKDekan->detailAksesUserOp(),
+            'isi'    => 'staffdosen/sk/operator/dekan/index'
         ];
         return view('layouts/staffdosen-wrapper', $data);
     }
@@ -28,8 +29,8 @@ class PengajuanSKDekan extends BaseController
     {
         $data = [
             'title' => 'Tambah Pengajuan SK Dekan',
-            'detailAksesUserOp' => $this->ModelSKDekan->detailAksesUserOp(),
-            'isi'    => 'staffdosen/pengajuansk/skdekan/add'
+            'detailAksesUserOp' => $this->ModelOperatorSKDekan->detailAksesUserOp(),
+            'isi'    => 'staffdosen/sk/operator/dekan/add'
         ];
         return view('layouts/staffdosen-wrapper', $data);
     }
@@ -62,13 +63,13 @@ class PengajuanSKDekan extends BaseController
             );
             //memindahkan file foto dari form input ke folder foto di directory
             $fileUpload->move('uploadskdekan', $namaFileUpload);
-            $this->ModelSKDekan->add($data);
+            $this->ModelOperatorSKDekan->add($data);
             session()->setFlashdata('sukses', 'SK Dekan Berhasil diajukan !!');
-            return redirect()->to(base_url('PengajuanSKDekan'));
+            return redirect()->to(base_url('staffdosen/sk/operator/dekan'));
         } else {
             //jika tidak valid
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to(base_url('PengajuanSKDekan/add'));
+            return redirect()->to(base_url('staffdosen/sk/operator/dekan/add'));
         }
     }
 
@@ -76,14 +77,14 @@ class PengajuanSKDekan extends BaseController
     {
         $data = [
             'title' => 'Pengajuan SK Dekan',
-            'detailSKDekan' => $this->ModelSKDekan->detailSKDekan($id_sk_dekan),
-            'detailSKDekanNoteSVAkademik' => $this->ModelSKDekan->detailSKDekanNoteSVAkademik($id_sk_dekan),
-            'detailSKDekanNoteSVSumda' => $this->ModelSKDekan->detailSKDekanNoteSVSumda($id_sk_dekan),
-            'detailSKDekanNoteTataUsaha' => $this->ModelSKDekan->detailSKDekanNoteTataUsaha($id_sk_dekan),
-            'detailSKDekanNoteWadekAkem' => $this->ModelSKDekan->detailSKDekanNoteWadekAkem($id_sk_dekan),
-            'detailSKDekanNoteWadekSumda' => $this->ModelSKDekan->detailSKDekanNoteWadekSumda($id_sk_dekan),
-            'detailSKDekanNoteDekan' => $this->ModelSKDekan->detailSKDekanNoteDekan($id_sk_dekan),
-            'isi'    => 'staffdosen/pengajuansk/skdekan/edit'
+            'detailSKDekan' => $this->ModelOperatorSKDekan->detailSKDekan($id_sk_dekan),
+            'detailSKDekanNoteSVAkademik' => $this->ModelOperatorSKDekan->detailSKDekanNoteSVAkademik($id_sk_dekan),
+            'detailSKDekanNoteSVSumda' => $this->ModelOperatorSKDekan->detailSKDekanNoteSVSumda($id_sk_dekan),
+            'detailSKDekanNoteTataUsaha' => $this->ModelOperatorSKDekan->detailSKDekanNoteTataUsaha($id_sk_dekan),
+            'detailSKDekanNoteWadekAkem' => $this->ModelOperatorSKDekan->detailSKDekanNoteWadekAkem($id_sk_dekan),
+            'detailSKDekanNoteWadekSumda' => $this->ModelOperatorSKDekan->detailSKDekanNoteWadekSumda($id_sk_dekan),
+            'detailSKDekanNoteDekan' => $this->ModelOperatorSKDekan->detailSKDekanNoteDekan($id_sk_dekan),
+            'isi'    => 'staffdosen/sk/operator/dekan/edit'
         ];
         return view('layouts/staffdosen-wrapper', $data);
     }
@@ -92,8 +93,8 @@ class PengajuanSKDekan extends BaseController
     {
         $data = [
             'title' => 'Pengajuan SK Dekan',
-            'detailSKDekan' => $this->ModelSKDekan->detailSKDekan($id_sk_dekan),
-            'isi'    => 'staffdosen/pengajuansk/skdekan/view'
+            'detailSKDekan' => $this->ModelOperatorSKDekan->detailSKDekan($id_sk_dekan),
+            'isi'    => 'staffdosen/sk/operator/dekan/view'
         ];
         return view('layouts/staffdosen-wrapper', $data);
     }
@@ -106,9 +107,9 @@ class PengajuanSKDekan extends BaseController
             'tanggal_pembuatan' => $this->request->getPost('tanggalPembuatanSKDekan'),
             'tmt_kegiatan' => $this->request->getPost('tmtKegiatanSKDekan'),
         ];
-        $this->ModelSKDekan->edit($data);
+        $this->ModelOperatorSKDekan->edit($data);
         session()->setFlashdata('sukses', 'Edit Data Berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('PengajuanSKDekan/edit/' . $id_sk_dekan));
+        return redirect()->to(base_url('staffdosen/sk/operator/dekan/edit/' . $id_sk_dekan));
     }
 
     public function editDataFileSK($id_sk_dekan)
@@ -135,13 +136,13 @@ class PengajuanSKDekan extends BaseController
             );
             //memindahkan file foto dari form input ke folder foto di directory
             $fileUpload->move('uploadskdekan', $namaFileUpload);
-            $this->ModelSKDekan->uploadFileSKDekan($data);
+            $this->ModelOperatorSKDekan->uploadFileSKDekan($data);
             session()->setFlashdata('sukses', 'SK Dekan Berhasil diupload !!');
-            return redirect()->to(base_url('PengajuanSKDekan/edit/' . $id_sk_dekan));
+            return redirect()->to(base_url('staffdosen/sk/operator/dekan/edit/' . $id_sk_dekan));
         } else {
             //jika tidak valid
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to(base_url('PengajuanSKDekan/edit/' . $id_sk_dekan));
+            return redirect()->to(base_url('staffdosen/sk/operator/dekan/edit/' . $id_sk_dekan));
         }
     }
 
@@ -151,9 +152,9 @@ class PengajuanSKDekan extends BaseController
             'id_sk_dekan' => $id_sk_dekan,
             'dekan_status' => 0,
         ];
-        $this->ModelSKDekan->edit($data);
+        $this->ModelOperatorSKDekan->edit($data);
         session()->setFlashdata('sukses', 'SK Dekan Berhasil Diajukan !!');
-        return redirect()->to(base_url('PengajuanSKDekan'));
+        return redirect()->to(base_url('staffdosen/sk/operator/dekan'));
     }
     public function konfirmasiEditkeWadeksumda($id_sk_dekan)
     {
@@ -161,9 +162,9 @@ class PengajuanSKDekan extends BaseController
             'id_sk_dekan' => $id_sk_dekan,
             'wadek_sumda_status' => 0,
         ];
-        $this->ModelSKDekan->edit($data);
+        $this->ModelOperatorSKDekan->edit($data);
         session()->setFlashdata('sukses', 'SK Dekan Berhasil Diajukan !!');
-        return redirect()->to(base_url('PengajuanSKDekan'));
+        return redirect()->to(base_url('staffdosen/sk/operator/dekan'));
     }
     public function konfirmasiEditkeWadekakem($id_sk_dekan)
     {
@@ -171,9 +172,9 @@ class PengajuanSKDekan extends BaseController
             'id_sk_dekan' => $id_sk_dekan,
             'wadek_akem_status' => 0,
         ];
-        $this->ModelSKDekan->edit($data);
+        $this->ModelOperatorSKDekan->edit($data);
         session()->setFlashdata('sukses', 'SK Dekan Berhasil Diajukan !!');
-        return redirect()->to(base_url('PengajuanSKDekan'));
+        return redirect()->to(base_url('staffdosen/sk/operator/dekan'));
     }
     public function konfirmasiEditkeTatausaha($id_sk_dekan)
     {
@@ -181,9 +182,9 @@ class PengajuanSKDekan extends BaseController
             'id_sk_dekan' => $id_sk_dekan,
             'manager_tu_status' => 0,
         ];
-        $this->ModelSKDekan->edit($data);
+        $this->ModelOperatorSKDekan->edit($data);
         session()->setFlashdata('sukses', 'SK Dekan Berhasil Diajukan !!');
-        return redirect()->to(base_url('PengajuanSKDekan'));
+        return redirect()->to(base_url('staffdosen/sk/operator/dekan'));
     }
     public function konfirmasiEditkeSumberdaya($id_sk_dekan)
     {
@@ -191,9 +192,9 @@ class PengajuanSKDekan extends BaseController
             'id_sk_dekan' => $id_sk_dekan,
             'sv_sumda_status' => 0,
         ];
-        $this->ModelSKDekan->edit($data);
+        $this->ModelOperatorSKDekan->edit($data);
         session()->setFlashdata('sukses', 'SK Dekan Berhasil Diajukan !!');
-        return redirect()->to(base_url('PengajuanSKDekan'));
+        return redirect()->to(base_url('staffdosen/sk/operator/dekan'));
     }
     public function konfirmasiEditkeAkademik($id_sk_dekan)
     {
@@ -201,8 +202,8 @@ class PengajuanSKDekan extends BaseController
             'id_sk_dekan' => $id_sk_dekan,
             'sk_akem_status' => 0,
         ];
-        $this->ModelSKDekan->edit($data);
+        $this->ModelOperatorSKDekan->edit($data);
         session()->setFlashdata('sukses', 'SK Dekan Berhasil Diajukan !!');
-        return redirect()->to(base_url('PengajuanSKDekan'));
+        return redirect()->to(base_url('staffdosen/sk/operator/dekan'));
     }
 }

@@ -5,7 +5,7 @@
 </style>
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('PengajuanSKDekan') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
+        <a href="<?= base_url('staffdosen/sk/operator/dekan') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
         <?php
         if (session()->getFlashdata('error')) {
             echo '<<div class="alert alert-danger alert-dismissible mb-2" role="alert">
@@ -38,7 +38,7 @@
                         <div class="card-content">
                             <div class="card-body">
                                 <?php
-                                echo form_open_multipart('PengajuanSKDekan/editData/' . $detailSKDekan['id_sk_dekan']);
+                                echo form_open_multipart('staffdosen/sk/operator/dekan/editdata/' . $detailSKDekan['id_sk_dekan']);
                                 ?>
                                 <div class="form-body">
                                     <h4 class="form-section"><i class="fa fa-file-o"></i> Informasi SK</h4>
@@ -68,7 +68,7 @@
                         <div class="card-content">
                             <div class="card-body">
                                 <?php
-                                echo form_open_multipart('PengajuanSKDekan/editDataFileSK/' . $detailSKDekan['id_sk_dekan']);
+                                echo form_open_multipart('staffdosen/sk/operator/dekan/editdatafilesk/' . $detailSKDekan['id_sk_dekan']);
                                 ?>
                                 <div class="form-body">
                                     <h4 class="form-section"><i class="fa fa-file-o"></i> Upload File SK</h4>
@@ -194,7 +194,7 @@
                             <div class="card-body">
                                 <?php if (($detailSKDekan['dekan_status']) == 2) { ?>
                                     <?php
-                                    echo form_open('PengajuanSKDekan/konfirmasieditkedekan/' . $detailSKDekan['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/operator/dekan/konfirmasieditkedekan/' . $detailSKDekan['id_sk_dekan']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -204,7 +204,7 @@
                                     <?php echo form_close() ?>
                                 <?php } elseif (($detailSKDekan['wadek_sumda_status']) == 2) { ?>
                                     <?php
-                                    echo form_open('PengajuanSKDekan/konfirmasieditkewadeksumda/' . $detailSKDekan['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/operator/dekan/konfirmasieditkewadeksumda/' . $detailSKDekan['id_sk_dekan']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -214,7 +214,7 @@
                                     <?php echo form_close() ?>
                                 <?php } elseif (($detailSKDekan['wadek_akem_status']) == 2) { ?>
                                     <?php
-                                    echo form_open('PengajuanSKDekan/konfirmasieditkewadekakakem/' . $detailSKDekan['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/operator/dekan/konfirmasieditkewadekakakem/' . $detailSKDekan['id_sk_dekan']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -224,7 +224,7 @@
                                     <?php echo form_close() ?>
                                 <?php } elseif (($detailSKDekan['manager_tu_status']) == 2) { ?>
                                     <?php
-                                    echo form_open('PengajuanSKDekan/konfirmasieditketatausaha/' . $detailSKDekan['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/operator/dekan/konfirmasieditketatausaha/' . $detailSKDekan['id_sk_dekan']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -234,7 +234,7 @@
                                     <?php echo form_close() ?>
                                 <?php } elseif (($detailSKDekan['sv_sumda_status']) == 2) { ?>
                                     <?php
-                                    echo form_open('PengajuanSKDekan/konfirmasieditkesumberdaya/' . $detailSKDekan['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/operator/dekan/konfirmasieditkesumberdaya/' . $detailSKDekan['id_sk_dekan']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -244,7 +244,7 @@
                                     <?php echo form_close() ?>
                                 <?php } elseif (($detailSKDekan['sk_akem_status']) == 2) { ?>
                                     <?php
-                                    echo form_open('PengajuanSKDekan/konfirmasieditkeakademik/' . $detailSKDekan['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/operator/dekan/konfirmasieditkeakademik/' . $detailSKDekan['id_sk_dekan']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>

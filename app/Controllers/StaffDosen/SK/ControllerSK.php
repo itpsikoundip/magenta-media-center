@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\StaffDosen\SK;
 
-use App\Models\ModelSK;
+use App\Controllers\BaseController;
+use App\Models\SK\ModelSK;
 
-class PengajuanSK extends BaseController
+class ControllerSK extends BaseController
 {
     public function __construct()
     {
@@ -14,10 +15,10 @@ class PengajuanSK extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Pengajuan SK',
+            'title' => 'SK',
             'detailAksesUserOp' => $this->ModelSK->detailAksesUserOp(),
             'detailAksesUserVerifikator' => $this->ModelSK->detailAksesUserVerifikator(),
-            'isi'    => 'staffdosen/pengajuansk/index'
+            'isi'    => 'staffdosen/sk/index'
         ];
         return view('layouts/staffdosen-wrapper', $data);
     }

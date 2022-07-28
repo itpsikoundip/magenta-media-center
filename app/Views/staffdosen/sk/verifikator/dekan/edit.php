@@ -1,6 +1,6 @@
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('PengajuanSKDekanVerifikator') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
+        <a href="<?= base_url('staffdosen/sk/verifikator/dekan') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
         <?php
         if (session()->getFlashdata('notifikasi')) {
             echo '
@@ -78,7 +78,7 @@
                                 <!-- Unit Subbagian Akademik dan Kemahasiswaan FPSi -->
                                 <?php if ($detailVerifikator['sk_jenis_verifikator_id'] == 1) { ?>
                                     <?php
-                                    echo form_open('PengajuanSKDekanVerifikator/editDataSvAkakemCatatan/' . $value['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/verifikator/dekan/editdatasvakakemcatatan/' . $value['id_sk_dekan']);
                                     ?>
                                     <p><?= $detailVerifikator['nama_jenis_verifikator'] ?></p>
                                     <fieldset class="form-group">
@@ -91,7 +91,7 @@
                                     <!-- Subbagian Sumberdaya FPSi -->
                                 <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 2) { ?>
                                     <?php
-                                    echo form_open('PengajuanSKDekanVerifikator/editDataSvSumdaCatatan/' . $value['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/verifikator/dekan/editdatasvsumdacatatan/' . $value['id_sk_dekan']);
                                     ?>
                                     <p><?= $detailVerifikator['nama_jenis_verifikator'] ?></p>
                                     <fieldset class="form-group">
@@ -104,7 +104,7 @@
                                     <!-- Tata Usaha -->
                                 <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 3) { ?>
                                     <?php
-                                    echo form_open('PengajuanSKDekanVerifikator/editDataManagerTUCatatan/' . $value['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/verifikator/dekan/editdatamanagertucatatan/' . $value['id_sk_dekan']);
                                     ?>
                                     <p><?= $detailVerifikator['nama_jenis_verifikator'] ?></p>
                                     <fieldset class="form-group">
@@ -117,7 +117,7 @@
                                     <!-- Wadek Akademik dan Kemahasiswaan -->
                                 <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 4) { ?>
                                     <?php
-                                    echo form_open('PengajuanSKDekanVerifikator/editDataWadekAkakemCatatan/' . $value['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/verifikator/dekan/editdatawadekakakemcatatan/' . $value['id_sk_dekan']);
                                     ?>
                                     <p><?= $detailVerifikator['nama_jenis_verifikator'] ?></p>
                                     <fieldset class="form-group">
@@ -130,7 +130,7 @@
                                     <!-- Wadek Sumber Daya -->
                                 <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 5) { ?>
                                     <?php
-                                    echo form_open('PengajuanSKDekanVerifikator/editDataWadekSumdaCatatan/' . $value['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/verifikator/dekan/editdatawadeksumdacatatan/' . $value['id_sk_dekan']);
                                     ?>
                                     <p><?= $detailVerifikator['nama_jenis_verifikator'] ?></p>
                                     <fieldset class="form-group">
@@ -143,7 +143,7 @@
                                     <!-- Dekan -->
                                 <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 6) { ?>
                                     <?php
-                                    echo form_open('PengajuanSKDekanVerifikator/editDataDekanCatatan/' . $value['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/verifikator/dekan/editdatadekancatatan/' . $value['id_sk_dekan']);
                                     ?>
                                     <p><?= $detailVerifikator['nama_jenis_verifikator'] ?></p>
                                     <fieldset class="form-group">
@@ -180,7 +180,7 @@
                                     </strong>
                                 </div>
                                 <?php
-                                echo form_open('PengajuanSKDekanVerifikator/editDataSvAkakemStatus/' . $value['id_sk_dekan']);
+                                echo form_open('staffdosen/sk/verifikator/dekan/editdatasvakakemstatus/' . $value['id_sk_dekan']);
                                 ?>
                                 <fieldset class="form-group">
                                     <select class="form-control" name="statusPropo">
@@ -197,7 +197,7 @@
                                 <!-- Subbagian Sumberdaya FPSi -->
                             <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 2) { ?>
                                 <?php
-                                echo form_open('PengajuanSKDekanVerifikator/editDataSvSumdaStatus/' . $value['id_sk_dekan']);
+                                echo form_open('staffdosen/sk/verifikator/dekan/editdatasvsumdastatus/' . $value['id_sk_dekan']);
                                 ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :
@@ -229,7 +229,7 @@
                                 <!-- Tata Usaha -->
                             <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 3) { ?>
                                 <?php
-                                echo form_open('PengajuanSKDekanVerifikator/editDataManagerTUStatus/' . $value['id_sk_dekan']);
+                                echo form_open('staffdosen/sk/verifikator/dekan/editdatamanagertustatus/' . $value['id_sk_dekan']);
                                 ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :
@@ -261,7 +261,7 @@
                                 <!-- Wadek Akademik dan Kemahasiswaan -->
                             <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 4) { ?>
                                 <?php
-                                echo form_open('PengajuanSKDekanVerifikator/editDataWadekAkakemStatus/' . $value['id_sk_dekan']);
+                                echo form_open('staffdosen/sk/verifikator/dekan/editdatawadekakakemstatus/' . $value['id_sk_dekan']);
                                 ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :
@@ -293,7 +293,7 @@
                                 <!-- Wadek Sumber Daya -->
                             <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 5) { ?>
                                 <?php
-                                echo form_open('PengajuanSKDekanVerifikator/editDataWadekSumdaStatus/' . $value['id_sk_dekan']);
+                                echo form_open('staffdosen/sk/verifikator/dekan/editdatawadeksumdastatus/' . $value['id_sk_dekan']);
                                 ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :
@@ -325,7 +325,7 @@
                                 <!-- Dekan -->
                             <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 6) { ?>
                                 <?php
-                                echo form_open('PengajuanSKDekanVerifikator/editDataDekanStatus/' . $value['id_sk_dekan']);
+                                echo form_open('staffdosen/sk/verifikator/dekan/editdatadekanstatus/' . $value['id_sk_dekan']);
                                 ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :
