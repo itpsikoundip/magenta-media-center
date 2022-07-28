@@ -17,6 +17,7 @@ class UserStaffDosen extends Seeder
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '0',
+                'kegiatan'              => '0',
                 'catatan'               => 'Dosen',
             ],
             [
@@ -24,8 +25,9 @@ class UserStaffDosen extends Seeder
                 'password'              => '$2y$10$WmlmU3PfoIhXcDxIkBAeoumw/bHDpdE4uJsWXM.gJ0FJ80MWYobG6 ',
                 'proposal'              => '1',
                 'survey'                => '1',
-                'helpdesk'              => '0',
+                'helpdesk'              => '1',
                 'sk'                    => '1',
+                'kegiatan'              => '1',
                 'catatan'               => 'Manager Tata Usaha',
             ],
             [
@@ -35,6 +37,7 @@ class UserStaffDosen extends Seeder
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '1',
+                'kegiatan'              => '0',
                 'catatan'               => 'Akademik dan Kemahasiswaan',
             ],
             [
@@ -44,6 +47,7 @@ class UserStaffDosen extends Seeder
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '1',
+                'kegiatan'              => '0',
                 'catatan'               => 'Sumberdaya',
             ],
             [
@@ -53,6 +57,7 @@ class UserStaffDosen extends Seeder
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '1',
+                'kegiatan'              => '0',
                 'catatan'               => 'Wadek Akademik dan Kemahasiswaan',
             ],
             [
@@ -62,6 +67,7 @@ class UserStaffDosen extends Seeder
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '1',
+                'kegiatan'              => '0',
                 'catatan'               => 'Wadek Sumber Daya',
             ],
             [
@@ -71,6 +77,7 @@ class UserStaffDosen extends Seeder
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '0',
+                'kegiatan'              => '0',
                 'catatan'               => 'Kaprodi S1',
             ],
             [
@@ -80,6 +87,7 @@ class UserStaffDosen extends Seeder
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '0',
+                'kegiatan'              => '0',
                 'catatan'               => 'Kaprodi S2',
             ],
             [
@@ -89,6 +97,7 @@ class UserStaffDosen extends Seeder
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '1',
+                'kegiatan'              => '0',
                 'catatan'               => 'Dekan',
             ],
             [
@@ -98,6 +107,7 @@ class UserStaffDosen extends Seeder
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '1',
+                'kegiatan'              => '0',
                 'catatan'               => 'Sumberdaya',
             ],
             [
@@ -107,6 +117,7 @@ class UserStaffDosen extends Seeder
                 'survey'                => '0',
                 'helpdesk'              => '0',
                 'sk'                    => '1',
+                'kegiatan'              => '0',
                 'catatan'               => 'Akademik dan Kemahasiswaan',
             ],
         ];
