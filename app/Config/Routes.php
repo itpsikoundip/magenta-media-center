@@ -146,6 +146,25 @@ $routes->group('staffdosen', function ($routes) {
                 $routes->post('editdatawadeksumdastatus/(:num)', 'ControllerVerifikatorSKDekan::editDataWadekSumdaStatus/$1');
                 $routes->post('editdatadekanstatus/(:num)', 'ControllerVerifikatorSKDekan::editDataDekanStatus/$1');
             });
+            $routes->group('rektor', ['namespace' => 'App\Controllers\StaffDosen\SK', 'filter' => 'authStaffDosen'], function ($routes) {
+                $routes->get('/', 'ControllerVerifikatorSKRektor::index');
+                $routes->get('view/(:num)', 'ControllerVerifikatorSKRektor::view/$1');
+                $routes->get('edit/(:num)', 'ControllerVerifikatorSKRektor::edit/$1');
+                // Catatan Revisi / Perbaikan
+                $routes->post('editdatasvakakemcatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataSvAkakemCatatan/$1');
+                $routes->post('editdatasvsumdacatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataSvSumdaCatatan/$1');
+                $routes->post('editdatamanagertucatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataManagerTUCatatan/$1');
+                $routes->post('editdatawadekakakemcatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataWadekAkakemCatatan/$1');
+                $routes->post('editdatawadeksumdacatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataWadekSumdaCatatan/$1');
+                $routes->post('editdatadekancatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataDekanCatatan/$1');
+                // Status Proposal
+                $routes->post('editdatasvakakemstatus/(:num)', 'ControllerVerifikatorSKRektor::editDataSvAkakemStatus/$1');
+                $routes->post('editdatasvsumdastatus/(:num)', 'ControllerVerifikatorSKRektor::editDataSvSumdaStatus/$1');
+                $routes->post('editdatamanagertustatus/(:num)', 'ControllerVerifikatorSKRektor::editDataManagerTUStatus/$1');
+                $routes->post('editdatawadekakakemstatus/(:num)', 'ControllerVerifikatorSKRektor::editDataWadekAkakemStatus/$1');
+                $routes->post('editdatawadeksumdastatus/(:num)', 'ControllerVerifikatorSKRektor::editDataWadekSumdaStatus/$1');
+                $routes->post('editdatadekanstatus/(:num)', 'ControllerVerifikatorSKRektor::editDataDekanStatus/$1');
+            });
         });
     });
 });
