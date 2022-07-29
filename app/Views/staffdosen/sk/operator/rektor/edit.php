@@ -5,7 +5,7 @@
 </style>
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('staffdosen/sk/operator/dekan') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
+        <a href="<?= base_url('staffdosen/sk/operator/rektor') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Kembali</a>
         <?php
         if (session()->getFlashdata('error')) {
             echo '<<div class="alert alert-danger alert-dismissible mb-2" role="alert">
@@ -38,8 +38,8 @@
         <?php } ?>
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
-                <h2 class="mb-0 d-inline-block font-weight-bold">Edit <?= $detailSKDekan['judul_sk'] ?></h2>
-                <h4 class="grey"><?= $detailSKDekan['tanggal_pembuatan']  ?></h4>
+                <h2 class="mb-0 d-inline-block font-weight-bold">Edit <?= $detailSKRektor['judul_sk'] ?></h2>
+                <h4 class="grey"><?= $detailSKRektor['tanggal_pembuatan']  ?></h4>
             </div>
         </div>
         <div class="content-body">
@@ -49,21 +49,21 @@
                         <div class="card-content">
                             <div class="card-body">
                                 <?php
-                                echo form_open_multipart('staffdosen/sk/operator/dekan/editdata/' . $detailSKDekan['id_sk_dekan']);
+                                echo form_open_multipart('staffdosen/sk/operator/rektor/editdata/' . $detailSKRektor['id_sk_rektor']);
                                 ?>
                                 <div class="form-body">
                                     <h4 class="form-section"><i class="fa fa-file-o"></i> Informasi SK</h4>
                                     <div class="form-group">
                                         <label>Judul SK</label>
-                                        <input type="text" class="form-control" maxlength="255" name="judulSKDekan" value="<?= $detailSKDekan['judul_sk'] ?>">
+                                        <input type="text" class="form-control" maxlength="255" name="judulSKRektor" value="<?= $detailSKRektor['judul_sk'] ?>">
                                     </div>
                                     <div class="form-group">
                                         <label>Tanggal Pembuatan</label>
-                                        <input type="date" class="form-control" name="tanggalPembuatanSKDekan" value="<?= $detailSKDekan['tanggal_pembuatan'] ?>">
+                                        <input type="date" class="form-control" name="tanggalPembuatanSKRektor" value="<?= $detailSKRektor['tanggal_pembuatan'] ?>">
                                     </div>
                                     <div class="form-group">
                                         <label>TMT Kegiatan</label>
-                                        <input type="text" class="form-control" placeholder="" maxlength="255" name="tmtKegiatanSKDekan" value="<?= $detailSKDekan['tmt_kegiatan'] ?>">
+                                        <input type="text" class="form-control" placeholder="" maxlength="255" name="tmtKegiatanSKRektor" value="<?= $detailSKRektor['tmt_kegiatan'] ?>">
                                     </div>
                                     <div class="form-actions">
                                         <button type="submit" class="btn btn-block btn-primary">
@@ -79,13 +79,13 @@
                         <div class="card-content">
                             <div class="card-body">
                                 <?php
-                                echo form_open_multipart('staffdosen/sk/operator/dekan/editdatafilesk/' . $detailSKDekan['id_sk_dekan']);
+                                echo form_open_multipart('staffdosen/sk/operator/rektor/editdatafilesk/' . $detailSKRektor['id_sk_rektor']);
                                 ?>
                                 <div class="form-body">
                                     <h4 class="form-section"><i class="fa fa-file-o"></i> Upload File SK</h4>
                                     <div class="form-group">
                                         <label>Upload</label>
-                                        <input type="file" class="form-control" name="uploadSKDekan">
+                                        <input type="file" class="form-control" name="uploadSKRektor">
                                         <p class="text-left"><small class="text-muted">Format file wajib .pdf | Ukuran maks 5MB</small></p>
                                     </div>
                                     <div class="form-actions">
@@ -124,62 +124,62 @@
                                         <tr>
                                             <td><strong>SV Akem</strong><small><br>
                                                     <?php
-                                                    foreach ($detailSKDekanNoteSVAkademik as $key => $a) { ?>
+                                                    foreach ($detailSKRektorNoteSVAkademik as $key => $a) { ?>
                                                         <?= $a['nama']  ?>
                                                     <?php  } ?>
-                                                    <i><?= $detailSKDekan['sk_akem_updatetime']  ?></i></small>
+                                                    <i><?= $detailSKRektor['sk_akem_updatetime']  ?></i></small>
                                             </td>
-                                            <td><small><?= $detailSKDekan['sk_akem_note']  ?></small></td>
+                                            <td><small><?= $detailSKRektor['sk_akem_note']  ?></small></td>
                                         </tr>
                                         <tr>
                                             <td><strong>SV Sumda</strong><small><br>
                                                     <?php
-                                                    foreach ($detailSKDekanNoteSVSumda as $key => $a) { ?>
+                                                    foreach ($detailSKRektorNoteSVSumda as $key => $a) { ?>
                                                         <?= $a['nama']  ?>
                                                     <?php  } ?>
-                                                    <i><?= $detailSKDekan['sv_sumda_updatetime']  ?></i></small>
+                                                    <i><?= $detailSKRektor['sv_sumda_updatetime']  ?></i></small>
                                             </td>
-                                            <td><small><?= $detailSKDekan['sv_sumda_note']  ?></small></td>
+                                            <td><small><?= $detailSKRektor['sv_sumda_note']  ?></small></td>
                                         </tr>
                                         <tr>
                                             <td><strong>Manager TU</strong><small><br>
                                                     <?php
-                                                    foreach ($detailSKDekanNoteTataUsaha as $key => $a) { ?>
+                                                    foreach ($detailSKRektorNoteTataUsaha as $key => $a) { ?>
                                                         <?= $a['nama']  ?>
                                                     <?php  } ?>
-                                                    <i><?= $detailSKDekan['manager_tu_updatetime']  ?></i></small>
+                                                    <i><?= $detailSKRektor['manager_tu_updatetime']  ?></i></small>
                                             </td>
-                                            <td><small><?= $detailSKDekan['manager_tu_note']  ?></small></td>
+                                            <td><small><?= $detailSKRektor['manager_tu_note']  ?></small></td>
                                         </tr>
                                         <tr>
                                             <td><strong>Wadek Akem</strong><small><br>
                                                     <?php
-                                                    foreach ($detailSKDekanNoteWadekAkem as $key => $a) { ?>
+                                                    foreach ($detailSKRektorNoteWadekAkem as $key => $a) { ?>
                                                         <?= $a['nama']  ?>
                                                     <?php  } ?>
-                                                    <i><?= $detailSKDekan['wadek_akem_updatetime']  ?></i></small>
+                                                    <i><?= $detailSKRektor['wadek_akem_updatetime']  ?></i></small>
                                             </td>
-                                            <td><small><?= $detailSKDekan['wadek_akem_note']  ?></small></td>
+                                            <td><small><?= $detailSKRektor['wadek_akem_note']  ?></small></td>
                                         </tr>
                                         <tr>
                                             <td><strong>Wadek Sumda</strong><small><br>
                                                     <?php
-                                                    foreach ($detailSKDekanNoteWadekSumda as $key => $a) { ?>
+                                                    foreach ($detailSKRektorNoteWadekSumda as $key => $a) { ?>
                                                         <?= $a['nama']  ?>
                                                     <?php  } ?>
-                                                    <i><?= $detailSKDekan['wadek_sumda_updatetime']  ?></i></small>
+                                                    <i><?= $detailSKRektor['wadek_sumda_updatetime']  ?></i></small>
                                             </td>
-                                            <td><small><?= $detailSKDekan['wadek_sumda_note']  ?></small></td>
+                                            <td><small><?= $detailSKRektor['wadek_sumda_note']  ?></small></td>
                                         </tr>
                                         <tr>
                                             <td><strong>Dekan</strong><small><br>
                                                     <?php
-                                                    foreach ($detailSKDekanNoteDekan as $key => $a) { ?>
+                                                    foreach ($detailSKRektorNoteDekan as $key => $a) { ?>
                                                         <?= $a['nama']  ?>
                                                     <?php  } ?>
-                                                    <i><?= $detailSKDekan['dekan_updatetime']  ?></i></small>
+                                                    <i><?= $detailSKRektor['dekan_updatetime']  ?></i></small>
                                             </td>
-                                            <td><small><?= $detailSKDekan['dekan_note']  ?></small></td>
+                                            <td><small><?= $detailSKRektor['dekan_note']  ?></small></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -190,11 +190,11 @@
                         <div class="card-content">
                             <div class="card-body">
                                 <?php
-                                echo form_open_multipart('PengajuanSKDekan/editData');
+                                echo form_open_multipart('PengajuanSKrektor/editData');
                                 ?>
                                 <div class="form-body">
                                     <h4 class="form-section"><i class="fa fa-file-pdf-o"></i> File SK Saat ini</h4>
-                                    <a href="<?= base_url('uploadskdekan/' . $detailSKDekan['upload_sk_dekan']) ?>" target="_blank" class="btn btn-info btn-block btn-lg"><i class="fa fa-file-pdf-o"></i> <?= $detailSKDekan['upload_sk_dekan'] ?></a>
+                                    <a href="<?= base_url('uploadskrektor/' . $detailSKRektor['upload_sk_rektor']) ?>" target="_blank" class="btn btn-info btn-block btn-lg"><i class="fa fa-file-pdf-o"></i> <?= $detailSKRektor['upload_sk_rektor'] ?></a>
                                 </div>
                                 <?php echo form_close() ?>
                             </div>
@@ -203,9 +203,9 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
-                                <?php if (($detailSKDekan['dekan_status']) == 2) { ?>
+                                <?php if (($detailSKRektor['dekan_status']) == 2) { ?>
                                     <?php
-                                    echo form_open('staffdosen/sk/operator/dekan/konfirmasieditkedekan/' . $detailSKDekan['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/operator/rektor/konfirmasieditkedekan/' . $detailSKRektor['id_sk_rektor']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -213,9 +213,9 @@
                                         </button>
                                     </div>
                                     <?php echo form_close() ?>
-                                <?php } elseif (($detailSKDekan['wadek_sumda_status']) == 2) { ?>
+                                <?php } elseif (($detailSKRektor['wadek_sumda_status']) == 2) { ?>
                                     <?php
-                                    echo form_open('staffdosen/sk/operator/dekan/konfirmasieditkewadeksumda/' . $detailSKDekan['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/operator/rektor/konfirmasieditkewadeksumda/' . $detailSKRektor['id_sk_rektor']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -223,9 +223,9 @@
                                         </button>
                                     </div>
                                     <?php echo form_close() ?>
-                                <?php } elseif (($detailSKDekan['wadek_akem_status']) == 2) { ?>
+                                <?php } elseif (($detailSKRektor['wadek_akem_status']) == 2) { ?>
                                     <?php
-                                    echo form_open('staffdosen/sk/operator/dekan/konfirmasieditkewadekakakem/' . $detailSKDekan['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/operator/rektor/konfirmasieditkewadekakakem/' . $detailSKRektor['id_sk_rektor']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -233,9 +233,9 @@
                                         </button>
                                     </div>
                                     <?php echo form_close() ?>
-                                <?php } elseif (($detailSKDekan['manager_tu_status']) == 2) { ?>
+                                <?php } elseif (($detailSKRektor['manager_tu_status']) == 2) { ?>
                                     <?php
-                                    echo form_open('staffdosen/sk/operator/dekan/konfirmasieditketatausaha/' . $detailSKDekan['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/operator/rektor/konfirmasieditketatausaha/' . $detailSKRektor['id_sk_rektor']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -243,9 +243,9 @@
                                         </button>
                                     </div>
                                     <?php echo form_close() ?>
-                                <?php } elseif (($detailSKDekan['sv_sumda_status']) == 2) { ?>
+                                <?php } elseif (($detailSKRektor['sv_sumda_status']) == 2) { ?>
                                     <?php
-                                    echo form_open('staffdosen/sk/operator/dekan/konfirmasieditkesumberdaya/' . $detailSKDekan['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/operator/rektor/konfirmasieditkesumberdaya/' . $detailSKRektor['id_sk_rektor']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -253,9 +253,9 @@
                                         </button>
                                     </div>
                                     <?php echo form_close() ?>
-                                <?php } elseif (($detailSKDekan['sk_akem_status']) == 2) { ?>
+                                <?php } elseif (($detailSKRektor['sk_akem_status']) == 2) { ?>
                                     <?php
-                                    echo form_open('staffdosen/sk/operator/dekan/konfirmasieditkeakademik/' . $detailSKDekan['id_sk_dekan']);
+                                    echo form_open('staffdosen/sk/operator/rektor/konfirmasieditkeakademik/' . $detailSKRektor['id_sk_rektor']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>

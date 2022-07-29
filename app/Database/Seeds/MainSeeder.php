@@ -33,5 +33,6 @@ class MainSeeder extends Seeder
         $this->call('SKDekan');
         $this->call('RuanganSeeder');
         $this->call('StatusKegiatanSeeder');
+        $this->call('SKRektor');
     }
 }

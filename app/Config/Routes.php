@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(false);
+$routes->setAutoRoute(true);
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -109,6 +109,21 @@ $routes->group('staffdosen', function ($routes) {
                 $routes->post('konfirmasieditketatausaha/(:num)', 'ControllerOperatorSKDekan::konfirmasiEditkeTatausaha/$1');
                 $routes->post('konfirmasieditkesumberdaya/(:num)', 'ControllerOperatorSKDekan::konfirmasiEditkeSumberdaya/$1');
                 $routes->post('konfirmasieditkeakademik/(:num)', 'ControllerOperatorSKDekan::konfirmasiEditkeAkademik/$1');
+            });
+            $routes->group('rektor', ['namespace' => 'App\Controllers\StaffDosen\SK', 'filter' => 'authStaffDosen'], function ($routes) {
+                $routes->get('/', 'ControllerOperatorSKRektor::index');
+                $routes->get('add', 'ControllerOperatorSKRektor::add');
+                $routes->post('addData', 'ControllerOperatorSKRektor::addData');
+                $routes->get('view/(:num)', 'ControllerOperatorSKRektor::view/$1');
+                $routes->get('edit/(:num)', 'ControllerOperatorSKRektor::edit/$1');
+                $routes->post('editdata/(:num)', 'ControllerOperatorSKRektor::editData/$1');
+                $routes->post('editdatafilesk/(:num)', 'ControllerOperatorSKRektor::editDataFileSK/$1');
+                $routes->post('konfirmasieditkedekan/(:num)', 'ControllerOperatorSKRektor::konfirmasiEditkeDekan/$1');
+                $routes->post('konfirmiaseditkewadeksumda/(:num)', 'ControllerOperatorSKRektor::konfirmasiEditkeWadeksumda/$1');
+                $routes->post('konfirmasieditkewadekakem/(:num)', 'ControllerOperatorSKRektor::konfirmasiEditkeWadekakem/$1');
+                $routes->post('konfirmasieditketatausaha/(:num)', 'ControllerOperatorSKRektor::konfirmasiEditkeTatausaha/$1');
+                $routes->post('konfirmasieditkesumberdaya/(:num)', 'ControllerOperatorSKRektor::konfirmasiEditkeSumberdaya/$1');
+                $routes->post('konfirmasieditkeakademik/(:num)', 'ControllerOperatorSKRektor::konfirmasiEditkeAkademik/$1');
             });
         });
         $routes->group('verifikator', ['filter' => 'authStaffDosen'], function ($routes) {
