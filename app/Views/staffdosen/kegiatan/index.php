@@ -130,8 +130,8 @@
                                     </div>
 
                                     <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
-                                        <form class="form form-horizontal" action="<?php //base_url('staffdosen/helpdesk/addfaq/') ?>" method="post" enctype="multipart/form-data">
-                                        <?= csrf_field(); ?>
+                                        <form class="form form-horizontal" action="<?php base_url('staffdosen/kegiatan/addkegiatan/') ?>" method="post" enctype="multipart/form-data">
+                                            <?= csrf_field(); ?>
                                             <div class="form-body">
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputPertanyaan"><b>Ruangan</b></label>
