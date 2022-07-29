@@ -22,6 +22,7 @@ $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(TRUE);
+
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -110,6 +111,21 @@ $routes->group('staffdosen', function ($routes) {
                 $routes->post('konfirmasieditkesumberdaya/(:num)', 'ControllerOperatorSKDekan::konfirmasiEditkeSumberdaya/$1');
                 $routes->post('konfirmasieditkeakademik/(:num)', 'ControllerOperatorSKDekan::konfirmasiEditkeAkademik/$1');
             });
+            $routes->group('rektor', ['namespace' => 'App\Controllers\StaffDosen\SK', 'filter' => 'authStaffDosen'], function ($routes) {
+                $routes->get('/', 'ControllerOperatorSKRektor::index');
+                $routes->get('add', 'ControllerOperatorSKRektor::add');
+                $routes->post('addData', 'ControllerOperatorSKRektor::addData');
+                $routes->get('view/(:num)', 'ControllerOperatorSKRektor::view/$1');
+                $routes->get('edit/(:num)', 'ControllerOperatorSKRektor::edit/$1');
+                $routes->post('editdata/(:num)', 'ControllerOperatorSKRektor::editData/$1');
+                $routes->post('editdatafilesk/(:num)', 'ControllerOperatorSKRektor::editDataFileSK/$1');
+                $routes->post('konfirmasieditkedekan/(:num)', 'ControllerOperatorSKRektor::konfirmasiEditkeDekan/$1');
+                $routes->post('konfirmiaseditkewadeksumda/(:num)', 'ControllerOperatorSKRektor::konfirmasiEditkeWadeksumda/$1');
+                $routes->post('konfirmasieditkewadekakem/(:num)', 'ControllerOperatorSKRektor::konfirmasiEditkeWadekakem/$1');
+                $routes->post('konfirmasieditketatausaha/(:num)', 'ControllerOperatorSKRektor::konfirmasiEditkeTatausaha/$1');
+                $routes->post('konfirmasieditkesumberdaya/(:num)', 'ControllerOperatorSKRektor::konfirmasiEditkeSumberdaya/$1');
+                $routes->post('konfirmasieditkeakademik/(:num)', 'ControllerOperatorSKRektor::konfirmasiEditkeAkademik/$1');
+            });
         });
         $routes->group('verifikator', ['filter' => 'authStaffDosen'], function ($routes) {
             $routes->group('dekan', ['namespace' => 'App\Controllers\StaffDosen\SK', 'filter' => 'authStaffDosen'], function ($routes) {
@@ -130,6 +146,25 @@ $routes->group('staffdosen', function ($routes) {
                 $routes->post('editdatawadekakakemstatus/(:num)', 'ControllerVerifikatorSKDekan::editDataWadekAkakemStatus/$1');
                 $routes->post('editdatawadeksumdastatus/(:num)', 'ControllerVerifikatorSKDekan::editDataWadekSumdaStatus/$1');
                 $routes->post('editdatadekanstatus/(:num)', 'ControllerVerifikatorSKDekan::editDataDekanStatus/$1');
+            });
+            $routes->group('rektor', ['namespace' => 'App\Controllers\StaffDosen\SK', 'filter' => 'authStaffDosen'], function ($routes) {
+                $routes->get('/', 'ControllerVerifikatorSKRektor::index');
+                $routes->get('view/(:num)', 'ControllerVerifikatorSKRektor::view/$1');
+                $routes->get('edit/(:num)', 'ControllerVerifikatorSKRektor::edit/$1');
+                // Catatan Revisi / Perbaikan
+                $routes->post('editdatasvakakemcatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataSvAkakemCatatan/$1');
+                $routes->post('editdatasvsumdacatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataSvSumdaCatatan/$1');
+                $routes->post('editdatamanagertucatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataManagerTUCatatan/$1');
+                $routes->post('editdatawadekakakemcatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataWadekAkakemCatatan/$1');
+                $routes->post('editdatawadeksumdacatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataWadekSumdaCatatan/$1');
+                $routes->post('editdatadekancatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataDekanCatatan/$1');
+                // Status Proposal
+                $routes->post('editdatasvakakemstatus/(:num)', 'ControllerVerifikatorSKRektor::editDataSvAkakemStatus/$1');
+                $routes->post('editdatasvsumdastatus/(:num)', 'ControllerVerifikatorSKRektor::editDataSvSumdaStatus/$1');
+                $routes->post('editdatamanagertustatus/(:num)', 'ControllerVerifikatorSKRektor::editDataManagerTUStatus/$1');
+                $routes->post('editdatawadekakakemstatus/(:num)', 'ControllerVerifikatorSKRektor::editDataWadekAkakemStatus/$1');
+                $routes->post('editdatawadeksumdastatus/(:num)', 'ControllerVerifikatorSKRektor::editDataWadekSumdaStatus/$1');
+                $routes->post('editdatadekanstatus/(:num)', 'ControllerVerifikatorSKRektor::editDataDekanStatus/$1');
             });
         });
     });

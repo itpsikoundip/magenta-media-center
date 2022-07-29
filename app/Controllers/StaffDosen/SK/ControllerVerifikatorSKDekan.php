@@ -206,7 +206,7 @@ class ControllerVerifikatorSKDekan extends BaseController
         ];
         $this->ModelVerifikatorSKDekan->edit($data);
         session()->setFlashdata('notifikasi', 'Pengubahan status berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('PengajuanSKDekanVerifikator/edit/'  . $id_sk_dekan));
+        return redirect()->to(base_url('staffdosen/sk/verifikator/dekan/edit/'  . $id_sk_dekan));
     }
     public function editDataDekanStatus($id_sk_dekan)
     {
@@ -218,7 +218,7 @@ class ControllerVerifikatorSKDekan extends BaseController
         ];
         $this->ModelVerifikatorSKDekan->edit($data);
         session()->setFlashdata('notifikasi', 'Pengubahan status berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('PengajuanSKDekanVerifikator/edit/'  . $id_sk_dekan));
+        return redirect()->to(base_url('staffdosen/sk/verifikator/dekan/edit/'  . $id_sk_dekan));
     }
 
     public function view($id_sk_dekan)
