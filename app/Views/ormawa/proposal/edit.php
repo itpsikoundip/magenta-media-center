@@ -5,7 +5,7 @@
 </style>
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('proposal/data') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
+        <a href="<?= base_url('ormawa/proposal/data') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                 <h2 class="mb-0 d-inline-block font-weight-bold">Edit <?= $title ?></h2>
@@ -52,7 +52,7 @@
                                     <?php
                                     foreach ($detailProposal as $key => $value) { ?>
                                         <?php
-                                        echo form_open('proposal/editdata/' . $value['id_propo']);
+                                        echo form_open('ormawa/proposal/editdata/' . $value['id_propo']);
                                         ?>
                                         <div class="form-body">
                                             <h4 class="form-section"><i class="fa fa-file-o"></i> Informasi Proposal</h4>
@@ -165,7 +165,7 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <?php
-                                    echo form_open_multipart('proposal/editfileproposal/' . $value['id_propo']);
+                                    echo form_open_multipart('ormawa/proposal/editfileproposal/' . $value['id_propo']);
                                     ?>
                                     <div class="form-body">
                                         <h4 class="form-section"><i class="fa fa-paperclip"></i> Upload File Proposal</h4>
@@ -330,7 +330,7 @@
                                 <div class="card-body">
                                     <?php if (($value['dekan_status']) == 2) { ?>
                                         <?php
-                                        echo form_open('proposal/konfirmasieditkedekan/' . $value['id_propo']);
+                                        echo form_open('ormawa/proposal/konfirmasieditkedekan/' . $value['id_propo']);
                                         ?>
                                         <div class="form-body">
                                             <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -340,7 +340,7 @@
                                         <?php echo form_close() ?>
                                     <?php } elseif (($value['wadeksumda_status']) == 2) { ?>
                                         <?php
-                                        echo form_open('proposal/konfirmasieditkewadeksumda/' . $value['id_propo']);
+                                        echo form_open('ormawa/proposal/konfirmasieditkewadeksumda/' . $value['id_propo']);
                                         ?>
                                         <div class="form-body">
                                             <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -360,7 +360,7 @@
                                         <?php echo form_close() ?>
                                     <?php } elseif (($value['kaprodis1_status']) == 2) { ?>
                                         <?php
-                                        echo form_open('proposal/konfirmasieditkekaprodis1/' . $value['id_propo']);
+                                        echo form_open('ormawa/proposal/konfirmasieditkekaprodis1/' . $value['id_propo']);
                                         ?>
                                         <div class="form-body">
                                             <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -370,7 +370,7 @@
                                         <?php echo form_close() ?>
                                     <?php } elseif (($value['tatausaha_status']) == 2) { ?>
                                         <?php
-                                        echo form_open('proposal/konfirmasieditketatausaha/' . $value['id_propo']);
+                                        echo form_open('ormawa/proposal/konfirmasieditketatausaha/' . $value['id_propo']);
                                         ?>
                                         <div class="form-body">
                                             <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -380,7 +380,7 @@
                                         <?php echo form_close() ?>
                                     <?php } elseif (($value['sumberdaya_status']) == 2) { ?>
                                         <?php
-                                        echo form_open('proposal/konfirmasieditkesumberdaya/' . $value['id_propo']);
+                                        echo form_open('ormawa/proposal/konfirmasieditkesumberdaya/' . $value['id_propo']);
                                         ?>
                                         <div class="form-body">
                                             <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -390,7 +390,7 @@
                                         <?php echo form_close() ?>
                                     <?php } elseif (($value['akademik_status']) == 2) { ?>
                                         <?php
-                                        echo form_open('proposal/konfirmasieditkeakademik/' . $value['id_propo']);
+                                        echo form_open('ormawa/proposal/konfirmasieditkeakademik/' . $value['id_propo']);
                                         ?>
                                         <div class="form-body">
                                             <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
@@ -400,7 +400,7 @@
                                         <?php echo form_close() ?>
                                     <?php } elseif (($value['bem_status']) == 2) { ?>
                                         <?php
-                                        echo form_open('proposal/konfirmasieditkebem/' . $value['id_propo']);
+                                        echo form_open('ormawa/proposal/konfirmasieditkebem/' . $value['id_propo']);
                                         ?>
                                         <div class="form-body">
                                             <h4 class="form-section"><i class="fa fa-check-square-o"></i> Konfirmasi Pengajuan</h4>
