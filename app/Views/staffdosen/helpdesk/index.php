@@ -179,7 +179,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputPertanyaan"><b>Pertanyaan</b></label>
                                                     <div class="col-md-10">
-                                                        <input id="inputSubjek" name="inputPertanyaan" class="form-control" placeholder="Pertanyaan/permasalahan">
+                                                        <input id="inputPertanyaan" name="inputPertanyaan" class="form-control" placeholder="Pertanyaan/permasalahan">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
