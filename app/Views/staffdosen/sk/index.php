@@ -24,7 +24,7 @@
             <div class="content-body">
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-12">
-                        <a class="card" href="<?= base_url('PengajuanSKRektor') ?>">
+                        <a class="card" href="<?= base_url('staffdosen/sk/operator/rektor') ?>">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
@@ -33,7 +33,7 @@
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>SK Rektor</u></h3>
-                                            <span>Deskripsi</span>
+                                            <span>Pengajuan SK Rektor</span>
                                         </div>
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>SK Dekan</u></h3>
-                                            <span>Deskripsi</span>
+                                            <span>Pengajuan SK Dekan</span>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
             <div class="content-body">
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-12">
-                        <a class="card" href="<?= base_url('PengajuanSKRektor') ?>">
+                        <a class="card" href="<?= base_url('staffdosen/sk/operator/rektor') ?>">
                             <div class="card-content">
                                 <div class="card-body">
                                     <div class="media d-flex">
@@ -95,7 +95,7 @@
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>SK Rektor</u></h3>
-                                            <span>Deskripsi</span>
+                                            <span>Verifikasi Pengajuan SK Rektor</span>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                                         </div>
                                         <div class="media-body text-right">
                                             <h3><u>SK Dekan</u></h3>
-                                            <span>Deskripsi</span>
+                                            <span>Verifikasi Pengajuan SK Dekan</span>
                                         </div>
                                     </div>
                                 </div>
