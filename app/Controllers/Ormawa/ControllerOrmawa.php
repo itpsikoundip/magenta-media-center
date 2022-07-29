@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Ormawa;
 
-class Ormawa extends BaseController
+use App\Controllers\BaseController;
+
+class ControllerOrmawa extends BaseController
 {
     public function index()
     {

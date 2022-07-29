@@ -26,7 +26,7 @@
         <div class="content-body">
             <div class="row">
                 <div class="col-12">
-                    <a class="card" href="<?= base_url('proposal') ?>">
+                    <a class="card" href="<?= base_url('ormawa/proposal') ?>">
                         <div class="card-content">
                             <div class="card-body">
                                 <div class="media d-flex">

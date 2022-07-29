@@ -1,6 +1,6 @@
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('proposal/data') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
+        <a href="<?= base_url('ormawa/proposal/data') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
         <?php
         if (session()->getFlashdata('notifikasi')) {
             echo '
@@ -118,10 +118,10 @@
                             <?php
                             foreach ($detailProposal as $key => $value) { ?>
                                 <?php
-                                echo form_open('Proposal/editDataBEMCatatan/' . $value['id_propo']);
+                                echo form_open('ormawa/proposal/editdatabemcatatan/' . $value['id_propo']);
                                 ?>
                                 <fieldset class="form-group">
-                                    <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['akademik_note']  ?></textarea>
+                                    <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['bem_note']  ?></textarea>
                                 </fieldset>
                                 <input type="hidden" name="userID" value="<?= session()->get('nim') ?>">
                                 <input type="hidden" name="timeUpdated" value="<?= date('Y-m-d H:i:s'); ?>">
@@ -136,7 +136,7 @@
                         </div>
                         <div class="card-body">
                             <?php
-                            echo form_open('Proposal/editBEMStatus/' . $value['id_propo']);
+                            echo form_open('ormawa/proposal/editbemstatus/' . $value['id_propo']);
                             ?>
                             <div class="alert alert-info mb-2" role="alert">
                                 Status saat ini :

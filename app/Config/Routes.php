@@ -199,26 +199,32 @@ $routes->group('mahasiswa', function ($routes) {
     });
 });
 
-$routes->get('/', 'Login::index');
+$routes->group('ormawa', ['namespace' => 'App\Controllers\Ormawa', 'filter' => 'authMhs'], function ($routes) {
+    $routes->get('/', 'ControllerOrmawa::index');
+    $routes->group('proposal', ['namespace' => 'App\Controllers\Ormawa\Proposal', 'filter' => 'authMhs'], function ($routes) {
+        $routes->get('/', 'ControllerProposal::index');
+        $routes->get('add', 'ControllerProposal::add');
+        $routes->post('adddata', 'ControllerProposal::addData');
+        $routes->get('data', 'ControllerProposal::data');
+        $routes->get('view/(:num)', 'ControllerProposal::view/$1');
+        $routes->get('edit/(:num)', 'ControllerProposal::edit/$1');
+        $routes->post('editdata/(:num)', 'ControllerProposal::editData/$1');
+        $routes->post('konfirmasieditkedekan/(:num)', 'ControllerProposal::konfirmasiEditkeDekan/$1');
+        $routes->post('konfirmasieditkewadeksumda/(:num)', 'ControllerProposal::konfirmasiEditkeWadeksumda/$1');
+        $routes->post('konfirmasieditkewadekakakem/(:num)', 'ControllerProposal::konfirmasiEditkeWadekakem/$1');
+        $routes->post('konfirmasieditkekaprodis1/(:num)', 'ControllerProposal::konfirmasiEditkeKaprodis1/$1');
+        $routes->post('konfirmasieditketatausaha/(:num)', 'ControllerProposal::konfirmasiEditkeTatausaha/$1');
+        $routes->post('konfirmasieditkesumberdaya/(:num)', 'ControllerProposal::konfirmasiEditkeSumberdaya/$1');
+        $routes->post('konfirmasieditkeakademik/(:num)', 'ControllerProposal::konfirmasiEditkeAkademik/$1');
+        $routes->post('konfirmasieditkebem/(:num)', 'ControllerProposal::konfirmasiEditkeBEM/$1');
+        $routes->post('editfileproposal/(:num)', 'ControllerProposal::editFileProposal/$1');
+        $routes->get('konfirm/(:num)', 'ControllerProposal::konfirm/$1');
+        $routes->post('editdatabemcatatan/(:num)', 'ControllerProposal::editDataBEMCatatan/$1');
+        $routes->post('editbemstatus/(:num)', 'ControllerProposal::editBEMStatus/$1');
+    });
+});
 
-$routes->get('/proposal', 'Proposal::index');
-$routes->get('/proposal/pengajuan', 'Proposal::pengajuan');
-$routes->get('/proposal/data', 'Proposal::data');
-$routes->post('/proposal/proses', 'Proposal::add');
-$routes->get('/proposal/detail/(:num)', 'Proposal::detail/$1');
-$routes->get('/proposal/edit/(:num)', 'Proposal::edit/$1');
-$routes->post('/proposal/konfirm/(:num)', 'Proposal::konfirm/$1');
-$routes->post('/proposal/editpengajuan/(:num)', 'Proposal::konfirm/$1');
-$routes->post('/proposal/editdata/(:num)', 'Proposal::editData/$1');
-$routes->post('/proposal/editdaeditfileproposalta/(:num)', 'Proposal::editFileProposal/$1');
-$routes->post('/proposal/konfirmasieditkedekan/(:num)', 'Proposal::konfirmasiEditkeDekan/$1');
-$routes->post('/proposal/konfirmasieditkewadeksumda/(:num)', 'Proposal::konfirmasiEditkeWadeksumda/$1');
-$routes->post('/proposal/konfirmasieditkewadekakakem/(:num)', 'Proposal::konfirmasiEditkeWadekakem/$1');
-$routes->post('/proposal/konfirmasieditkekaprodis1/(:num)', 'Proposal::konfirmasiEditkeKaprodis1/$1');
-$routes->post('/proposal/konfirmasieditketatausaha/(:num)', 'Proposal::konfirmasiEditkeTatausaha/$1');
-$routes->post('/proposal/konfirmasieditkesumberdaya/(:num)', 'Proposal::konfirmasiEditkeSumberdaya/$1');
-$routes->post('/proposal/konfirmasieditkeakademik/(:num)', 'Proposal::konfirmasiEditkeAkademik/$1');
-$routes->post('/proposal/konfirmasieditkebem/(:num)', 'Proposal::konfirmasiEditkeBEM/$1');
+$routes->get('/', 'Login::index');
 
 
 /*
