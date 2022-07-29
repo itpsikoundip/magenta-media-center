@@ -34,9 +34,10 @@ class Kegiatan extends Migration
                 'type'          => 'VARCHAR',
                 'constraint'    => '255',
             ],
-            'pic' => [
-                'type'          => 'VARCHAR',
-                'constraint'    => '255',
+            'pic_id' => [
+                'type'          => 'INT',
+                'constraint'    => 11,
+                'unsigned'      => TRUE,
             ],
             'hp' => [
                 'type'          => 'VARCHAR',
@@ -63,6 +64,7 @@ class Kegiatan extends Migration
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('ruangan_id', 'kegiatan_ruangan', 'id');
+        $this->forge->addForeignKey('pic_id', 'data_staffdosen', 'id_staffdosen');
         $this->forge->addForeignKey('status_id', 'kegiatan_status', 'id');
         $this->forge->createTable('kegiatan');
     }
