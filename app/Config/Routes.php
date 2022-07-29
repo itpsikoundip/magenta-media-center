@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(TRUE);
+$routes->setAutoRoute(false);
 
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
@@ -91,7 +91,10 @@ $routes->group('staffdosen', function ($routes) {
 
     $routes->group('kegiatan', ['namespace' => 'App\Controllers\StaffDosen\Kegiatan', 'filter' => 'authStaffDosen'], function ($routes) {
         $routes->get('/', 'KegiatanController::index');
+        $routes->post('addkegiatan', 'KegiatanController::addKegiatan');
     });
+
+    $routes->post('keg/addkegiatan', 'App\Controllers\StaffDosen\Kegiatan\KegiatanController::addKegiatan');
 
     $routes->group('sk', ['namespace' => 'App\Controllers\StaffDosen\SK', 'filter' => 'authStaffDosen'], function ($routes) {
         $routes->get('/', 'ControllerSK::index');
