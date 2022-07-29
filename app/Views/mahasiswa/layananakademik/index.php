@@ -21,11 +21,11 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-bubbles info font-large-2 float-left"></i>
+                                        <i class="icon-doc info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <h3><u>Keterlambatan IRS</u></h3>
-                                        <span>Deskripsi</span>
+                                        <!-- <span>Deskripsi</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -40,11 +40,11 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-bubbles info font-large-2 float-left"></i>
+                                        <i class="icon-doc info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <h3><u>Cuti Akademik</u></h3>
-                                        <span>Deskripsi</span>
+                                        <!-- <span>Deskripsi</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -59,11 +59,11 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-bubbles info font-large-2 float-left"></i>
+                                        <i class="icon-doc info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <h3><u>Undur Diri</u></h3>
-                                        <span>Deskripsi</span>
+                                        <!-- <span>Deskripsi</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -78,11 +78,11 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-bubbles info font-large-2 float-left"></i>
+                                        <i class="icon-doc info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <h3><u>Keterangan Aktif Kuliah</u></h3>
-                                        <span>Deskripsi</span>
+                                        <!-- <span>Deskripsi</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -97,11 +97,11 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-bubbles info font-large-2 float-left"></i>
+                                        <i class="icon-doc info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <h3><u>Aktif kuliah setelah mangkir</u></h3>
-                                        <span>Deskripsi</span>
+                                        <!-- <span>Deskripsi</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -116,11 +116,11 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-bubbles info font-large-2 float-left"></i>
+                                        <i class="icon-doc info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <h3><u>Surat Rekomendasi KKN</u></h3>
-                                        <span>Deskripsi</span>
+                                        <!-- <span>Deskripsi</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -135,11 +135,11 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-bubbles info font-large-2 float-left"></i>
+                                        <i class="icon-doc info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <h3><u>Surat perijinan untuk penelitian mahasiswa</u></h3>
-                                        <span>Deskripsi</span>
+                                        <!-- <span>Deskripsi</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -154,11 +154,11 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-bubbles info font-large-2 float-left"></i>
+                                        <i class="icon-doc info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <h3><u>Permohonan surat keterangan telah selesai melakukan penelitian</u></h3>
-                                        <span>Deskripsi</span>
+                                        <!-- <span>Deskripsi</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -173,11 +173,11 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-bubbles info font-large-2 float-left"></i>
+                                        <i class="icon-doc info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <h3><u>Permohonan ujian susulan (UTS dan UAS)</u></h3>
-                                        <span>Deskripsi</span>
+                                        <!-- <span>Deskripsi</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -192,11 +192,11 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-bubbles info font-large-2 float-left"></i>
+                                        <i class="icon-doc info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <h3><u>Surat ijin Magang</u></h3>
-                                        <span>Deskripsi</span>
+                                        <!-- <span>Deskripsi</span> -->
                                     </div>
                                 </div>
                             </div>
