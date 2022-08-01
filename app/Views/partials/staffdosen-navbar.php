@@ -35,7 +35,7 @@
                             <span class="user-name"><?= session()->get('nama') ?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profile</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= site_url('login/logoutstaffdosen') ?>"><i class="ft-power"></i> Logout</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= base_url('login/logoutstaffdosen') ?>"><i class="ft-power"></i> Logout</a>
                         </div>
                     </li>
                 </ul>
