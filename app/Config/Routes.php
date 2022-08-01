@@ -293,6 +293,10 @@ $routes->group('mahasiswa', ['namespace' => 'App\Controllers\Mahasiswa', 'filter
     $routes->group('profil', ['namespace' => 'App\Controllers\Mahasiswa\Profil', 'filter' => 'authMhs'], function ($routes) {
         $routes->get('/', 'ControllerMahasiswaProfil::index');
     });
+
+    $routes->group('layananakademik', ['namespace' => 'App\Controllers\Mahasiswa\LayananAkademik', 'filter' => 'authMhs'], function ($routes) {
+        $routes->get('/', 'ControllerMahasiswaLayananAkademik::index');
+    });
 });
 
 // ORMAWA

@@ -5,7 +5,7 @@ namespace App\Controllers\Mahasiswa\LayananAkademik;
 use App\Controllers\BaseController;
 use App\Models\LayananAkademik\ModelLayananAkademik;
 
-class LayananAkademik extends BaseController
+class ControllerMahasiswaLayananAkademik extends BaseController
 {
     public function __construct()
     {
