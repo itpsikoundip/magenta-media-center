@@ -175,6 +175,10 @@ $routes->group('staffdosen', ['namespace' => 'App\Controllers\StaffDosen', 'filt
         $routes->get('deletefaq/(:num)', 'HelpdeskController::deleteFAQ/$1');
     });
 
+    $routes->group('proposal', ['namespace' => 'App\Controllers\StaffDosen\Proposal', 'filter' => 'authStaffDosen'], function ($routes) {
+        $routes->get('/', 'ControllerStaffDosenProposal::index');
+    });
+
     $routes->group('kegiatan', ['namespace' => 'App\Controllers\StaffDosen\Kegiatan', 'filter' => 'authStaffDosen'], function ($routes) {
         $routes->get('/', 'KegiatanController::index');
         $routes->post('addkegiatan', 'KegiatanController::addKegiatan');
