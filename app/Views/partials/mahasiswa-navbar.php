@@ -29,8 +29,8 @@
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <span class="avatar avatar-online"><img src="<?php echo base_url('robust/app-assets/images/portrait/small/avatar-s-1.png') ?>" alt="avatar"><i></i></span>
                             <span class="user-name"><?php echo session()->nama ?></span></a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?= base_url('mahasiswa/profil') ?>"><i class="ft-user"></i> Edit Profil</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= site_url('login/logoutmhs') ?>"><i class="ft-power"></i> Logout</a>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profil</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= base_url('login/logoutmhs') ?>"><i class="ft-power"></i> Logout</a>
                         </div>
                     </li>
                 </ul>

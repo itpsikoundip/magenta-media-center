@@ -61,17 +61,20 @@ class inputLulusanController extends BaseController
             session()->setFlashdata('message', 'Ada Survey Yang Belum Dijawab, Harap Mengisi Semua Survey');
             return redirect()->back();
         }
+        $saran = $this->request->getPost('saran');
+        if ($saran != "") {
+            $dataSaran = [
+                'saran_lulusan' => $this->request->getPost('saran'),
+                'created_at'    => Time::now('Asia/Jakarta'),
+                'updated_at'    => Time::now('Asia/Jakarta')
+            ];
 
-        $dataSaran = [
-            'saran_lulusan' => $this->request->getPost('saran'),
-            'created_at'    => Time::now('Asia/Jakarta'),
-            'updated_at'    => Time::now('Asia/Jakarta')
-        ];
+            $modelSaran->addData($dataSaran);
+        }
 
-        $updateSaran = $modelSaran->addData($dataSaran);
         $update = $model->inputSkor($arrayInput);
 
-        if ($update && $updateSaran) {
+        if ($update) {
             return $this->doneSurvey(3);
         }
     }
