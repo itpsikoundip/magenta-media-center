@@ -24,7 +24,7 @@
                                     </div>
                                 </div>
                                 <div class="card-content">
-                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2"><span>Pilih Role Anda</span></p>
+                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2"><span>Pilih Role</span></p>
                                     <div class="card-body pt-0">
                                         <div class="form-group text-center mt-4">
                                             <a href="<?= base_url('login/mahasiswa'); ?>" class="btn btn-outline-secondary btn-lg btn-min-width mr-1 mb-1">Mahasiswa</a>

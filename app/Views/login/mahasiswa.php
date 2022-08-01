@@ -41,25 +41,25 @@
                                             echo '</div>';
                                         }
                                         ?>
-                                        
+
                                         <?php
-                                        
-                                        form_open('Login/authMhs');
-                                        
+
+                                        form_open('login/authmhs');
+
                                         ?>
-                                        
-                                        <form class="form-horizontal" action="authMhs" method="post">
+
+                                        <form class="form-horizontal" action="authmhs" method="post">
                                             </fieldset>
                                             <fieldset class="form-group position-relative has-icon-left  mt-4">
-                                                <input type="text" class="form-control" id="nim" name="nim" placeholder="Nomor Induk Mahasiswa">
+                                                <input type="text" class="form-control" id="nim" name="nim" placeholder="Nomor Induk Mahasiswa | NIM">
                                                 <div class="form-control-position">
                                                     <i class="ft-mail"></i>
                                                 </div>
                                                 <span class="text-danger">
                                                     <?php
-                                                        if ($validation->hasError('nim')) {
-                                                            echo $validation->getError('nim');
-                                                        }
+                                                    if ($validation->hasError('nim')) {
+                                                        echo $validation->getError('nim');
+                                                    }
                                                     ?>
                                                 </span>
                                             </fieldset>
@@ -70,9 +70,9 @@
                                                 </div>
                                                 <span class="text-danger">
                                                     <?php
-                                                        if ($validation->hasError('password')) {
-                                                            echo $validation->getError('password');
-                                                        }
+                                                    if ($validation->hasError('password')) {
+                                                        echo $validation->getError('password');
+                                                    }
                                                     ?>
                                                 </span>
                                             </fieldset>
@@ -87,9 +87,9 @@
                                                 </div>
                                                 <span class="text-danger">
                                                     <?php
-                                                        if ($validation->hasError('level')) {
-                                                            echo $validation->getError('level');
-                                                        }
+                                                    if ($validation->hasError('level')) {
+                                                        echo $validation->getError('level');
+                                                    }
                                                     ?>
                                                 </span>
                                             </fieldset>
