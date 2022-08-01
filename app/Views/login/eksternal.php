@@ -18,7 +18,7 @@
                                 <div class="card-header border-0">
                                     <div class="card-title text-center">
                                         <img src="https://psikologi.undip.ac.id/wp-content/uploads/Splash-1.png" alt="Universitas Diponegoro" style="width: 150px;">
-                                        <h4 class="mt-2"><u>LOGIN STAFF DOSEN</u></h4>
+                                        <h4 class="mt-2"><u>LOGIN EKSTERNAL</u></h4>
                                         <h1><strong>Magenta Media Center (MMC)</strong></h1>
                                         <h2>Fakultas Psikologi Undip</h2>
                                     </div>
@@ -41,23 +41,23 @@
                                             echo '</div>';
                                         }
                                         ?>
-                                        <form class="form-horizontal" action="authstaffdosen" method="post">
+                                        <form class="form-horizontal" action="authStaffDosen" method="post">
                                             </fieldset>
                                             <fieldset class="form-group position-relative has-icon-left  mt-4">
-                                                <input type="text" class="form-control" id="username" name="username" placeholder="Nomer Induk Pegawai | NIP" required>
+                                                <input type="text" class="form-control" id="username" name="username" placeholder="username" disabled>
                                                 <div class="form-control-position">
                                                     <i class="ft-mail"></i>
                                                 </div>
                                             </fieldset>
                                             <fieldset class="form-group position-relative has-icon-left ">
-                                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" disabled>
                                                 <div class="form-control-position">
                                                     <i class="ft-lock"></i>
                                                 </div>
                                             </fieldset>
-                                            <button type="submit" class="btn btn-outline-indigo btn-lg btn-block indigo mb-1 wrapper_btn_login" style="border-radius: 0px;">
+                                            <!-- <button type="submit" class="btn btn-outline-indigo btn-lg btn-block indigo mb-1 wrapper_btn_login" style="border-radius: 0px;">
                                                 <i class="ft-unlock"></i> LOGIN
-                                            </button>
+                                            </button> -->
                                         </form>
                                     </div>
                                 </div>

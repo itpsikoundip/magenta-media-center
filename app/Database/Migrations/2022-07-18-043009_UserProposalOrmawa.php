@@ -23,7 +23,6 @@ class UserProposalOrmawa extends Migration
             ]
         ]);
         $this->forge->addPrimaryKey('id_user_proposal_ormawa');
-        $this->forge->addForeignKey('mahasiswaormawa_id', 'mahasiswa_ormawa', 'id');
         $this->forge->createTable('proposal_user_ormawa');
     }
 

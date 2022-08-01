@@ -37,12 +37,98 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-$routes->group('admin', function ($routes) {
+$routes->get('/', 'ControllerLogin::index');
+
+//LOGIN
+$routes->group('login', function ($routes) {
+    $routes->get('/', 'ControllerLogin::index');
+    $routes->get('mahasiswa', 'ControllerLogin::mahasiswa');
+    $routes->get('staffdosen', 'ControllerLogin::staffdosen');
+    $routes->get('eksternal', 'ControllerLogin::eksternal');
+    $routes->get('admin', 'ControllerLogin::admin');
+    $routes->post('authmhs', 'ControllerLogin::authMhs');
+    $routes->post('authstaffdosen', 'ControllerLogin::authStaffDosen');
+    $routes->get('logoutmhs', 'ControllerLogin::logoutMhs');
+    $routes->get('logoutstaffdosen', 'ControllerLogin::logoutStaffDosen');
 });
 
-$routes->group('staffdosen', function ($routes) {
+// ADMIN
+$routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'authAdmin'], function ($routes) {
+    $routes->get('/', 'ControllerAdmin::index');
+    // Fitur
+    $routes->group('fitur',  function ($routes) {
+        // SK
+        $routes->group('sk', ['namespace' => 'App\Controllers\Admin\fitur\sk'], function ($routes) {
+            $routes->group('usermanagement',  function ($routes) {
+                $routes->get('/', 'ControllerAdminSKUserManagement::index');
+                $routes->post('addop', 'ControllerAdminSKUserManagement::addAksesUserOperator');
+                $routes->get('deleteop/(:num)', 'ControllerAdminSKUserManagement::deleteAksesUserOperator/$1');
+                $routes->post('editop/(:num)', 'ControllerAdminSKUserManagement::editAksesUserOperator/$1');
+                $routes->post('addverif', 'ControllerAdminSKUserManagement::addAksesUserVerifikator');
+                $routes->get('deleteverif/(:num)', 'ControllerAdminSKUserManagement::deleteAksesUserVerifikator/$1');
+                $routes->post('editverif/(:num)', 'ControllerAdminSKUserManagement::editAksesUserVerifikator/$1');
+            });
+            $routes->group('data',  function ($routes) {
+                $routes->group('skdekan',  function ($routes) {
+                    $routes->get('/', 'ControllerAdminSKDataSKDekan::index');
+                });
+                $routes->group('skrektor',  function ($routes) {
+                    $routes->get('/', 'ControllerAdminSKDataSKRektor::index');
+                });
+            });
+        });
+        // Proposal
+        $routes->group('proposal', ['namespace' => 'App\Controllers\Admin\fitur\proposal'], function ($routes) {
+            $routes->group('usermanagement',  function ($routes) {
+                $routes->get('/', 'ControllerAdminProposalUserManagement::index');
+            });
+            $routes->group('data',  function ($routes) {
+                $routes->get('/', 'ControllerAdminProposalData::index');
+            });
+        });
+    });
+    // Data
+    $routes->group('data',  function ($routes) {
+        // Mahasiswa
+        $routes->group('mahasiswa', ['namespace' => 'App\Controllers\Admin\Data\Mahasiswa'], function ($routes) {
+            $routes->get('/', 'ControllerAdminDataMahasiswa::index');
+        });
+        // Staff & Dosen
+        $routes->group('staffdosen', ['namespace' => 'App\Controllers\Admin\Data\StaffDosen'], function ($routes) {
+            $routes->get('/', 'ControllerAdminDataStaffDosen::index');
+        });
+    });
+    // User
+    $routes->group('user',  function ($routes) {
+        // Mahasiswa
+        $routes->group('mahasiswa', ['namespace' => 'App\Controllers\Admin\User'], function ($routes) {
+            $routes->get('/', 'ControllerAdminUserMahasiswa::index');
+            $routes->post('add', 'ControllerAdminUserMahasiswa::addUser');
+            $routes->post('edit/(:num)', 'ControllerAdminUserMahasiswa::editData/$1');
+            $routes->post('editpass/(:num)', 'ControllerAdminUserMahasiswa::editDataPass/$1');
+            $routes->get('delete/(:num)', 'ControllerAdminUserMahasiswa::delete/$1');
+        });
+        // Ormawa
+        $routes->group('ormawa', ['namespace' => 'App\Controllers\Admin\User'], function ($routes) {
+            $routes->get('/', 'ControllerAdminUserOrmawa::index');
+            $routes->post('add', 'ControllerAdminUserOrmawa::addUser');
+            $routes->get('delete/(:num)', 'ControllerAdminUserOrmawa::delete/$1');
+        });
+        // Staff & Dosen
+        $routes->group('staffdosen', ['namespace' => 'App\Controllers\Admin\User'], function ($routes) {
+            $routes->get('/', 'ControllerAdminUserStaffDosen::index');
+            $routes->post('add', 'ControllerAdminUserStaffDosen::addUser');
+            $routes->post('edit/(:num)', 'ControllerAdminUserStaffDosen::editData/$1');
+            $routes->post('editpass/(:num)', 'ControllerAdminUserStaffDosen::editDataPass/$1');
+            $routes->get('delete/(:num)', 'ControllerAdminUserStaffDosen::delete/$1');
+        });
+    });
+});
 
-    $routes->get('/', 'StaffDosen::index');
+// STAFFDOSEN
+$routes->group('staffdosen', ['namespace' => 'App\Controllers\StaffDosen', 'filter' => 'authStaffDosen'], function ($routes) {
+
+    $routes->get('/', 'ControllerStaffDosen::index');
 
     $routes->group('survey', ['namespace' => 'App\Controllers\StaffDosen\Survey', 'filter' => 'authStaffDosen'], function ($routes) {
         //Pertanyaan Survey
@@ -173,7 +259,10 @@ $routes->group('staffdosen', function ($routes) {
     });
 });
 
-$routes->group('mahasiswa', function ($routes) {
+// MAHASISWA
+$routes->group('mahasiswa', ['namespace' => 'App\Controllers\Mahasiswa', 'filter' => 'authMhs'], function ($routes) {
+
+    $routes->get('/', 'ControllerMahasiswa::index');
 
     $routes->group('survey', ['namespace' => 'App\Controllers\Mahasiswa\Survey', 'filter' => 'authMhs'], function ($routes) {
         //Menu Card Landing
@@ -202,6 +291,7 @@ $routes->group('mahasiswa', function ($routes) {
     });
 });
 
+// ORMAWA
 $routes->group('ormawa', ['namespace' => 'App\Controllers\Ormawa', 'filter' => 'authMhs'], function ($routes) {
     $routes->get('/', 'ControllerOrmawa::index');
     $routes->group('proposal', ['namespace' => 'App\Controllers\Ormawa\Proposal', 'filter' => 'authMhs'], function ($routes) {
@@ -226,8 +316,6 @@ $routes->group('ormawa', ['namespace' => 'App\Controllers\Ormawa', 'filter' => '
         $routes->post('editbemstatus/(:num)', 'ControllerProposal::editBEMStatus/$1');
     });
 });
-
-$routes->get('/', 'Login::index');
 
 
 /*

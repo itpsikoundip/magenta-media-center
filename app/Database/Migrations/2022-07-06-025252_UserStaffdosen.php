@@ -28,26 +28,31 @@ class UserStaffdosen extends Migration
             'proposal' => [
                 'type'          => 'INT',
                 'constraint'    => '1',
+                'default'       => '0',
                 'unsigned'      => TRUE,
             ],
             'survey' => [
                 'type'          => 'INT',
                 'constraint'    => '1',
+                'default'       => '0',
                 'unsigned'      => TRUE,
             ],
             'helpdesk' => [
                 'type'          => 'INT',
                 'constraint'    => '1',
+                'default'       => '0',
                 'unsigned'      => TRUE,
             ],
             'sk' => [
                 'type'          => 'INT',
                 'constraint'    => '1',
+                'default'       => '0',
                 'unsigned'      => TRUE,
             ],
             'kegiatan' => [
                 'type'          => 'INT',
                 'constraint'    => '1',
+                'default'       => '0',
                 'unsigned'      => TRUE,
             ],
             'catatan' => [

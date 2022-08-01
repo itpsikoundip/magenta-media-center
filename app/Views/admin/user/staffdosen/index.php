@@ -118,7 +118,7 @@
                 </button>
             </div>
             <?php
-            echo form_open('UserStaffDosen/addUser');
+            echo form_open('admin/user/staffdosen/add');
             ?>
             <div class="modal-body">
                 <p>Data berasal dari tabel master staffdosen</p>
@@ -190,7 +190,7 @@ foreach ($dataUserStaffDosen as $key => $value) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Batal</button>
-                    <a href="<?= base_url('UserStaffDosen/delete/' . $value['id_userstaffdosen']) ?>" class="btn btn-outline-danger">Hapus</a>
+                    <a href="<?= base_url('admin/user/staffdosen/delete/' . $value['id_userstaffdosen']) ?>" class="btn btn-outline-danger">Hapus</a>
                 </div>
             </div>
         </div>
@@ -211,7 +211,7 @@ foreach ($dataUserStaffDosen as $key => $value) { ?>
                     </button>
                 </div>
                 <?php
-                echo form_open('UserStaffDosen/editData/' . $value['id_userstaffdosen']);
+                echo form_open('admin/user/staffdosen/edit/' . $value['id_userstaffdosen']);
                 ?>
                 <div class="modal-body">
                     <div class="form-group">
@@ -270,7 +270,7 @@ foreach ($dataUserStaffDosen as $key => $value) { ?>
                     </button>
                 </div>
                 <?php
-                echo form_open('UserStaffDosen/editDataPass/' . $value['id_userstaffdosen']);
+                echo form_open('admin/user/staffdosen/editpass/' . $value['id_userstaffdosen']);
                 ?>
                 <div class="modal-body">
                     <div class="form-group">
