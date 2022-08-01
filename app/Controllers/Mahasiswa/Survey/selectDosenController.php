@@ -67,17 +67,21 @@ class selectDosenController extends BaseController
             return redirect()->back();
         }
 
-        $dataSaran = [
-            'saran_dosen'   => $this->request->getPost('saran'),
-            'id_dosen'      => $idSend,
-            'created_at'    => Time::now('Asia/Jakarta'),
-            'updated_at'    => Time::now('Asia/Jakarta')
-        ];
+        $saran = $this->request->getPost('saran');
+        if ($saran != "") {
+            $dataSaran = [
+                'saran_dosen'   => $this->request->getPost('saran'),
+                'id_dosen'      => $idSend,
+                'created_at'    => Time::now('Asia/Jakarta'),
+                'updated_at'    => Time::now('Asia/Jakarta')
+            ];
 
-        $updateSaran = $modelSaran->addData($dataSaran);
+            $modelSaran->addData($dataSaran);
+        }
+
         $update = $model->inputSkor($arrayInput);
 
-        if ($update && $updateSaran) {
+        if ($update) {
             return $this->doneSurvey($namaDosen, 1);
         }
     }
