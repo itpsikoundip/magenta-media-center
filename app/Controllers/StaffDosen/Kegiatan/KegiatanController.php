@@ -40,89 +40,82 @@ class KegiatanController extends BaseController
         $getJamMulai = $this->KegiatanModel->getJamMulai();
         $getJamSelesai = $this->KegiatanModel->getJamSelesai();
 
-        $timeNow = date_format(Time::now('Asia/Jakarta'), "d");
-
         $StartA = $this->request->getPost('pilihJamMulai');
         $EndA = $this->request->getPost('pilihJamSelesai');
+
         $StartB = $getJamMulai;
         $EndB = $getJamSelesai;
 
-        echo $timeNow;
+        $timeNow = Time::now();
+        $selectedDate = $this->request->getPost('inputTanggal');
+
         echo "<br>";
         echo "INPUT Jam Mulai : $StartA";
         echo "<br>";
         echo "INPUT Jam Selesai : $EndA";
         echo "<br>";
+        if ($selectedDate >= $timeNow) {
+            if ($StartA < $EndA) {
+                echo "$StartA < $EndA";
 
-        if ($StartA < $EndA) {
-            echo "$StartA < $EndA";
+                for ($i = 0; $i < count($StartB); $i++) {
+                    $result = ($StartA < $EndB[$i]) && ($EndA > $StartB[$i]);
+                    if ($result) {
+                        echo "<br>";
+                        session()->setFlashdata('error', "GAGAL : Sudah ada yang menggunakan ruangan pada" . $StartB[$i] . " - " . $EndB[$i]);
+                        return redirect()->to(base_url('staffdosen/kegiatan/'));
+                    }
+                };
+                if ($result == false) {
+                    $ruangan_id     = $this->request->getPost('pilihRuangan');
+                    $tanggal        = $this->request->getPost('inputTanggal');
+                    $mulai          = $this->request->getPost('pilihJamMulai');
+                    $selesai        = $this->request->getPost('pilihJamSelesai');
+                    $agenda         = $this->request->getPost('inputAgenda');
+                    $pic_id         = $this->request->getPost('pilihPIC');
+                    $hp             = $this->request->getPost('inputHP');
 
-            for ($i = 0; $i < count($StartB); $i++) {
-                $result = ($StartA < $EndB[$i]) && ($EndA > $StartB[$i]);
-                if ($result) {
-                    echo "<br>";
-                    echo "Gagal, sudah ada yang menggunakan ruangan pada : ";
-                    echo "<br>";
-                    echo "Jam Mulai : $StartB[$i]";
-                    echo "<br>";
-                    echo "Jam Selesai : $EndB[$i]";
-                    echo "<br>";
+                    if ($_FILES and $_FILES['inputUndangan']['name']) {
+                        //kalau lampiran tidak kosong
+                        $undangan       = $this->request->getFile('inputundangan');
+                        $namaUndangan   = $undangan->getRandomName();
+                    } else {
+                        $namaUndangan   = NULL;
+                    }
+
+                    $data = [
+                        'ruangan_id'    => $ruangan_id,
+                        'tanggal'       => $tanggal,
+                        'mulai'         => $mulai,
+                        'selesai'       => $selesai,
+                        'agenda'        => $agenda,
+                        'pic_id'        => $pic_id,
+                        'hp'            => $hp,
+                        'undangan'      => $namaUndangan,
+                        'created_at'    => Time::now('Asia/Jakarta'),
+                    ];
+
+                    dd($data);
+                    if ($_FILES and $_FILES['inputLampiran']['name']) {
+                        // Upload file
+                        $undangan->move('undangan-kegiatan', $namaUndangan);
+                    }
+                    $result = $this->KegiatanModel->addKegiatan($data);
+                    // dd($result);
+                    if ($result) {
+                        session()->setFlashdata('sukses', 'SUKSES : Kegiatan berhasil ditambahkan.');
+                        return redirect()->to(base_url('staffdosen/kegiatan/'));
+                    } else {
+                        session()->setFlashdata('error', 'ERROR : Kegiatan gagal ditambahkan.');
+                        return redirect()->to(base_url('staffdosen/kegiatan/'));
+                    }
                 }
-            };
-            if ($result == false) {
-                echo "<br>";
-                echo "Sukses menambahkan";
-                echo "<br>";
-                echo "Jam Mulai : $StartA";
-                echo "<br>";
-                echo "Jam Selesai : $EndA";
-                echo "<br>";
-            }
-
-            $ruangan_id     = $this->request->getPost('pilihRuangan');
-            $tanggal        = $this->request->getPost('inputTanggal');
-            $mulai          = $this->request->getPost('pilihJamMulai');
-            $selesai        = $this->request->getPost('pilihJamSelesai');
-            $agenda         = $this->request->getPost('inputAgenda');
-            $pic_id         = $this->request->getPost('pilihPIC');
-            $hp             = $this->request->getPost('inputHP');
-
-            if ($_FILES and $_FILES['inputUndangan']['name']) {
-                //kalau lampiran tidak kosong
-                $undangan       = $this->request->getFile('inputundangan');
-                $namaUndangan   = $undangan->getRandomName();
             } else {
-                $namaUndangan   = NULL;
-            }
-
-            $data = [
-                'ruangan_id'    => $ruangan_id,
-                'tanggal'       => $tanggal,
-                'mulai'         => $mulai,
-                'selesai'       => $selesai,
-                'agenda'        => $agenda,
-                'pic_id'        => $pic_id,
-                'hp'            => $hp,
-                'undangan'      => $namaUndangan,
-                'created_at'    => Time::now('Asia/Jakarta'),
-            ];
-
-            dd($data);
-            if ($_FILES and $_FILES['inputLampiran']['name']) {
-                // Upload file
-                $undangan->move('undangan-kegiatan', $namaUndangan);
-            }
-            $result = $this->KegiatanModel->addKegiatan($data);
-            // dd($result);
-            if ($result) {
-                session()->setFlashdata('sukses', 'SUKSES : Kegiatan berhasil ditambahkan.');
-                return redirect()->to(base_url('staffdosen/kegiatan/'));
-            } else {
-                session()->setFlashdata('error', 'ERROR : Kegiatan gagal ditambahkan.');
+                session()->setFlashdata('error', "ERROR : Jam mulai (" . $StartA . ") lebih besar dari jam selesai ("  . $EndA . ")");
                 return redirect()->to(base_url('staffdosen/kegiatan/'));
             }
         } else {
-            session()->setFlashdata('error', "ERROR : Jam mulai (" . $StartA . ") lebih besar dari jam selesai ("  . $EndA . ")");
+            session()->setFlashdata('error', "ERROR : Tidak bisa memilih tanggal lampau.");
             return redirect()->to(base_url('staffdosen/kegiatan/'));
         }
     }
