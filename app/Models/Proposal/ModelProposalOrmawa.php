@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Proposal;
 
 use CodeIgniter\Model;
 
-class ModelProposal extends Model
+class ModelProposalOrmawa extends Model
 {
     // Proposal Semua Status
     public function allData()

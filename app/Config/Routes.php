@@ -177,6 +177,24 @@ $routes->group('staffdosen', ['namespace' => 'App\Controllers\StaffDosen', 'filt
 
     $routes->group('proposal', ['namespace' => 'App\Controllers\StaffDosen\Proposal', 'filter' => 'authStaffDosen'], function ($routes) {
         $routes->get('/', 'ControllerStaffDosenProposal::index');
+        $routes->get('edit/(:num)', 'ControllerStaffDosenProposal::edit/$1');
+        $routes->get('view/(:num)', 'ControllerStaffDosenProposal::view/$1');
+        $routes->post('editdataakademikcatatan/(:num)', 'ControllerStaffDosenProposal::editDataAkademikCatatan/$1');
+        $routes->post('editdatasumberdayacatatan/(:num)', 'ControllerStaffDosenProposal::editDataSumberdayaCatatan/$1');
+        $routes->post('editdatatatausahacatatan/(:num)', 'ControllerStaffDosenProposal::editDataTataUsahaCatatan/$1');
+        $routes->post('editdatawadekakemcatatan/(:num)', 'ControllerStaffDosenProposal::editDataWadekAkemCatatan/$1');
+        $routes->post('editdatawadeksumdacatatan/(:num)', 'ControllerStaffDosenProposal::editDataWadekSumdaCatatan/$1');
+        $routes->post('editdatakaprodis1catatan/(:num)', 'ControllerStaffDosenProposal::editDataKaprodiS1Catatan/$1');
+        $routes->post('editdatakaprodis2catatan/(:num)', 'ControllerStaffDosenProposal::editDataKaprodiS2Catatan/$1');
+        $routes->post('editdatadekancatatan/(:num)', 'ControllerStaffDosenProposal::editDataDekanCatatan/$1');
+        $routes->post('editdataakademikstatus/(:num)', 'ControllerStaffDosenProposal::editDataAkademikStatus/$1');
+        $routes->post('editdatasumberdayastatus/(:num)', 'ControllerStaffDosenProposal::editDataSumberdayaStatus/$1');
+        $routes->post('editdatatatausahastatus/(:num)', 'ControllerStaffDosenProposal::editDataTataUsahaStatus/$1');
+        $routes->post('editdatawadekakemstatus/(:num)', 'ControllerStaffDosenProposal::editDataWadekAkemStatus/$1');
+        $routes->post('editdatawadeksumdastatus/(:num)', 'ControllerStaffDosenProposal::editDataWadekSumdaStatus/$1');
+        $routes->post('editdatakaprodis1status/(:num)', 'ControllerStaffDosenProposal::editDataKaprodiS1Status/$1');
+        $routes->post('editdatakaprodis2status/(:num)', 'ControllerStaffDosenProposal::editDataKaprodiS2Status/$1');
+        $routes->post('editdatadekanstatus/(:num)', 'ControllerStaffDosenProposal::editDataDekanStatus/$1');
     });
 
     $routes->group('kegiatan', ['namespace' => 'App\Controllers\StaffDosen\Kegiatan', 'filter' => 'authStaffDosen'], function ($routes) {
