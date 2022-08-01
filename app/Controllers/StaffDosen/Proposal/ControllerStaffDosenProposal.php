@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\StaffDosen\Proposal;
 
-use App\Models\ModelProposals;
+use App\Controllers\BaseController;
+use App\Models\Proposal\ModelProposals;
 
-class Proposals extends BaseController
+class ControllerStaffDosenProposal extends BaseController
 {
     public function __construct()
     {
