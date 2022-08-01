@@ -7,12 +7,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-  <meta name="description" content="Robust admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template.">
-  <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
-  <meta name="author" content="PIXINVENT">
+  <meta name="description" content="Magenta Media Center Fakultas Psikologi Undip">
+  <meta name="keywords" content="Magenta Media Center, MMC, Psikologi Undip, FPSi Undip, MMC Psikologi Undip, Magenta Media Center Psikologi Undip">
+  <meta name="author" content="IT Psikologi Undip">
   <title>MMC | Magenta Media Center</title>
   <link rel="apple-touch-icon" href="<?php echo base_url('robust/app-assets/images/ico/apple-icon-120.png') ?>">
-  <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/images/ico/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="https://psikologi.undip.ac.id/wp-content/uploads/Splash-1.png">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CMuli:300,400,500,700" rel="stylesheet">
   <!-- BEGIN VENDOR CSS-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('robust/app-assets/css/vendors.min.css') ?>">
