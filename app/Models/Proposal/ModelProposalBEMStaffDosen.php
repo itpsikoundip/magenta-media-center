@@ -4,7 +4,7 @@ namespace App\Models\Proposal;
 
 use CodeIgniter\Model;
 
-class ModelProposals extends Model
+class ModelProposalBEMStaffDosen extends Model
 {
     public function detailDosen()
     {
