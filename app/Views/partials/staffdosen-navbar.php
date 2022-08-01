@@ -17,7 +17,7 @@
     <div class="navbar-wrapper container">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item"><a class="navbar-brand" href="#"><img class="brand-logo" alt="robust admin logo" src="<?php echo base_url('robust/app-assets/images/logo/logo-light-sm_mmc.png') ?>">
+                <li class="nav-item"><a class="navbar-brand" href="<?= base_url('staffdosen') ?>"><img class="brand-logo" alt="robust admin logo" src="<?php echo base_url('robust/app-assets/images/logo/logo-light-sm_mmc.png') ?>">
                         <h3 class="brand-text"><strong>MMC</strong></h3>
                     </a></li>
                 <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
