@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
@@ -288,6 +288,14 @@ $routes->group('mahasiswa', ['namespace' => 'App\Controllers\Mahasiswa', 'filter
         $routes->get('tiket', 'HelpdeskController::tiket');
         $routes->post('tiket/kirim', 'HelpdeskController::kirimTiket');
         $routes->get('hotline', 'HelpdeskController::hotline');
+    });
+
+    $routes->group('profil', ['namespace' => 'App\Controllers\Mahasiswa\Profil', 'filter' => 'authMhs'], function ($routes) {
+        $routes->get('/', 'ControllerMahasiswaProfil::index');
+    });
+
+    $routes->group('layananakademik', ['namespace' => 'App\Controllers\Mahasiswa\LayananAkademik', 'filter' => 'authMhs'], function ($routes) {
+        $routes->get('/', 'ControllerMahasiswaLayananAkademik::index');
     });
 });
 

@@ -45,7 +45,7 @@
         <div class="content-body">
             <div class="row">
                 <div class="col-xl-4 col-lg-6 col-12">
-                    <a class="card" href="<?= base_url('layananakademik/') ?>">
+                    <a class="card" href="<?= base_url('mahasiswa/layananakademik') ?>">
                         <div class="card-content">
                             <div class="card-body">
                                 <div class="media d-flex">
