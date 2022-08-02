@@ -41,17 +41,17 @@
 
                 </i>
             <li class=" nav-item"><a href=" <?= base_url('/staffdosen/survey/grafikdosen') ?>">
-                    <i class="ft-bar-chart-2"></i>
+                    <i class="ft-pie-chart"></i>
                     <span class="menu-title">Grafik Dosen</span>
                 </a>
             </li>
             <li class=" nav-item"><a href=" <?= base_url('/staffdosen/survey/grafikkepend') ?>">
-                    <i class="ft-bar-chart-2"></i>
+                    <i class="ft-pie-chart"></i>
                     <span class="menu-title">Grafik T. Kependidikan</span>
                 </a>
             </li>
             <li class=" nav-item"><a href=" <?= base_url('/staffdosen/survey/grafiklulusan') ?>">
-                    <i class="ft-bar-chart-2"></i>
+                    <i class="ft-pie-chart"></i>
                     <span class="menu-title">Grafik Lulusan</span>
                 </a>
             </li>
