@@ -60,7 +60,7 @@
                                 <?php if ($detailVerifikator['sk_jenis_verifikator_id'] == 1) { ?>
                                     <div class="tab-content px-1 pt-1">
                                         <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true">
-                                            <table class="table table-striped table-bordered zero-configuration">
+                                            <table class="table table-striped table-bordered zero-configuration" style="width:100%">
                                                 <thead>
                                                     <tr>
                                                         <th>Judul SK</th>
@@ -71,8 +71,8 @@
                                                 <tbody>
                                                     <?php
                                                     foreach ($allDataSKDekanSVAkemSiapVerif as $key => $value) { ?>
-                                                        <tr>
-                                                            <td><?= $value['judul_sk']  ?></td>
+                                                        <tr style="text-align: center;">
+                                                            <td style="text-align: left;"><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
                                                                 <a href="<?= base_url('staffdosen/sk/verifikator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
@@ -92,18 +92,18 @@
                                         <div class="tab-pane" id="tab2">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:50%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:10%">Status</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
                                                     foreach ($allDataSKDekanSVAkem as $key => $value) { ?>
-                                                        <tr>
-                                                            <td><?= $value['judul_sk']  ?></td>
+                                                        <tr style="text-align: center;">
+                                                            <td style="text-align: left;"><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
                                                                 <?php if ($value['sk_akem_status'] == 0) {
@@ -124,11 +124,11 @@
                                                     <?php  } ?>
                                                 </tbody>
                                                 <tfoot>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:50%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:10%">Status</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
@@ -148,9 +148,8 @@
                                                 <tbody>
                                                     <?php
                                                     foreach ($allDataSKDekanSVSumdaSiapVerif as $key => $value) { ?>
-                                                        <tr>
-                                                        <tr>
-                                                            <td><?= $value['judul_sk']  ?></td>
+                                                        <tr style="text-align: center;">
+                                                            <td style="text-align: left;"><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
                                                                 <a href="<?= base_url('staffdosen/sk/verifikator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
@@ -170,18 +169,18 @@
                                         <div class="tab-pane" id="tab2">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:50%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:10%">Status</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
                                                     foreach ($allDataSKDekanSVSumda as $key => $value) { ?>
-                                                        <tr>
-                                                            <td><?= $value['judul_sk']  ?></td>
+                                                        <tr style="text-align: center;">
+                                                            <td style="text-align: left;"><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
                                                                 <?php if ($value['sv_sumda_status'] == 0) {
@@ -202,11 +201,11 @@
                                                     <?php  } ?>
                                                 </tbody>
                                                 <tfoot>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:50%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:10%">Status</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
@@ -215,19 +214,19 @@
                                 <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 3) { ?>
                                     <div class="tab-content px-1 pt-1">
                                         <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true">
-                                            <table class="table table-striped table-bordered zero-configuration">
+                                            <table class="table table-striped table-bordered zero-configuration" style="width:100%">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:60%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
                                                     foreach ($allDataSKDekanManagerTUSiapVerif as $key => $value) { ?>
-                                                        <tr>
-                                                            <td><?= $value['judul_sk']  ?></td>
+                                                        <tr style="text-align: center;">
+                                                            <td style="text-align: left;"><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
                                                                 <a href="<?= base_url('staffdosen/sk/verifikator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
@@ -236,10 +235,10 @@
                                                     <?php  } ?>
                                                 </tbody>
                                                 <tfoot>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:60%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
@@ -247,18 +246,18 @@
                                         <div class="tab-pane" id="tab2">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:50%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:10%">Status</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
                                                     foreach ($allDataSKDekanManagerTU as $key => $value) { ?>
-                                                        <tr>
-                                                            <td><?= $value['judul_sk']  ?></td>
+                                                        <tr style="text-align: center;">
+                                                            <td style="text-align: left;"><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
                                                                 <?php if ($value['manager_tu_status'] == 0) {
@@ -279,11 +278,11 @@
                                                     <?php  } ?>
                                                 </tbody>
                                                 <tfoot>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:50%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:10%">Status</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
@@ -303,8 +302,8 @@
                                                 <tbody>
                                                     <?php
                                                     foreach ($allDataSKDekanWadekAkemSiapVerif as $key => $value) { ?>
-                                                        <tr>
-                                                            <td><?= $value['judul_sk']  ?></td>
+                                                        <tr style="text-align: center;">
+                                                            <td style="text-align: left;"><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
                                                                 <a href="<?= base_url('staffdosen/sk/verifikator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
@@ -324,18 +323,18 @@
                                         <div class="tab-pane" id="tab2">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:50%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:10%">Status</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
                                                     foreach ($allDataSKDekanWadekAkem as $key => $value) { ?>
-                                                        <tr>
-                                                            <td><?= $value['judul_sk']  ?></td>
+                                                        <tr style="text-align: center;">
+                                                            <td style="text-align: left;"><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
                                                                 <?php if ($value['manager_tu_status'] == 0) {
@@ -356,11 +355,11 @@
                                                     <?php  } ?>
                                                 </tbody>
                                                 <tfoot>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:50%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:10%">Status</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
@@ -380,8 +379,8 @@
                                                 <tbody>
                                                     <?php
                                                     foreach ($allDataSKDekanWadekSumdaSiapVerif as $key => $value) { ?>
-                                                        <tr>
-                                                            <td><?= $value['judul_sk']  ?></td>
+                                                        <tr style="text-align: center;">
+                                                            <td style="text-align: left;"><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
                                                                 <a href="<?= base_url('staffdosen/sk/verifikator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
@@ -401,18 +400,18 @@
                                         <div class="tab-pane" id="tab2">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:50%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:10%">Status</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
                                                     foreach ($allDataSKDekanWadekSumda as $key => $value) { ?>
-                                                        <tr>
-                                                            <td><?= $value['judul_sk']  ?></td>
+                                                        <tr style="text-align: center;">
+                                                            <td style="text-align: left;" <?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
                                                                 <?php if ($value['sk_akem_status'] == 0) {
@@ -433,11 +432,11 @@
                                                     <?php  } ?>
                                                 </tbody>
                                                 <tfoot>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:50%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:10%">Status</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
@@ -457,8 +456,8 @@
                                                 <tbody>
                                                     <?php
                                                     foreach ($allDataSKDekanDekanSiapVerif as $key => $value) { ?>
-                                                        <tr>
-                                                            <td><?= $value['judul_sk']  ?></td>
+                                                        <tr style="text-align: center;">
+                                                            <td style="text-align: left;"><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
                                                                 <a href="<?= base_url('staffdosen/sk/verifikator/dekan/edit/' . $value['id_sk_dekan']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
@@ -478,18 +477,18 @@
                                         <div class="tab-pane" id="tab2">
                                             <table class="table table-striped table-bordered zero-configuration">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:50%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:10%">Status</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
                                                     foreach ($allDataSKDekanDekan as $key => $value) { ?>
-                                                        <tr>
-                                                            <td><?= $value['judul_sk']  ?></td>
+                                                        <tr style="text-align: center;">
+                                                            <td style="text-align: left;"><?= $value['judul_sk']  ?></td>
                                                             <td><?= $value['tanggal_pembuatan']  ?></td>
                                                             <td>
                                                                 <?php if ($value['sk_akem_status'] == 0) {
@@ -510,11 +509,11 @@
                                                     <?php  } ?>
                                                 </tbody>
                                                 <tfoot>
-                                                    <tr>
-                                                        <th>Judul SK</th>
-                                                        <th>Tanggal Pembuatan</th>
-                                                        <th>Status</th>
-                                                        <th>Aksi</th>
+                                                    <tr style="text-align: center;">
+                                                        <th style="width:50%; text-align: left;">Judul SK</th>
+                                                        <th style="width:20%">Tanggal Pembuatan</th>
+                                                        <th style="width:10%">Status</th>
+                                                        <th style="width:20%">Aksi</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
