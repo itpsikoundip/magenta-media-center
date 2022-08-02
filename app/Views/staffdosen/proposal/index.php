@@ -59,7 +59,7 @@
                                                             <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
                                                             <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -95,7 +95,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -120,7 +120,7 @@
                                                             <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
                                                             <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/edit//' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -156,7 +156,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -181,7 +181,7 @@
                                                             <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
                                                             <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -217,7 +217,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -242,7 +242,7 @@
                                                             <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
                                                             <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -278,7 +278,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -303,7 +303,7 @@
                                                             <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
                                                             <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -339,7 +339,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -364,7 +364,7 @@
                                                             <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
                                                             <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -400,7 +400,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -425,7 +425,7 @@
                                                             <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
                                                             <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -461,7 +461,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -486,7 +486,7 @@
                                                             <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
                                                             <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>
@@ -522,7 +522,7 @@
                                                                 ?>
                                                             </td>
                                                             <td>
-                                                                <a href="<?= base_url('Proposals/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
+                                                                <a href="<?= base_url('staffdosen/proposal/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php  } ?>

@@ -1,6 +1,6 @@
 <div class="app-content content">
     <div class="container mt-4">
-        <a href="<?= base_url('proposals') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
+        <a href="<?= base_url('staffdosen/proposal') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
         <?php
         if (session()->getFlashdata('notifikasi')) {
             echo '
@@ -120,7 +120,7 @@
                                 <!-- Unit Subbagian Akademik dan Kemahasiswaan FPSi -->
                                 <?php if (session()->get('unit') == 2) { ?>
                                     <?php
-                                    echo form_open('Proposals/editDataAkademikCatatan/' . $value['id_propo']);
+                                    echo form_open('staffdosen/proposal/editdataakademikcatatan/' . $value['id_propo']);
                                     ?>
                                     <fieldset class="form-group">
                                         <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['akademik_note']  ?></textarea>
@@ -132,7 +132,7 @@
                                     <!-- Subbagian Sumberdaya FPSi -->
                                 <?php } elseif (session()->get('unit') == 3) { ?>
                                     <?php
-                                    echo form_open('Proposals/editDataSumberdayaCatatan/' . $value['id_propo']);
+                                    echo form_open('staffdosen/proposal/editdatasumberdayacatatan/' . $value['id_propo']);
                                     ?>
                                     <fieldset class="form-group">
                                         <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['sumberdaya_note']  ?></textarea>
@@ -144,7 +144,7 @@
                                     <!-- Tata Usaha -->
                                 <?php } elseif (session()->get('unit') == 4) { ?>
                                     <?php
-                                    echo form_open('Proposals/editDataTataUsahaCatatan/' . $value['id_propo']);
+                                    echo form_open('staffdosen/proposal/editdatatatausahacatatan/' . $value['id_propo']);
                                     ?>
                                     <fieldset class="form-group">
                                         <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['tatausaha_note']  ?></textarea>
@@ -156,7 +156,7 @@
                                     <!-- Wadek Akademik dan Kemahasiswaan -->
                                 <?php } elseif (session()->get('unit') == 5) { ?>
                                     <?php
-                                    echo form_open('Proposals/editDataWadekAkemCatatan/' . $value['id_propo']);
+                                    echo form_open('staffdosen/proposal/editdatawadekakemcatatan/' . $value['id_propo']);
                                     ?>
                                     <fieldset class="form-group">
                                         <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['wadekakem_note']  ?></textarea>
@@ -168,7 +168,7 @@
                                     <!-- Wadek Sumber Daya -->
                                 <?php } elseif (session()->get('unit') == 6) { ?>
                                     <?php
-                                    echo form_open('Proposals/editDataWadekSumdaCatatan/' . $value['id_propo']);
+                                    echo form_open('staffdosen/proposal/editdatawadeksumdacatatan/' . $value['id_propo']);
                                     ?>
                                     <fieldset class="form-group">
                                         <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['wadeksumda_note']  ?></textarea>
@@ -180,7 +180,7 @@
                                     <!-- Kaprodi S1 -->
                                 <?php } elseif (session()->get('unit') == 7) { ?>
                                     <?php
-                                    echo form_open('Proposals/editDataKaprodiS1Catatan/' . $value['id_propo']);
+                                    echo form_open('staffdosen/proposal/editdatakaprodis1catatan/' . $value['id_propo']);
                                     ?>
                                     <fieldset class="form-group">
                                         <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['kaprodis1_note']  ?></textarea>
@@ -192,7 +192,7 @@
                                     <!-- Kaprodi S2 -->
                                 <?php } elseif (session()->get('unit') == 8) { ?>
                                     <?php
-                                    echo form_open('Proposals/editDataKaprodiS2Catatan/' . $value['id_propo']);
+                                    echo form_open('staffdosen/proposal/editdatakaprodis2catatan/' . $value['id_propo']);
                                     ?>
                                     <fieldset class="form-group">
                                         <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['kaprodis2_note']  ?></textarea>
@@ -204,7 +204,7 @@
                                     <!-- Dekan -->
                                 <?php } elseif (session()->get('unit') == 9) { ?>
                                     <?php
-                                    echo form_open('Proposals/editDataDekanCatatan/' . $value['id_propo']);
+                                    echo form_open('staffdosen/proposal/editdatadekancatatan/' . $value['id_propo']);
                                     ?>
                                     <fieldset class="form-group">
                                         <textarea class="form-control" name="addCatatanRevisiPerbaikan" rows="3" placeholder="Isi jika ada catatan revisi / perbaikan (opsional)"><?= $value['dekan_note']  ?></textarea>
@@ -240,7 +240,7 @@
                                     </strong>
                                 </div>
                                 <?php
-                                echo form_open('Proposals/editDataAkademikStatus/' . $value['id_propo']);
+                                echo form_open('staffdosen/proposal/editdataakademikstatus/' . $value['id_propo']);
                                 ?>
                                 <fieldset class="form-group">
                                     <select class="form-control" name="statusPropo">
@@ -257,7 +257,7 @@
                                 <!-- Subbagian Sumberdaya FPSi -->
                             <?php } elseif (session()->get('unit') == 3) { ?>
                                 <?php
-                                echo form_open('Proposals/editDataSumberdayaStatus/' . $value['id_propo']);
+                                echo form_open('staffdosen/proposal/editdatasumberdayastatus/' . $value['id_propo']);
                                 ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :
@@ -289,7 +289,7 @@
                                 <!-- Tata Usaha -->
                             <?php } elseif (session()->get('unit') == 4) { ?>
                                 <?php
-                                echo form_open('Proposals/editDataTataUsahaStatus/' . $value['id_propo']);
+                                echo form_open('staffdosen/proposal/editdatatatausahastatus/' . $value['id_propo']);
                                 ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :
@@ -321,7 +321,7 @@
                                 <!-- Wadek Akademik dan Kemahasiswaan -->
                             <?php } elseif (session()->get('unit') == 5) { ?>
                                 <?php
-                                echo form_open('Proposals/editDataWadekAkemStatus/' . $value['id_propo']);
+                                echo form_open('staffdosen/proposal/editdatawadekakemstatus/' . $value['id_propo']);
                                 ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :
@@ -353,7 +353,7 @@
                                 <!-- Wadek Sumber Daya -->
                             <?php } elseif (session()->get('unit') == 6) { ?>
                                 <?php
-                                echo form_open('Proposals/editDataWadekSumdaStatus/' . $value['id_propo']);
+                                echo form_open('staffdosen/proposal/editdatawadeksumdastatus/' . $value['id_propo']);
                                 ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :
@@ -385,7 +385,7 @@
                                 <!-- Kaprodi S1 -->
                             <?php } elseif (session()->get('unit') == 7) { ?>
                                 <?php
-                                echo form_open('Proposals/editDataKaprodiS1Status/' . $value['id_propo']);
+                                echo form_open('staffdosen/proposal/editdatakaprodis1status/' . $value['id_propo']);
                                 ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :
@@ -417,7 +417,7 @@
                                 <!-- Kaprodi S2 -->
                             <?php } elseif (session()->get('unit') == 8) { ?>
                                 <?php
-                                echo form_open('Proposals/editDataKaprodiS2Status/' . $value['id_propo']);
+                                echo form_open('staffdosen/proposal/editdatakaprodis2status/' . $value['id_propo']);
                                 ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :
@@ -449,7 +449,7 @@
                                 <!-- Dekan -->
                             <?php } elseif (session()->get('unit') == 9) { ?>
                                 <?php
-                                echo form_open('Proposals/editDataDekanStatus/' . $value['id_propo']);
+                                echo form_open('staffdosen/proposal/editdatadekanstatus/' . $value['id_propo']);
                                 ?>
                                 <div class="alert alert-info mb-2" role="alert">
                                     Status saat ini :

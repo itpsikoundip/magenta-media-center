@@ -3,7 +3,7 @@
 namespace App\Controllers\StaffDosen\Proposal;
 
 use App\Controllers\BaseController;
-use App\Models\Proposal\ModelProposals;
+use App\Models\Proposal\ModelProposalBEMStaffDosen;
 
 class ControllerStaffDosenProposal extends BaseController
 {
@@ -11,7 +11,7 @@ class ControllerStaffDosenProposal extends BaseController
     {
         helper('form');
         helper('rupiah_helper');
-        $this->ModelProposals = new ModelProposals();
+        $this->ModelProposalBEMStaffDosen = new ModelProposalBEMStaffDosen();
     }
 
     public function index()
@@ -19,30 +19,30 @@ class ControllerStaffDosenProposal extends BaseController
         $data = [
             'title' => 'Data Pengajuan Proposal',
             // Bag.Akademik
-            'allDataProposalBagAkademik' => $this->ModelProposals->allDataProposalBagAkademik(),
-            'allDataProposalBagAkademikSiapACC' => $this->ModelProposals->allDataProposalBagAkademikSiapACC(),
+            'allDataProposalBagAkademik' => $this->ModelProposalBEMStaffDosen->allDataProposalBagAkademik(),
+            'allDataProposalBagAkademikSiapACC' => $this->ModelProposalBEMStaffDosen->allDataProposalBagAkademikSiapACC(),
             // Bag.Sumberdaya
-            'allDataProposalBagSumberDaya' => $this->ModelProposals->allDataProposalBagSumberDaya(),
-            'allDataProposalBagSumberDayaSiapACC' => $this->ModelProposals->allDataProposalBagSumberDayaSiapACC(),
+            'allDataProposalBagSumberDaya' => $this->ModelProposalBEMStaffDosen->allDataProposalBagSumberDaya(),
+            'allDataProposalBagSumberDayaSiapACC' => $this->ModelProposalBEMStaffDosen->allDataProposalBagSumberDayaSiapACC(),
             // Bag.TataUsaha
-            'allDataProposalBagTataUsaha' => $this->ModelProposals->allDataProposalBagTataUsaha(),
-            'allDataProposalBagTataUsahaSiapACC' => $this->ModelProposals->allDataProposalBagTataUsahaSiapACC(),
+            'allDataProposalBagTataUsaha' => $this->ModelProposalBEMStaffDosen->allDataProposalBagTataUsaha(),
+            'allDataProposalBagTataUsahaSiapACC' => $this->ModelProposalBEMStaffDosen->allDataProposalBagTataUsahaSiapACC(),
             // Bag.KaprodiS1
-            'allDataProposalBagKaprodiS1' => $this->ModelProposals->allDataProposalBagKaprodiS1(),
-            'allDataProposalBagKaprodiS1SiapACC' => $this->ModelProposals->allDataProposalBagKaprodiS1SiapACC(),
+            'allDataProposalBagKaprodiS1' => $this->ModelProposalBEMStaffDosen->allDataProposalBagKaprodiS1(),
+            'allDataProposalBagKaprodiS1SiapACC' => $this->ModelProposalBEMStaffDosen->allDataProposalBagKaprodiS1SiapACC(),
             // Bag.KaprodiS2
-            'allDataProposalBagKaprodiS2' => $this->ModelProposals->allDataProposalBagKaprodiS2(),
-            'allDataProposalBagKaprodiS2SiapACC' => $this->ModelProposals->allDataProposalBagKaprodiS2SiapACC(),
+            'allDataProposalBagKaprodiS2' => $this->ModelProposalBEMStaffDosen->allDataProposalBagKaprodiS2(),
+            'allDataProposalBagKaprodiS2SiapACC' => $this->ModelProposalBEMStaffDosen->allDataProposalBagKaprodiS2SiapACC(),
             // Bag.WadekAkem
-            'allDataProposalBagWadekAkem' => $this->ModelProposals->allDataProposalBagWadekAkem(),
-            'allDataProposalBagWadekAkemSiapACC' => $this->ModelProposals->allDataProposalBagWadekAkemSiapACC(),
+            'allDataProposalBagWadekAkem' => $this->ModelProposalBEMStaffDosen->allDataProposalBagWadekAkem(),
+            'allDataProposalBagWadekAkemSiapACC' => $this->ModelProposalBEMStaffDosen->allDataProposalBagWadekAkemSiapACC(),
             // Bag.WadekSumda
-            'allDataProposalBagWadekSumda' => $this->ModelProposals->allDataProposalBagWadekSumda(),
-            'allDataProposalBagWadekSumdaSiapACC' => $this->ModelProposals->allDataProposalBagWadekSumdaSiapACC(),
+            'allDataProposalBagWadekSumda' => $this->ModelProposalBEMStaffDosen->allDataProposalBagWadekSumda(),
+            'allDataProposalBagWadekSumdaSiapACC' => $this->ModelProposalBEMStaffDosen->allDataProposalBagWadekSumdaSiapACC(),
             // Bag.Dekan
-            'allDataProposalBagDekan' => $this->ModelProposals->allDataProposalBagDekan(),
-            'allDataProposalBagDekanSiapACC' => $this->ModelProposals->allDataProposalBagDekanSiapACC(),
-            'detailDosen'   => $this->ModelProposals->detailDosen(),
+            'allDataProposalBagDekan' => $this->ModelProposalBEMStaffDosen->allDataProposalBagDekan(),
+            'allDataProposalBagDekanSiapACC' => $this->ModelProposalBEMStaffDosen->allDataProposalBagDekanSiapACC(),
+            'detailDosen'   => $this->ModelProposalBEMStaffDosen->detailDosen(),
             'isi'    => 'staffdosen/proposal/index'
         ];
         return view('layouts/staffdosen-wrapper', $data);
@@ -52,7 +52,7 @@ class ControllerStaffDosenProposal extends BaseController
     {
         $data = [
             'title' => 'Detail & Setujui Proposal',
-            'detailProposal' => $this->ModelProposals->detailProposal($id_propo),
+            'detailProposal' => $this->ModelProposalBEMStaffDosen->detailProposal($id_propo),
             'isi'    => 'staffdosen/proposal/detail'
         ];
         return view('layouts/staffdosen-wrapper', $data);
@@ -62,7 +62,7 @@ class ControllerStaffDosenProposal extends BaseController
     {
         $data = [
             'title' => 'Detail & Setujui Proposal',
-            'detailProposal' => $this->ModelProposals->detailProposal($id_propo),
+            'detailProposal' => $this->ModelProposalBEMStaffDosen->detailProposal($id_propo),
             'isi'    => 'staffdosen/proposal/detail'
         ];
         return view('layouts/staffdosen-wrapper', $data);
@@ -76,9 +76,9 @@ class ControllerStaffDosenProposal extends BaseController
             'akademik_user' => $this->request->getPost('userID'),
             'akademik_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pemberian Catatan Revisi Perbaikan berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataSumberdayaCatatan($id_propo)
     {
@@ -88,9 +88,9 @@ class ControllerStaffDosenProposal extends BaseController
             'sumberdaya_user' => $this->request->getPost('userID'),
             'sumberdaya_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pemberian Catatan Revisi Perbaikan berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataTataUsahaCatatan($id_propo)
     {
@@ -100,9 +100,9 @@ class ControllerStaffDosenProposal extends BaseController
             'tatausaha_user' => $this->request->getPost('userID'),
             'tatausaha_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pemberian Catatan Revisi Perbaikan berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataWadekAkemCatatan($id_propo)
     {
@@ -112,9 +112,9 @@ class ControllerStaffDosenProposal extends BaseController
             'wadekakem_user' => $this->request->getPost('userID'),
             'wadekakem_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pemberian Catatan Revisi Perbaikan berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataWadekSumdaCatatan($id_propo)
     {
@@ -124,9 +124,9 @@ class ControllerStaffDosenProposal extends BaseController
             'wadeksumda_user' => $this->request->getPost('userID'),
             'wadeksumda_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pemberian Catatan Revisi Perbaikan berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataKaprodiS1Catatan($id_propo)
     {
@@ -136,9 +136,9 @@ class ControllerStaffDosenProposal extends BaseController
             'kaprodis1_user' => $this->request->getPost('userID'),
             'kaprodis1_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pemberian Catatan Revisi Perbaikan berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataKaprodiS2Catatan($id_propo)
     {
@@ -148,9 +148,9 @@ class ControllerStaffDosenProposal extends BaseController
             'kaprodis2_user' => $this->request->getPost('userID'),
             'kaprodis2_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pemberian Catatan Revisi Perbaikan berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataDekanCatatan($id_propo)
     {
@@ -160,9 +160,9 @@ class ControllerStaffDosenProposal extends BaseController
             'dekan_user' => $this->request->getPost('userID'),
             'dekan_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pemberian Catatan Revisi Perbaikan berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
 
     public function editDataAkademikStatus($id_propo)
@@ -173,9 +173,9 @@ class ControllerStaffDosenProposal extends BaseController
             'akademik_user' => $this->request->getPost('userID'),
             'akademik_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pengubahan status berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataSumberdayaStatus($id_propo)
     {
@@ -185,9 +185,9 @@ class ControllerStaffDosenProposal extends BaseController
             'sumberdaya_user' => $this->request->getPost('userID'),
             'sumberdaya_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pengubahan status berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataTataUsahaStatus($id_propo)
     {
@@ -197,9 +197,9 @@ class ControllerStaffDosenProposal extends BaseController
             'tatausaha_user' => $this->request->getPost('userID'),
             'tatausaha_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pengubahan status berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataWadekAkemStatus($id_propo)
     {
@@ -209,9 +209,9 @@ class ControllerStaffDosenProposal extends BaseController
             'wadekakem_user' => $this->request->getPost('userID'),
             'wadekakem_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pengubahan status berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataWadekSumdaStatus($id_propo)
     {
@@ -221,9 +221,9 @@ class ControllerStaffDosenProposal extends BaseController
             'wadeksumda_user' => $this->request->getPost('userID'),
             'wadeksumda_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pengubahan status berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataKaprodiS1Status($id_propo)
     {
@@ -233,9 +233,9 @@ class ControllerStaffDosenProposal extends BaseController
             'kaprodis1_user' => $this->request->getPost('userID'),
             'kaprodis1_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pengubahan status berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataKaprodiS2Status($id_propo)
     {
@@ -245,9 +245,9 @@ class ControllerStaffDosenProposal extends BaseController
             'kaprodis2_user' => $this->request->getPost('userID'),
             'kaprodis2_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pengubahan status berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
     public function editDataDekanStatus($id_propo)
     {
@@ -257,8 +257,8 @@ class ControllerStaffDosenProposal extends BaseController
             'dekan_user' => $this->request->getPost('userID'),
             'dekan_updatetime' => $this->request->getPost('timeUpdated'),
         ];
-        $this->ModelProposals->edit($data);
+        $this->ModelProposalBEMStaffDosen->edit($data);
         session()->setFlashdata('notifikasi', 'Pengubahan statuss berhasil dilakukan dan disimpan !!');
-        return redirect()->to(base_url('proposals/edit/'  . $id_propo));
+        return redirect()->to(base_url('staffdosen/proposal/edit/'  . $id_propo));
     }
 }
