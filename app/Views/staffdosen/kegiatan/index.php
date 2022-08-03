@@ -104,32 +104,30 @@
                                                         <th>Ruangan</th>
                                                         <th>Agenda</th>
                                                         <th>PIC</th>
-                                                        <th>Status</th>
                                                         <th>Undangan</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    // foreach($tiketTerjawab as $tiket){
+                                                    foreach($kegiatanAktif as $kegiatan){
                                                     ?>
                                                     <tr>
-                                                        <th scope="row"><?php //echo $tiket->id 
-                                                                        ?></th>
-                                                        <td><?php //echo date("d M Y, H:i", strtotime($tiket->created_at)) 
+                                                        <td>
+                                                            <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
+                                                        </td>
+                                                        <td><?php echo date("H:i", strtotime($kegiatan['mulai'])).' - '.date("H:i", strtotime($kegiatan['selesai'])) 
                                                             ?></td>
-                                                        <td><?php //echo $tiket->nama 
+                                                        <td><?php echo $kegiatan['ruangan'] 
                                                             ?></td>
-                                                        <td><?php //echo $tiket->mahasiswa_id 
+                                                        <td><?php echo $kegiatan['agenda'] 
                                                             ?></td>
-                                                        <td><?php //echo $tiket->subjek 
+                                                        <td><?php echo $kegiatan['pic'] 
                                                             ?></td>
-                                                        <td><?php //echo $tiket->detail 
-                                                            ?></td>
-                                                        <td><a href="<?php //base_url('staffdosen/helpdesk/detailtiket/' . $tiket->id) 
-                                                                        ?>" class="btn btn-outline-info btn-sm">Lihat</a></td>
+                                                        <td><a href="<?php base_url('undangan-kegiatan/' . $kegiatan['undangan']) 
+                                                                        ?>" class="btn btn-outline-info btn-sm" target="blank">Lihat</a></td>
                                                     </tr>
                                                     <?php
-                                                    // }
+                                                    }
                                                     ?>
                                                 </tbody>
                                             </table>
