@@ -11,7 +11,7 @@ class MahasiswaOrmawaSeeder extends Seeder
         //
         $data = [
             [
-                'mahasiswa_id'  => '15000119130081',
+                'mahasiswa_id'  => '15000120140158',
                 'ormawa_id'     => 1,
             ],
             [
