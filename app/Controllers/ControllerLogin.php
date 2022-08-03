@@ -66,8 +66,8 @@ class ControllerLogin extends BaseController
     {
         //validasi inputan form login
         if ($this->validate([
-            'username' => [
-                'label' => 'Username',
+            'email' => [
+                'label' => 'Email',
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} wajib diisi!'
@@ -79,39 +79,26 @@ class ControllerLogin extends BaseController
                 'errors' => [
                     'required' => '{field} wajib diisi!'
                 ]
-            ],
-            'level' => [
-                'label' => 'Level',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} wajib diisi!'
-                ]
             ]
         ])) {
             //jika valid
-            $username = $this->request->getPost('username');
+            $email = $this->request->getPost('email');
             $hashedpassword = $this->request->getPost('password');
             $password = password_verify($this->request->getPost('password'), $hashedpassword);
-            $level = $this->request->getPost('level');
-            if ($level == 1) {
-                $cekuser = $this->ModelLogin->LoginAdmin($username, $password);
-                if ($cekuser) {
-                    //jika data cocok
-                    session()->set('id', $cekuser['id_useradmin']);
-                    session()->set('username', $cekuser['username']);
-                    session()->set('level', $level);
-                    //login
-                    session()->setFlashdata('sukses', 'Login sukses');
-                    return redirect()->to(base_url('admin'));
-                } else {
-                    //jika data tidak cocok
-                    session()->setFlashdata('pesan', 'Login gagal, email atau password salah!');
-                    return redirect()->to(base_url('login/admin'));
-                }
+            $cekusr = $this->ModelLogin->loginLvlAdmin($email, $password);
+            if ($cekusr) {
+                //jika data cocok
+                session()->set('id', $cekusr['id_admin']);
+                session()->set('nama', $cekusr['nama']);
+                session()->set('email', $cekusr['email']);
+                //login
+                session()->setFlashdata('sukses', 'Login sukses!');
+                return redirect()->to(base_url('admin'));
+            } else {
+                //jika data tidak cocok
+                session()->setFlashdata('pesan', 'Login Gagal!, username Atau Password Salah !!');
+                return redirect()->to(base_url('login/admin'));
             }
-        } else {
-            $validation =  \Config\Services::validation();
-            return redirect()->to(base_url('login/admin'))->withInput()->with('validation', $validation);
         }
     }
 

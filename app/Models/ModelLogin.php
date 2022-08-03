@@ -6,11 +6,11 @@ use CodeIgniter\Model;
 
 class ModelLogin extends Model
 {
-    public function LoginAdmin($username, $password)
+    public function loginLvlAdmin($email, $password)
     {
         return $this->db->table('user_admin')
             ->where([
-                'username' => $username,
+                'email' => $email,
                 'password' => $password
             ])->get()->getRowArray();
     }
