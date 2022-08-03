@@ -148,23 +148,44 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-3 col-lg-6 col-12">
-                        <a class="card" href="<?= base_url('staffdosen/sk/') ?>">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    <div class="media d-flex">
-                                        <div class="align-self-center">
-                                            <i class="icon-doc info font-large-2 float-left"></i>
+                    <!-- SK -->
+                    <?php if (session()->get('sk') == 1) { ?>
+                        <div class="col-xl-3 col-lg-6 col-12">
+                            <a class="card" href="<?= base_url('staffdosen/sk/') ?>">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="media d-flex">
+                                            <div class="align-self-center">
+                                                <i class="icon-doc info font-large-2 float-left"></i>
+                                            </div>
+                                            <div class="media-body text-right">
+                                                <h3><u>Pengajuan SK</u></h3>
+                                                <span>SK Rektor & Dekan</span>
+                                            </div>
                                         </div>
-                                        <div class="media-body text-right">
-                                            <h3><u>Pengajuan SK</u></h3>
-                                            <span>SK Rektor & Dekan</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <?php } elseif (session()->get('sk') == 0) { ?>
+                        <div class="col-xl-3 col-lg-6 col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="media d-flex">
+                                            <div class="align-self-center">
+                                                <i class="icon-doc light font-large-2 float-left"></i>
+                                            </div>
+                                            <div class="media-body text-right">
+                                                <h3><u>Pengajuan SK</u></h3>
+                                                <span>SK Rektor & Dekan</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    <?php } ?>
                     <div class="col-xl-3 col-lg-6 col-12">
                         <div class="card">
                             <div class="card-content">
@@ -410,23 +431,44 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-3 col-lg-6 col-12">
-                <a class="card" href="<?= base_url('staffdosen/sk') ?>">
-                    <div class="card-content">
-                        <div class="card-body">
-                            <div class="media d-flex">
-                                <div class="align-self-center">
-                                    <i class="icon-doc info font-large-2 float-left"></i>
+            <!-- SK -->
+            <?php if (session()->get('sk') == 1) { ?>
+                <div class="col-xl-3 col-lg-6 col-12">
+                    <a class="card" href="<?= base_url('staffdosen/sk/') ?>">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="media d-flex">
+                                    <div class="align-self-center">
+                                        <i class="icon-doc info font-large-2 float-left"></i>
+                                    </div>
+                                    <div class="media-body text-right">
+                                        <h3><u>Pengajuan SK</u></h3>
+                                        <span>SK Rektor & Dekan</span>
+                                    </div>
                                 </div>
-                                <div class="media-body text-right">
-                                    <h3><u>Pengajuan SK</u></h3>
-                                    <span>SK Rektor & Dekan</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php } elseif (session()->get('sk') == 0) { ?>
+                <div class="col-xl-3 col-lg-6 col-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="media d-flex">
+                                    <div class="align-self-center">
+                                        <i class="icon-doc light font-large-2 float-left"></i>
+                                    </div>
+                                    <div class="media-body text-right">
+                                        <h3><u>Pengajuan SK</u></h3>
+                                        <span>SK Rektor & Dekan</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </a>
-            </div>
+                </div>
+            <?php } ?>
             <div class="col-xl-3 col-lg-6 col-12">
                 <div class="card">
                     <div class="card-content">
