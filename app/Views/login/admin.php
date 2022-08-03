@@ -41,19 +41,33 @@
                                             echo '</div>';
                                         }
                                         ?>
-                                        <form class="form-horizontal" action="authAdmin" method="post">
+                                        <form class="form-horizontal" action="authadmin" method="post">
                                             </fieldset>
                                             <fieldset class="form-group position-relative has-icon-left  mt-4">
-                                                <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                                                 <div class="form-control-position">
                                                     <i class="ft-mail"></i>
                                                 </div>
+                                                <span class="text-danger">
+                                                    <?php
+                                                    if ($validation->hasError('email')) {
+                                                        echo $validation->getError('email');
+                                                    }
+                                                    ?>
+                                                </span>
                                             </fieldset>
                                             <fieldset class="form-group position-relative has-icon-left ">
-                                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                                                 <div class="form-control-position">
                                                     <i class="ft-lock"></i>
                                                 </div>
+                                                <span class="text-danger">
+                                                    <?php
+                                                    if ($validation->hasError('password')) {
+                                                        echo $validation->getError('password');
+                                                    }
+                                                    ?>
+                                                </span>
                                             </fieldset>
                                             </fieldset>
                                             <input type="hidden" id="level" name="level" value="1">

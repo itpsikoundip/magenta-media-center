@@ -10,6 +10,11 @@ class AuthAdmin implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
+        // Do something here
+        if (session('email') == null) {
+            session()->destroy();
+            return redirect()->to('login');
+        }
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
