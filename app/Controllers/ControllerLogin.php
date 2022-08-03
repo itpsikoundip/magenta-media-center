@@ -227,6 +227,7 @@ class ControllerLogin extends BaseController
                 session()->set('proposal', $cekusr['proposal']);
                 session()->set('survey', $cekusr['survey']);
                 session()->set('helpdesk', $cekusr['helpdesk']);
+                session()->set('sk', $cekusr['sk']);
                 //login
                 session()->setFlashdata('sukses', 'Login sukses!');
                 return redirect()->to(base_url('staffdosen'));
