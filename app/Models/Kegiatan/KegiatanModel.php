@@ -11,7 +11,7 @@ class KegiatanModel extends Model
     public function getKegiatan()
     {
         $kegiatan = $this->db->table('kegiatan')->get();
-        return $kegiatan->getResult();
+        return $kegiatan->getResultArray();
     }
 
     public function addKegiatan($data)
@@ -19,19 +19,23 @@ class KegiatanModel extends Model
         return $this->db->table('kegiatan')->insert($data);
     }
 
-    function getJamMulai()
+    function getJamMulai($id_ruangan, $tanggal)
     {
         $builder = $this->db->table('kegiatan');
         $builder->select('mulai');
+        $builder->where('ruangan_id', $id_ruangan);
+        $builder->where('tanggal', $tanggal);
         $query = $builder->get();
 
         return $query->getResultArray();
     }
 
-    function getJamSelesai()
+    function getJamSelesai($id_ruangan, $tanggal)
     {
         $builder = $this->db->table('kegiatan');
         $builder->select('selesai');
+        $builder->where('ruangan_id', $id_ruangan);
+        $builder->where('tanggal', $tanggal);
         $query = $builder->get();
 
         return $query->getResultArray();

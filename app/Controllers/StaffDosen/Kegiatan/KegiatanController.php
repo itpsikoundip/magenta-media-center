@@ -35,10 +35,11 @@ class KegiatanController extends BaseController
 
     public function addKegiatan()
     {
-        $kegiatanModel = $this->KegiatanModel->findAll();
 
-        $getJamMulai = $this->KegiatanModel->getJamMulai();
-        $getJamSelesai = $this->KegiatanModel->getJamSelesai();
+        $allKegiatan = $this->KegiatanModel->findAll();
+
+        $getJamMulai = $this->KegiatanModel->getJamMulai($this->request->getPost('pilihRuangan'), $this->request->getPost('inputTanggal'));
+        $getJamSelesai = $this->KegiatanModel->getJamSelesai($this->request->getPost('pilihRuangan'), $this->request->getPost('inputTanggal'));
 
         $StartA = $this->request->getPost('pilihJamMulai');
         $EndA = $this->request->getPost('pilihJamSelesai');
@@ -49,73 +50,83 @@ class KegiatanController extends BaseController
         $timeNow = Time::now();
         $selectedDate = $this->request->getPost('inputTanggal');
 
-        echo "<br>";
-        echo "INPUT Jam Mulai : $StartA";
-        echo "<br>";
-        echo "INPUT Jam Selesai : $EndA";
-        echo "<br>";
+        // echo "<br>";
+        // echo "INPUT Jam Mulai : $StartA";
+        // echo "<br>";
+        // echo "INPUT Jam Selesai : $EndA";
+        // echo "<br>";
         if ($selectedDate >= $timeNow) {
+            
             if ($StartA < $EndA) {
-                echo "$StartA < $EndA";
+                // echo "$StartA < $EndA";
 
-                for ($i = 0; $i < count($StartB); $i++) {
-                    $result = ($StartA < $EndB[$i]) && ($EndA > $StartB[$i]);
-                    if ($result) {
-                        echo "<br>";
-                        session()->setFlashdata('error', "GAGAL : Sudah ada yang menggunakan ruangan pada" . $StartB[$i] . " - " . $EndB[$i]);
-                        return redirect()->to(base_url('staffdosen/kegiatan/'));
-                    }
-                };
-                if ($result == false) {
-                    $ruangan_id     = $this->request->getPost('pilihRuangan');
-                    $tanggal        = $this->request->getPost('inputTanggal');
-                    $mulai          = $this->request->getPost('pilihJamMulai');
-                    $selesai        = $this->request->getPost('pilihJamSelesai');
-                    $agenda         = $this->request->getPost('inputAgenda');
-                    $pic_id         = $this->request->getPost('pilihPIC');
-                    $hp             = $this->request->getPost('inputHP');
+                if(count($allKegiatan) > 0){
+                    // dd($StartB);
+                    for ($i = 0; $i < count($StartB); $i++) {
 
-                    if ($_FILES and $_FILES['inputUndangan']['name']) {
-                        //kalau lampiran tidak kosong
-                        $undangan       = $this->request->getFile('inputundangan');
-                        $namaUndangan   = $undangan->getRandomName();
-                    } else {
-                        $namaUndangan   = NULL;
-                    }
+                        $StartAtoInt = (int)$StartA;
+                        $EndAtoInt = (int)$EndA;
+                        $StartBtoInt = (int)$StartB[$i]["mulai"];
+                        $EndBtoInt = (int)$EndB[$i]["selesai"];
 
-                    $data = [
-                        'ruangan_id'    => $ruangan_id,
-                        'tanggal'       => $tanggal,
-                        'mulai'         => $mulai,
-                        'selesai'       => $selesai,
-                        'agenda'        => $agenda,
-                        'pic_id'        => $pic_id,
-                        'hp'            => $hp,
-                        'undangan'      => $namaUndangan,
-                        'created_at'    => Time::now('Asia/Jakarta'),
-                    ];
-
-                    dd($data);
-                    if ($_FILES and $_FILES['inputLampiran']['name']) {
-                        // Upload file
-                        $undangan->move('undangan-kegiatan', $namaUndangan);
-                    }
-                    $result = $this->KegiatanModel->addKegiatan($data);
-                    // dd($result);
-                    if ($result) {
-                        session()->setFlashdata('sukses', 'SUKSES : Kegiatan berhasil ditambahkan.');
-                        return redirect()->to(base_url('staffdosen/kegiatan/'));
-                    } else {
-                        session()->setFlashdata('error', 'ERROR : Kegiatan gagal ditambahkan.');
-                        return redirect()->to(base_url('staffdosen/kegiatan/'));
-                    }
+                        $overlap = ($StartAtoInt < $EndBtoInt) && ($EndAtoInt > $StartBtoInt);
+                        if ($overlap) {
+                            echo "<br>";
+                            session()->setFlashdata('error', "GAGAL : Sudah ada yang menggunakan ruangan tersebut pada pukul " . $StartBtoInt . " - " . $EndBtoInt);
+                            return redirect()->to(base_url('staffdosen/kegiatan/'));
+                        }
+                    };
+                    // dd($overlap);
                 }
+                $ruangan_id     = $this->request->getPost('pilihRuangan');
+                $tanggal        = $this->request->getPost('inputTanggal');
+                $mulai          = $this->request->getPost('pilihJamMulai');
+                $selesai        = $this->request->getPost('pilihJamSelesai');
+                $agenda         = $this->request->getPost('inputAgenda');
+                $pic_id         = $this->request->getPost('pilihPIC');
+                $hp             = $this->request->getPost('inputHP');
+
+                if ($_FILES and $_FILES['inputUndangan']['name']) {
+                    //kalau lampiran tidak kosong
+                    $undangan       = $this->request->getFile('inputundangan');
+                    $namaUndangan   = $undangan->getRandomName();
+                } else {
+                    $namaUndangan   = NULL;
+                }
+
+                $data = [
+                    'ruangan_id'    => $ruangan_id,
+                    'tanggal'       => $tanggal,
+                    'mulai'         => $mulai,
+                    'selesai'       => $selesai,
+                    'agenda'        => $agenda,
+                    'pic_id'        => $pic_id,
+                    'hp'            => $hp,
+                    'undangan'      => $namaUndangan,
+                    'created_at'    => Time::now('Asia/Jakarta'),
+                ];
+
+                // dd($data);
+                if ($_FILES and $_FILES['inputUndangan']['name']) {
+                    // Upload file
+                    $undangan->move('undangan-kegiatan', $namaUndangan);
+                }
+                $result = $this->KegiatanModel->addKegiatan($data);
+                // dd($result);
+                if ($result) {
+                    session()->setFlashdata('sukses', 'SUKSES : Kegiatan berhasil ditambahkan.');
+                    return redirect()->to(base_url('staffdosen/kegiatan/'));
+                } else {
+                    session()->setFlashdata('error', 'GAGAL : Kegiatan gagal ditambahkan.');
+                    return redirect()->to(base_url('staffdosen/kegiatan/'));
+                }
+
             } else {
-                session()->setFlashdata('error', "ERROR : Jam mulai (" . $StartA . ") lebih besar dari jam selesai ("  . $EndA . ")");
+                session()->setFlashdata('error', "GAGAL : Jam mulai (" . $StartA . ") lebih besar dari jam selesai ("  . $EndA . ")");
                 return redirect()->to(base_url('staffdosen/kegiatan/'));
             }
         } else {
-            session()->setFlashdata('error', "ERROR : Tidak bisa memilih tanggal lampau.");
+            session()->setFlashdata('error', "GAGAL : Tanggal sudah lewat.");
             return redirect()->to(base_url('staffdosen/kegiatan/'));
         }
     }
