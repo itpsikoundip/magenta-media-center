@@ -48,11 +48,6 @@ class Kegiatan extends Migration
                 'constraint'    => '255',
                 'null'          => TRUE,
             ],
-            'status_id' => [
-                'type'          => 'INT',
-                'constraint'    => 6,
-                'unsigned'      => TRUE,
-            ],
             'created_at' => [
                 'type'          => 'DATETIME',
                 'null'          => TRUE,
@@ -65,7 +60,6 @@ class Kegiatan extends Migration
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('ruangan_id', 'kegiatan_ruangan', 'id');
         $this->forge->addForeignKey('pic_id', 'data_staffdosen', 'id_staffdosen');
-        $this->forge->addForeignKey('status_id', 'kegiatan_status', 'id');
         $this->forge->createTable('kegiatan');
     }
 

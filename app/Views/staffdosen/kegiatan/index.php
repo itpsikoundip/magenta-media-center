@@ -137,13 +137,14 @@
                                     </div>
 
                                     <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
+                                        
                                         <form class="form form-horizontal" action="<?= base_url('staffdosen/kegiatan/addkegiatan/') ?>" method="post" enctype="multipart/form-data">
                                             <?= csrf_field(); ?>
                                             <div class="form-body">
                                                 <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="inputPertanyaan"><b>Ruangan</b></label>
+                                                    <label class="col-md-2 label-control" for="pilihRuangan"><b>Ruangan</b></label>
                                                     <div class="col-md-10">
-                                                        <select id="pilihRuangan" name="pilihRuangan" class="form-control" required>
+                                                        <select id="pilihRuangan" name="pilihRuangan" class="form-control" required value="<?= old('pilihRuangan');?>">
                                                             <option value="">-- Pilih Ruangan --</option>
                                                             <?php
                                                             foreach ($ruangan as $ruang) {
@@ -158,13 +159,13 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputTanggal"><b>Tanggal</b></label>
                                                     <div class="col-md-10">
-                                                        <input type="date" id="inputTanggal" name="inputTanggal" class="form-control" placeholder="Tanggal kegiatan" required>
-                                                    </div>
+                                                        <input type="date" id="inputTanggal" name="inputTanggal" onchange="checkDate()" class="form-control" placeholder="Tanggal kegiatan" required value="<?= old('inputTanggal');?>">
+                                                    </div>                  
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="pilihJamMulai"><b>Jam Mulai</b></label>
                                                     <div class="col-md-10">
-                                                        <select id="pilihJamMulai" name="pilihJamMulai" class="form-control" required>
+                                                        <select id="pilihJamMulai" name="pilihJamMulai" class="form-control" required value="<?= old('pilihJamMulai');?>" >
                                                             <option value="">-- Pilih Jam Mulai --</option>
                                                             <option value="08:00">08.00</option>
                                                             <option value="09:00">09.00</option>
@@ -180,7 +181,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="pilihJamSelesai"><b>Jam Selesai</b></label>
                                                     <div class="col-md-10">
-                                                        <select id="pilihJamSelesai" name="pilihJamSelesai" class="form-control" required>
+                                                        <select id="pilihJamSelesai" name="pilihJamSelesai" class="form-control" value="<?= old('pilihJamMulai');?>">
                                                             <option value="">-- Pilih Jam Selesai--</option>
                                                             <option value="09:00">09.00</option>
                                                             <option value="10:00">10.00</option>
@@ -217,7 +218,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputHP"><b>No WA PIC</b></label>
                                                     <div class="col-md-10">
-                                                        <input type="text" id="inputHP" name="inputHP" class="form-control" placeholder="contoh: 628123456789" required>
+                                                        <input type="text" id="inputHP" name="inputHP" class="form-control" placeholder="contoh: 628123456789" required >
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
