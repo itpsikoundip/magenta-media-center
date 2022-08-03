@@ -11,47 +11,47 @@ class MahasiswaOrmawaSeeder extends Seeder
         //
         $data = [
             [
-                'mahasiswa_id'  => '24060119130076',
+                'mahasiswa_id'  => '15000120140158',
                 'ormawa_id'     => 1,
             ],
             [
-                'mahasiswa_id'  => '24060118140001',
+                'mahasiswa_id'  => '15000119130326',
                 'ormawa_id'        => 2,
             ],
             [
-                'mahasiswa_id'  => '24060114902834',
+                'mahasiswa_id'  => '15000120120005',
                 'ormawa_id'        => 3,
             ],
             [
-                'mahasiswa_id'  => '24060119304322',
+                'mahasiswa_id'  => '15000121120060',
                 'ormawa_id'        => 4,
             ],
             [
-                'mahasiswa_id'  => '24060124189402',
+                'mahasiswa_id'  => '15000119130176',
                 'ormawa_id'        => 5,
             ],
             [
-                'mahasiswa_id'  => '24060184973342',
+                'mahasiswa_id'  => '15000119140317',
                 'ormawa_id'        => 6,
             ],
             [
-                'mahasiswa_id'  => '24060192038426',
+                'mahasiswa_id'  => '15000121140221',
                 'ormawa_id'        => 7,
             ],
             [
-                'mahasiswa_id'  => '24060193875315',
+                'mahasiswa_id'  => '15000118120055',
                 'ormawa_id'        => 8,
             ],
             [
-                'mahasiswa_id'  => '24060156343468',
+                'mahasiswa_id'  => '15000120130251',
                 'ormawa_id'        => 9,
             ],
             [
-                'mahasiswa_id'  => '24060132525748',
+                'mahasiswa_id'  => '15000120140097',
                 'ormawa_id'        => 10,
             ],
             [
-                'mahasiswa_id'  => '24060146786546',
+                'mahasiswa_id'  => '15000120140156',
                 'ormawa_id'        => 11,
             ],
         ];
