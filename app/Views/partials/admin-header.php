@@ -28,7 +28,7 @@
                                 <span class="user-name text-white"><?= session()->get('nama') ?></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="<?= base_url('login/logoutadmin') ?>"><i class="ft-power"></i> Logout</a>
+                                <a class="dropdown-item" href="<?= base_url('login/logout') ?>"><i class="ft-power"></i> Logout</a>
                             </div>
                         </li>
                     </ul>

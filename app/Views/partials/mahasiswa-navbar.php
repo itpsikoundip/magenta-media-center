@@ -34,7 +34,7 @@
                                 <a class="dropdown-item" href="<?= base_url('mahasiswa/profil') ?>"><i class="ft-user"></i> Edit Profil</a>
                             <?php } elseif (session()->get('idormawa') != NULL) { ?>
                             <?php } ?>
-                            <a class="dropdown-item" href="<?= base_url('login/logoutmhs') ?>"><i class="ft-power"></i> Logout</a>
+                            <a class="dropdown-item" href="<?= base_url('login/logout') ?>"><i class="ft-power"></i> Logout</a>
                         </div>
                     </li>
                 </ul>
