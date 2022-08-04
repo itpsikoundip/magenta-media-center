@@ -99,33 +99,42 @@
                                             <table class="table">
                                                 <thead>
                                                     <tr>
-                                                        <th>Tanggal</th>
-                                                        <th>Jam</th>
-                                                        <th>Ruangan</th>
-                                                        <th>Agenda</th>
-                                                        <th>PIC</th>
-                                                        <th>Undangan</th>
+                                                        <th class="text-center">Tanggal</th>
+                                                        <th class="text-center">Jam Mulai</th>
+                                                        <th class="text-center">Jam Selesai</th>
+                                                        <th class="text-center">Ruangan</th>
+                                                        <th class="text-center">Agenda</th>
+                                                        <th class="text-center">PIC</th>
+                                                        <th class="text-center">Undangan</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    foreach($kegiatanAktif as $kegiatan){
+                                                    foreach ($kegiatanAktif as $kegiatan) {
                                                     ?>
-                                                    <tr>
-                                                        <td>
-                                                            <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
-                                                        </td>
-                                                        <td><?php echo date("H:i", strtotime($kegiatan['mulai'])).' - '.date("H:i", strtotime($kegiatan['selesai'])) 
-                                                            ?></td>
-                                                        <td><?php echo $kegiatan['ruangan'] 
-                                                            ?></td>
-                                                        <td><?php echo $kegiatan['agenda'] 
-                                                            ?></td>
-                                                        <td><?php echo $kegiatan['pic'] 
-                                                            ?></td>
-                                                        <td><a href="<?php base_url('undangan-kegiatan/' . $kegiatan['undangan']) 
-                                                                        ?>" class="btn btn-outline-info btn-sm" target="blank">Lihat</a></td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <?php echo date("H:i", strtotime($kegiatan['mulai'])) ?>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <?php echo date("H:i", strtotime($kegiatan['selesai'])) ?>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <?php echo $kegiatan['ruangan'] ?>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <?php echo $kegiatan['agenda'] ?>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <?php echo $kegiatan['pic'] ?>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a href="<?php base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">Lihat</a>
+                                                            </td>
+                                                        </tr>
                                                     <?php
                                                     }
                                                     ?>
@@ -135,14 +144,14 @@
                                     </div>
 
                                     <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
-                                        
+
                                         <form class="form form-horizontal" action="<?= base_url('staffdosen/kegiatan/addkegiatan/') ?>" method="post" enctype="multipart/form-data">
                                             <?= csrf_field(); ?>
                                             <div class="form-body">
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="pilihRuangan"><b>Ruangan</b></label>
                                                     <div class="col-md-10">
-                                                        <select id="pilihRuangan" name="pilihRuangan" class="form-control" required value="<?= old('pilihRuangan');?>">
+                                                        <select id="pilihRuangan" name="pilihRuangan" class="form-control" required value="<?= old('pilihRuangan'); ?>">
                                                             <option value="">-- Pilih Ruangan --</option>
                                                             <?php
                                                             foreach ($ruangan as $ruang) {
@@ -157,13 +166,13 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputTanggal"><b>Tanggal</b></label>
                                                     <div class="col-md-10">
-                                                        <input type="date" id="inputTanggal" name="inputTanggal" onchange="checkDate()" class="form-control" placeholder="Tanggal kegiatan" required value="<?= old('inputTanggal');?>">
-                                                    </div>                  
+                                                        <input type="date" id="inputTanggal" name="inputTanggal" onchange="checkDate()" class="form-control" placeholder="Tanggal kegiatan" required value="<?= old('inputTanggal'); ?>">
+                                                    </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="pilihJamMulai"><b>Jam Mulai</b></label>
                                                     <div class="col-md-10">
-                                                        <select id="pilihJamMulai" name="pilihJamMulai" class="form-control" required value="<?= old('pilihJamMulai');?>" >
+                                                        <select id="pilihJamMulai" name="pilihJamMulai" class="form-control" required value="<?= old('pilihJamMulai'); ?>">
                                                             <option value="">-- Pilih Jam Mulai --</option>
                                                             <option value="08:00">08.00</option>
                                                             <option value="09:00">09.00</option>
@@ -179,7 +188,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="pilihJamSelesai"><b>Jam Selesai</b></label>
                                                     <div class="col-md-10">
-                                                        <select id="pilihJamSelesai" name="pilihJamSelesai" class="form-control" value="<?= old('pilihJamMulai');?>">
+                                                        <select id="pilihJamSelesai" name="pilihJamSelesai" class="form-control" value="<?= old('pilihJamMulai'); ?>">
                                                             <option value="">-- Pilih Jam Selesai--</option>
                                                             <option value="09:00">09.00</option>
                                                             <option value="10:00">10.00</option>
@@ -216,7 +225,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputHP"><b>No WA PIC</b></label>
                                                     <div class="col-md-10">
-                                                        <input type="text" id="inputHP" name="inputHP" class="form-control" placeholder="contoh: 628123456789" required >
+                                                        <input type="number" id="inputHP" name="inputHP" class="form-control" placeholder="contoh: 628123456789" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
