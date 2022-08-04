@@ -94,7 +94,7 @@
                                                 <tr>
                                                     <td style="text-align: center; vertical-align: middle;"><?= $no++; ?></td>
                                                     <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                                    <td>
+                                                    <td style="vertical-align: middle; text-align: center;">
                                                         <?php if ($value['bem_status'] == 0) {
                                                             echo '<div class="badge badge-primary">Belum ada Status</div>';
                                                         } elseif (($value['bem_status']) == 1) {
@@ -106,7 +106,7 @@
                                                         }
                                                         ?>
                                                     </td>
-                                                    <td>
+                                                    <td style="vertical-align: middle; text-align: center;">
                                                         <a href="<?= base_url('proposal/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                     </td>
                                                 </tr>
@@ -130,7 +130,7 @@
                                     foreach ($dataProposal as $key => $value) { ?>
                                         <tr>
                                             <td style="vertical-align: middle;"><?= $value['judul_propo']  ?></td>
-                                            <td>
+                                            <td style="vertical-align: middle; text-align: center;">
                                                 <?php if ($value['dekan_status'] != 0) {
                                                     echo 'Dekan';
                                                 } elseif (($value['wadeksumda_status']) != 0) {
@@ -147,62 +147,66 @@
                                                     echo 'Akademik';
                                                 } elseif (($value['bem_status']) != 0) {
                                                     echo 'BEM';
+                                                } elseif (($value['bem_status']) == 0) {
+                                                    echo 'BEM';
                                                 }
                                                 ?>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle; text-align: center;">
                                                 <?php if ($value['dekan_status'] == 3) {
-                                                    echo 'Diterima';
+                                                    echo '<div class="badge badge-success">Disetujui</div>';
                                                 } elseif (($value['dekan_status']) == 2) {
-                                                    echo 'Perbaikan';
+                                                    echo '<div class="badge badge-warning"><div class="badge badge-warning">Perbaikan</div></div>';
                                                 } elseif (($value['dekan_status']) == 1) {
-                                                    echo 'Ditolak';
+                                                    echo '<div class="badge badge-danger">Ditolak</div>';
                                                 } elseif (($value['wadeksumda_status']) == 3) {
-                                                    echo 'Diterima';
+                                                    echo '<div class="badge badge-success">Disetujui</div>';
                                                 } elseif (($value['wadeksumda_status']) == 2) {
-                                                    echo 'Perbaikan';
+                                                    echo '<div class="badge badge-warning">Perbaikan</div>';
                                                 } elseif (($value['wadeksumda_status']) == 1) {
-                                                    echo 'Ditolak';
+                                                    echo '<div class="badge badge-danger">Ditolak</div>';
                                                 } elseif (($value['wadekakem_status']) == 3) {
-                                                    echo 'Diterima';
+                                                    echo '<div class="badge badge-success">Disetujui</div>';
                                                 } elseif (($value['wadekakem_status']) == 2) {
-                                                    echo 'Perbaikan';
+                                                    echo '<div class="badge badge-warning">Perbaikan</div>';
                                                 } elseif (($value['wadekakem_status']) == 1) {
-                                                    echo 'Ditolak';
+                                                    echo '<div class="badge badge-danger">Ditolak</div>';
                                                 } elseif (($value['kaprodis1_status']) == 3) {
-                                                    echo 'Diterima';
+                                                    echo '<div class="badge badge-success">Disetujui</div>';
                                                 } elseif (($value['kaprodis1_status']) == 2) {
-                                                    echo 'Perbaikan';
+                                                    echo '<div class="badge badge-warning">Perbaikan</div>';
                                                 } elseif (($value['kaprodis1_status']) == 1) {
-                                                    echo 'Ditolak';
+                                                    echo '<div class="badge badge-danger">Ditolak</div>';
                                                 } elseif (($value['tatausaha_status']) == 3) {
-                                                    echo 'Diterima';
+                                                    echo '<div class="badge badge-success">Disetujui</div>';
                                                 } elseif (($value['tatausaha_status']) == 2) {
-                                                    echo 'Perbaikan';
+                                                    echo '<div class="badge badge-warning">Perbaikan</div>';
                                                 } elseif (($value['tatausaha_status']) == 1) {
-                                                    echo 'Ditolak';
+                                                    echo '<div class="badge badge-danger">Ditolak</div>';
                                                 } elseif (($value['sumberdaya_status']) == 3) {
-                                                    echo 'Diterima';
+                                                    echo '<div class="badge badge-success">Disetujui</div>';
                                                 } elseif (($value['sumberdaya_status']) == 2) {
-                                                    echo 'Perbaikan';
+                                                    echo '<div class="badge badge-warning">Perbaikan</div>';
                                                 } elseif (($value['sumberdaya_status']) == 1) {
-                                                    echo 'Ditolak';
+                                                    echo '<div class="badge badge-danger">Ditolak</div>';
                                                 } elseif (($value['akademik_status']) == 3) {
-                                                    echo 'Diterima';
+                                                    echo '<div class="badge badge-success">Disetujui</div>';
                                                 } elseif (($value['akademik_status']) == 2) {
-                                                    echo 'Perbaikan';
+                                                    echo '<div class="badge badge-warning">Perbaikan</div>';
                                                 } elseif (($value['akademik_status']) == 1) {
-                                                    echo 'Ditolak';
+                                                    echo '<div class="badge badge-danger">Ditolak</div>';
                                                 } elseif (($value['bem_status']) == 3) {
-                                                    echo 'Diterima';
+                                                    echo '<div class="badge badge-success">Disetujui</div>';
                                                 } elseif (($value['bem_status']) == 2) {
-                                                    echo 'Perbaikan';
+                                                    echo '<div class="badge badge-warning">Perbaikan</div>';
                                                 } elseif (($value['bem_status']) == 1) {
-                                                    echo 'Ditolak';
+                                                    echo '<div class="badge badge-danger">Ditolak</div>';
+                                                } elseif (($value['bem_status']) == 0) {
+                                                    echo '<div class="badge badge-info">Diproses</div>';
                                                 }
                                                 ?>
                                             </td>
-                                            <td>
+                                            <td style="vertical-align: middle; text-align: center;">
                                                 <a href="<?= base_url('ormawa/proposal/view/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-info"><i class="fa fa-eye"></i></a>
                                                 <?php if (($value['dekan_status']) == 2) { ?>
                                                     <a href="<?= base_url('ormawa/proposal/edit/' . $value['id_propo']) ?>" class="btn btn-sm btn-icon btn-success"><i class="fa fa-edit"></i></a>
