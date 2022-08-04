@@ -133,9 +133,11 @@
                                                                     <?php echo $kegiatan['pic'] ?>
                                                                 </td>
                                                                 <td class="text-center">
-                                                                    <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">Undangan</a>
-                                                                    <a href="https://wa.me/<?php echo $kegiatan['hp']?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm" target="blank">
-                                                                        <img src="/images/whatsapp-logo.png" alt="asd" style="max-width: 16px"> Hubungi PIC
+                                                                    <a href="https://wa.me/<?php echo $kegiatan['hp']?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm mr-1" target="blank">
+                                                                        <img src="/images/whatsapp-logo.png" alt="asd" style="max-width: 16px">
+                                                                    </a>
+                                                                    <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">
+                                                                        <i class="icon-doc"></i>
                                                                     </a>
                                                                 </td>
                                                             </tr>
