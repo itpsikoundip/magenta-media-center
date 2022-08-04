@@ -113,27 +113,27 @@
                                                     foreach ($kegiatanAktif as $kegiatan) {
                                                         if ($kegiatan['tanggal'] == $currentDate && ($kegiatan['mulai'] <= $currentTime && $kegiatan['selesai'] >= $currentTime)) {
                                                     ?>
-                                                            <tr>
-                                                                <td class="text-center table-info font-weight-bold">
+                                                            <tr class="table-info font-weight-bold">
+                                                                <td class="text-center">
                                                                     <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
                                                                 </td>
-                                                                <td class="text-center table-info font-weight-bold">
+                                                                <td class="text-center">
                                                                     <?php echo date("H:i", strtotime($kegiatan['mulai'])) ?>
                                                                 </td>
-                                                                <td class="text-center table-info font-weight-bold">
+                                                                <td class="text-center">
                                                                     <?php echo date("H:i", strtotime($kegiatan['selesai'])) ?>
                                                                 </td>
-                                                                <td class="text-center table-info font-weight-bold">
+                                                                <td class="text-center">
                                                                     <?php echo $kegiatan['ruangan'] ?>
                                                                 </td>
-                                                                <td class="align-middle table-info font-weight-bold">
+                                                                <td class="">
                                                                     <?php echo $kegiatan['agenda'] ?>
                                                                 </td>
-                                                                <td class="text-center table-info font-weight-bold">
+                                                                <td class="text-center">
                                                                     <?php echo $kegiatan['pic'] ?>
                                                                 </td>
-                                                                <td class="text-center table-info font-weight-bold">
-                                                                    <a href="<?php base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">Lihat</a>
+                                                                <td class="text-center">
+                                                                    <a href="<?= base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">Lihat</a>
                                                                 </td>
                                                             </tr>
                                                         <?php
@@ -151,14 +151,14 @@
                                                                 <td class="text-center">
                                                                     <?php echo $kegiatan['ruangan'] ?>
                                                                 </td>
-                                                                <td class="align-middle">
+                                                                <td class="">
                                                                     <?php echo $kegiatan['agenda'] ?>
                                                                 </td>
                                                                 <td class="text-center">
                                                                     <?php echo $kegiatan['pic'] ?>
                                                                 </td>
                                                                 <td class="text-center">
-                                                                    <a href="<?php base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">Lihat</a>
+                                                                    <a href="<?= base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">Lihat</a>
                                                                 </td>
                                                             </tr>
                                                     <?php
