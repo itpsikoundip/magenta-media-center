@@ -111,31 +111,58 @@
                                                 <tbody>
                                                     <?php
                                                     foreach ($kegiatanAktif as $kegiatan) {
+                                                        if ($kegiatan['tanggal'] == $currentDate && ($kegiatan['mulai'] <= $currentTime && $kegiatan['selesai'] >= $currentTime)) {
                                                     ?>
-                                                        <tr>
-                                                            <td class="text-center">
-                                                                <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <?php echo date("H:i", strtotime($kegiatan['mulai'])) ?>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <?php echo date("H:i", strtotime($kegiatan['selesai'])) ?>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <?php echo $kegiatan['ruangan'] ?>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <?php echo $kegiatan['agenda'] ?>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <?php echo $kegiatan['pic'] ?>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <a href="<?php base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">Lihat</a>
-                                                            </td>
-                                                        </tr>
+                                                            <tr>
+                                                                <td class="text-center table-info font-weight-bold">
+                                                                    <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
+                                                                </td>
+                                                                <td class="text-center table-info font-weight-bold">
+                                                                    <?php echo date("H:i", strtotime($kegiatan['mulai'])) ?>
+                                                                </td>
+                                                                <td class="text-center table-info font-weight-bold">
+                                                                    <?php echo date("H:i", strtotime($kegiatan['selesai'])) ?>
+                                                                </td>
+                                                                <td class="text-center table-info font-weight-bold">
+                                                                    <?php echo $kegiatan['ruangan'] ?>
+                                                                </td>
+                                                                <td class="align-middle table-info font-weight-bold">
+                                                                    <?php echo $kegiatan['agenda'] ?>
+                                                                </td>
+                                                                <td class="text-center table-info font-weight-bold">
+                                                                    <?php echo $kegiatan['pic'] ?>
+                                                                </td>
+                                                                <td class="text-center table-info font-weight-bold">
+                                                                    <a href="<?php base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">Lihat</a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php
+                                                        } else { ?>
+                                                            <tr>
+                                                                <td class="text-center">
+                                                                    <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <?php echo date("H:i", strtotime($kegiatan['mulai'])) ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <?php echo date("H:i", strtotime($kegiatan['selesai'])) ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <?php echo $kegiatan['ruangan'] ?>
+                                                                </td>
+                                                                <td class="align-middle">
+                                                                    <?php echo $kegiatan['agenda'] ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <?php echo $kegiatan['pic'] ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <a href="<?php base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">Lihat</a>
+                                                                </td>
+                                                            </tr>
                                                     <?php
+                                                        }
                                                     }
                                                     ?>
                                                 </tbody>
