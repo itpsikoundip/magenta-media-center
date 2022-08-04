@@ -52,13 +52,13 @@
                                                 <td>BEM</td>
                                                 <td>
                                                     <?php if ($value['bem_status'] == 0) {
-                                                        echo '';
+                                                        echo '<div class="badge badge-info">Proses</div>';
                                                     } elseif (($value['bem_status']) == 1) {
                                                         echo '<a href="ormawa/proposal/edit' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                     } elseif (($value['bem_status']) == 2) {
                                                         echo '<a href="ormawa/proposal/edit' . $value['id_propo'] . '" class="btn btn-sm btn-danger"><i class="ft-alert-triangle"></i> Ditolak</a>';
                                                     } elseif (($value['bem_status']) == 3) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
+                                                        echo '<div class="badge badge-success">Disetujui</div>';
                                                     }
                                                     ?>
                                                 </td>
@@ -73,7 +73,7 @@
                                                     } elseif (($value['akademik_status']) == 2) {
                                                         echo '<a href="ormawa/proposal/edit' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                     } elseif (($value['akademik_status']) == 3) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
+                                                        echo '<div class="badge badge-success">Disetujui</div>';
                                                     }
                                                     ?>
                                                 </td>
@@ -88,7 +88,7 @@
                                                     } elseif (($value['sumberdaya_status']) == 2) {
                                                         echo '<a href="ormawa/proposal/edit' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                     } elseif (($value['sumberdaya_status']) == 3) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
+                                                        echo '<div class="badge badge-success">Disetujui</div>';
                                                     }
                                                     ?>
                                                 </td>
@@ -103,7 +103,7 @@
                                                     } elseif (($value['tatausaha_status']) == 2) {
                                                         echo '<a href="ormawa/proposal/edit' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                     } elseif (($value['tatausaha_status']) == 3) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
+                                                        echo '<div class="badge badge-success">Disetujui</div>';
                                                     }
                                                     ?>
                                                 </td>
@@ -119,7 +119,7 @@
                                                         } elseif (($value['kaprodis1_status']) == 2) {
                                                             echo '<a href="ormawa/proposal/edit' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                         } elseif (($value['kaprodis1_status']) == 3) {
-                                                            echo '<div class="badge badge-success">Diterima</div>';
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
                                                         }
                                                         ?>
                                                     </td>
@@ -135,7 +135,7 @@
                                                         } elseif (($value['kaprodis2_status']) == 2) {
                                                             echo '<a href="ormawa/proposal/edit' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                         } elseif (($value['kaprodis2_status']) == 3) {
-                                                            echo '<div class="badge badge-success">Diterima</div>';
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
                                                         }
                                                         ?>
                                                     </td>
@@ -151,7 +151,7 @@
                                                     } elseif (($value['wadekakem_status']) == 2) {
                                                         echo '<a href="ormawa/proposal/edit' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                     } elseif (($value['wadekakem_status']) == 3) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
+                                                        echo '<div class="badge badge-success">Disetujui</div>';
                                                     }
                                                     ?>
                                                 </td>
@@ -166,7 +166,7 @@
                                                     } elseif (($value['wadeksumda_status']) == 2) {
                                                         echo '<a href="ormawa/proposal/edit' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                     } elseif (($value['wadeksumda_status']) == 3) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
+                                                        echo '<div class="badge badge-success">Disetujui</div>';
                                                     }
                                                     ?>
                                                 </td>
@@ -181,7 +181,7 @@
                                                     } elseif (($value['dekan_status']) == 2) {
                                                         echo '<a href="ormawa/proposal/edit' . $value['id_propo'] . '" class="btn btn-sm btn-warning"><i class="ft-help-circle"></i> Perbaikan</a>';
                                                     } elseif (($value['dekan_status']) == 3) {
-                                                        echo '<div class="badge badge-success">Diterima</div>';
+                                                        echo '<div class="badge badge-success">Disetujui</div>';
                                                     }
                                                     ?>
                                                 </td>
