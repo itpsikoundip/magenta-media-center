@@ -49,9 +49,7 @@ $routes->group('login', function ($routes) {
     $routes->post('authmhs', 'ControllerLogin::authMhs');
     $routes->post('authstaffdosen', 'ControllerLogin::authStaffDosen');
     $routes->post('authadmin', 'ControllerLogin::authAdmin');
-    $routes->get('logoutmhs', 'ControllerLogin::logoutMhs');
-    $routes->get('logoutstaffdosen', 'ControllerLogin::logoutStaffDosen');
-    $routes->get('logoutadmin', 'ControllerLogin::logoutAdmin');
+    $routes->get('logout', 'ControllerLogin::logout');
 });
 
 // ADMIN

@@ -226,24 +226,10 @@ class ControllerLogin extends BaseController
         }
     }
 
-    public function logoutAdmin()
+    public function logout()
     {
         session()->destroy();
         session()->setFlashdata('sukses', 'Logout sukses');
-        return redirect()->to(base_url('login/admin'));
-    }
-
-    public function logoutMhs()
-    {
-        session()->destroy();
-        session()->setFlashdata('sukses', 'Logout sukses');
-        return redirect()->to(base_url('login/mahasiswa'));
-    }
-
-    public function logoutStaffDosen()
-    {
-        session()->destroy();
-        session()->setFlashdata('sukses', 'Logout Suksess !!!');
-        return redirect()->to(base_url('login/staffdosen'));
+        return redirect()->to(base_url('login'));
     }
 }

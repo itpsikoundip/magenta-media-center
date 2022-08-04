@@ -36,7 +36,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="<?= base_url('staffdosen/profil') ?>"><i class="ft-user"></i> Edit Profile</a>
-                            <a class="dropdown-item" href="<?= base_url('login/logoutstaffdosen') ?>"><i class="ft-power"></i> Logout</a>
+                            <a class="dropdown-item" href="<?= base_url('login/logout') ?>"><i class="ft-power"></i> Logout</a>
                         </div>
                     </li>
                 </ul>
