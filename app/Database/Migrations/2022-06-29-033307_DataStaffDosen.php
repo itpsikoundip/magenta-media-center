@@ -43,6 +43,11 @@ class DataStaffDosen extends Migration
                 'type' => 'INT',
                 'constraint' => '11',
             ],
+            'fotoprofil' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => TRUE,
+            ],
         ]);
         $this->forge->addKey('id_staffdosen', 'true');
         $this->forge->createTable('data_staffdosen');
@@ -50,6 +55,6 @@ class DataStaffDosen extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('data_staffdosen',true);
+        $this->forge->dropTable('data_staffdosen', true);
     }
 }

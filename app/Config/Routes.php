@@ -282,6 +282,7 @@ $routes->group('staffdosen', ['namespace' => 'App\Controllers\StaffDosen', 'filt
 
     $routes->group('profil', ['namespace' => 'App\Controllers\StaffDosen\Profil', 'filter' => 'authStaffDosen'], function ($routes) {
         $routes->get('/', 'ControllerStaffDosenProfil::index');
+        $routes->post('editfotoprofil/(:num)', 'ControllerStaffDosenProfil::uploadFotoProfil/$1');
     });
 });
 

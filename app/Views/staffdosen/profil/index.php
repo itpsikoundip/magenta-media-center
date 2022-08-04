@@ -14,52 +14,77 @@
                 </div>
             </div>
         </div>
+        <?php
+        if (session()->getFlashdata('error')) {
+            echo '<<div class="alert alert-danger alert-dismissible mb-2" role="alert">
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			        <span aria-hidden="true">&times;</span>
+			        </button>';
+            echo session()->getFlashdata('error');
+            echo '</div>';
+        }
+        if (session()->getFlashdata('sukses')) {
+            echo '<div class="alert alert-success alert-dismissible mb-2" role="alert">
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			        <span aria-hidden="true">&times;</span>
+			        </button>';
+            echo session()->getFlashdata('sukses');
+            echo '
+                    </div>';
+        }
+        ?>
+        <?php
+        $errors = session()->getFlashdata('errors');
+        if (!empty($errors)) { ?>
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    <?php foreach ($errors as $key => $value) { ?>
+                        <li><?= esc($value) ?></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        <?php } ?>
         <div class="content-body">
             <div class="row">
-                <?php
-                if (session()->getFlashdata('error')) {
-                    echo '<<div class="alert alert-danger alert-dismissible mb-2" role="alert">
-			        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			        <span aria-hidden="true">&times;</span>
-			        </button>';
-                    echo session()->getFlashdata('error');
-                    echo '</div>';
-                }
-                if (session()->getFlashdata('sukses')) {
-                    echo '<div class="alert alert-success alert-dismissible mb-2" role="alert">
-			        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			        <span aria-hidden="true">&times;</span>
-			        </button>';
-                    echo session()->getFlashdata('sukses');
-                    echo '
-                    </div>';
-                }
-                ?>
-                <?php
-                $errors = session()->getFlashdata('errors');
-                if (!empty($errors)) { ?>
-                    <div class="alert alert-danger" role="alert">
-                        <ul>
-                            <?php foreach ($errors as $key => $value) { ?>
-                                <li><?= esc($value) ?></li>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                <?php } ?>
+
                 <div class="col-md-4">
                     <div class="card">
                         <div class="text-center">
-                            <div class="card-body">
-                                <img src="<?php echo base_url('robust/app-assets/images/portrait/medium/avatar-m-4.png ') ?>" class="rounded-circle  height-150" alt="Card image">
-                            </div>
+                            <?php if ($detailStaffDosen['fotoprofil'] == NULL) { ?>
+                                <div class="card-body">
+                                    <img src="<?php echo base_url('robust/app-assets/images/portrait/default.png ') ?>" class="rounded-circle  height-150" alt="Card image">
+                                </div>
+                            <?php } elseif ($detailStaffDosen['fotoprofil'] != NULL) { ?>
+                                <div class="card-body">
+                                    <img src="<?php echo base_url('fotoprofilstaffdosen/' . $detailStaffDosen['fotoprofil']) ?>" class="rounded-circle  height-150" alt="Foto Profil">
+                                </div>
+                            <?php } ?>
                             <div class="card-body">
                                 <h4 class="card-title"><?= $detailStaffDosen['nama'] ?></h4>
-                                <h6 class="card-subtitle text-muted"><?= $detailStaffDosen['nip'] ?></h6>
+                                <h6 class="card-subtitle text-muted">NIP : <?= $detailStaffDosen['nip'] ?></h6>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
                             <div class="card-body">
-                                <p>belum fungsi</p>
-                                <button type="button" class="btn btn-primary"><i class="fa fa-upload mr-1"></i> Upload Foto</button>
-                                <button type="button" class="btn btn-success"><i class="fa fa-check mr-1"></i> Ubah Foto</button>
+                                <?php
+                                echo form_open_multipart('staffdosen/profil/editfotoprofil/' . $detailStaffDosen['id_staffdosen']);
+                                ?>
+                                <div class="form-body">
+
+                                    <div class="form-group">
+                                        <input type="file" class="form-control-file" id="formUploadFotoProfil" name="formUploadFotoProfil">
+                                    </div>
+
+                                </div>
+                                <div class="form-actions right">
+                                    <button type="submit" class="btn btn-primary btn-block">
+                                        <i class="fa fa-check-square-o"></i> Ubah Foto Profil
+                                    </button>
+                                </div>
+                                <?php echo form_close() ?>
+
                             </div>
                         </div>
                     </div>
