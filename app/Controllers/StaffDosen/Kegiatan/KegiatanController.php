@@ -28,8 +28,8 @@ class KegiatanController extends BaseController
         $timeNowFormatted = date_format(Time::now('Asia/Jakarta'), "H:i:s");
 
         $kegiatanAktif = $this->KegiatanModel
-                                ->select(
-                                    'kegiatan.id, 
+            ->select(
+                'kegiatan.id, 
                                     kegiatan.tanggal, 
                                     kegiatan.mulai, 
                                     kegiatan.selesai, 
@@ -38,13 +38,13 @@ class KegiatanController extends BaseController
                                     kegiatan.undangan,
                                     kegiatan_ruangan.nama as ruangan,
                                     data_staffdosen.nama as pic'
-                                )
-                                ->join('kegiatan_ruangan', 'kegiatan.ruangan_id = kegiatan_ruangan.id')
-                                ->join('data_staffdosen', 'kegiatan.pic_id = data_staffdosen.id_staffdosen')
-                                ->where('kegiatan.tanggal >=', $timeNow)
-                                ->orderBy('kegiatan.tanggal', 'ASC')
-                                ->orderBy('kegiatan.mulai', 'ASC')
-                                ->get()->getResultArray();
+            )
+            ->join('kegiatan_ruangan', 'kegiatan.ruangan_id = kegiatan_ruangan.id')
+            ->join('data_staffdosen', 'kegiatan.pic_id = data_staffdosen.id_staffdosen')
+            ->where('kegiatan.tanggal >=', $timeNow)
+            ->orderBy('kegiatan.tanggal', 'ASC')
+            ->orderBy('kegiatan.mulai', 'ASC')
+            ->get()->getResultArray();
         // dd($kegiatanAktif);
 
         $ruangan = $this->RuanganModel->getRuangan();

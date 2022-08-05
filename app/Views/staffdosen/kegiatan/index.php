@@ -20,7 +20,18 @@
                                         <i class="icon-pencil info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
-                                        <h3>278</h3>
+                                        <?php
+                                        $count = 0;
+                                        $countall = 0;
+                                        foreach ($kegiatanAktif as $kegiatan) {
+                                            $countall++;
+                                            if ($kegiatan['tanggal'] == $currentDate && ($kegiatan['mulai'] <= $currentTime && $kegiatan['selesai'] >= $currentTime)) {
+                                                $count++;
+                                            }
+                                        }
+                                        $sum = $countall - $count;
+                                        echo '<h3>' . $sum . '</h3>';
+                                        ?>
                                         <span>Akan Berlangsung</span>
                                     </div>
                                 </div>
@@ -37,7 +48,15 @@
                                         <i class="icon-speech warning font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
-                                        <h3>156</h3>
+                                        <?php
+                                        $count = 0;
+                                        foreach ($kegiatanAktif as $kegiatan) {
+                                            if ($kegiatan['tanggal'] == $currentDate && ($kegiatan['mulai'] <= $currentTime && $kegiatan['selesai'] >= $currentTime)) {
+                                                $count++;
+                                            }
+                                        }
+                                        echo '<h3>' . $count . '</h3>';
+                                        ?>
                                         <span>Sedang Berlangsung</span>
                                     </div>
                                 </div>
@@ -105,7 +124,7 @@
                                                         <th class="text-center">Ruangan</th>
                                                         <th class="text-center">Agenda</th>
                                                         <th class="text-center">PIC</th>
-                                                        <th class="text-center"></th>
+                                                        <th class="text-center">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -114,27 +133,27 @@
                                                         if ($kegiatan['tanggal'] == $currentDate && ($kegiatan['mulai'] <= $currentTime && $kegiatan['selesai'] >= $currentTime)) {
                                                     ?>
                                                             <tr class="table-info font-weight-bold">
-                                                                <td class="text-center">
+                                                                <td class="text-center align-middle">
                                                                     <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
                                                                 </td>
-                                                                <td class="text-center">
+                                                                <td class="text-center align-middle">
                                                                     <?php echo date("H:i", strtotime($kegiatan['mulai'])) ?>
                                                                 </td>
-                                                                <td class="text-center">
+                                                                <td class="text-center align-middle">
                                                                     <?php echo date("H:i", strtotime($kegiatan['selesai'])) ?>
                                                                 </td>
-                                                                <td class="text-center">
+                                                                <td class="text-center align-middle">
                                                                     <?php echo $kegiatan['ruangan'] ?>
                                                                 </td>
-                                                                <td class="">
+                                                                <td class="align-middle">
                                                                     <?php echo $kegiatan['agenda'] ?>
                                                                 </td>
-                                                                <td class="text-center">
+                                                                <td class="text-center align-middle">
                                                                     <?php echo $kegiatan['pic'] ?>
                                                                 </td>
                                                                 <td class="text-center">
-                                                                    <a href="https://wa.me/<?php echo $kegiatan['hp']?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm mr-1" target="blank">
-                                                                        <img src="/images/whatsapp-logo.png" alt="asd" style="max-width: 16px">
+                                                                    <a href="https://wa.me/<?php echo $kegiatan['hp'] ?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm mr-1" target="blank">
+                                                                        <img src="<?php echo base_url('/images/whatsapp-logo.png') ?>" style="max-width: 16px">
                                                                     </a>
                                                                     <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">
                                                                         <i class="icon-doc"></i>
@@ -144,33 +163,31 @@
                                                         <?php
                                                         } else { ?>
                                                             <tr>
-                                                                <td class="text-center">
+                                                                <td class="text-center align-middle">
                                                                     <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
                                                                 </td>
-                                                                <td class="text-center">
+                                                                <td class="text-center align-middle">
                                                                     <?php echo date("H:i", strtotime($kegiatan['mulai'])) ?>
                                                                 </td>
-                                                                <td class="text-center">
+                                                                <td class="text-center align-middle">
                                                                     <?php echo date("H:i", strtotime($kegiatan['selesai'])) ?>
                                                                 </td>
-                                                                <td class="text-center">
+                                                                <td class="text-center align-middle">
                                                                     <?php echo $kegiatan['ruangan'] ?>
                                                                 </td>
-                                                                <td class="">
+                                                                <td class="align-middle">
                                                                     <?php echo $kegiatan['agenda'] ?>
                                                                 </td>
-                                                                <td class="text-center">
+                                                                <td class="text-center align-middle">
                                                                     <?php echo $kegiatan['pic'] ?>
                                                                 </td>
-                                                                <td class="text-center">
-                                                                    <span class="d-flex">
-                                                                        <a href="https://wa.me/<?php echo $kegiatan['hp']?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm mr-1" target="blank">
-                                                                            <img src="/images/whatsapp-logo.png" alt="asd" style="max-width: 16px">
-                                                                        </a>
-                                                                        <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">
-                                                                            <i class="icon-doc"></i>
-                                                                        </a>
-                                                                    </span>
+                                                                <td class="text-center align-middle">
+                                                                    <a href="https://wa.me/<?php echo $kegiatan['hp'] ?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm mr-1" target="blank">
+                                                                        <img src="<?php echo base_url('/images/whatsapp-logo.png') ?>" style="max-width: 16px">
+                                                                    </a>
+                                                                    <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">
+                                                                        <i class="icon-doc"></i>
+                                                                    </a>
                                                                 </td>
                                                             </tr>
                                                     <?php
@@ -228,7 +245,7 @@
                                                     <label class="col-md-2 label-control" for="pilihJamSelesai"><b>Jam Selesai</b></label>
                                                     <div class="col-md-10">
                                                         <select id="pilihJamSelesai" name="pilihJamSelesai" class="form-control" value="<?= old('pilihJamMulai'); ?>">
-                                                            <option value="">-- Pilih Jam Selesai--</option>
+                                                            <option value="">-- Pilih Jam Selesai --</option>
                                                             <option value="09:00">09.00</option>
                                                             <option value="10:00">10.00</option>
                                                             <option value="11:00">11.00</option>
@@ -263,8 +280,9 @@
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputHP"><b>No WA PIC</b></label>
-                                                    <div class="col-md-10">
-                                                        <input type="number" id="inputHP" name="inputHP" class="form-control" placeholder="contoh: 628123456789" required>
+                                                    <div class="col-md-10 d-flex">
+                                                        <div class="align-items-center d-flex mr-1">+62</div>
+                                                        <input type="number" id="inputHP" name="inputHP" class="form-control" placeholder="81234567890" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
