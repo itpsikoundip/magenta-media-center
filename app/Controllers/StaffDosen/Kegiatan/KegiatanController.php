@@ -112,7 +112,7 @@ class KegiatanController extends BaseController
                 $selesai        = $this->request->getPost('pilihJamSelesai');
                 $agenda         = $this->request->getPost('inputAgenda');
                 $pic_id         = $this->request->getPost('pilihPIC');
-                $hp             = $this->request->getPost('inputHP');
+                $hp             = "62".$this->request->getPost('inputHP');
 
                 if ($_FILES and $_FILES['inputUndangan']['name']) {
                     //kalau lampiran tidak kosong
