@@ -105,37 +105,76 @@
                                                         <th class="text-center">Ruangan</th>
                                                         <th class="text-center">Agenda</th>
                                                         <th class="text-center">PIC</th>
-                                                        <th class="text-center">Undangan</th>
+                                                        <th class="text-center"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
                                                     foreach ($kegiatanAktif as $kegiatan) {
+                                                        if ($kegiatan['tanggal'] == $currentDate && ($kegiatan['mulai'] <= $currentTime && $kegiatan['selesai'] >= $currentTime)) {
                                                     ?>
-                                                        <tr>
-                                                            <td class="text-center">
-                                                                <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <?php echo date("H:i", strtotime($kegiatan['mulai'])) ?>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <?php echo date("H:i", strtotime($kegiatan['selesai'])) ?>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <?php echo $kegiatan['ruangan'] ?>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <?php echo $kegiatan['agenda'] ?>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <?php echo $kegiatan['pic'] ?>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <a href="<?php base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">Lihat</a>
-                                                            </td>
-                                                        </tr>
+                                                            <tr class="table-info font-weight-bold">
+                                                                <td class="text-center">
+                                                                    <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <?php echo date("H:i", strtotime($kegiatan['mulai'])) ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <?php echo date("H:i", strtotime($kegiatan['selesai'])) ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <?php echo $kegiatan['ruangan'] ?>
+                                                                </td>
+                                                                <td class="">
+                                                                    <?php echo $kegiatan['agenda'] ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <?php echo $kegiatan['pic'] ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <a href="https://wa.me/<?php echo $kegiatan['hp']?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm mr-1" target="blank">
+                                                                        <img src="/images/whatsapp-logo.png" alt="asd" style="max-width: 16px">
+                                                                    </a>
+                                                                    <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">
+                                                                        <i class="icon-doc"></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php
+                                                        } else { ?>
+                                                            <tr>
+                                                                <td class="text-center">
+                                                                    <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <?php echo date("H:i", strtotime($kegiatan['mulai'])) ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <?php echo date("H:i", strtotime($kegiatan['selesai'])) ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <?php echo $kegiatan['ruangan'] ?>
+                                                                </td>
+                                                                <td class="">
+                                                                    <?php echo $kegiatan['agenda'] ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <?php echo $kegiatan['pic'] ?>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <span class="d-flex">
+                                                                        <a href="https://wa.me/<?php echo $kegiatan['hp']?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm mr-1" target="blank">
+                                                                            <img src="/images/whatsapp-logo.png" alt="asd" style="max-width: 16px">
+                                                                        </a>
+                                                                        <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">
+                                                                            <i class="icon-doc"></i>
+                                                                        </a>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
                                                     <?php
+                                                        }
                                                     }
                                                     ?>
                                                 </tbody>

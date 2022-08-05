@@ -22,33 +22,42 @@ class KegiatanController extends BaseController
     {
         //
         $staffdosen = $this->StaffDosenModel->allData();
-        $timeNow = Time::now();
+        $timeNow = date_format(Time::now('Asia/Jakarta'), "Y-m-d");
+        // dd($timeNow);
+        $dateNowFormatted = date_format(Time::now('Asia/Jakarta'), "Y-m-d");
+        $timeNowFormatted = date_format(Time::now('Asia/Jakarta'), "H:i:s");
+
         $kegiatanAktif = $this->KegiatanModel
-                            ->select(
-                                'kegiatan.id, 
-                                kegiatan.tanggal, 
-                                kegiatan.mulai, 
-                                kegiatan.selesai, 
-                                kegiatan.agenda,
-                                kegiatan.hp,
-                                kegiatan.undangan,
-                                kegiatan_ruangan.nama as ruangan,
-                                data_staffdosen.nama as pic'
-                            )
-                            ->join('kegiatan_ruangan', 'kegiatan.ruangan_id = kegiatan_ruangan.id')
-                            ->join('data_staffdosen', 'kegiatan.pic_id = data_staffdosen.id_staffdosen')
-                            ->where('kegiatan.tanggal >=', $timeNow)
-                            ->get()->getResultArray();
+                                ->select(
+                                    'kegiatan.id, 
+                                    kegiatan.tanggal, 
+                                    kegiatan.mulai, 
+                                    kegiatan.selesai, 
+                                    kegiatan.agenda,
+                                    kegiatan.hp,
+                                    kegiatan.undangan,
+                                    kegiatan_ruangan.nama as ruangan,
+                                    data_staffdosen.nama as pic'
+                                )
+                                ->join('kegiatan_ruangan', 'kegiatan.ruangan_id = kegiatan_ruangan.id')
+                                ->join('data_staffdosen', 'kegiatan.pic_id = data_staffdosen.id_staffdosen')
+                                ->where('kegiatan.tanggal >=', $timeNow)
+                                ->orderBy('kegiatan.tanggal', 'ASC')
+                                ->orderBy('kegiatan.mulai', 'ASC')
+                                ->get()->getResultArray();
         // dd($kegiatanAktif);
-        
+
         $ruangan = $this->RuanganModel->getRuangan();
         $data = [
-            'ruangan'   => $ruangan,
-            'staffdosen' => $staffdosen,
+            'ruangan'       => $ruangan,
+            'staffdosen'    => $staffdosen,
             'kegiatanAktif' => $kegiatanAktif,
-            'title'     => 'Jadwal Kegiatan dan Peminjaman Ruangan ',
-            'isi'       => 'staffdosen/kegiatan/index',
+            'title'         => 'Jadwal Kegiatan dan Peminjaman Ruangan ',
+            'isi'           => 'staffdosen/kegiatan/index',
+            'currentDate'   => $dateNowFormatted,
+            'currentTime'   => $timeNowFormatted
         ];
+        // dd($data);
         return view('layouts/staffdosen-wrapper', $data);
     }
 
@@ -75,11 +84,11 @@ class KegiatanController extends BaseController
         // echo "INPUT Jam Selesai : $EndA";
         // echo "<br>";
         if ($selectedDate >= $timeNow) {
-            
+
             if ($StartA < $EndA) {
                 // echo "$StartA < $EndA";
 
-                if(count($allKegiatan) > 0){
+                if (count($allKegiatan) > 0) {
                     // dd($StartB);
                     for ($i = 0; $i < count($StartB); $i++) {
 
@@ -107,7 +116,7 @@ class KegiatanController extends BaseController
 
                 if ($_FILES and $_FILES['inputUndangan']['name']) {
                     //kalau lampiran tidak kosong
-                    $undangan       = $this->request->getFile('inputundangan');
+                    $undangan       = $this->request->getFile('inputUndangan');
                     $namaUndangan   = $undangan->getRandomName();
                 } else {
                     $namaUndangan   = NULL;
@@ -139,7 +148,6 @@ class KegiatanController extends BaseController
                     session()->setFlashdata('error', 'GAGAL : Kegiatan gagal ditambahkan.');
                     return redirect()->to(base_url('staffdosen/kegiatan/'));
                 }
-
             } else {
                 session()->setFlashdata('error', "GAGAL : Jam mulai (" . $StartA . ") lebih besar dari jam selesai ("  . $EndA . ")");
                 return redirect()->to(base_url('staffdosen/kegiatan/'));
