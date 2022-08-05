@@ -12,4 +12,11 @@ class ModelProfilMahasiswa extends Model
             ->where('nim', session()->get('nim'))
             ->get()->getRowArray();
     }
+
+    public function editFotoProfilMahasiswa($data)
+    {
+        $this->db->table('mahasiswa')
+            ->where('nim', $data['nim'])
+            ->update($data);
+    }
 }

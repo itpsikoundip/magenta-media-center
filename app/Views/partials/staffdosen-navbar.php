@@ -29,8 +29,13 @@
                     <li class="dropdown dropdown-user nav-item">
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <span class="avatar avatar-online">
-                                <img src="<?php echo base_url('robust/app-assets/images/portrait/small/avatar-s-1.png') ?>" alt="avatar">
-                                <i></i>
+                                <?php if (session()->get('fotoprofil') == NULL) { ?>
+                                    <img src="<?php echo base_url('robust/app-assets/images/portrait/medium/avatar-m-1.png') ?>" alt="avatar">
+
+                                <?php } elseif (session()->get('fotoprofil') != NULL) { ?>
+                                    <img src="<?php echo base_url('fotoprofilstaffdosen/' . session()->get('fotoprofil')) ?>" alt="avatar">
+
+                                <?php } ?>
                             </span>
                             <span class="user-name"><?= session()->get('nama') ?></span>
                         </a>

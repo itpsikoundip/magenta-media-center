@@ -17,4 +17,11 @@ class ModelProfilStaffDosen extends Model
             ->join('ref_stafdosen_status', 'ref_stafdosen_status.id_status = data_staffdosen.status_staffdosen')
             ->get()->getRowArray();
     }
+
+    public function editFotoProfilStaffDosen($data)
+    {
+        $this->db->table('data_staffdosen')
+            ->where('id_staffdosen', $data['id_staffdosen'])
+            ->update($data);
+    }
 }
