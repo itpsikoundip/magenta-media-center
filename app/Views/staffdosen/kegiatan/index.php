@@ -281,7 +281,15 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputHP"><b>No WA PIC</b></label>
                                                     <div class="col-md-10 d-flex">
-                                                        <div class="align-items-center d-flex mr-1">+62</div>
+                                                        <button class="btn btn-light" 
+                                                                style="color:black; 
+                                                                        border-radius: 0.21rem 0 0 0.21rem; 
+                                                                        border-top: 1px solid #d4d4d4;
+                                                                        border-left: 1px solid #d4d4d4;
+                                                                        border-bottom: 1px solid #d4d4d4" 
+                                                                disabled>
+                                                            +62 
+                                                        </button>
                                                         <input type="number" id="inputHP" name="inputHP" class="form-control" placeholder="81234567890" required>
                                                     </div>
                                                 </div>
