@@ -49,6 +49,11 @@ class Mahasiswa extends Migration
                 'default'       => 0,
                 'comment'       => '0 = Belum, 1 = Sudah',
             ],
+            'fotoprofil' => [
+                'type'          => 'VARCHAR',
+                'constraint'    => '255',
+                'null'          => TRUE,
+            ],
             'created_at' => [
                 'type'          => 'DATETIME',
                 'null'          => TRUE,

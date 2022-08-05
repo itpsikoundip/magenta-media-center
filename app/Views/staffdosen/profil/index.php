@@ -52,7 +52,7 @@
                         <div class="text-center">
                             <?php if ($detailStaffDosen['fotoprofil'] == NULL) { ?>
                                 <div class="card-body">
-                                    <img src="<?php echo base_url('robust/app-assets/images/portrait/default.png ') ?>" class="rounded-circle  height-150" alt="Card image">
+                                    <img src="<?php echo base_url('robust/app-assets/images/portrait/medium/avatar-m-1.png') ?>" class="rounded-circle  height-150" alt="Card image">
                                 </div>
                             <?php } elseif ($detailStaffDosen['fotoprofil'] != NULL) { ?>
                                 <div class="card-body">

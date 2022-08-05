@@ -141,6 +141,7 @@ class ControllerLogin extends BaseController
                     session()->set('nim', $cekuser['nim']);
                     session()->set('nama', $cekuser['nama']);
                     session()->set('email', $cekuser['email']);
+                    session()->set('fotoprofil', $cekuser['fotoprofil']);
                     session()->set('level', $level);
                     //login
                     session()->setFlashdata('sukses', 'Login Sukses!');
@@ -158,6 +159,7 @@ class ControllerLogin extends BaseController
                     session()->set('nim', $cekuser['mahasiswa_id']);
                     session()->set('nama', $cekuser['nama']);
                     session()->set('email', $cekuser['email']);
+                    session()->set('fotoprofil', $cekuser['fotoprofil']);
                     session()->set('idormawa', $cekuser['id']);
                     session()->set('namaormawa', $cekuser['nama_ormawa']);
                     session()->set('level', $level);
@@ -215,6 +217,7 @@ class ControllerLogin extends BaseController
                 session()->set('survey', $cekusr['survey']);
                 session()->set('helpdesk', $cekusr['helpdesk']);
                 session()->set('sk', $cekusr['sk']);
+                session()->set('fotoprofil', $cekusr['fotoprofil']);
                 //login
                 session()->setFlashdata('sukses', 'Login sukses!');
                 return redirect()->to(base_url('staffdosen'));
