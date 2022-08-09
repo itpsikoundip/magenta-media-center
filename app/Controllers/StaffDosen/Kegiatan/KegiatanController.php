@@ -30,14 +30,14 @@ class KegiatanController extends BaseController
         $kegiatanAktif = $this->KegiatanModel
             ->select(
                 'kegiatan.id, 
-                                    kegiatan.tanggal, 
-                                    kegiatan.mulai, 
-                                    kegiatan.selesai, 
-                                    kegiatan.agenda,
-                                    kegiatan.hp,
-                                    kegiatan.undangan,
-                                    kegiatan_ruangan.nama as ruangan,
-                                    data_staffdosen.nama as pic'
+                kegiatan.tanggal, 
+                kegiatan.mulai, 
+                kegiatan.selesai, 
+                kegiatan.agenda,
+                kegiatan.hp,
+                kegiatan.undangan,
+                kegiatan_ruangan.nama as ruangan,
+                data_staffdosen.nama as pic'
             )
             ->join('kegiatan_ruangan', 'kegiatan.ruangan_id = kegiatan_ruangan.id')
             ->join('data_staffdosen', 'kegiatan.pic_id = data_staffdosen.id_staffdosen')
