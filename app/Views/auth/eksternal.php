@@ -24,41 +24,35 @@
                                     </div>
                                 </div>
                                 <div class="card-content">
-                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2"><span>Silakan Masuk</span></p>
+                                    <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 mb-4"><span>Silakan Masuk</span></p>
                                     <div class="card-body pt-0">
+
                                         <?php
-                                        $errors = session()->getFlashdata('errors');
-                                        ?>
-                                        <?php
-                                        if (session()->getFlashdata('pesan')) {
+                                        if (session()->getFlashdata('gagal')) {
                                             echo '<div class="alert alert-danger"  role="alert">';
-                                            echo session()->getFlashdata('pesan');
-                                            echo '</div>';
-                                        }
-                                        if (session()->getFlashdata('sukses')) {
-                                            echo '<div class="alert alert-success" role="alert">';
-                                            echo session()->getFlashdata('sukses');
+                                            echo session()->getFlashdata('gagal');
                                             echo '</div>';
                                         }
                                         ?>
-                                        <form class="form-horizontal" action="authStaffDosen" method="post">
-                                            </fieldset>
-                                            <fieldset class="form-group position-relative has-icon-left  mt-4">
-                                                <input type="text" class="form-control" id="username" name="username" placeholder="username" disabled>
-                                                <div class="form-control-position">
-                                                    <i class="ft-mail"></i>
-                                                </div>
-                                            </fieldset>
-                                            <fieldset class="form-group position-relative has-icon-left ">
-                                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" disabled>
-                                                <div class="form-control-position">
-                                                    <i class="ft-lock"></i>
-                                                </div>
-                                            </fieldset>
-                                            <!-- <button type="submit" class="btn btn-outline-indigo btn-lg btn-block indigo mb-1 wrapper_btn_login" style="border-radius: 0px;">
+                                        </fieldset>
+                                        <fieldset class="form-group position-relative has-icon-left">
+                                            <input type="text" class="form-control" id="username" name="username" placeholder="username" disabled>
+                                            <div class="form-control-position">
+                                                <i class="ft-mail"></i>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="form-group position-relative has-icon-left ">
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" disabled>
+                                            <div class="form-control-position">
+                                                <i class="ft-lock"></i>
+                                            </div>
+                                        </fieldset>
+                                        <div class="card-body pb-0">
+                                            <p class="text-center"><a href="<?= base_url('/') ?>" class="card-link">Kembali</a></p>
+                                        </div>
+                                        <!-- <button type="submit" class="btn btn-outline-indigo btn-lg btn-block indigo mb-1 wrapper_btn_login" style="border-radius: 0px;">
                                                 <i class="ft-unlock"></i> LOGIN
                                             </button> -->
-                                        </form>
                                     </div>
                                 </div>
                             </div>
