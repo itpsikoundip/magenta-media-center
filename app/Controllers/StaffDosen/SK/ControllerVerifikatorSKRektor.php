@@ -230,4 +230,38 @@ class ControllerVerifikatorSKRektor extends BaseController
         ];
         return view('layouts/staffdosen-wrapper', $data);
     }
+
+    public function editDataFileSK($id_sk_rektor)
+    {
+        if ($this->validate([
+            'uploadSKRektor' => [
+                'label' => 'Upload File SK Rektor',
+                'rules' => 'uploaded[uploadSKRektor]|max_size[uploadSKRektor,5120]|mime_in[uploadSKRektor,application/pdf]',
+                'errors' => [
+                    'uploaded' => '{field} Wajib Diisi !!!',
+                    'max_size' => '{field} Max 5MB',
+                    'mime_in' => 'Format {field} Wajib PDF'
+                ]
+            ],
+        ])) {
+            //mengambil file foto dari form input
+            $fileUpload = $this->request->getFile('uploadSKRektor');
+            //merename nama file foto
+            $namaFileUpload = $fileUpload->getRandomName();
+            //jika valid
+            $data = array(
+                'id_sk_rektor' => $id_sk_rektor,
+                'upload_sk_rektor' => $namaFileUpload,
+            );
+            //memindahkan file foto dari form input ke folder foto di directory
+            $fileUpload->move('uploadskrektor', $namaFileUpload);
+            $this->ModelVerifikatorSKRektor->uploadFileSKRektor($data);
+            session()->setFlashdata('sukses', 'SK Rektor Berhasil diupload !!');
+            return redirect()->to(base_url('staffdosen/sk/verifikator/rektor/edit/' . $id_sk_rektor));
+        } else {
+            //jika tidak valid
+            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('staffdosen/sk/verifikator/rektor/edit/' . $id_sk_rektor));
+        }
+    }
 }
