@@ -43,6 +43,11 @@ class KegiatanModel extends Model
         return $this->db->table('kegiatan')->insert($data);
     }
 
+    public function selesaiKegiatan($data, $id)
+    {
+        return $this->db->table('kegiatan')->update($data, ['id' => $id]);
+    }
+
     public function deleteKegiatan($id)
     {
         return $this->db->table('kegiatan')->delete(['id' => $id]);

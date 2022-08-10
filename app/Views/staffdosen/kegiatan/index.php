@@ -209,13 +209,9 @@
                                                     <div class="col-md-10">
                                                         <select id="pilihRuangan" name="pilihRuangan" class="form-control" required value="<?= old('pilihRuangan'); ?>">
                                                             <option value="">-- Pilih Ruangan --</option>
-                                                            <?php
-                                                            foreach ($ruangan as $ruang) {
-                                                            ?>
+                                                            <?php foreach ($ruangan as $ruang) { ?>
                                                                 <option value="<?php echo $ruang->id ?>"><?php echo $ruang->nama ?>, lantai <?php echo $ruang->lantai ?></option>
-                                                            <?php
-                                                            }
-                                                            ?>
+                                                            <?php } ?>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -330,9 +326,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php
-                                                    foreach ($riwayat as $kegiatan) {
-                                                    ?>
+                                                    <?php foreach ($riwayat as $kegiatan) { ?>
                                                         <tr>
                                                             <td class="text-center align-middle">
                                                                 <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
@@ -353,7 +347,7 @@
                                                                 <?php echo $kegiatan['pic'] ?>
                                                             </td>
                                                             <td class="text-center align-middle">
-                                                                <a href="" class="btn btn-outline-info btn-sm" target="blank">
+                                                                <a href="<?= base_url('staffdosen/kegiatan/selesaikegiatan/' . $kegiatan['id']) ?>" class="btn btn-outline-info btn-sm" target="blank">
                                                                     <i class="ft-check-circle"></i>
                                                                 </a>
                                                                 <a href="<?= base_url('staffdosen/kegiatan/deletekegiatan/' . $kegiatan['id']) ?>" class="btn btn-outline-danger btn-sm">
@@ -361,9 +355,7 @@
                                                                 </a>
                                                             </td>
                                                         </tr>
-                                                    <?php
-                                                    }
-                                                    ?>
+                                                    <?php } ?>
                                                 </tbody>
                                             </table>
                                         </div>
