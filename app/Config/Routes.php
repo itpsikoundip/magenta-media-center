@@ -37,10 +37,10 @@ $routes->setAutoRoute(false);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-$routes->get('/', 'ControllerLogin::index');
+$routes->get('/', 'ControllerLogin::index', ['namespace' => 'App\Controllers\Auth']);
 
 //LOGIN
-$routes->group('login', function ($routes) {
+$routes->group('login', ['namespace' => 'App\Controllers\Auth'], function ($routes) {
     $routes->get('/', 'ControllerLogin::index');
     $routes->get('mahasiswa', 'ControllerLogin::mahasiswa');
     $routes->get('staffdosen', 'ControllerLogin::staffdosen');
@@ -50,6 +50,7 @@ $routes->group('login', function ($routes) {
     $routes->post('authstaffdosen', 'ControllerLogin::authStaffDosen');
     $routes->post('authadmin', 'ControllerLogin::authAdmin');
     $routes->get('logout', 'ControllerLogin::logout');
+    $routes->get('hash', 'ControllerLogin::hash');
 });
 
 // ADMIN
