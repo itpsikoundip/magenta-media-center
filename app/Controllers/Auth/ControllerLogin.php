@@ -260,8 +260,10 @@ class ControllerLogin extends BaseController
             //query ambil data user dari database
             $query = $this->db->query(
                 "SELECT * FROM user_staffdosen
-                LEFT JOIN data_staffdosen 
-                ON data_staffdosen.id_staffdosen = user_staffdosen.staffdosen_id
+                JOIN data_staffdosen
+                ON user_staffdosen.staffdosen_id = data_staffdosen.id_staffdosen
+                JOIN ref_stafdosen_unit
+                ON ref_stafdosen_unit.id_unit = data_staffdosen.unit_id
                 WHERE nip='$nip'"
             );
             $result = $query->getResult();
