@@ -14,6 +14,7 @@
     <link rel="apple-touch-icon" href="<?php echo base_url('robust/app-assets/images/ico/apple-icon-120.png') ?>">
     <link rel="shortcut icon" type="image/x-icon" href="https://psikologi.undip.ac.id/wp-content/uploads/Splash-1.png">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CMuli:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url('icofont/icofont.min.css') ?>">
     <!-- BEGIN VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('robust/app-assets/css/vendors.min.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('robust/app-assets/vendors/css/tables/datatable/datatables.min.css') ?>">

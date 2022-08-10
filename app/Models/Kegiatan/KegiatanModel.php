@@ -3,6 +3,7 @@
 namespace App\Models\Kegiatan;
 
 use CodeIgniter\Model;
+use CodeIgniter\I18n\Time;
 
 class KegiatanModel extends Model
 {
@@ -10,8 +11,47 @@ class KegiatanModel extends Model
 
     public function getKegiatan()
     {
-        $kegiatan = $this->db->table('kegiatan')->get();
-        return $kegiatan->getResultArray();
+        $timeNow = Time::now();
+        $builder = $this->db->table('kegiatan');
+        $builder->select('kegiatan.id, 
+        kegiatan.tanggal, 
+        kegiatan.mulai, 
+        kegiatan.selesai, 
+        kegiatan.agenda,
+        kegiatan.hp,
+        kegiatan.undangan,
+        kegiatan_ruangan.nama as ruangan,
+        data_staffdosen.nama as pic');
+        $builder->join('kegiatan_ruangan', 'kegiatan.ruangan_id = kegiatan_ruangan.id');
+        $builder->join('data_staffdosen', 'kegiatan.pic_id = data_staffdosen.id_staffdosen');
+        $builder->where('kegiatan.tanggal >=', $timeNow);
+        $builder->orderBy('kegiatan.tanggal', 'ASC');
+        $builder->orderBy('kegiatan.mulai', 'ASC');
+        $query = $builder->get();
+
+        return $query->getResultArray();
+    }
+
+    public function riwayat($id)
+    {
+        $builder = $this->db->table('kegiatan');
+        $builder->select('kegiatan.id, 
+        kegiatan.tanggal, 
+        kegiatan.mulai, 
+        kegiatan.selesai, 
+        kegiatan.agenda,
+        kegiatan.hp,
+        kegiatan.undangan,
+        kegiatan_ruangan.nama as ruangan,
+        data_staffdosen.nama as pic');
+        $builder->join('kegiatan_ruangan', 'kegiatan.ruangan_id = kegiatan_ruangan.id');
+        $builder->join('data_staffdosen', 'kegiatan.pic_id = data_staffdosen.id_staffdosen');
+        $builder->where('kegiatan.pic_id =', $id);
+        $builder->orderBy('kegiatan.tanggal', 'ASC');
+        $builder->orderBy('kegiatan.mulai', 'ASC');
+        $query = $builder->get();
+
+        return $query->getResultArray();
     }
 
     public function addKegiatan($data)
@@ -36,6 +76,16 @@ class KegiatanModel extends Model
         $builder->select('selesai');
         $builder->where('ruangan_id', $id_ruangan);
         $builder->where('tanggal', $tanggal);
+        $query = $builder->get();
+
+        return $query->getResultArray();
+    }
+
+    function getRiwayat($id)
+    {
+        $builder = $this->db->table('kegiatan');
+        $builder->select('*');
+        $builder->where('pic_id', $id);
         $query = $builder->get();
 
         return $query->getResultArray();
