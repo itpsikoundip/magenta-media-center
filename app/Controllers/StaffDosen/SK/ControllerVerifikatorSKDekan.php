@@ -230,4 +230,40 @@ class ControllerVerifikatorSKDekan extends BaseController
         ];
         return view('layouts/staffdosen-wrapper', $data);
     }
+
+
+
+    public function editDataFileSK($id_sk_dekan)
+    {
+        if ($this->validate([
+            'uploadSKDekan' => [
+                'label' => 'Upload File SK Dekan',
+                'rules' => 'uploaded[uploadSKDekan]|max_size[uploadSKDekan,5120]|mime_in[uploadSKDekan,application/pdf]',
+                'errors' => [
+                    'uploaded' => '{field} Wajib Diisi !!!',
+                    'max_size' => '{field} Max 5MB',
+                    'mime_in' => 'Format {field} Wajib PDF'
+                ]
+            ],
+        ])) {
+            //mengambil file foto dari form input
+            $fileUpload = $this->request->getFile('uploadSKDekan');
+            //merename nama file foto
+            $namaFileUpload = $fileUpload->getRandomName();
+            //jika valid
+            $data = array(
+                'id_sk_dekan' => $id_sk_dekan,
+                'upload_sk_dekan' => $namaFileUpload,
+            );
+            //memindahkan file foto dari form input ke folder foto di directory
+            $fileUpload->move('uploadskdekan', $namaFileUpload);
+            $this->ModelVerifikatorSKDekan->uploadFileSKDekan($data);
+            session()->setFlashdata('sukses', 'SK Dekan Berhasil diupload !!');
+            return redirect()->to(base_url('staffdosen/sk/verifikator/dekan/edit/' . $id_sk_dekan));
+        } else {
+            //jika tidak valid
+            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('staffdosen/sk/verifikator/dekan/edit/' . $id_sk_dekan));
+        }
+    }
 }

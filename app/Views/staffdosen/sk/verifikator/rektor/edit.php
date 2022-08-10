@@ -357,6 +357,35 @@
                             <?php } ?>
                         </div>
                     </div>
+                    <?php if ($detailVerifikator['sk_jenis_verifikator_id'] != 6) { ?>
+                    <?php } elseif ($detailVerifikator['sk_jenis_verifikator_id'] == 6) { ?>
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <?php
+                                    foreach ($detailSKRektor as $key => $value) { ?>
+                                        <?php
+                                        echo form_open_multipart('staffdosen/sk/verifikator/rektor/editdatafilesk/' . $value['id_sk_rektor']);
+                                        ?>
+                                        <div class="form-body">
+                                            <h4 class="form-section"><i class="fa fa-file-o"></i> Upload File SK Final</h4>
+                                            <div class="form-group">
+                                                <label>Upload</label>
+                                                <input type="file" class="form-control" name="uploadSKRektor">
+                                                <p class="text-left"><small class="text-muted">Format file wajib .pdf | Ukuran maks 5MB</small></p>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn btn-block btn-primary">
+                                                    <i class="fa fa-floppy-o"></i>&nbsp; SIMPAN
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <?php echo form_close() ?>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
