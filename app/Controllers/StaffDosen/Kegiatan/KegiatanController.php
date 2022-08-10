@@ -20,35 +20,18 @@ class KegiatanController extends BaseController
 
     public function index()
     {
-        //
         $staffdosen = $this->StaffDosenModel->allData();
         $timeNow = date_format(Time::now('Asia/Jakarta'), "Y-m-d");
-        // dd($timeNow);
         $dateNowFormatted = date_format(Time::now('Asia/Jakarta'), "Y-m-d");
         $timeNowFormatted = date_format(Time::now('Asia/Jakarta'), "H:i:s");
 
-        $kegiatanAktif = $this->KegiatanModel
-            ->select(
-                'kegiatan.id, 
-                kegiatan.tanggal, 
-                kegiatan.mulai, 
-                kegiatan.selesai, 
-                kegiatan.agenda,
-                kegiatan.hp,
-                kegiatan.undangan,
-                kegiatan_ruangan.nama as ruangan,
-                data_staffdosen.nama as pic'
-            )
-            ->join('kegiatan_ruangan', 'kegiatan.ruangan_id = kegiatan_ruangan.id')
-            ->join('data_staffdosen', 'kegiatan.pic_id = data_staffdosen.id_staffdosen')
-            ->where('kegiatan.tanggal >=', $timeNow)
-            ->orderBy('kegiatan.tanggal', 'ASC')
-            ->orderBy('kegiatan.mulai', 'ASC')
-            ->get()->getResultArray();
-        // dd($kegiatanAktif);
+        $kegiatanAktif = $this->KegiatanModel->getKegiatan();
+        $kegiatanRiwayat = $this->KegiatanModel->riwayat(session()->get('id'));
 
         $ruangan = $this->RuanganModel->getRuangan();
+
         $data = [
+            'riwayat'       => $kegiatanRiwayat,
             'ruangan'       => $ruangan,
             'staffdosen'    => $staffdosen,
             'kegiatanAktif' => $kegiatanAktif,
@@ -112,7 +95,7 @@ class KegiatanController extends BaseController
                 $selesai        = $this->request->getPost('pilihJamSelesai');
                 $agenda         = $this->request->getPost('inputAgenda');
                 $pic_id         = $this->request->getPost('pilihPIC');
-                $hp             = "62".$this->request->getPost('inputHP');
+                $hp             = "62" . $this->request->getPost('inputHP');
 
                 if ($_FILES and $_FILES['inputUndangan']['name']) {
                     //kalau lampiran tidak kosong

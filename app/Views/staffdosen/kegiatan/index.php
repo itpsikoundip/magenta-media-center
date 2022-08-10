@@ -17,7 +17,7 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-pencil info font-large-2 float-left"></i>
+                                        <i class="icon-hourglass info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <?php
@@ -45,7 +45,7 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-speech warning font-large-2 float-left"></i>
+                                        <i class="icon-rocket warning font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <?php
@@ -70,7 +70,7 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-graph success font-large-2 float-left"></i>
+                                        <i class="icon-grid success font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <h3>2</h3>
@@ -152,10 +152,10 @@
                                                                     <?php echo $kegiatan['pic'] ?>
                                                                 </td>
                                                                 <td class="text-center">
-                                                                    <a href="https://wa.me/<?php echo $kegiatan['hp'] ?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm mr-1" target="blank">
-                                                                        <img src="<?php echo base_url('/images/whatsapp-logo.png') ?>" style="max-width: 16px">
+                                                                    <a href="https://wa.me/<?php echo $kegiatan['hp'] ?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm" target="blank" style="min-height: 30px;">
+                                                                        <i class="icofont-brand-whatsapp"></i>
                                                                     </a>
-                                                                    <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">
+                                                                    <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank" style="min-height: 30px;">
                                                                         <i class="icon-doc"></i>
                                                                     </a>
                                                                 </td>
@@ -182,10 +182,10 @@
                                                                     <?php echo $kegiatan['pic'] ?>
                                                                 </td>
                                                                 <td class="text-center align-middle">
-                                                                    <a href="https://wa.me/<?php echo $kegiatan['hp'] ?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm mr-1" target="blank">
-                                                                        <img src="<?php echo base_url('/images/whatsapp-logo.png') ?>" style="max-width: 16px">
+                                                                    <a href="https://wa.me/<?php echo $kegiatan['hp'] ?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm" target="blank" style="min-height: 30px;">
+                                                                        <i class="icofont-brand-whatsapp"></i>
                                                                     </a>
-                                                                    <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank">
+                                                                    <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank" style="min-height: 30px;">
                                                                         <i class="icon-doc"></i>
                                                                     </a>
                                                                 </td>
@@ -281,14 +281,12 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputHP"><b>No WA PIC</b></label>
                                                     <div class="col-md-10 d-flex">
-                                                        <button class="btn btn-light" 
-                                                                style="color:black; 
+                                                        <button class="btn btn-light" style="color:black; 
                                                                         border-radius: 0.21rem 0 0 0.21rem; 
                                                                         border-top: 1px solid #d4d4d4;
                                                                         border-left: 1px solid #d4d4d4;
-                                                                        border-bottom: 1px solid #d4d4d4" 
-                                                                disabled>
-                                                            +62 
+                                                                        border-bottom: 1px solid #d4d4d4" disabled>
+                                                            +62
                                                         </button>
                                                         <input type="number" id="inputHP" name="inputHP" class="form-control" placeholder="81234567890" required>
                                                     </div>
@@ -318,68 +316,58 @@
                                     </div>
 
                                     <div class="tab-pane" id="tab3" aria-labelledby="base-tab3">
-                                        <p><i>Tiket yang ditampilkan hanyalah tiket dengan topik <?php //echo strtolower($kategori) 
-                                                                                                    ?></i></p>
-                                        <div id="accordionWrap1" role="tablist" aria-multiselectable="true">
-                                            <div class="card collapse-icon panel mb-0 box-shadow-0 border-0">
-                                                <?php
-                                                $i = 1;
-                                                // dd($faqs);
-                                                //foreach($faqs as $faq){
-                                                ?>
-
-                                                <div id="heading<?php echo $i ?>" role="tab" class="card-header border-bottom-blue-grey border-bottom-lighten-4">
-                                                    <a data-toggle="collapse" data-parent="#accordion<?php echo $i ?>" href="#accordion<?php echo $i ?>" aria-expanded="false" aria-controls="accordion<?php echo $i ?>" class="h6 blue collapsed">
-                                                        <b><?php //echo $faq->pertanyaan
-                                                            ?></b>
-                                                    </a>
-                                                </div>
-                                                <div id="accordion<?php echo $i ?>" role="tabpanel" aria-labelledby="heading<?php echo $i ?>" class="collapse" aria-expanded="false">
-                                                    <div class="card-body">
-                                                        <p class="card-text">
-                                                            <?php //echo $faq->jawaban
-                                                            ?>
-                                                        </p>
-                                                    </div>
-                                                    <div class="d-flex justify-content-end">
-                                                        <button class="btn btn-outline-danger btn-sm mr-1" data-toggle="modal" data-target="#konfirmasiHapus<?php echo $i ?>">
-                                                            Hapus
-                                                        </button>
-                                                        <a href="" class="btn btn-outline-secondary btn-sm">
-                                                            Edit
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="modal fade" id="konfirmasiHapus<?php echo $i ?>" tabindex="-1" aria-labelledby="konfirmasiHapus<?php echo $i ?>" aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header bg-danger">
-                                                                    <h5 class="modal-title text-white" id="exampleModalLabel">Konfirmasi Hapus</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    Apakah Anda yakin akan menghapus FAQ tersebut? FAQ yang dihapus tidak dapat dibaca lagi oleh mahasiswa.
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <a class="btn btn-outline-danger" href="<?php //base_url('staffdosen/helpdesk/deletefaq/' . $faq->id) 
-                                                                                                            ?>" role="button">Hapus</a>
-                                                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Kembali</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <?php
-                                                $i++;
-                                                //} 
-                                                ?>
-                                            </div>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">Tanggal</th>
+                                                        <th class="text-center">Jam Mulai</th>
+                                                        <th class="text-center">Jam Selesai</th>
+                                                        <th class="text-center">Ruangan</th>
+                                                        <th class="text-center">Agenda</th>
+                                                        <th class="text-center">PIC</th>
+                                                        <th class="text-center">Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    foreach ($riwayat as $kegiatan) {
+                                                    ?>
+                                                        <tr>
+                                                            <td class="text-center align-middle">
+                                                                <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
+                                                            </td>
+                                                            <td class="text-center align-middle">
+                                                                <?php echo date("H:i", strtotime($kegiatan['mulai'])) ?>
+                                                            </td>
+                                                            <td class="text-center align-middle">
+                                                                <?php echo date("H:i", strtotime($kegiatan['selesai'])) ?>
+                                                            </td>
+                                                            <td class="text-center align-middle">
+                                                                <?php echo $kegiatan['ruangan'] ?>
+                                                            </td>
+                                                            <td class="align-middle">
+                                                                <?php echo $kegiatan['agenda'] ?>
+                                                            </td>
+                                                            <td class="text-center align-middle">
+                                                                <?php echo $kegiatan['pic'] ?>
+                                                            </td>
+                                                            <td class="text-center align-middle">
+                                                                <a href="" class="btn btn-outline-info btn-sm" target="blank">
+                                                                    <i class="ft-check-circle"></i>
+                                                                </a>
+                                                                <a href="" class="btn btn-outline-danger btn-sm" target="blank">
+                                                                    <i class="ft-x-square"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -388,4 +376,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>
