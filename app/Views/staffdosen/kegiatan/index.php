@@ -356,7 +356,7 @@
                                                                 <a href="" class="btn btn-outline-info btn-sm" target="blank">
                                                                     <i class="ft-check-circle"></i>
                                                                 </a>
-                                                                <a href="" class="btn btn-outline-danger btn-sm" target="blank">
+                                                                <a href="<?= base_url('staffdosen/kegiatan/deletekegiatan/' . $kegiatan['id']) ?>" class="btn btn-outline-danger btn-sm">
                                                                     <i class="ft-x-square"></i>
                                                                 </a>
                                                             </td>

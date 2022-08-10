@@ -140,4 +140,17 @@ class KegiatanController extends BaseController
             return redirect()->to(base_url('staffdosen/kegiatan/'));
         }
     }
+
+    public function deleteKegiatan($id)
+    {
+        $delete = $this->KegiatanModel->deleteKegiatan($id);
+
+        if ($delete) {
+            session()->setFlashdata('sukses', 'Riwayat kegiatan berhasil <b>dihapus</b>');
+            return redirect()->to(base_url('staffdosen/kegiatan/'));
+        } else {
+            session()->setFlashdata('error', 'gagal menghapus riwayat kegiatan. Silakan coba lagi');
+            return redirect()->to(base_url('staffdosen/kegiatan/'));
+        }
+    }
 }

@@ -13,15 +13,7 @@ class KegiatanModel extends Model
     {
         $timeNow = Time::now();
         $builder = $this->db->table('kegiatan');
-        $builder->select('kegiatan.id, 
-        kegiatan.tanggal, 
-        kegiatan.mulai, 
-        kegiatan.selesai, 
-        kegiatan.agenda,
-        kegiatan.hp,
-        kegiatan.undangan,
-        kegiatan_ruangan.nama as ruangan,
-        data_staffdosen.nama as pic');
+        $builder->select('kegiatan.id, kegiatan.tanggal, kegiatan.mulai, kegiatan.selesai, kegiatan.agenda,kegiatan.hp,kegiatan.undangan,kegiatan_ruangan.nama as ruangan,data_staffdosen.nama as pic');
         $builder->join('kegiatan_ruangan', 'kegiatan.ruangan_id = kegiatan_ruangan.id');
         $builder->join('data_staffdosen', 'kegiatan.pic_id = data_staffdosen.id_staffdosen');
         $builder->where('kegiatan.tanggal >=', $timeNow);
@@ -35,15 +27,7 @@ class KegiatanModel extends Model
     public function riwayat($id)
     {
         $builder = $this->db->table('kegiatan');
-        $builder->select('kegiatan.id, 
-        kegiatan.tanggal, 
-        kegiatan.mulai, 
-        kegiatan.selesai, 
-        kegiatan.agenda,
-        kegiatan.hp,
-        kegiatan.undangan,
-        kegiatan_ruangan.nama as ruangan,
-        data_staffdosen.nama as pic');
+        $builder->select('kegiatan.id, kegiatan.tanggal, kegiatan.mulai, kegiatan.selesai, kegiatan.agenda,kegiatan.hp,kegiatan.undangan,kegiatan_ruangan.nama as ruangan,data_staffdosen.nama as pic');
         $builder->join('kegiatan_ruangan', 'kegiatan.ruangan_id = kegiatan_ruangan.id');
         $builder->join('data_staffdosen', 'kegiatan.pic_id = data_staffdosen.id_staffdosen');
         $builder->where('kegiatan.pic_id =', $id);
@@ -57,6 +41,11 @@ class KegiatanModel extends Model
     public function addKegiatan($data)
     {
         return $this->db->table('kegiatan')->insert($data);
+    }
+
+    public function deleteKegiatan($id)
+    {
+        return $this->db->table('kegiatan')->delete(['id' => $id]);
     }
 
     function getJamMulai($id_ruangan, $tanggal)
@@ -76,16 +65,6 @@ class KegiatanModel extends Model
         $builder->select('selesai');
         $builder->where('ruangan_id', $id_ruangan);
         $builder->where('tanggal', $tanggal);
-        $query = $builder->get();
-
-        return $query->getResultArray();
-    }
-
-    function getRiwayat($id)
-    {
-        $builder = $this->db->table('kegiatan');
-        $builder->select('*');
-        $builder->where('pic_id', $id);
         $query = $builder->get();
 
         return $query->getResultArray();
