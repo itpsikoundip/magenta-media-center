@@ -14,7 +14,22 @@ class TiketModel extends Model
 
     function getTiketBelumTerjawab($topik_id){
         $tiketBelumTerjawab = $this->db->table('tiket')
-                                ->where('topik_id', $topik_id)->where('jawaban', NULL)
+                                ->select('
+                                    tiket.id,
+                                    tiket.topik_id,
+                                    tiket.subjek,
+                                    tiket.detail,
+                                    tiket.jawaban,
+                                    tiket.lampiran,
+                                    tiket.mahasiswa_id,
+                                    tiket.created_at,
+                                    tiket.updated_at,
+                                    mahasiswa.nim,
+                                    mahasiswa.nama,
+                                    mahasiswa.jenis_kelamin,
+                                    mahasiswa.tahun_masuk,         
+                                ')
+                                ->where('tiket.topik_id', $topik_id)->where('tiket.jawaban', NULL)
                                 ->join('mahasiswa','mahasiswa.nim = tiket.mahasiswa_id')
                                 ->orderBy('tiket.created_at', 'desc')
                                 ->get();
@@ -23,7 +38,22 @@ class TiketModel extends Model
 
     function getTiketTerjawab($topik_id){
         $tiketTerjawab = $this->db->table('tiket')
-                            ->where('topik_id', $topik_id)->where('jawaban IS NOT NULL', NULL, FALSE)
+                            ->select('
+                                tiket.id,
+                                tiket.topik_id,
+                                tiket.subjek,
+                                tiket.detail,
+                                tiket.jawaban,
+                                tiket.lampiran,
+                                tiket.mahasiswa_id,
+                                tiket.created_at,
+                                tiket.updated_at,
+                                mahasiswa.nim,
+                                mahasiswa.nama,
+                                mahasiswa.jenis_kelamin,
+                                mahasiswa.tahun_masuk,         
+                            ')
+                            ->where('tiket.topik_id', $topik_id)->where('tiket.jawaban IS NOT NULL', NULL, FALSE)
                             ->join('mahasiswa','mahasiswa.nim =  tiket.mahasiswa_id')
                             ->orderBy('tiket.created_at', 'desc')
                             ->get();
@@ -32,7 +62,22 @@ class TiketModel extends Model
 
     function getDetail($tiket_id){
         $tiket = $this->db->table('tiket')
-                    ->where('id', $tiket_id)
+                    ->select('
+                        tiket.id,
+                        tiket.topik_id,
+                        tiket.subjek,
+                        tiket.detail,
+                        tiket.jawaban,
+                        tiket.lampiran,
+                        tiket.mahasiswa_id,
+                        tiket.created_at,
+                        tiket.updated_at,
+                        mahasiswa.nim,
+                        mahasiswa.nama,
+                        mahasiswa.jenis_kelamin,
+                        mahasiswa.tahun_masuk,         
+                    ')
+                    ->where('tiket.id', $tiket_id)
                     ->join('mahasiswa','mahasiswa.nim = tiket.mahasiswa_id')
                     ->get();
         return $tiket->getResult();
