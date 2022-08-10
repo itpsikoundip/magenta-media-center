@@ -14,19 +14,19 @@ class UserAdmin extends Seeder
                 'id_admin'              => '1',
                 'nama'                  => 'gading',
                 'email'                 => 'gadingihsancahya@gmail.com',
-                'password'              => 'admin123',
+                'password'              => password_hash('admin123', PASSWORD_DEFAULT),
             ],
             [
                 'id_admin'              => '2',
                 'nama'                  => 'willy',
                 'email'                 => 'grewilly2001@gmail.com',
-                'password'              => 'admin123',
+                'password'              => password_hash('admin123', PASSWORD_DEFAULT),
             ],
             [
                 'id_admin'              => '3',
                 'nama'                  => 'ariel',
                 'email'                 => 'arielgemilangjaya@gmail.com',
-                'password'              => 'admin123',
+                'password'              => password_hash('admin123', PASSWORD_DEFAULT),
             ],
         ];
 
