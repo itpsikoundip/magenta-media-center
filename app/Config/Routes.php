@@ -200,6 +200,7 @@ $routes->group('staffdosen', ['namespace' => 'App\Controllers\StaffDosen', 'filt
     $routes->group('kegiatan', ['namespace' => 'App\Controllers\StaffDosen\Kegiatan', 'filter' => 'authStaffDosen'], function ($routes) {
         $routes->get('/', 'KegiatanController::index');
         $routes->post('addkegiatan', 'KegiatanController::addKegiatan');
+        $routes->get('selesaikegiatan/(:num)', 'KegiatanController::selesaiKegiatan/$1');
         $routes->get('deletekegiatan/(:num)', 'KegiatanController::deleteKegiatan/$1');
     });
 

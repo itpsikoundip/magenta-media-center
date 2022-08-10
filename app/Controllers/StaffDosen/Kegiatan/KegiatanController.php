@@ -61,18 +61,12 @@ class KegiatanController extends BaseController
         $timeNow = Time::now();
         $selectedDate = $this->request->getPost('inputTanggal');
 
-        // echo "<br>";
-        // echo "INPUT Jam Mulai : $StartA";
-        // echo "<br>";
-        // echo "INPUT Jam Selesai : $EndA";
-        // echo "<br>";
         if ($selectedDate >= $timeNow) {
 
             if ($StartA < $EndA) {
-                // echo "$StartA < $EndA";
 
                 if (count($allKegiatan) > 0) {
-                    // dd($StartB);
+
                     for ($i = 0; $i < count($StartB); $i++) {
 
                         $StartAtoInt = (int)$StartA;
@@ -87,7 +81,6 @@ class KegiatanController extends BaseController
                             return redirect()->to(base_url('staffdosen/kegiatan/'));
                         }
                     };
-                    // dd($overlap);
                 }
                 $ruangan_id     = $this->request->getPost('pilihRuangan');
                 $tanggal        = $this->request->getPost('inputTanggal');
@@ -117,13 +110,12 @@ class KegiatanController extends BaseController
                     'created_at'    => Time::now('Asia/Jakarta'),
                 ];
 
-                // dd($data);
                 if ($_FILES and $_FILES['inputUndangan']['name']) {
                     // Upload file
                     $undangan->move('undangan-kegiatan', $namaUndangan);
                 }
                 $result = $this->KegiatanModel->addKegiatan($data);
-                // dd($result);
+
                 if ($result) {
                     session()->setFlashdata('sukses', 'SUKSES : Kegiatan berhasil ditambahkan.');
                     return redirect()->to(base_url('staffdosen/kegiatan/'));
@@ -139,6 +131,21 @@ class KegiatanController extends BaseController
             session()->setFlashdata('error', "GAGAL : Tanggal sudah lewat.");
             return redirect()->to(base_url('staffdosen/kegiatan/'));
         }
+    }
+
+    public function selesaiKegiatan($id)
+    {
+        $selesaikan = new KegiatanModel();
+
+        $timeNowFormatted = date_format(Time::now('Asia/Jakarta'), "H:i");
+
+        $data = [
+            'selesai' => $timeNowFormatted,
+        ];
+        $selesaikan->selesaiKegiatan($data, $id);
+
+        session()->setFlashdata('sukses', 'Rapat berhasil diselesaikan');
+        return redirect()->to(base_url('staffdosen/kegiatan/'));
     }
 
     public function deleteKegiatan($id)
