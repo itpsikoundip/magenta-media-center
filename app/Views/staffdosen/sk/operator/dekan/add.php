@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>TMT Kegiatan</label>
-                                        <input type="text" class="form-control" placeholder="" maxlength="255" name="tmtKegiatanSKDekan">
+                                        <input type="date" class="form-control" name="tmtKegiatanSKDekan">
                                     </div>
                                     <div class="form-group">
                                         <label>Upload</label>
