@@ -201,59 +201,59 @@
 
                                     <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
 
-                                        <form class="form form-horizontal" action="<?= base_url('staffdosen/kegiatan/addkegiatan/') ?>" method="post" enctype="multipart/form-data">
+                                        <form class="form form-horizontal mx-md-2" action="<?= base_url('staffdosen/kegiatan/addkegiatan/') ?>" method="post" enctype="multipart/form-data">
                                             <?= csrf_field(); ?>
                                             <div class="form-body">
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="pilihRuangan"><b>Ruangan</b></label>
-                                                    <div class="col-md-10">
+                                                <div class="form-group">
+                                                    <label class="label-control" for="pilihRuangan"><b>Ruangan</b></label>
+                                                    
                                                         <select id="pilihRuangan" name="pilihRuangan" class="form-control" required value="<?= old('pilihRuangan'); ?>">
                                                             <option value="">-- Pilih Ruangan --</option>
                                                             <?php foreach ($ruangan as $ruang) { ?>
                                                                 <option value="<?php echo $ruang->id ?>"><?php echo $ruang->nama ?>, lantai <?php echo $ruang->lantai ?></option>
                                                             <?php } ?>
                                                         </select>
-                                                    </div>
+                                                    
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="inputTanggal"><b>Tanggal Kegiatan</b></label>
-                                                    <div class="col-md">
+                                                    <div class="col-md-4">
+                                                        <label class="label-control" for="inputTanggal"><b>Tanggal Kegiatan</b></label>
                                                         <input type="date" id="inputTanggal" name="inputTanggal" onchange="checkDate()" class="form-control" placeholder="Tanggal kegiatan" required value="<?= old('inputTanggal'); ?>">
+                                                        <small>Minimum: hari ini</small>
                                                     </div>
-                                                    <label class="col-md-2 label-control" for="pilihJamMulai"><b>Waktu Mulai Kegiatan</b></label>
-                                                    <div class="col-md">
+                                                    <div class="col-md-4">
+                                                        <label class="label-control" for="pilihJamMulai"><b>Waktu Mulai Kegiatan</b></label>
                                                         <input type="time" class="form-control" name="pilihJamMulai" required>
+                                                        <small>Minimum: 07.00, maksimum: 16.30</small>
                                                     </div>
-                                                    <label class="col-md-2 label-control" for="pilihJamMulai"><b>Waktu Selesai Kegiatan</b></label>
-                                                    <div class="col-md">
+                                                    <div class="col-md-4">
+                                                        <label class="label-control" for="pilihJamMulai"><b>Waktu Selesai Kegiatan</b></label>
                                                         <input type="time" class="form-control" name="pilihJamSelesai" required>
+                                                        <small>Minimum: 07.30, maksimum: 17.00</small>
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="inputJawaban"><b>Agenda</b></label>
-                                                    <div class="col-md-10">
-                                                        <textarea id="inputAgenda" name="inputAgenda" rows="5" class="form-control" placeholder="Detail agenda/kegiatan" required></textarea>
-                                                    </div>
+                                                <div class="form-group">
+                                                    <label class="label-control" for="inputJawaban"><b>Agenda</b></label>
+                                                    <textarea id="inputAgenda" name="inputAgenda" rows="5" class="form-control" placeholder="Detail agenda/kegiatan" required></textarea>                                                  
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="inputPIC"><b>PIC</b></label>
-                                                    <div class="col-md-10">
-                                                        <select id="pilihPIC" name="pilihPIC" class="form-control" required>
-                                                            <option value="">-- Pilih PIC --</option>
-                                                            <?php
-                                                            foreach ($staffdosen as $sd) {
-                                                            ?>
-                                                                <option value="<?php echo $sd['id_staffdosen'] ?>"><?php echo $sd['nama'] ?></option>
-                                                            <?php
-                                                            }
-                                                            ?>
-                                                        </select>
-                                                    </div>
+                                                <div class="form-group">
+                                                    <label class="label-control" for="inputPIC"><b>PIC</b></label>
+                                                    <select id="pilihPIC" name="pilihPIC" class="form-control" required>
+                                                        <option value="">-- Pilih PIC --</option>
+                                                        <?php
+                                                        foreach ($staffdosen as $sd) {
+                                                        ?>
+                                                            <option value="<?php echo $sd['id_staffdosen'] ?>"><?php echo $sd['nama'] ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                    
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="inputHP"><b>No WA PIC</b></label>
-                                                    <div class="col-md-10 d-flex">
+                                                <div class="form-group">
+                                                    <label class="label-control" for="inputHP"><b>No WA PIC</b></label>
+                                                    <div class="d-flex">
                                                         <button class="btn btn-light" style="color:black; 
                                                                         border-radius: 0.21rem 0 0 0.21rem; 
                                                                         border-top: 1px solid #d4d4d4;
@@ -264,14 +264,12 @@
                                                         <input type="number" id="inputHP" name="inputHP" class="form-control" placeholder="81234567890" required>
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="inputUndangan"><b>File Undangan</b></label>
-                                                    <div class="col-md-10">
-                                                        <input id="inputUndangan" name="inputUndangan" type="file">
-                                                        <div>
-                                                            <small>Jenis file: PDF. Ukuran maksimum: 2MB </small>
-                                                        </div>
+                                                <div class="form-group">
+                                                    <label class="label-control" for="inputUndangan"><b>File Undangan</b></label>
+                                                    <div class="form-control d-flex">
+                                                        <input class="align-self-center w-100" id="inputUndangan" name="inputUndangan" type="file">
                                                     </div>
+                                                    <small>Jenis file: PDF. Ukuran maksimum: 2MB </small>
                                                 </div>
                                             </div>
 

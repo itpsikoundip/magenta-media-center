@@ -66,7 +66,7 @@ class KegiatanController extends BaseController
         $FinalStartA = date('H:i', strtotime($StartA));
         $FinalEndA = date('H:i', strtotime($EndA));
 
-        if (($selectedDate >= $timeNow) && ($FinalStartA >= "07:30" && $FinalStartA <= "16:00") && ($FinalEndA >= "07:30" && $FinalEndA <= "17:00")) {
+        if (($selectedDate >= $timeNow) && ($FinalStartA >= "07:00" && $FinalStartA <= "16:30") && ($FinalEndA >= "07:30" && $FinalEndA <= "17:00")) {
 
             if ($StartA < $EndA) {
 
