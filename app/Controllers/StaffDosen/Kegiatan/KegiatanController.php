@@ -147,7 +147,7 @@ class KegiatanController extends BaseController
         ];
         $selesaikan->selesaiKegiatan($data, $id);
 
-        session()->setFlashdata('sukses', 'Rapat berhasil diselesaikan');
+        session()->setFlashdata('sukses', 'Kegiatan berhasil diselesaikan');
         return redirect()->to(base_url('staffdosen/kegiatan/'));
     }
 
