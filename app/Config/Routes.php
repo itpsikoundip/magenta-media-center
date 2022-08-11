@@ -246,6 +246,7 @@ $routes->group('staffdosen', ['namespace' => 'App\Controllers\StaffDosen', 'filt
                 $routes->get('/', 'ControllerVerifikatorSKDekan::index');
                 $routes->get('view/(:num)', 'ControllerVerifikatorSKDekan::view/$1');
                 $routes->get('edit/(:num)', 'ControllerVerifikatorSKDekan::edit/$1');
+                $routes->post('editdatafilesk/(:num)', 'ControllerVerifikatorSKDekan::editDataFileSK/$1');
                 // Catatan Revisi / Perbaikan
                 $routes->post('editdatasvakakemcatatan/(:num)', 'ControllerVerifikatorSKDekan::editDataSvAkakemCatatan/$1');
                 $routes->post('editdatasvsumdacatatan/(:num)', 'ControllerVerifikatorSKDekan::editDataSvSumdaCatatan/$1');
@@ -265,6 +266,7 @@ $routes->group('staffdosen', ['namespace' => 'App\Controllers\StaffDosen', 'filt
                 $routes->get('/', 'ControllerVerifikatorSKRektor::index');
                 $routes->get('view/(:num)', 'ControllerVerifikatorSKRektor::view/$1');
                 $routes->get('edit/(:num)', 'ControllerVerifikatorSKRektor::edit/$1');
+                $routes->post('editdatafilesk/(:num)', 'ControllerVerifikatorSKRektor::editDataFileSK/$1');
                 // Catatan Revisi / Perbaikan
                 $routes->post('editdatasvakakemcatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataSvAkakemCatatan/$1');
                 $routes->post('editdatasvsumdacatatan/(:num)', 'ControllerVerifikatorSKRektor::editDataSvSumdaCatatan/$1');

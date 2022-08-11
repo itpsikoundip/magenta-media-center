@@ -49,6 +49,7 @@ class ModelVerifikatorSKDekan extends Model
     public function allDataSKDekanSVAkem()
     {
         return $this->db->table('sk_dekan')
+            ->where('jenis_op_id', '1')
             ->where('sk_akem_status', '1')
             ->orwhere('sk_akem_status', '2')
             ->orwhere('sk_akem_status', '3')
@@ -57,6 +58,7 @@ class ModelVerifikatorSKDekan extends Model
     public function allDataSKDekanSVAkemSiapVerif()
     {
         return $this->db->table('sk_dekan')
+            ->where('jenis_op_id', '1')
             ->where('sk_akem_status', '0')
             ->get()->getResultArray();
     }
@@ -64,6 +66,7 @@ class ModelVerifikatorSKDekan extends Model
     public function allDataSKDekanSVSumda()
     {
         return $this->db->table('sk_dekan')
+            ->where('jenis_op_id', '2')
             ->where('sv_sumda_status', '1')
             ->orwhere('sv_sumda_status', '2')
             ->orwhere('sv_sumda_status', '3')
@@ -72,7 +75,7 @@ class ModelVerifikatorSKDekan extends Model
     public function allDataSKDekanSVSumdaSiapVerif()
     {
         return $this->db->table('sk_dekan')
-            ->where('sk_akem_status', '3')
+            ->where('jenis_op_id', '2')
             ->where('sv_sumda_status', '0')
             ->get()->getResultArray();
     }
@@ -139,5 +142,12 @@ class ModelVerifikatorSKDekan extends Model
             ->where('wadek_akem_status', '3')
             ->where('dekan_status', '0')
             ->get()->getResultArray();
+    }
+
+    public function uploadFileSKDekan($data)
+    {
+        $this->db->table('sk_dekan')
+            ->where('id_sk_dekan', $data['id_sk_dekan'])
+            ->update($data);
     }
 }
