@@ -34,8 +34,7 @@ class SKDekan extends Migration
                 'type'          => 'DATE',
             ],
             'tmt_kegiatan' => [
-                'type'          => 'VARCHAR',
-                'constraint'    => 255,
+                'type'          => 'DATE',
             ],
             'upload_sk_dekan' => [
                 'type'          => 'VARCHAR',

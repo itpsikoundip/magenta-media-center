@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>TMT Kegiatan</label>
-                                        <input type="text" class="form-control" placeholder="" maxlength="255" name="tmtKegiatanSKDekan" value="<?= $detailSKDekan['tmt_kegiatan'] ?>">
+                                        <input type="date" class="form-control" name="tmtKegiatanSKDekan" value="<?= $detailSKDekan['tmt_kegiatan'] ?>">
                                     </div>
                                     <div class="form-actions">
                                         <button type="submit" class="btn btn-block btn-primary">
