@@ -29,9 +29,10 @@
                                                 <th style="width:60%">Judul</th>
                                                 <th style="width:5%; text-align: center;">Pendidikan</th>
                                                 <th style="width:10%; text-align: center;">Organisasi / Lembaga</th>
-                                                <th style="width:15%; text-align: center;">Waktu Pengajuan</th>
+                                                <th style="width:10%; text-align: center;">Waktu Pengajuan</th>
+                                                <th style="width:5%; text-align: center;">Posisi</th>
                                                 <th style="width:5%; text-align: center;">Status</th>
-                                                <th style="width:5%; text-align: center;">Aksi</th>
+                                                <th style="width:5%; text-align: center;">Detail</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -43,19 +44,83 @@
                                                     <td style="text-align: center; vertical-align: middle;"><?= $value['nama_ormawa']  ?></td>
                                                     <td style="text-align: center; vertical-align: middle;"><?= $value['created_at']  ?></td>
                                                     <td style="text-align: center; vertical-align: middle;">
-                                                        <?php if ($value['akademik_status'] == 0) {
-                                                            echo '<div class="badge badge-primary">Belum ada Status</div>';
-                                                        } elseif (($value['akademik_status']) == 1) {
-                                                            echo '<div class="badge badge-danger">Ditolak</div>';
-                                                        } elseif (($value['akademik_status']) == 2) {
-                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
-                                                        } elseif (($value['akademik_status']) == 3) {
-                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        <?php if ($value['dekan_status'] != 0) {
+                                                            echo 'Dekan';
+                                                        } elseif (($value['wadeksumda_status']) != 0) {
+                                                            echo 'Wadek Sumda';
+                                                        } elseif (($value['wadekakem_status']) != 0) {
+                                                            echo 'Wadek Akem';
+                                                        } elseif (($value['kaprodis1_status']) != 0) {
+                                                            echo 'Kaprodi S1';
+                                                        } elseif (($value['tatausaha_status']) != 0) {
+                                                            echo 'Tata Usaha';
+                                                        } elseif (($value['sumberdaya_status']) != 0) {
+                                                            echo 'Sumber Daya';
+                                                        } elseif (($value['akademik_status']) != 0) {
+                                                            echo 'Akademik';
+                                                        } elseif (($value['bem_status']) != 0) {
+                                                            echo 'BEM';
+                                                        } elseif (($value['bem_status']) == 0) {
+                                                            echo 'BEM';
                                                         }
                                                         ?>
                                                     </td>
                                                     <td style="text-align: center; vertical-align: middle;">
-                                                        <a href="<?= base_url('AdminProposalData/details/' . $value['id_propo']) ?>" class="btn btn-sm btn-info">Details</a>
+                                                        <?php if ($value['dekan_status'] == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['dekan_status']) == 2) {
+                                                            echo '<div class="badge badge-warning"><div class="badge badge-warning">Perbaikan</div></div>';
+                                                        } elseif (($value['dekan_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['wadeksumda_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['wadeksumda_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['wadeksumda_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['wadekakem_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['wadekakem_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['wadekakem_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['kaprodis1_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['kaprodis1_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['kaprodis1_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['tatausaha_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['tatausaha_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['tatausaha_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['sumberdaya_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['sumberdaya_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['sumberdaya_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['akademik_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['akademik_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['akademik_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['bem_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['bem_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['bem_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['bem_status']) == 0) {
+                                                            echo '<div class="badge badge-info">Diproses</div>';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle;">
+                                                        <a href="<?= base_url('admin/fitur/proposal/data/detail/' . $value['id_propo']) ?>" class="btn btn-sm btn-info">Detail</a>
                                                     </td>
                                                 </tr>
                                             <?php  } ?>
@@ -65,9 +130,10 @@
                                                 <th style="width:60%">Judul</th>
                                                 <th style="width:5%; text-align: center;">Pendidikan</th>
                                                 <th style="width:10%; text-align: center;">Organisasi / Lembaga</th>
-                                                <th style="width:15%; text-align: center;">Waktu Pengajuan</th>
+                                                <th style="width:10%; text-align: center;">Waktu Pengajuan</th>
+                                                <th style="width:5%; text-align: center;">Posisi</th>
                                                 <th style="width:5%; text-align: center;">Status</th>
-                                                <th style="width:5%; text-align: center;">Aksi</th>
+                                                <th style="width:5%; text-align: center;">Detail</th>
                                             </tr>
                                         </tfoot>
                                     </table>

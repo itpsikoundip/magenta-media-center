@@ -68,7 +68,7 @@ class ControllerAdminUserStaffDosen extends BaseController
     {
         $data = [
             'id_userstaffdosen' => $id_userstaffdosen,
-            'password' => $this->request->getPost('password'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
         ];
         $this->ModelAdminUserStaffDosen->edit($data);
         session()->setFlashdata('sukses', 'Edit Password Berhasil dilakukan dan disimpan !!');

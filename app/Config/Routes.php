@@ -72,9 +72,11 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
             $routes->group('data',  function ($routes) {
                 $routes->group('skdekan',  function ($routes) {
                     $routes->get('/', 'ControllerAdminSKDataSKDekan::index');
+                    $routes->get('detail/(:num)', 'ControllerAdminSKDataSKDekan::detail/$1');
                 });
                 $routes->group('skrektor',  function ($routes) {
                     $routes->get('/', 'ControllerAdminSKDataSKRektor::index');
+                    $routes->get('detail/(:num)', 'ControllerAdminSKDataSKRektor::detail/$1');
                 });
             });
         });
@@ -82,9 +84,14 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'au
         $routes->group('proposal', ['namespace' => 'App\Controllers\Admin\fitur\proposal'], function ($routes) {
             $routes->group('usermanagement',  function ($routes) {
                 $routes->get('/', 'ControllerAdminProposalUserManagement::index');
+                $routes->post('addaksesstaffdosen', 'ControllerAdminProposalUserManagement::addAksesStaffDosen');
+                $routes->post('addaksesmahasiswa', 'ControllerAdminProposalUserManagement::addAksesMahasiswa');
+                $routes->get('deleteaksesstaffdosen/(:num)', 'ControllerAdminProposalUserManagement::deleteAksesStaffDosen/$1');
+                $routes->get('deleteaksesmahasiswa/(:num)', 'ControllerAdminProposalUserManagement::deleteAksesMahasiswa/$1');
             });
             $routes->group('data',  function ($routes) {
                 $routes->get('/', 'ControllerAdminProposalData::index');
+                $routes->get('detail/(:num)', 'ControllerAdminProposalData::detail/$1');
             });
         });
     });
@@ -288,6 +295,7 @@ $routes->group('staffdosen', ['namespace' => 'App\Controllers\StaffDosen', 'filt
     $routes->group('profil', ['namespace' => 'App\Controllers\StaffDosen\Profil', 'filter' => 'authStaffDosen'], function ($routes) {
         $routes->get('/', 'ControllerStaffDosenProfil::index');
         $routes->post('editfotoprofil/(:num)', 'ControllerStaffDosenProfil::uploadFotoProfil/$1');
+        $routes->post('editpass/(:num)', 'ControllerStaffDosenProfil::editDataPass/$1');
     });
 });
 
@@ -325,6 +333,7 @@ $routes->group('mahasiswa', ['namespace' => 'App\Controllers\Mahasiswa', 'filter
     $routes->group('profil', ['namespace' => 'App\Controllers\Mahasiswa\Profil', 'filter' => 'authMhs'], function ($routes) {
         $routes->get('/', 'ControllerMahasiswaProfil::index');
         $routes->post('editfotoprofil/(:num)', 'ControllerMahasiswaProfil::uploadFotoProfil/$1');
+        $routes->post('editpass/(:num)', 'ControllerMahasiswaProfil::editDataPass/$1');
     });
 
     $routes->group('layananakademik', ['namespace' => 'App\Controllers\Mahasiswa\LayananAkademik', 'filter' => 'authMhs'], function ($routes) {

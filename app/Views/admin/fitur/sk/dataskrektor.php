@@ -33,32 +33,108 @@
                                 <div class="card-body card-dashboard">
                                     <table class="table table-striped table-bordered zero-configuration" style="width:100%">
                                         <thead>
-                                            <tr>
-                                                <th style="width:30%">Judul SK</th>
-                                                <th style="width:5%; text-align: center;">Tanggal Pembuatan</th>
-                                                <th style="width:20%; text-align: center;">TMT Kegiatan</th>
-                                                <th style="width:15%; text-align: center;">Aksi</th>
+                                            <tr style="text-align: center;">
+                                                <th style="width:5%">ID</th>
+                                                <th style="width:20%; text-align: left;">Judul SK</th>
+                                                <th style="width:10%">Operator</th>
+                                                <th style="width:15%">Pengaju</th>
+                                                <th style="width:10%">Tanggal Pembuatan</th>
+                                                <th style="width:10%">TMT Kegiatan</th>
+                                                <th style="width:10%">Posisi</th>
+                                                <th style="width:5%">Status</th>
+                                                <th style="width:10%">Created at</th>
+                                                <th style="width:5%">Detail</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                             foreach ($allDataSKRektor as $key => $value) { ?>
-                                                <tr>
-                                                    <td style="vertical-align: middle;"><?= $value['judul_sk']  ?></td>
-                                                    <td style="text-align: center; vertical-align: middle;"><?= $value['tanggal_pembuatan']  ?></td>
-                                                    <td style="text-align: center; vertical-align: middle;"><?= $value['tmt_kegiatan']  ?></td>
-                                                    <td style="text-align: center; vertical-align: middle;">
-                                                        <!-- <a href="" class="btn btn-info mr-1 mb-1"><i class="ft-eye"></i> Lihat</a> -->
+                                                <tr style="text-align: center; vertical-align: middle;">
+                                                    <td style="vertical-align: middle;"><?= $value['id_sk_rektor']  ?></td>
+                                                    <td style="text-align: left; vertical-align: middle;"><?= $value['judul_sk']  ?></td>
+                                                    <td style="vertical-align: middle;"><?= $value['nama_jenis_op']  ?></td>
+                                                    <td style="vertical-align: middle;"><?= $value['nama']  ?></td>
+                                                    <td style="vertical-align: middle;"><?= $value['tanggal_pembuatan']  ?></td>
+                                                    <td style="vertical-align: middle;"><?= $value['tmt_kegiatan']  ?></td>
+                                                    <td style="vertical-align: middle;">
+                                                        <?php if ($value['dekan_status'] != 0) {
+                                                            echo 'Dekan';
+                                                        } elseif (($value['wadek_sumda_status']) != 0) {
+                                                            echo 'Wadek Sumda';
+                                                        } elseif (($value['wadek_akem_status']) != 0) {
+                                                            echo 'Wadek Akem';
+                                                        } elseif (($value['manager_tu_status']) != 0) {
+                                                            echo 'Manager Tata Usaha';
+                                                        } elseif (($value['sv_sumda_status']) != 0) {
+                                                            echo 'Supervisor Sumber Daya';
+                                                        } elseif (($value['sk_akem_status']) != 0) {
+                                                            echo 'Supervisor Akademik';
+                                                        } elseif (($value['sk_akem_status']) == 0) {
+                                                            echo 'Supervisor Akademik';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td style="vertical-align: middle;">
+                                                        <?php if ($value['dekan_status'] == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['dekan_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['dekan_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['wadek_sumda_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['wadek_sumda_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['wadek_sumda_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['wadek_akem_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['wadek_akem_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['wadek_akem_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['manager_tu_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['manager_tu_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['manager_tu_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['sv_sumda_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['sv_sumda_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['sv_sumda_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['sk_akem_status']) == 3) {
+                                                            echo '<div class="badge badge-success">Disetujui</div>';
+                                                        } elseif (($value['sk_akem_status']) == 2) {
+                                                            echo '<div class="badge badge-warning">Perbaikan</div>';
+                                                        } elseif (($value['sk_akem_status']) == 1) {
+                                                            echo '<div class="badge badge-danger">Ditolak</div>';
+                                                        } elseif (($value['sk_akem_status']) == 0) {
+                                                            echo '<div class="badge badge-info">Proses</div>';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td style="vertical-align: middle;"><?= $value['created_at']  ?></td>
+                                                    <td style="vertical-align: middle;">
+                                                        <a href="<?= base_url('admin/fitur/sk/data/skrektor/detail/' . $value['id_sk_rektor']) ?>" type="button" class="btn btn-primary btn-min-width mr-1 mb-1">Detail</a>
                                                     </td>
                                                 </tr>
                                             <?php  } ?>
                                         </tbody>
                                         <tfoot>
-                                            <tr>
-                                                <th style="width:30%">Judul SK</th>
-                                                <th style="width:5%; text-align: center;">Tanggal Pembuatan</th>
-                                                <th style="width:20%; text-align: center;">TMT Kegiatan</th>
-                                                <th style="width:15%; text-align: center;">Aksi</th>
+                                            <tr style="text-align: center;">
+                                                <th style="width:5%">ID</th>
+                                                <th style="width:20%; text-align: left;">Judul SK</th>
+                                                <th style="width:10%">Jenis Operator</th>
+                                                <th style="width:15%">Pengaju</th>
+                                                <th style="width:10%">Tanggal Pembuatan</th>
+                                                <th style="width:10%">TMT Kegiatan</th>
+                                                <th style="width:10%">Posisi</th>
+                                                <th style="width:5%">Status</th>
+                                                <th style="width:10%">Created at</th>
+                                                <th style="width:5%">Detail</th>
                                             </tr>
                                         </tfoot>
                                     </table>

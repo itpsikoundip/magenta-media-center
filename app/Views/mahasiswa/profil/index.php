@@ -61,7 +61,7 @@
                             <?php } ?>
                             <div class="card-body">
                                 <h4 class="card-title"><?= $detailMahasiswa['nama'] ?></h4>
-                                <h6 class="card-subtitle text-muted">NIP : <?= $detailMahasiswa['nim'] ?></h6>
+                                <h6 class="card-subtitle text-muted">NIM : <?= $detailMahasiswa['nim'] ?></h6>
                             </div>
                         </div>
                     </div>
@@ -93,39 +93,52 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form">
-                                    <div class="form-body">
-                                        <h4 class="form-section"><i class="ft-user"></i> Profil</h4>
+                                <?php
+                                echo form_open('mahasiswa/profil/editpass/' . session()->get('nim'));
+                                ?>
+                                <div class="form-body">
+                                    <h4 class="form-section"><i class="ft-user"></i> Profil</h4>
+                                    <p>Hubungi Admin apabila terdapat ketidaksesuaian data</p>
 
-                                        <div class="form-group">
-                                            <label for="userinput5">Nama</label>
-                                            <input class="form-control border-primary" value="<?= $detailMahasiswa['nama'] ?>" readonly>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="userinput6">Nim</label>
-                                            <input class="form-control border-primary" value="<?= $detailMahasiswa['nim'] ?>" readonly>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input class="form-control border-primary" value="<?= $detailMahasiswa['email'] ?>" readonly>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Password</label>
-                                            <input class="form-control border-primary" id="userinput7" type="password" placeholder="">
-                                        </div>
-
+                                    <div class="form-group">
+                                        <label for="userinput5">Nama</label>
+                                        <input class="form-control border-primary" value="<?= $detailMahasiswa['nama'] ?>" readonly>
                                     </div>
 
-                                    <div class="form-actions right">
-                                        <p>belum fungsi</p>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fa fa-check-square-o"></i> Ubah Password
-                                        </button>
+                                    <div class="form-group">
+                                        <label for="userinput6">Nim</label>
+                                        <input class="form-control border-primary" value="<?= $detailMahasiswa['nim'] ?>" readonly>
                                     </div>
-                                </form>
+                                    <div class="form-group">
+                                        <label for="userinput6">Jenis Kelamin</label>
+                                        <input class="form-control border-primary" value="<?php if ($detailMahasiswa['jenis_kelamin'] == 1) {
+                                                                                                echo 'Laki-Laki';
+                                                                                            } elseif (($detailMahasiswa['jenis_kelamin']) == 2) {
+                                                                                                echo 'Perempuan';
+                                                                                            }
+                                                                                            ?>" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userinput6">Tahun Masuk</label>
+                                        <input class="form-control border-primary" value="<?= $detailMahasiswa['tahun_masuk'] ?>" readonly>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input class="form-control border-primary" id="password" name="password" type="password" placeholder="">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-actions right">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-check-square-o"></i> Ubah Password
+                                    </button>
+                                </div>
+                                <input type="hidden" id="resetPass" name="resetPass" value="1">
+                                <?php echo form_close() ?>
 
                             </div>
                         </div>

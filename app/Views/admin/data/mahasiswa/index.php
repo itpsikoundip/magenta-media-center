@@ -43,7 +43,9 @@
                                             <tr>
                                                 <th>NIM</th>
                                                 <th>Nama</th>
-                                                <th>Email</th>
+                                                <th>Jenis Kelamin</th>
+                                                <th>Tahun Masuk</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -52,7 +54,23 @@
                                                 <tr>
                                                     <td style="vertical-align: middle;"><?= $value['nim']  ?></td>
                                                     <td style="text-align: left; vertical-align: middle;"><?= $value['nama']  ?></td>
-                                                    <td style="text-align: left; vertical-align: middle;"><?= $value['email']  ?></td>
+                                                    <td style="text-align: center; vertical-align: middle;">
+                                                        <?php if ($value['status'] == 1) {
+                                                            echo 'Laki-Laki';
+                                                        } elseif (($value['status']) == 2) {
+                                                            echo 'Perempuan';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle;"><?= $value['tahun_masuk']  ?></td>
+                                                    <td style="text-align: center; vertical-align: middle;">
+                                                        <?php if ($value['status'] == 1) {
+                                                            echo '<div class="badge badge-success">Aktif</div>';
+                                                        } elseif (($value['status']) == 2) {
+                                                            echo '<div class="badge badge-danger">Tidak Aktif</div>';
+                                                        }
+                                                        ?>
+                                                    </td>
                                                 </tr>
                                             <?php  } ?>
                                         </tbody>

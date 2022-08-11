@@ -68,4 +68,16 @@ class ControllerMahasiswaProfil extends BaseController
             return redirect()->to(base_url('mahasiswa/profil'));
         }
     }
+
+    public function editDataPass($nim)
+    {
+        $data = [
+            'nim' => $nim,
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'reset_pass' => $this->request->getVar('resetPass')
+        ];
+        $this->ModelProfilMahasiswa->edit($data);
+        session()->setFlashdata('sukses', 'Edit Password Berhasil dilakukan dan disimpan !!');
+        return redirect()->to(base_url('mahasiswa/profil'));
+    }
 }

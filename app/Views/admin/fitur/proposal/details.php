@@ -1,21 +1,21 @@
 <div class="app-content content">
     <div class="content-wrapper">
-        <a href="<?= base_url('AdminProposalData') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
+        <a href="<?= base_url('admin/fitur/proposal/data') ?>" class="btn btn-sm btn-secondary mr-1 mb-1"><i class="fa fa-chevron-left"></i> Back</a>
         <div class="content-header row">
             <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
                 <h3 class="content-header-title mb-0 d-inline-block"><?= $title ?> <?= $detailProposal['judul_propo'] ?></h3>
             </div>
-            <div class="content-header-right col-md-4 col-12">
+            <!-- <div class="content-header-right col-md-4 col-12">
                 <div class="btn-group float-md-right">
                     <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-settings mr-1"></i>Action</button>
                     <div class="dropdown-menu arrow">
-                        <a class="dropdown-item" href="<?= base_url('AdminProposalData/edit/' . $detailProposal['id_propo']) ?>"><i class="fa fa-edit mr-1"></i> Edit</a>
+                        <a class="dropdown-item" href="< = base_url('AdminProposalData/edit/' . $detailProposal['id_propo']) ?>"><i class="fa fa-edit mr-1"></i> Edit</a>
                         <a class="dropdown-item" href="#"><i class="fa fa-print mr-1"></i> Print</a>
                         <div class="dropdown-divider"></div>
-                        <button class="dropdown-item" data-toggle="modal" data-target="#delete<?= $detailProposal['id_propo'] ?>"><i class=" fa fa-trash mr-1"></i> Delete</button>
+                        <button class="dropdown-item" data-toggle="modal" data-target="#delete< = $detailProposal['id_propo'] ?>"><i class=" fa fa-trash mr-1"></i> Delete</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="content-body">
             <div class="row">
@@ -121,7 +121,7 @@
                                             <td>BEM</td>
                                             <td>
                                                 <?php if ($detailProposal['bem_status'] == 0) {
-                                                    echo '';
+                                                    echo '<div class="badge badge-info">Diproses</div>';
                                                 } elseif (($detailProposal['bem_status']) == 1) {
                                                     echo '<div class="badge badge-danger">Ditolak</div>';
                                                 } elseif (($detailProposal['bem_status']) == 2) {

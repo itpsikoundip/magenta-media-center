@@ -54,7 +54,6 @@
                                                     <td style="text-align: center; vertical-align: middle;"><?= $value['nip']  ?></td>
                                                     <td style="text-align: center; vertical-align: middle;"><?= $value['nama_unittugas']  ?></td>
                                                     <td style="text-align: center; vertical-align: middle;">
-                                                        <button type="button" class="btn btn-success mr-1 mb-1" data-toggle="modal" data-target="#edit<?= $value['id_user_proposal_staffdosen']  ?>"><i class="ft-edit"></i> Edit</button>
                                                         <button type="button" class="btn btn-danger mr-1 mb-1" data-toggle="modal" data-target="#delete<?= $value['id_user_proposal_staffdosen']  ?>"><i class="ft-trash"></i> Hapus</button>
                                                     </td>
                                                 </tr>
@@ -146,7 +145,7 @@
                 </button>
             </div>
             <?php
-            echo form_open('AdminProposalUserManagement/addAksesStaffDosen');
+            echo form_open('admin/fitur/proposal/usermanagement/addaksesstaffdosen');
             ?>
             <div class="modal-body">
                 <p>Nama yang muncul adalah nama yang memiliki akses Proposal. Jika nama tidak ditemukan, tambahkan akses Proposal terlebih dahulu di tab / menu lain</p>
@@ -196,57 +195,13 @@ foreach ($allDataUser as $key => $value) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Batal</button>
-                    <a href="<?= base_url('AdminProposalUserManagement/deleteAksesStaffDosen/' . $value['id_user_proposal_staffdosen']) ?>" class="btn btn-outline-danger">Hapus</a>
+                    <a href="<?= base_url('admin/fitur/proposal/usermanagement/deleteaksesstaffdosen/' . $value['id_user_proposal_staffdosen']) ?>" class="btn btn-outline-danger">Hapus</a>
                 </div>
             </div>
         </div>
     </div>
 <?php  } ?>
 <!-- End of Delete Modal -->
-
-<!-- Modal Edit -->
-<?php
-foreach ($allDataUser as $key => $value) { ?>
-    <div class="modal fade text-left" id="edit<?= $value['id_user_proposal_staffdosen']  ?>" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <label class="modal-title text-text-bold-600" id="myModalLabel33">Edit <?= $title ?></label>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <?php
-                echo form_open('AdminProposalUserManagement/editAksesStaffDosen/' . $value['id_user_proposal_staffdosen']);
-                ?>
-                <div class="modal-body">
-                    <label>Staff & Dosen : </label>
-                    <div class="form-group">
-                        <p class="form-control-static"><?= $value['nama']  ?></p>
-                    </div>
-                    <label>Unit Tugas saat ini : </label>
-                    <p class="form-control-static"><?= $value['nama_unittugas']  ?></p>
-                    <label>Ubah Unit Tugas : </label>
-                    <div class="form-group">
-                        <select class="form-control" name="selectUnitTugas" required>
-                            <option value="">-- Pilih Unit Tugas --</option>
-                            <?php
-                            foreach ($allDataUnitTugas as $key => $value) { ?>
-                                <option value="<?= $value['id_unittugas']  ?>"><?= $value['nama_unittugas']  ?></option>
-                            <?php  } ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="Batal">
-                    <input type="submit" class="btn btn-outline-primary btn-lg" value="Edit">
-                </div>
-                <?php echo form_close() ?>
-            </div>
-        </div>
-    </div>
-<?php  } ?>
-<!-- End of Modal Edit -->
 
 
 
@@ -267,7 +222,7 @@ foreach ($allDataUser as $key => $value) { ?>
                 </button>
             </div>
             <?php
-            echo form_open('AdminProposalUserManagement/addAksesMahasiswa');
+            echo form_open('admin/fitur/proposal/usermanagement/addaksesmahasiswa');
             ?>
             <div class="modal-body">
                 <p>Nama yang muncul adalah nama mahasiswa yang sudah didaftarkan sebagai perwakilan ormawa. Jika nama tidak ditemukan, tambahkan mahasiswa ke ormawa terlebih dahulu di tab / menu lain</p>
@@ -308,7 +263,7 @@ foreach ($allDataAksesProposalOrmawa as $key => $value) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Batal</button>
-                    <a href="<?= base_url('AdminProposalUserManagement/deleteAksesMahasiswa/' . $value['id_user_proposal_ormawa']) ?>" class="btn btn-outline-danger">Hapus</a>
+                    <a href="<?= base_url('admin/fitur/proposal/usermanagement/deleteaksesmahasiswa/' . $value['id_user_proposal_ormawa']) ?>" class="btn btn-outline-danger">Hapus</a>
                 </div>
             </div>
         </div>

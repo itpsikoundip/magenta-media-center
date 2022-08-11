@@ -35,7 +35,7 @@ class ControllerAdminProposalUserManagement extends BaseController
         ];
         $this->ModelAdminProposalUserManagement->add($data);
         session()->setFlashdata('sukses', 'Tambah Akses Berhasil dilakukan !!');
-        return redirect()->to(base_url('AdminProposalUserManagement'));
+        return redirect()->to(base_url('admin/fitur/proposal/usermanagement'));
     }
 
     public function deleteAksesStaffDosen($id_user_proposal_staffdosen)
@@ -45,7 +45,7 @@ class ControllerAdminProposalUserManagement extends BaseController
         ];
         $this->ModelAdminProposalUserManagement->delete_data($data);
         session()->setFlashdata('sukses', 'Hapus Akses Berhasil dilakukan !!');
-        return redirect()->to(base_url('AdminProposalUserManagement'));
+        return redirect()->to(base_url('admin/fitur/proposal/usermanagement'));
     }
 
     public function editAksesStaffDosen($id_user_proposal_staffdosen)
@@ -56,7 +56,7 @@ class ControllerAdminProposalUserManagement extends BaseController
         ];
         $this->ModelAdminProposalUserManagement->edit($data);
         session()->setFlashdata('sukses', 'Edit Data Berhasil dilakukan !!');
-        return redirect()->to(base_url('AdminProposalUserManagement'));
+        return redirect()->to(base_url('admin/fitur/proposal/usermanagement'));
     }
 
     public function addAksesMahasiswa()
@@ -66,7 +66,7 @@ class ControllerAdminProposalUserManagement extends BaseController
         ];
         $this->ModelAdminProposalUserManagement->addmhs($data);
         session()->setFlashdata('sukses', 'Tambah Akses Berhasil dilakukan !!');
-        return redirect()->to(base_url('AdminProposalUserManagement'));
+        return redirect()->to(base_url('admin/fitur/proposal/usermanagement'));
     }
 
     public function deleteAksesMahasiswa($id_user_proposal_ormawa)
@@ -76,6 +76,6 @@ class ControllerAdminProposalUserManagement extends BaseController
         ];
         $this->ModelAdminProposalUserManagement->delete_datamhs($data);
         session()->setFlashdata('sukses', 'Hapus Akses Berhasil dilakukan !!');
-        return redirect()->to(base_url('AdminProposalUserManagement'));
+        return redirect()->to(base_url('admin/fitur/proposal/usermanagement'));
     }
 }

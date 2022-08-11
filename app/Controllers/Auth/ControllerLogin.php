@@ -169,6 +169,7 @@ class ControllerLogin extends BaseController
                             'nama'          => $row->nama,
                             'email'         => $row->email,
                             'fotoprofil'    => $row->fotoprofil,
+                            'resetpass'     => $row->reset_pass,
                             'level'         => $level
                         ];
                         $this->session->set($simpansession);
@@ -206,6 +207,7 @@ class ControllerLogin extends BaseController
                             'login'         => true,
                             'nim'           => $row->nim,
                             'nama'          => $row->nama,
+                            'resetpass'     => $row->reset_pass,
                             'email'         => $row->email,
                             'fotoprofil'    => $row->fotoprofil,
                             'idormawa'      => $row->id,
@@ -274,6 +276,7 @@ class ControllerLogin extends BaseController
                     //jika data cocok
                     $simpansession = [
                         'login'             => true,
+                        'iduser'            => $row->id_userstaffdosen,
                         'id'                => $row->id_staffdosen,
                         'nip'               => $row->nip,
                         'nama'              => $row->nama,
