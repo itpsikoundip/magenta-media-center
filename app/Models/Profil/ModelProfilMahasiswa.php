@@ -19,4 +19,11 @@ class ModelProfilMahasiswa extends Model
             ->where('nim', $data['nim'])
             ->update($data);
     }
+
+    public function edit($data)
+    {
+        $this->db->table('mahasiswa')
+            ->where('nim', $data['nim'])
+            ->update($data);
+    }
 }

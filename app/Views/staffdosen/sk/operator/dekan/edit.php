@@ -121,26 +121,29 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><strong>SV Akem</strong><small><br>
-                                                    <?php
-                                                    foreach ($detailSKDekanNoteSVAkademik as $key => $a) { ?>
-                                                        <?= $a['nama']  ?>
-                                                    <?php  } ?>
-                                                    <i><?= $detailSKDekan['sk_akem_updatetime']  ?></i></small>
-                                            </td>
-                                            <td><small><?= $detailSKDekan['sk_akem_note']  ?></small></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>SV Sumda</strong><small><br>
-                                                    <?php
-                                                    foreach ($detailSKDekanNoteSVSumda as $key => $a) { ?>
-                                                        <?= $a['nama']  ?>
-                                                    <?php  } ?>
-                                                    <i><?= $detailSKDekan['sv_sumda_updatetime']  ?></i></small>
-                                            </td>
-                                            <td><small><?= $detailSKDekan['sv_sumda_note']  ?></small></td>
-                                        </tr>
+                                        <?php if ($detailSKDekan['jenis_op_id'] == 1) { ?>
+                                            <tr>
+                                                <td><strong>SV Akem</strong><small><br>
+                                                        <?php
+                                                        foreach ($detailSKDekanNoteSVAkademik as $key => $a) { ?>
+                                                            <?= $a['nama']  ?>
+                                                        <?php  } ?>
+                                                        <i><?= $detailSKDekan['sk_akem_updatetime']  ?></i></small>
+                                                </td>
+                                                <td><small><?= $detailSKDekan['sk_akem_note']  ?></small></td>
+                                            </tr>
+                                        <?php } elseif ($detailSKDekan['jenis_op_id'] == 2) { ?>
+                                            <tr>
+                                                <td><strong>SV Sumda</strong><small><br>
+                                                        <?php
+                                                        foreach ($detailSKDekanNoteSVSumda as $key => $a) { ?>
+                                                            <?= $a['nama']  ?>
+                                                        <?php  } ?>
+                                                        <i><?= $detailSKDekan['sv_sumda_updatetime']  ?></i></small>
+                                                </td>
+                                                <td><small><?= $detailSKDekan['sv_sumda_note']  ?></small></td>
+                                            </tr>
+                                        <?php } ?>
                                         <tr>
                                             <td><strong>Manager TU</strong><small><br>
                                                     <?php

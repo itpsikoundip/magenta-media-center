@@ -24,7 +24,7 @@ class ControllerAdminProposalData extends BaseController
         return view('layouts/admin-wrapper', $data);
     }
 
-    public function details($id_propo)
+    public function detail($id_propo)
     {
         $data = [
             'title' => 'Detail Proposal',
@@ -37,7 +37,7 @@ class ControllerAdminProposalData extends BaseController
             'detailProposalNoteWadekAkem' => $this->ModelAdminProposalData->detailProposalNoteWadekAkem($id_propo),
             'detailProposalNoteWadekSumda' => $this->ModelAdminProposalData->detailProposalNoteWadekSumda($id_propo),
             'detailProposalNoteDekan' => $this->ModelAdminProposalData->detailProposalNoteDekan($id_propo),
-            'isi'    => 'admin/proposal/details'
+            'isi'    => 'admin/fitur/proposal/details'
         ];
         return view('layouts/admin-wrapper', $data);
     }
@@ -55,7 +55,7 @@ class ControllerAdminProposalData extends BaseController
             'detailProposalNoteWadekAkem' => $this->ModelAdminProposalData->detailProposalNoteWadekAkem($id_propo),
             'detailProposalNoteWadekSumda' => $this->ModelAdminProposalData->detailProposalNoteWadekSumda($id_propo),
             'detailProposalNoteDekan' => $this->ModelAdminProposalData->detailProposalNoteDekan($id_propo),
-            'isi'    => 'admin/proposal/edit'
+            'isi'    => 'admin/fitur/proposal/edit'
         ];
         return view('layouts/admin-wrapper', $data);
     }

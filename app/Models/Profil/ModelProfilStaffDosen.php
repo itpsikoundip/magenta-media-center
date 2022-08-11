@@ -24,4 +24,11 @@ class ModelProfilStaffDosen extends Model
             ->where('id_staffdosen', $data['id_staffdosen'])
             ->update($data);
     }
+
+    public function edit($data)
+    {
+        $this->db->table('user_staffdosen')
+            ->where('id_userstaffdosen', $data['id_userstaffdosen'])
+            ->update($data);
+    }
 }

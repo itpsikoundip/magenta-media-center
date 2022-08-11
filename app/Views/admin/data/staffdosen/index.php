@@ -30,7 +30,6 @@
                                                 <th>Unit 1</th>
                                                 <th>Unit 2</th>
                                                 <th>Status</th>
-                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -51,13 +50,6 @@
                                                         }
                                                         ?>
                                                     </td>
-                                                    <td style="vertical-align: middle;">
-                                                        <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#">Edit</a>
-                                                            <a class="dropdown-item" href="#">Hapus</a>
-                                                        </div>
-                                                    </td>
                                                 </tr>
                                             <?php  } ?>
                                         </tbody>
@@ -70,7 +62,6 @@
                                                 <th>Unit 1</th>
                                                 <th>Unit 2</th>
                                                 <th>Status</th>
-                                                <th>Aksi</th>
                                             </tr>
                                         </tfoot>
                                     </table>

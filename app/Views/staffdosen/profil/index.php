@@ -93,55 +93,56 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form">
-                                    <div class="form-body">
-                                        <h4 class="form-section"><i class="ft-user"></i> Profil</h4>
+                                <?php
+                                echo form_open('staffdosen/profil/editpass/' . session()->get('iduser'));
+                                ?>
+                                <div class="form-body">
 
-                                        <div class="form-group">
-                                            <label for="userinput5">Nama</label>
-                                            <input class="form-control border-primary" value="<?= $detailStaffDosen['nama'] ?>" readonly>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="userinput6">NIP</label>
-                                            <input class="form-control border-primary" value="<?= $detailStaffDosen['nip'] ?>" readonly>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="userinput6">Departemen</label>
-                                            <input class="form-control border-primary" value="<?= $detailStaffDosen['nama_departemen'] ?>" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="userinput6">Jenis Pegawai</label>
-                                            <input class="form-control border-primary" value="<?= $detailStaffDosen['nama_jenispegawai'] ?>" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="userinput6">Unit 1</label>
-                                            <input class="form-control border-primary" value="<?= $detailStaffDosen['nama_unit'] ?>" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="userinput6">Unit 2</label>
-                                            <input class="form-control border-primary" value="<?= $detailStaffDosen['nama_unit2'] ?>" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="userinput6">Status</label>
-                                            <input class="form-control border-primary" value="<?= $detailStaffDosen['nama_status'] ?>" readonly>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Password</label>
-                                            <input class="form-control border-primary" id="userinput7" type="password" placeholder="">
-                                        </div>
-
+                                    <h4 class="form-section"><i class="ft-user"></i> Profil</h4>
+                                    <p>Hubungi Admin apabila terdapat ketidaksesuaian data</p>
+                                    <div class="form-group">
+                                        <label for="userinput5">Nama</label>
+                                        <input class="form-control border-primary" value="<?= $detailStaffDosen['nama'] ?>" readonly>
                                     </div>
 
-                                    <div class="form-actions right">
-                                        <p>belum fungsi</p>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fa fa-check-square-o"></i> Ubah Password
-                                        </button>
+                                    <div class="form-group">
+                                        <label for="userinput6">NIP</label>
+                                        <input class="form-control border-primary" value="<?= $detailStaffDosen['nip'] ?>" readonly>
                                     </div>
-                                </form>
+
+                                    <div class="form-group">
+                                        <label for="userinput6">Departemen</label>
+                                        <input class="form-control border-primary" value="<?= $detailStaffDosen['nama_departemen'] ?>" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userinput6">Jenis Pegawai</label>
+                                        <input class="form-control border-primary" value="<?= $detailStaffDosen['nama_jenispegawai'] ?>" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userinput6">Unit 1</label>
+                                        <input class="form-control border-primary" value="<?= $detailStaffDosen['nama_unit'] ?>" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userinput6">Unit 2</label>
+                                        <input class="form-control border-primary" value="<?= $detailStaffDosen['nama_unit2'] ?>" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userinput6">Status</label>
+                                        <input class="form-control border-primary" value="<?= $detailStaffDosen['nama_status'] ?>" readonly>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input class="form-control border-primary" id="password" name="password" type="password" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-actions right">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-check-square-o"></i> Ubah Password
+                                    </button>
+                                </div>
+                                <?php echo form_close() ?>
+
 
                             </div>
                         </div>

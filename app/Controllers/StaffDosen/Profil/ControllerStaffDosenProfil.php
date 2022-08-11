@@ -68,4 +68,15 @@ class ControllerStaffDosenProfil extends BaseController
             return redirect()->to(base_url('staffdosen/profil'));
         }
     }
+
+    public function editDataPass($iduser)
+    {
+        $data = [
+            'id_userstaffdosen' => $iduser,
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+        ];
+        $this->ModelProfilStaffDosen->edit($data);
+        session()->setFlashdata('sukses', 'Edit Password Berhasil dilakukan dan disimpan !!');
+        return redirect()->to(base_url('staffdosen/profil'));
+    }
 }
