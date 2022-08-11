@@ -47,6 +47,8 @@ class KegiatanController extends BaseController
     public function addKegiatan()
     {
 
+
+
         $allKegiatan = $this->KegiatanModel->findAll();
 
         $getJamMulai = $this->KegiatanModel->getJamMulai($this->request->getPost('pilihRuangan'), $this->request->getPost('inputTanggal'));
@@ -58,26 +60,27 @@ class KegiatanController extends BaseController
         $StartB = $getJamMulai;
         $EndB = $getJamSelesai;
 
-        $timeNow = Time::now();
+        $timeNow = date_format(Time::now('Asia/Jakarta'), "Y-m-d");
         $selectedDate = $this->request->getPost('inputTanggal');
 
-        if ($selectedDate >= $timeNow) {
+        $FinalStartA = date('H:i', strtotime($StartA));
+        $FinalEndA = date('H:i', strtotime($EndA));
+
+        if (($selectedDate >= $timeNow) && ($FinalStartA >= "07:30" && $FinalStartA <= "16:00") && ($FinalEndA >= "07:30" && $FinalEndA <= "17:00")) {
 
             if ($StartA < $EndA) {
 
                 if (count($allKegiatan) > 0) {
 
                     for ($i = 0; $i < count($StartB); $i++) {
+                        $FinalStartB = date('H:i', strtotime($StartB[$i]["mulai"]));
+                        $FinalEndB = date('H:i', strtotime($EndB[$i]["selesai"]));
 
-                        $StartAtoInt = (int)$StartA;
-                        $EndAtoInt = (int)$EndA;
-                        $StartBtoInt = (int)$StartB[$i]["mulai"];
-                        $EndBtoInt = (int)$EndB[$i]["selesai"];
+                        $over = ($FinalStartA < $FinalEndB) && ($FinalEndA > $FinalStartB);
 
-                        $overlap = ($StartAtoInt < $EndBtoInt) && ($EndAtoInt > $StartBtoInt);
-                        if ($overlap) {
+                        if ($over) {
                             echo "<br>";
-                            session()->setFlashdata('error', "GAGAL : Sudah ada yang menggunakan ruangan tersebut pada pukul " . $StartBtoInt . " - " . $EndBtoInt);
+                            session()->setFlashdata('error', "GAGAL : Sudah ada yang menggunakan ruangan tersebut pada pukul <b>" .  $FinalStartB . " - " . $FinalEndB . "</b>");
                             return redirect()->to(base_url('staffdosen/kegiatan/'));
                         }
                     };
@@ -128,7 +131,7 @@ class KegiatanController extends BaseController
                 return redirect()->to(base_url('staffdosen/kegiatan/'));
             }
         } else {
-            session()->setFlashdata('error', "GAGAL : Tanggal sudah lewat.");
+            session()->setFlashdata('error', "GAGAL : Tanggal sudah lewat / waktu kegiatan diluar jam kerja.");
             return redirect()->to(base_url('staffdosen/kegiatan/'));
         }
     }

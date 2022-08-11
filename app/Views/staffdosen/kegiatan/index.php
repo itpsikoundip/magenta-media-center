@@ -216,43 +216,20 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="inputTanggal"><b>Tanggal</b></label>
-                                                    <div class="col-md-10">
+                                                    <label class="col-md-2 label-control" for="inputTanggal"><b>Tanggal Kegiatan</b></label>
+                                                    <div class="col-md">
                                                         <input type="date" id="inputTanggal" name="inputTanggal" onchange="checkDate()" class="form-control" placeholder="Tanggal kegiatan" required value="<?= old('inputTanggal'); ?>">
                                                     </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="pilihJamMulai"><b>Jam Mulai</b></label>
-                                                    <div class="col-md-10">
-                                                        <select id="pilihJamMulai" name="pilihJamMulai" class="form-control" required value="<?= old('pilihJamMulai'); ?>">
-                                                            <option value="">-- Pilih Jam Mulai --</option>
-                                                            <option value="08:00">08.00</option>
-                                                            <option value="09:00">09.00</option>
-                                                            <option value="10:00">10.00</option>
-                                                            <option value="11:00">11.00</option>
-                                                            <option value="12:00">12.00</option>
-                                                            <option value="13:00">13.00</option>
-                                                            <option value="14:00">14.00</option>
-                                                            <option value="15:00">15.00</option>
-                                                        </select>
+                                                    <label class="col-md-2 label-control" for="pilihJamMulai"><b>Waktu Mulai Kegiatan</b></label>
+                                                    <div class="col-md">
+                                                        <input type="time" class="form-control" name="pilihJamMulai" required>
+                                                    </div>
+                                                    <label class="col-md-2 label-control" for="pilihJamMulai"><b>Waktu Selesai Kegiatan</b></label>
+                                                    <div class="col-md">
+                                                        <input type="time" class="form-control" name="pilihJamSelesai" required>
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-2 label-control" for="pilihJamSelesai"><b>Jam Selesai</b></label>
-                                                    <div class="col-md-10">
-                                                        <select id="pilihJamSelesai" name="pilihJamSelesai" class="form-control" value="<?= old('pilihJamMulai'); ?>">
-                                                            <option value="">-- Pilih Jam Selesai --</option>
-                                                            <option value="09:00">09.00</option>
-                                                            <option value="10:00">10.00</option>
-                                                            <option value="11:00">11.00</option>
-                                                            <option value="12:00">12.00</option>
-                                                            <option value="13:00">13.00</option>
-                                                            <option value="14:00">14.00</option>
-                                                            <option value="15:00">15.00</option>
-                                                            <option value="16:00">16.00</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+
                                                 <div class="form-group row">
                                                     <label class="col-md-2 label-control" for="inputJawaban"><b>Agenda</b></label>
                                                     <div class="col-md-10">

@@ -11,7 +11,7 @@ class KegiatanModel extends Model
 
     public function getKegiatan()
     {
-        $timeNow = Time::now();
+        $timeNow = date_format(Time::now('Asia/Jakarta'), "Y-m-d");
         $builder = $this->db->table('kegiatan');
         $builder->select('kegiatan.id, kegiatan.tanggal, kegiatan.mulai, kegiatan.selesai, kegiatan.agenda,kegiatan.hp,kegiatan.undangan,kegiatan_ruangan.nama as ruangan,data_staffdosen.nama as pic');
         $builder->join('kegiatan_ruangan', 'kegiatan.ruangan_id = kegiatan_ruangan.id');
