@@ -146,21 +146,21 @@
                                                     <div class="modal fade" id="konfirmasiHapus<?php echo $i ?>" tabindex="-1" aria-labelledby="konfirmasiHapus<?php echo $i ?>" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
-                                                            <div class="modal-header bg-danger">
-                                                                <h5 class="modal-title text-white" id="exampleModalLabel">Konfirmasi Hapus</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Apakah Anda yakin akan menghapus FAQ tersebut? FAQ yang dihapus tidak dapat dibaca lagi oleh mahasiswa.
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <a class="btn btn-outline-danger" href="<?= base_url('staffdosen/helpdesk/deletefaq/' . $faq->id) ?>" role="button">Hapus</a>
-                                                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Kembali</button>
+                                                                <div class="modal-header bg-danger">
+                                                                    <h5 class="modal-title text-white" id="exampleModalLabel">Konfirmasi Hapus</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    Apakah Anda yakin akan menghapus FAQ tersebut? FAQ yang dihapus tidak dapat dibaca lagi oleh mahasiswa.
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Kembali</button>
+                                                                    <a class="btn btn-outline-danger" href="<?= base_url('staffdosen/helpdesk/deletefaq/' . $faq->id) ?>" role="button">Ya, hapus</a>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
                                                     </div>
                                                 </div>
 

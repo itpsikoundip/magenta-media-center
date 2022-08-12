@@ -17,7 +17,7 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-hourglass info font-large-2 float-left"></i>
+                                        <i class="icon-hourglass warning font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <?php
@@ -42,7 +42,7 @@
                             <div class="card-body">
                                 <div class="media d-flex">
                                     <div class="align-self-center">
-                                        <i class="icon-rocket warning font-large-2 float-left"></i>
+                                        <i class="icon-rocket info font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
                                         <?php
@@ -70,7 +70,7 @@
                                         <i class="icon-grid success font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
-                                        <h3>2</h3>
+                                        <h3><?php echo $ruanganAktif ?></h3>
                                         <span>Ruangan Dipinjam</span>
                                     </div>
                                 </div>
@@ -117,8 +117,8 @@
                                                 <thead>
                                                     <tr>
                                                         <th class="text-center">Tanggal</th>
-                                                        <th class="text-center">Jam Mulai</th>
-                                                        <th class="text-center">Jam Selesai</th>
+                                                        <th class="text-center">Mulai</th>
+                                                        <th class="text-center">Selesai</th>
                                                         <th class="text-center">Ruangan</th>
                                                         <th class="text-center">Agenda</th>
                                                         <th class="text-center">PIC</th>
@@ -157,10 +157,10 @@
                                                                 <?php echo $kegiatan['pic'] ?>
                                                             </td>
                                                             <td class="text-center">
-                                                                <a href="https://wa.me/<?php echo $kegiatan['hp'] ?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-outline-success btn-sm" target="blank" style="min-height: 30px;">
+                                                                <a href="https://wa.me/<?php echo $kegiatan['hp'] ?>?text=[E-KEGIATAN FAKULTAS PSIKOLOGI]%0A%0A" class="btn btn-success btn-sm" target="blank" style="min-height: 30px; margin: 2px">
                                                                     <i class="icofont-brand-whatsapp"></i>
                                                                 </a>
-                                                                <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-outline-info btn-sm" target="blank" style="min-height: 30px;">
+                                                                <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-secondary btn-sm" target="blank" style="min-height: 30px; margin: 2px">
                                                                     <i class="icon-doc"></i>
                                                                 </a>
                                                             </td>
@@ -267,16 +267,19 @@
                                                 <thead>
                                                     <tr>
                                                         <th class="text-center">Tanggal</th>
-                                                        <th class="text-center">Jam Mulai</th>
-                                                        <th class="text-center">Jam Selesai</th>
+                                                        <th class="text-center">Mulai</th>
+                                                        <th class="text-center">Selesai</th>
                                                         <th class="text-center">Ruangan</th>
                                                         <th class="text-center">Agenda</th>
-                                                        <th class="text-center">PIC</th>
+                                                        <!-- <th class="text-center">PIC</th> -->
                                                         <th class="text-center">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach ($riwayat as $kegiatan) { ?>
+                                                    <?php
+                                                    $i = 1; 
+                                                    foreach ($riwayat as $kegiatan) { 
+                                                    ?>
                                                         <tr>
                                                             <td class="text-center align-middle">
                                                                 <?php echo date("d M Y", strtotime($kegiatan['tanggal'])) ?>
@@ -293,25 +296,73 @@
                                                             <td class="align-middle">
                                                                 <?php echo $kegiatan['agenda'] ?>
                                                             </td>
-                                                            <td class="text-center align-middle">
+                                                            <!-- <td class="text-center align-middle">
                                                                 <?php echo $kegiatan['pic'] ?>
-                                                            </td>
+                                                            </td> -->
                                                             <td class="text-center align-middle">
+                                                                <a href="<?php echo base_url('undangan-kegiatan/' . $kegiatan['undangan']) ?>" class="btn btn-secondary btn-sm" target="blank" style="min-height: 30px; margin: 2px">
+                                                                    <i class="icon-doc"></i>
+                                                                </a>
                                                                 <?php
                                                                 if($kegiatan['tanggal'] == $currentDate && ($kegiatan['mulai'] <= $currentTime && $kegiatan['selesai'] >= $currentTime)){
                                                                 ?>
-                                                                <a href="<?= base_url('staffdosen/kegiatan/selesaikegiatan/' . $kegiatan['id']) ?>" class="btn btn-outline-info btn-sm">
+                                                                <button class="btn btn-info btn-sm" style="min-height: 30px; margin: 2px" data-toggle="modal" data-target="#konfirmasiSelesai<?php echo $i ?>">
                                                                     <i class="ft-check-circle"></i>
-                                                                </a>
+                                                                </button>
+                                                                <div class="modal fade" id="konfirmasiSelesai<?php echo $i ?>" tabindex="-1" aria-labelledby="konfirmasiSelesai<?php echo $i ?>" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header bg-info">
+                                                                                <h5 class="modal-title text-white" id="exampleModalLabel">Konfirmasi Selesaikan Kegiatan</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body text-left">
+                                                                                Apakah Anda yakin akan menyelesaikan kegiatan tersebut sekarang?
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Kembali</button>
+                                                                                <a href="<?= base_url('staffdosen/kegiatan/selesaikegiatan/' . $kegiatan['id']) ?>" class="btn btn-info" style="min-height: 30px; margin: 2px">
+                                                                                    Ya, selesaikan
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                                 <?php
                                                                 }
                                                                 ?>
-                                                                <a href="<?= base_url('staffdosen/kegiatan/deletekegiatan/' . $kegiatan['id']) ?>" class="btn btn-outline-danger btn-sm">
-                                                                    <i class="ft-x-square"></i>
-                                                                </a>
+                                                                <button class="btn btn-danger btn-sm" style="min-height: 30px; margin: 2px" data-toggle="modal" data-target="#konfirmasiHapus<?php echo $i ?>">
+                                                                    <i class="ft-trash-2"></i>
+                                                                </button>
+                                                                <div class="modal fade" id="konfirmasiHapus<?php echo $i ?>" tabindex="-1" aria-labelledby="konfirmasiHapus<?php echo $i ?>" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header bg-danger">
+                                                                                <h5 class="modal-title text-white" id="exampleModalLabel">Konfirmasi Hapus</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body modal-body text-left">
+                                                                                Apakah Anda akan menghapus kegiatan tersebut?
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Kembali</button>
+                                                                                <a href="<?= base_url('staffdosen/kegiatan/deletekegiatan/' . $kegiatan['id']) ?>" class="btn btn-danger" style="min-height: 30px; margin: 2px">
+                                                                                    Ya, hapus
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </td>
                                                         </tr>
-                                                    <?php } ?>
+                                                    <?php 
+                                                    $i++; 
+                                                    } 
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>
