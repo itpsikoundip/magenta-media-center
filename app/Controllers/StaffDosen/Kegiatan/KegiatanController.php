@@ -20,13 +20,15 @@ class KegiatanController extends BaseController
 
     public function index()
     {
+        
         $staffdosen = $this->StaffDosenModel->allData();
         $timeNow = date_format(Time::now('Asia/Jakarta'), "Y-m-d");
         $dateNowFormatted = date_format(Time::now('Asia/Jakarta'), "Y-m-d");
         $timeNowFormatted = date_format(Time::now('Asia/Jakarta'), "H:i:s");
 
-        $kegiatanAktif = $this->KegiatanModel->getKegiatan();
-        $kegiatanRiwayat = $this->KegiatanModel->riwayat(session()->get('id'));
+        $ruanganAktif = $this->KegiatanModel->getRuanganAktif();
+        $kegiatanAktif = $this->KegiatanModel->getKegiatanAktif();
+        $kegiatanRiwayat = $this->KegiatanModel->getRiwayat(session()->get('id'));
 
         $ruangan = $this->RuanganModel->getRuangan();
 
@@ -34,6 +36,7 @@ class KegiatanController extends BaseController
             'riwayat'       => $kegiatanRiwayat,
             'ruangan'       => $ruangan,
             'staffdosen'    => $staffdosen,
+            'ruanganAktif'  => $ruanganAktif,
             'kegiatanAktif' => $kegiatanAktif,
             'title'         => 'Jadwal Kegiatan dan Peminjaman Ruangan ',
             'isi'           => 'staffdosen/kegiatan/index',
@@ -46,8 +49,6 @@ class KegiatanController extends BaseController
 
     public function addKegiatan()
     {
-
-
 
         $allKegiatan = $this->KegiatanModel->findAll();
 

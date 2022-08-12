@@ -11,7 +11,7 @@ class RuanganSeeder extends Seeder
         //
         $data = [
             [
-                'nama'          => 'Ruang Sidang',
+                'nama'          => 'Ruang Rapat',
                 'lantai'        => 7,
             ],
             [
