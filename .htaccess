@@ -1,4 +1,4 @@
-DirectoryIndex public/index.php
+DirectoryIndex ./public/index.php
 
 <IfModule mod_rewrite.c>
     RewriteEngine on
@@ -6,3 +6,4 @@ DirectoryIndex public/index.php
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ ./public/$1 [L,QSA]
 </IfModule>
+

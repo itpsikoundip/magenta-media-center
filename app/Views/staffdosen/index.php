@@ -286,6 +286,25 @@
     </div>
     <hr class="mb-2 mt-0">
     <div class="content-body">
+        <div class="row">
+            <div class="col-xl-3 col-lg-6 col-12">
+                <a class="card" href="<?= base_url('/staffdosen/kegiatan/') ?>">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media d-flex">
+                                <div class="align-self-center">
+                                    <i class="icon-grid info font-large-2 float-left"></i>
+                                </div>
+                                <div class="media-body text-right">
+                                    <h3><u>E-Kegiatan</u></h3>
+                                    <span>Booking Ruangan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 <?php } elseif (session()->get('jenispegawai') == 3) { ?>
     <!-- Jenis Pegawai 2 = Tenaga Dosen & Tenaga Pendidikan -->
